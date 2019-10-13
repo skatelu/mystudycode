@@ -1,4 +1,4 @@
-package com.example.demo.principle.state;
+package com.example.demo.state;
 
 /**
  * 状态抽象类,即Context 上下文，包含所有的状态

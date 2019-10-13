@@ -1,4 +1,4 @@
-package com.example.demo.principle.state.money;
+package com.example.demo.state.money;
 
 /**测试类*/
 public class ClientTest {

@@ -1,4 +1,4 @@
-package com.example.demo.principle.state.money;
+package com.example.demo.state.money;
 
 public abstract class AbstractState implements State {
 

@@ -1,4 +1,4 @@
-package com.example.demo.principle.state;
+package com.example.demo.state;
 
 /**
  * 抽奖活动中的各种状态

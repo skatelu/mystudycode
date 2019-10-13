@@ -1,4 +1,4 @@
-package com.example.demo.principle.state;
+package com.example.demo.state;
 
 /**
  * 发放奖品的状态

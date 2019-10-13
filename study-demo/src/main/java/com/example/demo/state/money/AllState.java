@@ -1,4 +1,4 @@
-package com.example.demo.principle.state.money;
+package com.example.demo.state.money;
 
 //各种具体状态类
 class FeedBackState extends AbstractState {

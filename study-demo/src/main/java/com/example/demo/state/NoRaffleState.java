@@ -1,4 +1,4 @@
-package com.example.demo.principle.state;
+package com.example.demo.state;
 
 /**
  * 不能抽奖状态
