@@ -14,6 +14,5 @@ public class Client {
 		absAdapter.m3();
 		absAdapter.m4();
 
-		DispatcherServlet;
 	}
 }
