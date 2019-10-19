@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${DOC_TITLE}</title>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <script type="text/javascript" src="./framework/artTemplate.js"></script>
+    <script type="text/javascript" src="./framework/jquery.min.js"></script>
+    <script type="text/javascript" src="./src/main.js"></script>
+    <script id="serviceTemplate" type="text/template">
+        <div class="service-content">
+            <div class="service-info-title">
+                {{SERVICE_CODE}}-{{SERVICE_NAME}}
+            </div>
+            <div class="service-info-content">
+                <div class="service-desc">
+                    <div class="service-desc-title">描述</div>
+                    <div class="service-desc-content">
+                        {{if SERVICE_DESC == NULL}}
+                            {{SERVICE_NAME}}
+                        {{else}}
+                            {{SERVICE_DESC}}
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="service-param-input">
+                    <div class="service-desc-title">输入参数</div>
+                    <div class="service-desc-content">
+                        {{if SERVICE_PARAM && SERVICE_PARAM.length}}
+                            <table class="service-table">
+                                <thead>
+                                <th width="150">参数代码</th>
+                                <th width="150">参数名称</th>
+                                <th width="80">参数类型</th>
+                                <th width="80">参数长度</th>
+                                <th width="80">允许为空</th>
+                                <th width="100">默认值</th>
+                                <th width="200">备注</th>
+                                </thead>
+                                <tbody>
+                                {{each SERVICE_PARAM as value index}}
+                                    {{if value.PARAM_TYPE == "0"}}
+                                    <tr>
+                                        <td>{{value.PARAM_CODE}}</td>
+                                        <td>{{value.PARAM_NAME}}</td>
+                                        <td>{{value.DATA_TYPE}}</td>
+                                        <td>
+                                            {{if value.DATA_TYPE == "string" && value.PARAM_LENGTH != "0"}}
+                                                {{value.PARAM_LENGTH}}
+                                            {{else}}
+                                                /
+                                            {{/if}}
+                                        </td>
+                                        <td>
+                                            {{if value.NULLABLE == "1"}}
+                                                是
+                                            {{else}}
+                                                否
+                                            {{/if}}
+                                        </td>
+                                        <td>{{value.DEF_VAL}}</td>
+                                        <td>{{value.DESCRIPTION}}</td>
+                                    </tr>
+                                    {{/if}}
+                                {{/each}}
+                                </tbody>
+                            </table>
+                        {{else}}
+                            无输入参数
+                        {{/if}}
+                    </div>
+
+                </div>
+                <div class="service-param-output">
+                    <div class="service-desc-title">输出参数</div>
+                    <div class="service-desc-content">
+                        <table class="service-table">
+                            <thead>
+                            <th width="130">参数代码</th>
+                            <th width="200">参数名称</th>
+                            <th width="190">备注</th>
+                            </thead>
+                            <tbody>
+                            {{each SERVICE_PARAM as value index}}
+                                {{if value.PARAM_TYPE == "1"}}
+                                <tr>
+                                    <td>{{value.PARAM_CODE}}</td>
+                                    <td>{{value.PARAM_NAME}}</td>
+                                    <td>{{value.DESCRIPTION}}</td>
+                                </tr>
+                                {{/if}}
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+</head>
+<body>
+<div class="header-bgd"></div>
+<div class="doc-header">
+    <div class="doc-header-left">
+        <span class="doc-icon"></span>
+        <span class="doc-title">${DOC_TITLE}</span>
+        <span class="doc-version">v${DOC_VERSION}</span>
+    </div>
+</div>
+<div class="doc-content">
+    <div class="service-nav">
+        <ul class="nav-lv-1">
+            <!--一级start-->
+            <% for(value in SERVICE_NAV) {%>
+            <li node-id="${value.ID}">
+                <div class="service-nav-title">
+                    <span class="service-nav-title-icon nav-title-icon-1"></span>
+                    <span class="service-nav-title-desc">${value.TITLE}</span>
+                    <span class="service-nav-title-toggle service-nav-arrow-icon nav-arrow-icon-1"></span>
+                </div>
+                <div class="service-nav-body">
+                    <ul class="nav-lv-2 final-nav">
+                        <% if(value.CHILDREN != null) { %>
+                        <!--二级start-->
+                        <!--三级-->
+                        <% for(value1 in value.CHILDREN) {%>
+                        <li node-id="${value1.ID}" service-code="${value1.SERVICE_CODE}">
+                            <div class="service-nav-title">
+                                <span class="service-nav-title-desc">${value1.SERVICE_CODE}-${value1.SERVICE_NAME}</span>
+                            </div>
+                        </li>
+                        <%}%>
+                        <%}%>
+                        <!--二级end-->
+                    </ul>
+                </div>
+            </li>
+            <%}%>
+        </ul>
+    </div>
+    <div class="service-info">
+        <div class="service-content welcome">
+            <div class="service-info-title">
+                欢迎使用
+            </div>
+            <div class="service-info-content">
+                <div class="welcome-content">欢迎页内容</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="doc-footer"></div>
+</body>

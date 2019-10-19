@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="R50003000_VIEW" render="datagrid" title="ETF差额扣款日志展示">
+        <conf service="R4000" fit="true" pageSize="50" remotePagination="true" onDblClickRow="ons"/>
+        <!--<qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />-->
+
+        <qry_item field="JOBNAME" title="作业名称" type="input" edt_width="130" edt_disabled="true"/>
+        <qry_item field="STATUS" title="作业状态" type="input" edt_validType="length[1,32]"/>
+        <qry_item field="ENDDATE" title="开始时间" type="datebox" edt_validType="length[1,32]"/>
+
+        <col_item field="ID_JOB" title="作业ID" width="50" type="input" sortable="false"/>
+        <col_item field="JOBNAME" title="作业名称" width="100" type="input" sortable="false"/>
+        <col_item field="STATUS" title="作业状态" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_READ" title="读取行数" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_WRITTEN" title="写入行数" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_UPDATED" title="更新行数" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_INPUT" title="输入行数" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_OUTPUT" title="输出行数" width="100" type="input" sortable="false"/>
+        <col_item field="ERRORS" title="错误次数" width="100" type="input" sortable="false"/>
+        <col_item field="ENDDATE" title="开始时间" width="100" type="input" sortable="false"/>
+        <col_item field="RUNTIME" title="耗时" width="100" type="input" sortable="false"/>
+        <col_item field="LOGDATE" title="结束时间" width="100" type="input" sortable="false"/>
+        <col_item field="LOG_FIELD" title="日志详情" width="100" type="input" sortable="false"/>
+    </view>
+
+    <view id="R50004000_VIEW" render="datagrid" title="ETF差额扣款日志展示">
+        <conf service="R128000" fit="true" pageSize="100" remotePagination="true" onDblClickRow="ons"/>
+        <!--<qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />-->
+
+        <qry_item field="TRANSNAME" title="转换名称" type="input" edt_width="130" edt_disabled="true"/>
+        <qry_item field="STATUS" title="转换状态" type="input" edt_validType="val[1,32]"/>
+        <qry_item field="ENDDATE" title="开始时间" type="datebox" edt_validType="length[1,32]"/>
+
+        <col_item field="ID_BATCH" title="转换ID" width="50" type="input" sortable="false"/>
+        <col_item field="TRANSNAME" title="转换名称" width="100" type="input" sortable="false"/>
+        <col_item field="STATUS" title="作业状态" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_READ" title="读取行数" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_WRITTEN" title="写入行数" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_UPDATED" title="更新行数" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_INPUT" title="输入行数" width="100" type="input" sortable="false"/>
+        <col_item field="LINES_OUTPUT" title="输出行数" width="100" type="input" sortable="false"/>
+        <col_item field="ERRORS" title="错误次数" width="100" type="input" sortable="false"/>
+        <col_item field="ENDDATE" title="开始时间" width="100" type="input" sortable="false"/>
+        <col_item field="RUNTIME" title="耗时" width="100" type="input" sortable="false"/>
+        <col_item field="LOGDATE" title="结束时间" width="100" type="input" sortable="false"/>
+        <col_item field="LOG_FIELD" title="日志详情" width="100" type="input" sortable="false"/>
+    </view>
+</views>

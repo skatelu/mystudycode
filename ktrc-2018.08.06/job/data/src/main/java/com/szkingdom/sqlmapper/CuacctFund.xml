@@ -1,0 +1,128 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.CuacctFund">
+    <resultMap id="CuacctFundMap" type="com.szkingdom.data.DataCuacctFund">
+        <result column="USER_CODE"  property="userCode"  />
+        <result column="USER_NAME"  property="userName"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CUACCT_ATTR"  property="cuacctAttr"  />
+        <result column="CUACCT_CLS"  property="cuacctCls"  />
+        <result column="CUACCT_LVL"  property="cuacctLvl"  />
+        <result column="CUACCT_GRP"  property="cuacctGrp"  />
+        <result column="CUACCT_DMF"  property="cuacctDmf"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="FUND_PREBLN"  property="fundPrebln"  />
+        <result column="FUND_BLN"  property="fundBln"  />
+        <result column="FUND_AVL"  property="fundAvl"  />
+        <result column="FUND_FRZ"  property="fundFrz"  />
+        <result column="FUND_UFZ"  property="fundUfz"  />
+        <result column="FUND_TRD_FRZ"  property="fundTrdFrz"  />
+        <result column="FUND_TRD_UFZ"  property="fundTrdUfz"  />
+        <result column="FUND_TRD_OTD"  property="fundTrdOtd"  />
+        <result column="FUND_TRD_BLN"  property="fundTrdBln"  />
+        <result column="UPD_TIME"  property="updTime"  />
+        <result column="FUND_STATUS"  property="fundStatus"  />
+        <result column="PAYLATER"  property="paylater"  />
+        <result column="PREADVA_PAY"  property="preadvaPay"  />
+        <result column="FUND_EXE_FRZ"  property="fundExeFrz"  />
+        <result column="FUND_RET"  property="fundRet"  />
+        <result column="FUND_EXE_MARGIN"  property="fundExeMargin"  />
+        <result column="FUND_FEE_FRZ"  property="fundFeeFrz"  />
+        <result column="MARGIN_USED"  property="marginUsed"  />
+        <result column="MARGIN_INCL_RLT"  property="marginInclRlt"  />
+        <result column="DAILY_IN_AMT"  property="dailyInAmt"  />
+        <result column="DAILY_OUT_AMT"  property="dailyOutAmt"  />
+        <result column="SUBSYS_SN"  property="subsysSn"  />
+    </resultMap>
+
+    <select id="CUACCT_FUND_SELECT" resultMap="CuacctFundMap" parameterType="com.szkingdom.data.DataCuacctFund">
+        select
+        USER_CODE,USER_NAME,CUACCT_CODE,CUACCT_ATTR,CUACCT_CLS,CUACCT_LVL,CUACCT_GRP,CUACCT_DMF,
+        INT_ORG,CURRENCY,FUND_PREBLN,FUND_BLN,FUND_AVL,FUND_FRZ,FUND_UFZ,FUND_TRD_FRZ,
+        FUND_TRD_UFZ,FUND_TRD_OTD,FUND_TRD_BLN,UPD_TIME,FUND_STATUS,PAYLATER,PREADVA_PAY,FUND_EXE_FRZ,
+        FUND_RET,FUND_EXE_MARGIN,FUND_FEE_FRZ,MARGIN_USED,MARGIN_INCL_RLT,DAILY_IN_AMT,DAILY_OUT_AMT,SUBSYS_SN
+        from CUACCT_FUND
+        where 1=1
+        <if test="cuacctCode > 0 ">
+            and CUACCT_CODE = #{cuacctCode}
+        </if>
+        <if test="currency != null and currency !=' ' and currency !=''">
+            and CURRENCY = #{currency}
+        </if>
+    </select>
+
+    <select id="CUACCT_FUND_SELECT_LOCK" resultMap="CuacctFundMap" parameterType="com.szkingdom.data.DataCuacctFund">
+        select
+        USER_CODE,USER_NAME,CUACCT_CODE,CUACCT_ATTR,CUACCT_CLS,CUACCT_LVL,CUACCT_GRP,CUACCT_DMF,
+        INT_ORG,CURRENCY,FUND_PREBLN,FUND_BLN,FUND_AVL,FUND_FRZ,FUND_UFZ,FUND_TRD_FRZ,
+        FUND_TRD_UFZ,FUND_TRD_OTD,FUND_TRD_BLN,UPD_TIME,FUND_STATUS,PAYLATER,PREADVA_PAY,FUND_EXE_FRZ,
+        FUND_RET,FUND_EXE_MARGIN,FUND_FEE_FRZ,MARGIN_USED,MARGIN_INCL_RLT,DAILY_IN_AMT,DAILY_OUT_AMT,SUBSYS_SN
+        from CUACCT_FUND
+        where CUACCT_CODE = #{cuacctCode}
+        and CURRENCY = #{currency}
+        for update
+    </select>
+
+    <select id="CUACCT_FUND_SELECT_FOR_CUST_TOTAL_AMT" resultType="java.lang.Long" parameterType="com.szkingdom.data.DataCuacctFund">
+        select ((D.FUND_BLN / 1000) + (D.FUND_BLN % 1000) * 0.001) +
+               ((D.FUND_TRD_BLN / 1000) + (D.FUND_TRD_BLN % 1000) * 0.001) + X.MKT_VAL
+     from CUACCT_FUND D,
+       (select A.CUST_CODE, A.CURRENCY,
+               SUM((case
+                     when A.OPT_SIDE = 'S' or A.OPT_SIDE = 'C' then
+                      (A.OPT_BLN + A.OPT_TRD_BLN) * -1
+                     else
+                      (A.OPT_BLN + A.OPT_TRD_BLN)
+                   end) * B.OPT_UNIT * (case
+                     when C.OPT_CURR_PRICE > 0 then
+                      (C.OPT_CURR_PRICE / 10000) +
+                      (C.OPT_CURR_PRICE % 10000) * 0.0001
+                     else
+                      (C.PRE_CLOSE_PX / 10000) +
+                      (C.PRE_CLOSE_PX % 10000) * 0.0001
+                   end)) as MKT_VAL
+          from OPT_ASSET A, OPT_INFO B, OPT_MKTINFO C
+         where A.OPT_UNDL_CODE = B.OPT_UNDL_CODE
+           and A.OPT_NUM = B.OPT_NUM
+           and A.OPT_NUM = C.OPT_NUM
+           and A.OPT_CODE = C.OPT_CODE
+           and A.CUST_CODE = #{custCode}
+           <if test="currency != null and currency !=' ' and currency !=''">
+               and A.CURRENCY = #{currency}
+           </if>
+         group by A.CUST_CODE, A.CURRENCY) X
+     where D.USER_CODE = X.CUST_CODE
+       and D.CURRENCY = X.CURRENCY
+       and D.CUACCT_CODE = #{cuacctCode}
+    </select>
+
+    <update id="CUACCT_FUND_UPDATE" parameterType="com.szkingdom.data.DataCuacctFund">
+        update CUACCT_FUND
+        set USER_CODE=#{userCode}, USER_NAME=#{userName}, CUACCT_CODE=#{cuacctCode}, CUACCT_ATTR=#{cuacctAttr}, CUACCT_CLS=#{cuacctCls},
+        CUACCT_LVL=#{cuacctLvl}, CUACCT_GRP=#{cuacctGrp}, CUACCT_DMF=#{cuacctDmf}, INT_ORG=#{intOrg}, CURRENCY=#{currency},
+        FUND_PREBLN=#{fundPrebln}, FUND_BLN=#{fundBln}, FUND_AVL=#{fundAvl}, FUND_FRZ=#{fundFrz}, FUND_UFZ=#{fundUfz}, FUND_TRD_FRZ=#{fundTrdFrz},
+        FUND_TRD_UFZ=#{fundTrdUfz}, FUND_TRD_OTD=#{fundTrdOtd}, FUND_TRD_BLN=#{fundTrdBln}, UPD_TIME=current_date,
+        FUND_STATUS=#{fundStatus}, PAYLATER=#{paylater}, PREADVA_PAY=#{preadvaPay}, FUND_EXE_FRZ=#{fundExeFrz}, FUND_RET=#{fundRet},
+        FUND_EXE_MARGIN=#{fundExeMargin}, FUND_FEE_FRZ=#{fundFeeFrz},  MARGIN_USED=#{marginUsed},
+        MARGIN_INCL_RLT=#{marginInclRlt}, DAILY_IN_AMT=#{dailyInAmt}, DAILY_OUT_AMT=#{dailyOutAmt}, SUBSYS_SN=#{subsysSn}
+        where CUACCT_CODE = #{cuacctCode}
+        and CURRENCY = #{currency}
+    </update>
+
+    <insert id="CUACCT_FUND_INSERT" parameterType="com.szkingdom.data.DataCuacctFund">
+        insert into CUACCT_FUND(
+        USER_CODE,USER_NAME,CUACCT_CODE,CUACCT_ATTR,CUACCT_CLS,CUACCT_LVL,CUACCT_GRP,CUACCT_DMF,
+        INT_ORG,CURRENCY,FUND_PREBLN,FUND_BLN,FUND_AVL,FUND_FRZ,FUND_UFZ,FUND_TRD_FRZ,
+        FUND_TRD_UFZ,FUND_TRD_OTD,FUND_TRD_BLN,UPD_TIME,FUND_STATUS,PAYLATER,PREADVA_PAY,FUND_EXE_FRZ,
+        FUND_RET,FUND_EXE_MARGIN,FUND_FEE_FRZ,MARGIN_USED,MARGIN_INCL_RLT,DAILY_IN_AMT,DAILY_OUT_AMT,SUBSYS_SN)
+        values ( 
+        #{userCode},#{userName},#{cuacctCode},#{cuacctAttr},#{cuacctCls},#{cuacctLvl},#{cuacctGrp},#{cuacctDmf},
+        #{intOrg},#{currency},#{fundPrebln},#{fundBln},#{fundAvl},#{fundFrz},#{fundUfz},#{fundTrdFrz},
+        #{fundTrdUfz},#{fundTrdOtd},#{fundTrdBln},current_date,#{fundStatus},#{paylater},#{preadvaPay},#{fundExeFrz},
+        #{fundRet},#{fundExeMargin},#{fundFeeFrz},#{marginUsed},#{marginInclRlt},#{dailyInAmt},#{dailyOutAmt},#{subsysSn})
+    </insert>
+
+</mapper>

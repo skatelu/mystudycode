@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="P6000500_VIEW" render="datagrid" title="佣金非港币客户详情实时查询">
+        <conf req="[{'service':'P6000500'}]"  border="false" fit="true" showTime="false"/>
+        <qry_item field="FULLNAME" title="客户名称" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="FUNDID" title="资金账号" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="MARKET" title="市场" type="combobox" edt_dict="MARKET_TYPE"/>
+        <col_item field="CUSTID" title="客户代码" width="200" type="input" sortable="false"/>
+        <col_item field="FUNDID" title="资金账号" width="200" type="input"   sortable="false"/>
+        <col_item field="FULLNAME" title="客户名称" width="200" type="input" sortable="false"/>
+        <col_item field="ORGID" title="机构代码" width="200" type="input" sortable="false"/>
+        <col_item field="ORGNAME" title="机构名称" width="400" type="input" sortable="false"/>
+        <col_item field="MARKET" title="市场" width="200" type="input" sortable="false"/>
+        <col_item field="MONEYTYPE" title="币种" width="200" type="input" sortable="false"/>
+    </view>
+    <view id="P6000600_VIEW" render="datagrid" title="持有港股但未登记客户详情查询">
+        <conf req="[{'service':'P6000600'}]"  border="false" fit="true" showTime="false"/>
+        <qry_item field="CUSTID" title="客户代码" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="CUSTNAME" title="客户名称" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="FUNDID" title="资金账号" type="input" edt_validType="length[1,64]"/>
+        <col_item field="CUSTID" title="客户代码" width="200" type="input" sortable="false"/>
+        <col_item field="CUSTNAME" title="客户名称" width="200" type="input" sortable="false"/>
+        <col_item field="FUNDID" title="资金账号" width="200" type="input" sortable="false"/>
+        <col_item field="ORGID" title="机构代码" width="200" type="input" ortable="false"/>
+        <col_item field="ORGNAME" title="机构名称" width="200" type="input" sortable="false"/>
+        <col_item field="SECUID" title="持有港股通股份的证券账户" width="300" type="input" sortable="false"/>
+        <col_item field="REMARK" title="备注" width="300" type="input" sortable="false"/>
+    </view>
+    <view id="R60005000_VIEW" render="datagrid" title="证券组合金应收未收">
+    	<conf req="[{'service':'R60005000'}]"  border="false" fit="true" showTime="false"/>
+        <qry_item field="FUNDID" title="客户基金id" type="input"  edt_width="130" />
+        <qry_item field="CUSTID" title="客户id" type="input"  edt_width="130" />
+        <qry_item field="CUSTNAME" title="客户名称" type="input"  edt_width="130" />
+        <col_item field="FUNDID" title="基金id" width="200" type="input" sortable="false"/>
+        <col_item field="CUSTID" title="客户id" width="200" type="input" sortable="false"/>
+        <col_item field="CUSTNAME" title="客户名称" width="200" type="input" sortable="false"/>
+        <col_item field="ORGNAME" title="营业部名称" width="200" type="input" sortable="false"/>
+        <col_item field="UPDDATE" title="更新时间" width="200" type="input" sortable="false"/>
+        <col_item field="SUMPAIDAMT" title="市场支出总和" width="200" type="input" sortable="false"/>
+        <col_item field="SUMDEBTAMT" title="市场负债总和" width="200" type="input" sortable="false"/>
+        <col_item field="UNPAYAMT" title="是否支付" width="200" type="input" sortable="false"/>
+    </view>
+</views>

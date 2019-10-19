@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.container-wrap {
+    min-width: 1006px;
+    background-color: #e6e9eb;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    *zoom: 1;
+    min-width: 990px;
+    width: 98%;
+    width: calc(100vw - 20px);
+    padding-left: -webkit-calc(100vw - 100%);
+    padding-left: calc(100vw - 100%);
+}
+
+.container:before,
+.container:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.container:after {
+    clear: both;
+}

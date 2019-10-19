@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+
+    <bex bex_code="kjdp_opJoinSelectBex" bex_name="操作员详细信息查询" bex_type="4" page_mode="2" attr1="kjdp_opJoinSelect"/>
+
+    <bex bex_code="kjdp_opInsertBex" bex_name="操作员基本信息新增" bex_type="4" page_mode="0" attr1="kjdp_opInsert">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="OP_PASS" para_name="操作员密码" para_type="0" nullable="false" length="64"/>
+        <param para_code="OP_STATUS" para_name="操作员状态" para_type="0" nullable="false" length="1" def_val="0"/>
+        <param para_code="OP_CLS" para_name="操作员分类" para_type="0" nullable="false" length="1"/>
+        <param para_code="CHANNELS" para_name="操作员渠道" para_type="0" nullable="false" length="64"/>
+        <param para_code="ORG_CODE" para_name="操作员机构" para_type="0" nullable="false" length="8"/>
+        <param para_code="OPEN_DATE" para_name="开户日期" para_type="0" length="8"/>
+        <param para_code="FAIL_NUM" para_name="登陆失败次数" para_type="0" data_type="int"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="128"/>
+    </bex>
+    <bex bex_code="kjdp_opUpdateBex" bex_name="操作员基本信息更新" bex_type="4" page_mode="0" attr1="kjdp_opUpdate">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false"/>
+        <param para_code="OP_CLS" para_name="操作员分类" para_type="0" length="1" group="1"/>
+        <param para_code="CHANNELS" para_name="操作员渠道" para_type="0" length="64" group="1"/>
+        <param para_code="ORG_CODE" para_name="操作员机构" para_type="0" length="8" group="1"/>
+        <param para_code="CLOSE_DATE" para_name="销户日期" para_type="0" length="8" group="1"/>
+        <param para_code="FAIL_NUM" para_name="登陆失败次数" para_type="0" data_type="int" group="1"/>
+        <param para_code="LOCK_TIME" para_name="锁定时间" para_type="0" length="32" group="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="128" group="1"/>
+    </bex>
+
+    <bex bex_code="kjdp_opStatusUpdateBex" bex_name="操作员状态更新" bex_type="4" page_mode="0" attr1="kjdp_opStatusUpdate">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false"/>
+        <param para_code="OP_STATUS" para_name="操作员状态" para_type="0" nullable="false" length="1"/>
+    </bex>
+
+    <bex bex_code="kjdp_opPassUpdateBex" bex_name="操作员密码更新" bex_type="4" page_mode="0" attr1="kjdp_opPassUpdate">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false"/>
+        <param para_code="OP_PASS" para_name="操作员密码" para_type="0" nullable="false" length="64"/>
+    </bex>
+
+    <bex bex_code="kjdp_opInfoInsertBex" bex_name="操作员扩展信息新增" bex_type="4" page_mode="0" attr1="kjdp_opInfoInsert">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="OP_NAME" para_name="操作员名称" para_type="0" nullable="false" length="128"/>
+        <param para_code="ID_TYPE" para_name="证件类型" para_type="0" nullable="false" length="2"/>
+        <param para_code="ID_CODE" para_name="证件号码" para_type="0" nullable="false" length="48"/>
+        <param para_code="ID_EXP_DATE" para_name="证件过期日期" para_type="0" nullable="false" length="8"/>
+        <param para_code="ID_ISS_AGCY" para_name="证件签发机关" para_type="0" length="64"/>
+        <param para_code="ID_ADDR" para_name="证件地址" para_type="0" length="256"/>
+        <param para_code="BIRTHDAY" para_name="出生日期" para_type="0" nullable="false" length="8"/>
+        <param para_code="SEX" para_name="性别" para_type="0" nullable="false" length="1"/>
+        <param para_code="CITIZENSHIP" para_name="国籍" para_type="0" nullable="false" length="3"/>
+        <param para_code="NATIONALITY" para_name="民族" para_type="0" nullable="false" length="32"/>
+        <param para_code="EDUCATION" para_name="教育程度" para_type="0" length="1"/>
+        <param para_code="NATIVE_PLACE" para_name="籍贯" para_type="0" length="32"/>
+        <param para_code="ADDRESS" para_name="联系地址" para_type="0" nullable="false" length="512"/>
+        <param para_code="ZIP_CODE" para_name="邮编" para_type="0" length="8"/>
+        <param para_code="MOBILE_TEL" para_name="移动电话" para_type="0" nullable="false" length="32"/>
+        <param para_code="TEL" para_name="固定电话" para_type="0" length="32"/>
+        <param para_code="EMAIL" para_name="电子邮箱" para_type="0" length="48"/>
+        <param para_code="OP_ICON" para_name="头像" para_type="0" length="256"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="128"/>
+    </bex>
+    <bex bex_code="kjdp_opInfoUpdateBex" bex_name="操作员扩展信息更新" bex_type="4" page_mode="0" attr1="kjdp_opInfoUpdate">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false"/>
+        <param para_code="OP_NAME" para_name="操作员名称" para_type="0" length="128" group="1"/>
+        <param para_code="ID_TYPE" para_name="证件类型" para_type="0" length="2" group="1"/>
+        <param para_code="ID_CODE" para_name="证件号码" para_type="0" length="48" group="1"/>
+        <param para_code="ID_EXP_DATE" para_name="证件过期日期" para_type="0" length="8" group="1"/>
+        <param para_code="ID_ISS_AGCY" para_name="证件签发机关" para_type="0" length="64" group="1"/>
+        <param para_code="ID_ADDR" para_name="证件地址" para_type="0" length="256" group="1"/>
+        <param para_code="BIRTHDAY" para_name="出生日期" para_type="0" length="8" group="1"/>
+        <param para_code="SEX" para_name="性别" para_type="0" length="1" group="1"/>
+        <param para_code="CITIZENSHIP" para_name="国籍" para_type="0" length="3" group="1"/>
+        <param para_code="NATIONALITY" para_name="民族" para_type="0" length="32" group="1"/>
+        <param para_code="EDUCATION" para_name="教育程度" para_type="0" length="1" group="1"/>
+        <param para_code="NATIVE_PLACE" para_name="籍贯" para_type="0" length="32" group="1"/>
+        <param para_code="ADDRESS" para_name="联系地址" para_type="0" length="512" group="1"/>
+        <param para_code="ZIP_CODE" para_name="邮编" para_type="0" length="8" group="1"/>
+        <param para_code="MOBILE_TEL" para_name="移动电话" para_type="0" length="32" group="1"/>
+        <param para_code="TEL" para_name="固定电话" para_type="0" length="32" group="1"/>
+        <param para_code="EMAIL" para_name="电子邮箱" para_type="0" length="48" group="1"/>
+        <param para_code="OP_ICON" para_name="头像" para_type="0" length="256" group="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="128" group="1"/>
+    </bex>
+
+    <bex bex_code="kjdp_opPostJoinSelectBex" bex_name="操作员岗位详细信息查询" bex_type="4" page_mode="0" attr1="kjdp_opPostJoinSelect"/>
+
+    <bex bex_code="kjdp_opPostSelectBex" bex_name="操作员岗位查询" bex_type="4" page_mode="0" attr1="kjdp_opPostSelect"/>
+    <bex bex_code="kjdp_opPostInsertBex" bex_name="操作员岗位新增" bex_type="4" page_mode="0" attr1="kjdp_opPostInsert">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="POST_ID" para_name="岗位编码" para_type="0" nullable="false" length="32"/>
+        <param para_code="MAIN_FLAG" para_name="主岗位标识" para_type="0" length="1"/>
+    </bex>
+    <bex bex_code="kjdp_opPostUpdateBex" bex_name="操作员岗位更新" bex_type="4" page_mode="0" attr1="kjdp_opPostUpdate">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false"/>
+        <param para_code="POST_ID" para_name="岗位编码" para_type="0" nullable="false"/>
+        <param para_code="MAIN_FLAG" para_name="主岗位标识" para_type="0" nullable="false" length="1"/>
+    </bex>
+    <bex bex_code="kjdp_opPostDeleteBex" bex_name="操作员岗位删除" bex_type="4" page_mode="0" attr1="kjdp_opPostDelete">
+        <param para_code="OP_CODE" para_name="操作员编号" para_type="0" nullable="false"/>
+    </bex>
+
+    <bex bex_code="kjdp_postSelectBex" bex_name="岗位信息查询" bex_type="4" page_mode="0" attr1="kjdp_postSelect"/>
+    <bex bex_code="kjdp_postInsertBex" bex_name="岗位信息新增" bex_type="4" page_mode="0" attr1="kjdp_postInsert">
+        <param para_code="POST_ID" para_name="岗位编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="POST_NAME" para_name="岗位名称" para_type="0" nullable="false" length="64"/>
+        <param para_code="POST_TYPE" para_name="岗位类型" para_type="0" length="2"/>
+        <param para_code="MAINTAIN_FLAG" para_name="维护标识" para_type="0" nullable="false" length="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256"/>
+    </bex>
+    <bex bex_code="kjdp_postUpdateBex" bex_name="岗位信息更新" bex_type="4" page_mode="0" attr1="kjdp_postUpdate">
+        <param para_code="POST_ID" para_name="岗位编号" para_type="0" nullable="false"/>
+        <param para_code="POST_NAME" para_name="岗位名称" para_type="0" length="64" group="1"/>
+        <param para_code="POST_TYPE" para_name="岗位类型" para_type="0" length="2" group="1"/>
+        <param para_code="MAINTAIN_FLAG" para_name="维护标识" para_type="0" length="1" group="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_postDeleteBex" bex_name="岗位信息删除" bex_type="4" page_mode="0" attr1="kjdp_postDelete">
+        <param para_code="POST_ID" para_name="岗位编号" para_type="0" nullable="false"/>
+    </bex>
+
+</bexs>

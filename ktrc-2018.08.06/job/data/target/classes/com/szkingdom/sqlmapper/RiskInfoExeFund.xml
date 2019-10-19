@@ -1,0 +1,85 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskInfoExeFund">
+    <resultMap id="RiskInfoExeFundMap" type="com.szkingdom.data.DataRiskInfoExeFund">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_NAME"  property="indicatorName"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+        <result column="RISK_VALUE"  property="riskValue"  />
+        <result column="FUND_BLN"  property="fundBln"  />
+        <result column="FUND_AVL"  property="fundAvl"  />
+        <result column="FUND_RET"  property="fundRet"  />
+        <result column="APPOINTED_NEED_AMT"  property="appointedNeedAmt"  />
+        <result column="APPOINTED_LACK_AMT"  property="appointedLackAmt"  />
+        <result column="FUND_NET_DLVY"  property="fundNetDlvy"  />
+        <result column="CASH_SETT_AMT"  property="cashSettAmt"  />
+        <result column="DLVY_EXE_MARGIN"  property="dlvyExeMargin"  />
+        <result column="FUND_EXE_MARGIN"  property="fundExeMargin"  />
+        <result column="FUND_EXE_FRZ"  property="fundExeFrz"  />
+        <result column="FUND_FEE_FRZ"  property="fundFeeFrz"  />
+        <result column="DLVY_DATE"  property="dlvyDate"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUST_CLS"  property="custCls"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="RISK_VALID_FLAG"  property="riskValidFlag"  />
+        <result column="NOTICE_SENT_LEVEL"  property="noticeSentLevel"  />
+        <result column="NOTICE_SENT_LEVEL_NAME"  property="noticeSentLevelName"  />
+    </resultMap>
+
+
+    <select id="RISK_INFO_EXE_FUND_SELECT" resultMap="RiskInfoExeFundMap" parameterType="com.szkingdom.data.DataRiskInfoExeFund">
+        select
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,RISK_VALUE,FUND_BLN,FUND_AVL,FUND_RET,
+        APPOINTED_NEED_AMT,APPOINTED_LACK_AMT,FUND_NET_DLVY,CASH_SETT_AMT,DLVY_EXE_MARGIN,FUND_EXE_MARGIN,FUND_EXE_FRZ,FUND_FEE_FRZ,
+        DLVY_DATE,INT_ORG,CUST_CODE,CUST_NAME,CUST_TYPE,CUST_CLS,CUACCT_CODE,CURRENCY,
+        RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME
+        from RISK_INFO_EXE_FUND
+        where 1=1
+        <if test="cuacctCode > 0">and CUACCT_CODE = #{cuacctCode}</if>
+        <if test="currency != null">and CURRENCY = #{currency}</if>
+        <if test="indicatorId != null and indicatorId != ''">and INDICATOR_ID = #{indicatorId}</if>
+
+    </select>
+
+    <update id="RISK_INFO_EXE_FUND_UPDATE" parameterType="com.szkingdom.data.DataRiskInfoExeFund">
+        update RISK_INFO_EXE_FUND set
+        INDICATOR_ID = #{indicatorId},INDICATOR_NAME=#{indicatorName},OCC_DATE=#{occDate},
+        OCC_TIME=#{occTime},RISK_VALUE=#{riskValue},FUND_BLN=#{fundBln},
+        FUND_AVL=#{fundAvl},FUND_RET=#{fundRet},APPOINTED_NEED_AMT =#{appointedNeedAmt},
+        APPOINTED_LACK_AMT =#{appointedLackAmt}, FUND_NET_DLVY =#{fundNetDlvy},
+        CASH_SETT_AMT =#{cashSettAmt},DLVY_EXE_MARGIN =#{dlvyExeMargin},
+        FUND_EXE_MARGIN =#{fundExeMargin},FUND_EXE_FRZ =#{fundExeFrz},
+        FUND_FEE_FRZ =#{fundFeeFrz},DLVY_DATE =#{dlvyDate},INT_ORG=#{intOrg},
+        CUST_CODE=#{custCode},CUST_NAME=#{custName},CUST_TYPE=#{custType},
+        CUST_CLS=#{custCls},CUACCT_CODE=#{cuacctCode},CURRENCY=#{currency},
+        RISK_VALID_FLAG=#{riskValidFlag},NOTICE_SENT_LEVEL=#{noticeSentLevel},
+        NOTICE_SENT_LEVEL_NAME=#{noticeSentLevelName}
+        where  CUACCT_CODE = #{cuacctCode}
+        and CURRENCY = #{currency}
+        and INDICATOR_ID = #{indicatorId}
+
+    </update>
+
+
+    <insert id="RISK_INFO_EXE_FUND_INSERT" parameterType="com.szkingdom.data.DataRiskInfoExeFund">
+        insert into RISK_INFO_EXE_FUND(
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,RISK_VALUE,FUND_BLN,FUND_AVL,FUND_RET,
+        APPOINTED_NEED_AMT,APPOINTED_LACK_AMT,FUND_NET_DLVY,CASH_SETT_AMT,DLVY_EXE_MARGIN,FUND_EXE_MARGIN,FUND_EXE_FRZ,FUND_FEE_FRZ,
+        DLVY_DATE,INT_ORG,CUST_CODE,CUST_NAME,CUST_TYPE,CUST_CLS,CUACCT_CODE,CURRENCY,
+        RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME)
+        values ( 
+        #{indicatorId},#{indicatorName},#{occDate},#{occTime},#{riskValue},#{fundBln},#{fundAvl},#{fundRet},
+        #{appointedNeedAmt},#{appointedLackAmt},#{fundNetDlvy},#{cashSettAmt},#{dlvyExeMargin},#{fundExeMargin},#{fundExeFrz},#{fundFeeFrz},
+        #{dlvyDate},#{intOrg},#{custCode},#{custName},#{custType},#{custCls},#{cuacctCode},#{currency},
+        #{riskValidFlag},#{noticeSentLevel},#{noticeSentLevelName})
+    </insert>
+
+
+</mapper>

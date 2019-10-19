@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+
+    <bex bex_code="kjdp_dictJoinSelectBex" bex_name="数据字典信息查询" bex_type="4" page_mode="0" attr1="kjdp_dictJoinSelect"/>
+
+    <bex bex_code="kjdp_dictionarySelectBex" bex_name="数据字典查询" bex_type="4" page_mode="0" attr1="kjdp_dictionarySelect"/>
+    <bex bex_code="kjdp_dictionaryInsertBex" bex_name="数据字典新增" bex_type="4" page_mode="0" attr1="kjdp_dictionaryInsert">
+        <param para_code="DICT_CODE" para_name="字典编码" para_type="0" nullable="false" length="32"/>
+        <param para_code="DICT_NAME" para_name="字典名称" para_type="0" nullable="false" length="64"/>
+        <param para_code="MAINTAIN_FLAG" para_name="维护标志" para_type="0" nullable="false" length="1"/>
+        <param para_code="DICT_TYPE" para_name="字典类型" para_type="0" length="1"/>
+    </bex>
+    <bex bex_code="kjdp_dictionaryUpdateBex" bex_name="数据字典更新" bex_type="4" page_mode="0" attr1="kjdp_dictionaryUpdate">
+        <param para_code="DICT_CODE" para_name="字典编码" para_type="0" nullable="false"/>
+        <param para_code="DICT_NAME" para_name="字典名称" para_type="0" length="64" group="1"/>
+        <param para_code="MAINTAIN_FLAG" para_name="维护标志" para_type="0" length="1" group="1"/>
+        <param para_code="DICT_TYPE" para_name="字典类型" para_type="0" length="1" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_dictionaryDeleteBex" bex_name="数据字典删除" bex_type="4" page_mode="0" attr1="kjdp_dictionaryDelete">
+        <param para_code="DICT_CODE" para_name="字典编码" para_type="0" nullable="false"/>
+    </bex>
+
+    <bex bex_code="kjdp_dictItemSelectBex" bex_name="数据字典项查询" bex_type="4" page_mode="0" attr1="kjdp_dictItemSelect"/>
+    <bex bex_code="kjdp_dictItemInsertBex" bex_name="数据字典项新增" bex_type="4" page_mode="0" attr1="kjdp_dictItemInsert">
+        <param para_code="DICT_CODE" para_name="字典编码" para_type="0" nullable="false" length="32"/>
+        <param para_code="DICT_ITEM" para_name="字典项" para_type="0" nullable="false" length="32"/>
+        <param para_code="ORG_CODE" para_name="机构代码" para_type="0" nullable="false" length="8"/>
+        <param para_code="DICT_ITEM_NAME" para_name="字典项名称" para_type="0" nullable="false" length="64"/>
+        <param para_code="DICT_ORD" para_name="字典项顺序" para_type="0" data_type="int"/>
+    </bex>
+    <bex bex_code="kjdp_dictItemUpdateBex" bex_name="数据字典项更新" bex_type="4" page_mode="0" attr1="kjdp_dictItemUpdate">
+        <param para_code="DICT_CODE" para_name="字典编码" para_type="0" nullable="false"/>
+        <param para_code="DICT_ITEM" para_name="字典项" para_type="0" nullable="false"/>
+        <param para_code="ORG_CODE" para_name="机构代码" para_type="0" nullable="false"/>
+        <param para_code="DICT_ITEM_NAME" para_name="字典项名称" para_type="0" length="64" group="1"/>
+        <param para_code="DICT_ORD" para_name="字典项顺序" para_type="0" data_type="int" group="1" def_val="0"/>
+    </bex>
+    <bex bex_code="kjdp_dictItemDeleteBex" bex_name="数据字典项删除" bex_type="4" page_mode="0" attr1="kjdp_dictItemDelete">
+        <param para_code="DICT_CODE" para_name="字典编码" para_type="0" nullable="false"/>
+        <param para_code="DICT_ITEM" para_name="字典项" para_type="0" nullable="false"/>
+        <param para_code="ORG_CODE" para_name="机构代码" para_type="0" nullable="false"/>
+    </bex>
+
+    <bex bex_code="kjdp_sysParamSelectBex" bex_name="系统参数查询" bex_type="4" page_mode="0" attr1="kjdp_sysParamSelect"/>
+    <bex bex_code="kjdp_sysParamInsertBex" bex_name="系统参数新增" bex_type="4" page_mode="0" attr1="kjdp_sysParamInsert">
+        <param para_code="PAR_CODE" para_name="参数代码" para_type="0" nullable="false" length="32"/>
+        <param para_code="PAR_NAME" para_name="参数名称" para_type="0" nullable="false" length="128"/>
+        <param para_code="DATA_TYPE" para_name="数据类型" para_type="0" nullable="false" length="16"/>
+        <param para_code="MAINTAIN_FLAG" para_name="维护标识" para_type="0" nullable="false" length="1"/>
+        <param para_code="PAR_TYPE" para_name="参数类型" para_type="0" length="128"/>
+        <param para_code="PAR_VAL" para_name="参数值" para_type="0" nullable="false" length="256"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256"/>
+    </bex>
+    <bex bex_code="kjdp_sysParamUpdateBex" bex_name="系统参数更新" bex_type="4" page_mode="0" attr1="kjdp_sysParamUpdate">
+        <param para_code="PAR_CODE" para_name="参数代码" para_type="0" nullable="false"/>
+        <param para_code="PAR_NAME" para_name="参数名称" para_type="0" length="128" group="1"/>
+        <param para_code="DATA_TYPE" para_name="数据类型" para_type="0" length="16" group="1"/>
+        <param para_code="MAINTAIN_FLAG" para_name="维护标识" para_type="0" length="1" group="1"/>
+        <param para_code="PAR_TYPE" para_name="参数类型" para_type="0" length="128" group="1"/>
+        <param para_code="PAR_VAL" para_name="参数值" para_type="0" length="256" group="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_sysParamDeleteBex" bex_name="系统参数删除" bex_type="4" page_mode="0" attr1="kjdp_sysParamDelete">
+        <param para_code="PAR_CODE" para_name="参数代码" para_type="0" nullable="false"/>
+    </bex>
+
+    <bex bex_code="kjdp_menuSelectBex" bex_name="菜单查询" bex_type="4" page_mode="0" attr1="kjdp_menuSelect"/>
+    <bex bex_code="kjdp_menuInsertBex" bex_name="菜单新增" bex_type="4" page_mode="0" attr1="kjdp_menuInsert">
+        <param para_code="MENU_ID" para_name="菜单编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="MENU_NAME" para_name="菜单名称" para_type="0" nullable="false" length="64"/>
+        <param para_code="PAR_MENU" para_name="父级菜单" para_type="0" nullable="false" length="32"/>
+        <param para_code="MENU_LVL" para_name="菜单级别" para_type="0" nullable="false" length="64"/>
+        <param para_code="MENU_LINK" para_name="菜单链接" para_type="0" length="512"/>
+        <param para_code="MENU_STA" para_name="菜单状态" para_type="0" nullable="false" length="1"/>
+        <param para_code="MENU_ICON" para_name="菜单图标" para_type="0" length="128"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256"/>
+    </bex>
+    <bex bex_code="kjdp_menuUpdateBex" bex_name="菜单更新" bex_type="4" page_mode="0" attr1="kjdp_menuUpdate">
+        <param para_code="MENU_ID" para_name="菜单编号" para_type="0" nullable="false"/>
+        <param para_code="MENU_NAME" para_name="菜单名称" para_type="0" length="64" group="1"/>
+        <param para_code="PAR_MENU" para_name="父级菜单" para_type="0" length="32" group="1"/>
+        <param para_code="MENU_LINK" para_name="菜单链接" para_type="0" length="512" group="1"/>
+        <param para_code="MENU_STA" para_name="菜单状态" para_type="0" length="1" group="1"/>
+        <param para_code="MENU_ICON" para_name="菜单图标" para_type="0" length="128" group="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_menuDeleteBex" bex_name="菜单删除" bex_type="4" page_mode="0" attr1="kjdp_menuDelete">
+        <param para_code="MENU_ID" para_name="菜单编号" para_type="0" nullable="false"/>
+    </bex>
+
+    <bex bex_code="kjdp_systemSelectBex" bex_name="系统查询" bex_type="4" page_mode="0" attr1="kjdp_systemSelect"/>
+    <bex bex_code="kjdp_systemInsertBex" bex_name="系统新增" bex_type="4" page_mode="0" attr1="kjdp_systemInsert">
+        <param para_code="SYS_CODE" para_name="系统编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="SYS_NAME" para_name="系统名称" para_type="0" nullable="false" length="256"/>
+        <param para_code="SYS_STATUS" para_name="系统状态" para_type="0" nullable="false" length="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256"/>
+    </bex>
+    <bex bex_code="kjdp_systemUpdateBex" bex_name="系统更新" bex_type="4" page_mode="0" attr1="kjdp_systemUpdate">
+        <param para_code="SYS_CODE" para_name="系统编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="SYS_NAME" para_name="系统名称" para_type="0" length="256" group="1"/>
+        <param para_code="SYS_STATUS" para_name="系统状态" para_type="0" length="1" group="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_systemDeleteBex" bex_name="系统删除" bex_type="4" page_mode="0" attr1="kjdp_systemDelete">
+        <param para_code="SYS_CODE" para_name="系统编号" para_type="0" nullable="false" length="32"/>
+    </bex>
+
+    <bex bex_code="kjdp_serviceSelectBex" bex_name="系统服务查询" bex_type="4" page_mode="0" attr1="kjdp_serviceSelect"/>
+    <bex bex_code="kjdp_serviceInsertBex" bex_name="系统服务新增" bex_type="4" page_mode="0" attr1="kjdp_serviceInsert">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="SERVICE_NAME" para_name="服务名称" para_type="0" nullable="false" length="256"/>
+        <param para_code="STATUS" para_name="服务状态" para_type="0" nullable="false" length="1"/>
+        <param para_code="LOG_FLAG" para_name="日志标志" para_type="0" nullable="false" length="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256"/>
+    </bex>
+    <bex bex_code="kjdp_serviceUpdateBex" bex_name="系统服务更新" bex_type="4" page_mode="0" attr1="kjdp_serviceUpdate">
+        <param para_code="SERVICE_CODE" para_name="服务编码" para_type="0" nullable="false"/>
+        <param para_code="SERVICE_NAME" para_name="服务名称" para_type="0" length="256" group="1"/>
+        <param para_code="STATUS" para_name="服务状态" para_type="0" length="1" group="1"/>
+        <param para_code="LOG_FLAG" para_name="日志标志" para_type="0" length="1" group="1"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_serviceDeleteBex" bex_name="系统服务删除" bex_type="4" page_mode="0" attr1="kjdp_serviceDelete">
+        <param para_code="SERVICE_CODE" para_name="服务编码" para_type="0" nullable="false"/>
+    </bex>
+
+    <bex bex_code="kjdp_serviceLogSelectBex" bex_name="服务日志查询" bex_type="4" page_mode="2" attr1="kjdp_serviceLogSelect"/>
+    <bex bex_code="kjdp_serviceLogInsertBex" bex_name="服务日志新增" bex_type="4" page_mode="0" attr1="kjdp_serviceLogInsert">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="CHANNEL" para_name="调用渠道" para_type="0" nullable="false" length="8"/>
+        <param para_code="IDENTITY" para_name="身份信息" para_type="0" length="32"/>
+        <param para_code="ERROR_CODE" para_name="错误代码" para_type="0" nullable="false" length="12"/>
+        <param para_code="ERROR_MSG" para_name="错误信息" para_type="0" nullable="false" length="512"/>
+        <param para_code="RUN_TIMES" para_name="运行时长" para_type="0" nullable="false" data_type="int"/>
+        <param para_code="REQ_ID" para_name="请求编号" para_type="0" nullable="false" length="64"/>
+    </bex>
+
+    <bex bex_code="kjdp_orgSelectBex" bex_name="机构查询" bex_type="4" page_mode="0" attr1="kjdp_orgSelect"/>
+
+    <bex bex_code="kjdp_orgInsertBex" bex_name="机构新增" bex_type="4" page_mode="0" attr1="kjdp_orgInsert">
+        <param para_code="ORG_CODE" para_name="机构代码" para_type="0" nullable="false" length="8"/>
+        <param para_code="ORG_CLS" para_name="机构类别" para_type="0" nullable="false" length="2"/>
+        <param para_code="ORG_TYPE" para_name="机构类型" para_type="0" nullable="false" length="2"/>
+        <param para_code="ORG_NAME" para_name="机构名称" para_type="0" nullable="false" length="32"/>
+        <param para_code="ORG_FULL_NAME" para_name="机构全称" para_type="0" nullable="false" length="256"/>
+        <param para_code="ORG_STATUS" para_name="机构状态" para_type="0" length="1" def_val="0"/>
+        <param para_code="PAR_ORG" para_name="父级机构" para_type="0" nullable="false" length="8"/>
+        <param para_code="ORG_LVL" para_name="机构级别" para_type="0" length="64"/>
+        <param para_code="ZIP_CODE" para_name="机构邮编" para_type="0" length="6"/>
+        <param para_code="ADDRESS" para_name="机构地址" para_type="0" length="128"/>
+        <param para_code="ORG_TEL" para_name="联系电话" para_type="0" length="32"/>
+        <param para_code="EMAIL" para_name="机构邮箱" para_type="0" length="32"/>
+        <param para_code="FAX" para_name="机构传真" para_type="0" length="32"/>
+        <param para_code="LINKMAN" para_name="机构联系人" para_type="0" length="32"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256"/>
+    </bex>
+
+    <bex bex_code="kjdp_orgUpdateBex" bex_name="机构更新" bex_type="4" page_mode="0" attr1="kjdp_orgUpdate">
+        <param para_code="ORG_CODE" para_name="机构代码" para_type="0" nullable="false" length="8"/>
+        <param para_code="ORG_CLS" para_name="机构类别" para_type="0"  length="2"/>
+        <param para_code="ORG_TYPE" para_name="机构类型" para_type="0" nullable="false" length="2"/>
+        <param para_code="ORG_NAME" para_name="机构名称" para_type="0"  length="32"/>
+        <param para_code="ORG_FULL_NAME" para_name="机构全称" para_type="0"  length="256"/>
+        <param para_code="PAR_ORG" para_name="父级机构" para_type="0"  length="8"/>
+        <param para_code="ORG_LVL" para_name="机构级别" para_type="0"  length="64"/>
+        <param para_code="ZIP_CODE" para_name="机构邮编" para_type="0" length="6"/>
+        <param para_code="ADDRESS" para_name="机构地址" para_type="0" length="128"/>
+        <param para_code="ORG_TEL" para_name="联系电话" para_type="0" length="32"/>
+        <param para_code="EMAIL" para_name="机构邮箱" para_type="0" length="32"/>
+        <param para_code="FAX" para_name="机构传真" para_type="0" length="32"/>
+        <param para_code="LINKMAN" para_name="机构联系人" para_type="0" length="32"/>
+        <param para_code="REMARK" para_name="备注信息" para_type="0" length="256"/>
+    </bex>
+
+    <bex bex_code="kjdp_orgDeleteBex" bex_name="机构注销" bex_type="4" page_mode="0" attr1="kjdp_orgDelete">
+        <param para_code="ORG_CODE" para_name="机构代码" para_type="0" nullable="false"/>
+        <param para_code="ORG_TYPE" para_name="机构类型" para_type="0" nullable="false" length="2"/>
+    </bex>
+
+    <bex bex_code="kjdp_clientLogSelectBex" bex_name="网页日志查询" bex_type="4" page_mode="2" attr1="kjdp_clientLogSelect"/>
+    <bex bex_code="kjdp_clientLogInsertBex" bex_name="网页日志新增" bex_type="4" page_mode="0" attr1="kjdp_clientLogInsert">
+        <param para_code="URL" para_name="文件URL" para_type="0" nullable="false" length="1024"/>
+        <param para_code="LINE" para_name="行编号" para_type="0" length="4" data_type="int" def_val="0"/>
+        <param para_code="COL" para_name="列编号" para_type="0" length="4" data_type="int" def_val="0"/>
+        <param para_code="MESSAGE" para_name="错误信息" para_type="0" nullable="false" length="512"/>
+        <param para_code="STACK" para_name="堆栈信息" para_type="0"/>
+    </bex>
+
+    <bex bex_code="kjdp_resPermSelectBex" bex_name="资源权限查询" bex_type="4" page_mode="0" attr1="kjdp_resPermSelect"/>
+    <bex bex_code="kjdp_resPermInsertBex" bex_name="资源权限新增" bex_type="4" page_mode="0" attr1="kjdp_resPermInsert">
+        <param para_code="RES_TYPE" para_name="资源类型" para_type="0" nullable="false" length="2"/>
+        <param para_code="RELATE_VALUE" para_name="关联资源标识" para_type="0" length="10"/>
+        <param para_code="AUTH_TYPE" para_name="权限类型" para_type="0" nullable="false" length="2"/>
+        <param para_code="OBJ_TYPE" para_name="对象类型" para_type="0" nullable="false" length="2"/>
+        <param para_code="OBJ_CODE" para_name="对象代码" para_type="0" nullable="false" length="64"/>
+        <param para_code="GRANTOR" para_name="授权人" para_type="0" length="32"/>
+    </bex>
+    <bex bex_code="kjdp_resPermDeleteBex" bex_name="资源权限删除" bex_type="4" page_mode="0" attr1="kjdp_resPermDelete">
+        <param para_code="RES_TYPE" para_name="资源类型" para_type="0" nullable="false" length="2"/>
+        <param para_code="AUTH_TYPE" para_name="权限类型" para_type="0" nullable="false"/>
+        <param para_code="OBJ_TYPE" para_name="对象类型" para_type="0" nullable="false"/>
+        <param para_code="OBJ_CODE" para_name="对象代码" para_type="0" nullable="false"/>
+    </bex>
+
+</bexs>

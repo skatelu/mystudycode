@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+
+   	<bex bex_code="QueryKettleAtrrMenu" bex_name="Kettle总览菜单树状查询" bex_type="4" page_mode="0" attr1="QueryKettleAtrrMenu" />
+   	<bex bex_code="QueryKettleClsMenu" bex_name="Kettle总览菜单树状查询" bex_type="4" page_mode="0" attr1="QueryKettleClsMenu" />
+   	<bex bex_code="QueryKettleOverviewMenu" bex_name="Kettle总览菜单树状查询" bex_type="4" page_mode="0" attr1="QueryKettleOverviewMenu" />
+
+	<bex bex_code="QueryKettleETFLog" bex_name="ETF日志查询" bex_type="4" page_mode="0" attr1="QueryKettleETFLog"></bex>
+	<bex bex_code="QueryKettleJobLog" bex_name="ETF差额扣款日志总展示" bex_type="4" page_mode="0" attr1="QueryKettleJobLog"></bex>
+	<bex bex_code="QueryKettleEtfCashCommonent" bex_name="汇总到etf_cashcomponent表中" bex_type="4" page_mode="0" attr1="QueryKettleEtfCashCommonent"></bex>
+	<bex bex_code="QueryKettleEtfCashCommonentYdzjqk" bex_name="ETF数据准备阶段（生成etf_cashcomponent_ydzjqk）" bex_type="4" page_mode="0" attr1="QueryKettleEtfCashCommonentYdzjqk"></bex>
+
+	<bex bex_code="QueryKettleTransLog" bex_name="查询设置" bex_type="4" page_mode="0" attr1="QueryKettleTransLog"></bex>
+	<bex bex_code="QueryKettleSGWYDZJ" bex_name="申购T-1日无预冻资金" bex_type="4" page_mode="0" attr1="QueryKettleSGWYDZJ"></bex>
+	<bex bex_code="QueryKettleSHWYDZJ" bex_name="赎回T-1日无预冻资金" bex_type="4" page_mode="0" attr1="QueryKettleSHWYDZJ"></bex>
+	<bex bex_code="QueryKettleEtfCashCommonentHIS" bex_name="将etf_cashcomponent昨天数据导入历史表" bex_type="4" page_mode="0" attr1="QueryKettleEtfCashCommonentHIS"></bex>
+	<bex bex_code="QueryKettleETFbaseinfo" bex_name="in-etfbaseinfo" bex_type="4" page_mode="0" attr1="QueryKettleETFbaseinfo"></bex>
+	<bex bex_code="QueryKettleUncommitclear" bex_name="in-uncommitclear" bex_type="4" page_mode="0" attr1="QueryKettleUncommitclear"></bex>
+	<bex bex_code="QueryKettleHorderrec" bex_name="in-h_orderrec" bex_type="4" page_mode="0" attr1="QueryKettleHorderrec"></bex>
+	<bex bex_code="QueryKettleSumUncommitclearSG" bex_name="sum-uncommitclear_sg" bex_type="4" page_mode="0" attr1="QueryKettleSumUncommitclearSG"></bex>
+	<bex bex_code="QueryKettleSumHorderrecSG" bex_name="sum-h_orderrec_sg" bex_type="4" page_mode="0" attr1="QueryKettleSumHorderrecSG"></bex>
+	<bex bex_code="QueryKettleSumUncommitclearSH" bex_name="赎回-汇总uncommitclear" bex_type="4" page_mode="0" attr1="QueryKettleSumUncommitclearSH"></bex>
+	<bex bex_code="QueryKettleSumHorderrecSH" bex_name="赎回-汇总h_orderrec" bex_type="4" page_mode="0" attr1="QueryKettleSumHorderrecSH"></bex>
+	<bex bex_code="QueryKettleSGYDZJBZ" bex_name="申购T-1日预冻资金不足" bex_type="4" page_mode="0" attr1="QueryKettleSGYDZJBZ"></bex>
+	<bex bex_code="QueryKettleSHYDZJBZ" bex_name="赎回T-1日预冻资金不足" bex_type="4" page_mode="0" attr1="QueryKettleSHYDZJBZ"></bex>
+	<bex bex_code="QueryKettleSumEtfCashCommonent" bex_name="汇总到etf_cashcomponent表中" bex_type="4" page_mode="0" attr1="QueryKettleSumEtfCashCommonent"></bex>
+	<bex bex_code="QueryKettlePreetfbaseinfo" bex_name="将当天数据备份到preetfbaseinfo表中" bex_type="4" page_mode="0" attr1="QueryKettlePreetfbaseinfo"></bex>
+	<bex bex_code="QueryKettleFundasset" bex_name="抽取fundasset表" bex_type="4" page_mode="0" attr1="QueryKettleFundasset"></bex>
+	<bex bex_code="QueryKettleECCODESIGN" bex_name="ECCODESIGN" bex_type="4" page_mode="0" attr1="QueryKettleECCODESIGN"></bex>
+
+</bexs>

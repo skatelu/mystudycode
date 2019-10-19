@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+    <bex bex_code="kjdp_microServiceSelectBex" bex_name="微服务查询" bex_type="18" page_mode="0" attr1="kjdp_microServiceSelect" attr2="node">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" length="32"/>
+    </bex>
+    <bex bex_code="kjdp_microServiceInsertBex" bex_name="微服务新增" bex_type="18" page_mode="0" attr1="kjdp_microServiceInsert" attr2="node">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="SERVICE_NAME" para_name="服务名称" para_type="0" nullable="false" length="128"/>
+        <param para_code="DESCRIPTION" para_name="服务描述" para_type="0" length="256" />
+    </bex>
+    <bex bex_code="kjdp_microServiceUpdateBex" bex_name="微服务修改" bex_type="18" page_mode="0" attr1="kjdp_microServiceUpdate" attr2="node">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="SERVICE_NAME" para_name="服务名称" para_type="0" length="128" group="1"/>
+        <param para_code="DESCRIPTION" para_name="服务描述" para_type="0" length="256" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_microServiceDeleteBex" bex_name="微服务删除" bex_type="18" page_mode="0" attr1="kjdp_microServiceDelete" attr2="node">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+    </bex>
+</bexs>

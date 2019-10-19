@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+
+    <service service_code="RCDS00001" service_name="客户详细屏资产信息" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskCustDetailScreen_custInfo" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RCDS00002" service_name="客户详细屏基本信息" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskCustDetailScreen_baseInfo" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RCDS00003" service_name="客户详细屏风险触发指标详情" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskCustDetailScreen_riskIndicatorDetail" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RCDS00004" service_name="历史风险触发列表柱状图" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskCustDetailScreen_historyRiskPic" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RCDS00005" service_name="历史风险触发列表表格" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskCustDetailScreen_historySiskTrigger" business_type="3"/>
+        </businesses>
+    </service>
+
+</services>

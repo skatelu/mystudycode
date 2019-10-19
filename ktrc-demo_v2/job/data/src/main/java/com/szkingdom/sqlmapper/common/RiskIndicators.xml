@@ -1,0 +1,55 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.RiskIndicators">
+
+    <resultMap id="dataRiskIndicatorsMap" type="com.szkingdom.data.DataRiskIndicators">
+        <result column="INDICATOR_ID"  property="indicatorId" />
+        <result column="INDICATOR_NAME"  property="indicatorName" />
+        <result column="BIZ_ATTR"  property="bizAttr" />
+        <result column="INDICATOR_CLS"  property="indicatorCls" />
+        <result column="INDICATOR_CLS_NAME"  property="indicatorClsName" />
+        <result column="INDICATOR_FORMULA"  property="indicatorFormula" />
+        <result column="INDICATOR_RUN_FLAG"  property="indicatorRunFlag" />
+        <result column="IS_REALTIME"  property="isRealtime" />
+        <result column="INDICATOR_REMARK"  property="indicatorRemark" />
+    </resultMap>
+
+    <select id="COMMON_RISK_INDICATORS_SELECT" resultMap="dataRiskIndicatorsMap" parameterType="com.szkingdom.data.DataRiskIndicators">
+        select * from RISK_INDICATORS
+        where 1=1
+        <if test="bizAttr != null and bizAttr != ''">
+            and BIZ_ATTR = #{bizAttr}
+        </if>
+        <if test="indicatorCls != null and indicatorCls != ''">
+            and INDICATOR_CLS = #{indicatorCls}
+        </if>
+    </select>
+
+    <update id="COMMON_RISK_INDICATORS_UPDATE" parameterType="com.szkingdom.data.DataRiskIndicators">
+        update RISK_INDICATORS set RISK_TRIGGER_FLAG='1', TO_BE_NOTICED_FLAG='1'
+        <!--set>
+            <if test="indicatorName != null and indicatorName != ''">INDICATOR_NAME=#{indicatorName},</if>
+            <if test="indicatorBizAttr != null and indicatorBizAttr != ''">INDICATOR_BIZ_ATTR=#{indicatorBizAttr},</if>
+            <if test="indicatorCls != null and indicatorCls != ''">INDICATOR_CLS=#{indicatorCls},</if>
+            <if test="indicatorClsName != null and indicatorClsName != ''">INDICATOR_CLS_NAME=#{indicatorClsName},</if>
+
+            <if test="indicatorFormula != null">INDICATOR_FORMULA=#{indicatorFormula},</if>
+            <if test="indicatorRunFlag != null">INDICATOR_RUN_FLAG=#{indicatorRunFlag},</if>
+            <if test="isRealtime != null and isRealtime != ''">IS_REALTIME=#{isRealtime},</if>
+            <if test="indicatorRemark != null and indicatorRemark != ''">INDICATOR_REMARK=#{indicatorRemark}</if>
+        </set-->
+        where INDICATOR_ID = '${indicatorId}'
+        and BIZ_ATTR = '${bizAttr}'
+        and INDICATOR_CLS = '${indicatorCls}')
+    </update>
+
+    <insert id="COMMON_RISK_INDICATORS_INSERT" parameterType="com.szkingdom.data.DataRiskIndicators">
+        INSERT INTO RISK_INDICATORS
+        (INDICATOR_ID,INDICATOR_NAME,BIZ_ATTR,INDICATOR_CLS,INDICATOR_CLS_NAME,
+        INDICATOR_FORMULA,INDICATOR_RUN_FLAG,IS_REALTIME,INDICATOR_REMARK)
+        VALUES (#{indicatorId},#{indicatorName},#{bizAttr},#{indicatorCls},#{indicatorClsName},
+        #{indicatorFormula},#{indicatorRunFlag},#{isRealtime},#{indicatorRemark})
+    </insert>
+</mapper>

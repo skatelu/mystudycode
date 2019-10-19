@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+
+	<!--Kettle 日志文件树形列表-->
+	<service service_code="P5000001" service_name="Kettle总览菜单树状查询" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleAtrrMenu" business_type="1"/>
+		</businesses>
+	</service>
+
+	<service service_code="P5000002" service_name="Kettle总览菜单树状查询" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleClsMenu" business_type="1"/>
+		</businesses>
+	</service>
+
+	<service service_code="P5000003" service_name="Kettle总览菜单树状查询" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleOverviewMenu" business_type="1"/>
+		</businesses>
+	</service>
+
+	<service service_code="R4000" service_name="ETF差额扣款日志总展示" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleETFLog" business_type="1"></service_business>
+		</businesses>
+	</service>
+
+	<service service_code="R5000" service_name="ETF差额扣款日志总展示" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleJobLog" business_type="1"></service_business>
+		</businesses>
+	</service>
+
+	<service service_code="R6000" service_name="ETF数据准备阶段（生成etf_cashcomponent_ydzjqk）日志" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleEtfCashCommonent" business_type="1"></service_business>
+		</businesses>
+	</service>
+
+	<service service_code="R7000" service_name="汇总更新etf_cashcomponent表日志" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleEtfCashCommonentYdzjqk" business_type="1"></service_business>
+		</businesses>
+	</service>
+
+
+	<!--trans日志查询配置-->
+	<service service_code="R128000" service_name="查询设置" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleTransLog" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R197000" service_name="申购T-1日无预冻资金" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSGWYDZJ" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R198000" service_name="赎回T-1日无预冻资金" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSHWYDZJ" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R202000" service_name="将etf_cashcomponent昨天数据导入历史表" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleEtfCashCommonentHIS" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R204000" service_name="in-etfbaseinfo" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleETFbaseinfo" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R205000" service_name="in-uncommitclear" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleUncommitclear" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R206000" service_name="in-h_orderrec" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleHorderrec" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R208000" service_name="sum-uncommitclear_sg" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSumUncommitclearSG" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R209000" service_name="sum-h_orderrec_sg" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSumHorderrecSG" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R210000" service_name="赎回-汇总uncommitclear" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSumUncommitclearSH" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R211000" service_name="赎回-汇总h_orderrec" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSumHorderrecSH" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R212000" service_name="申购T-1日日预冻资金不足" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSGYDZJBZ" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R213000" service_name="赎回T-1日预冻资金不足" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSHYDZJBZ" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R147000" service_name="汇总到etf_cashcomponent表中" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettleSumEtfCashCommonent" business_type="1"></service_business>
+		</businesses>
+	</service>
+	<service service_code="R153000" service_name="将当天数据备份到preetfbaseinfo表中" ticket_check="0">
+		<businesses>
+			<service_business business_code="QueryKettlePreetfbaseinfo" business_type="1"></service_business>
+		</businesses>
+	</service>
+    <service service_code="R214000" service_name="抽取fundasset表" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryKettleFundasset" business_type="1"></service_business>
+        </businesses>
+    </service>
+    <service service_code="R215000" service_name="ECCODESIGN" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryKettleECCODESIGN" business_type="1"></service_business>
+        </businesses>
+    </service>
+
+</services>

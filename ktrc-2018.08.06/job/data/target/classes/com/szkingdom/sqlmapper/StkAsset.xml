@@ -1,0 +1,104 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkAsset">
+    <resultMap id="StkAssetMap" type="com.szkingdom.data.DataStkAsset">
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_BLN"  property="stkBln"  />
+        <result column="STK_AVL"  property="stkAvl"  />
+        <result column="STK_FRZ"  property="stkFrz"  />
+        <result column="STK_UFZ"  property="stkUfz"  />
+        <result column="STK_NTRD"  property="stkNtrd"  />
+        <result column="STK_TRD_FRZ"  property="stkTrdFrz"  />
+        <result column="STK_TRD_UFZ"  property="stkTrdUfz"  />
+        <result column="STK_TRD_OTD"  property="stkTrdOtd"  />
+        <result column="STK_OTD_AVL"  property="stkOtdAvl"  />
+        <result column="STK_TRD_BLN"  property="stkTrdBln"  />
+        <result column="SUBSYS_SN"  property="subsysSn"  />
+    </resultMap>
+
+
+    <select id="STK_ASSET_SELECT" resultMap="StkAssetMap" parameterType="com.szkingdom.data.DataStkAsset">
+        select
+        CUST_CODE,CUACCT_CODE,INT_ORG,STKEX,STKBD,STKPBU,TRDACCT,CURRENCY,
+        STK_CODE,STK_BLN,STK_AVL,STK_FRZ,STK_UFZ,STK_NTRD,STK_TRD_FRZ,STK_TRD_UFZ,
+        STK_TRD_OTD,STK_OTD_AVL,STK_TRD_BLN,SUBSYS_SN
+        from STK_ASSET
+	where 1=1
+        <if test="cuacctCode > 0">
+            and CUACCT_CODE = #{cuacctCode}
+        </if>
+        <if test="trdacct != null and trdacct != '' ">
+            and TRDACCT = #{trdacct}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="stkCode != null and stkCode != '' ">
+            and STK_CODE = #{stkCode}
+        </if>
+        <if test="stkpbu != null and stkpbu != '' ">
+            and STKPBU = #{stkpbu}
+        </if>
+	<if test="stkex != null"> 
+	    and STKEX = #{stkex}
+	</if>
+	<if test="custCode > 0">
+            and CUST_CODE = #{custCode}
+        </if>
+    </select>
+
+    <select id="STK_ASSET_SELECT_LOCK" resultMap="StkAssetMap" parameterType="com.szkingdom.data.DataStkAsset">
+        select
+        CUST_CODE,CUACCT_CODE,INT_ORG,STKEX,STKBD,STKPBU,TRDACCT,CURRENCY,
+        STK_CODE,STK_BLN,STK_AVL,STK_FRZ,STK_UFZ,STK_NTRD,STK_TRD_FRZ,STK_TRD_UFZ,
+        STK_TRD_OTD,STK_OTD_AVL,STK_TRD_BLN,SUBSYS_SN
+        from STK_ASSET
+        where  CUACCT_CODE = #{cuacctCode}
+        and TRDACCT = #{trdacct}
+        and STKBD = #{stkbd}
+        and STK_CODE = #{stkCode}
+        and STKPBU = #{stkpbu}
+        and STKEX = #{stkex}
+        and CUST_CODE = #{custCode}
+        for update
+    </select>
+
+    <update id="STK_ASSET_UPDATE" parameterType="com.szkingdom.data.DataStkAsset">
+        update STK_ASSET set
+        CUST_CODE=#{custCode},CUACCT_CODE=#{cuacctCode},INT_ORG=#{intOrg},STKEX=#{stkex},
+        STKBD=#{stkbd},STKPBU=#{stkpbu},TRDACCT=#{trdacct},CURRENCY=#{currency},
+        STK_CODE=#{stkCode},STK_BLN=#{stkBln},STK_AVL=#{stkAvl},STK_FRZ=#{stkFrz},
+        STK_UFZ=#{stkUfz},STK_NTRD=#{stkNtrd},STK_TRD_FRZ=#{stkTrdFrz},STK_TRD_UFZ=#{stkTrdUfz},
+        STK_TRD_OTD=#{stkTrdOtd},STK_OTD_AVL=#{stkOtdAvl},STK_TRD_BLN=#{stkTrdBln},SUBSYS_SN=#{subsysSn}
+        where CUACCT_CODE = #{cuacctCode}
+        and TRDACCT = #{trdacct}
+        and STKBD = #{stkbd}
+        and STK_CODE = #{stkCode}
+        and STKPBU = #{stkpbu}
+        and STKEX = #{stkex}
+        and CUST_CODE = #{custCode}
+    </update>
+
+    <insert id="STK_ASSET_INSERT" parameterType="com.szkingdom.data.DataStkAsset">
+        insert into STK_ASSET(
+        CUST_CODE,CUACCT_CODE,INT_ORG,STKEX,STKBD,STKPBU,TRDACCT,CURRENCY,
+        STK_CODE,STK_BLN,STK_AVL,STK_FRZ,STK_UFZ,STK_NTRD,STK_TRD_FRZ,STK_TRD_UFZ,
+        STK_TRD_OTD,STK_OTD_AVL,STK_TRD_BLN,SUBSYS_SN)
+        values ( 
+        #{custCode},#{cuacctCode},#{intOrg},#{stkex},#{stkbd},#{stkpbu},#{trdacct},#{currency},
+        #{stkCode},#{stkBln},#{stkAvl},#{stkFrz},#{stkUfz},#{stkNtrd},#{stkTrdFrz},#{stkTrdUfz},
+        #{stkTrdOtd},#{stkOtdAvl},#{stkTrdBln},#{subsysSn})
+    </insert>
+
+
+</mapper>

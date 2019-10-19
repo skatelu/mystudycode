@@ -1,0 +1,74 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.Customer">
+    <resultMap id="CustomerMap" type="com.szkingdom.data.DataCustomer">
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUST_CLS"  property="custCls"  />
+        <result column="CUST_STATUS"  property="custStatus"  />
+        <result column="CARD_ID"  property="cardId"  />
+        <result column="CRITERION"  property="criterion"  />
+        <result column="RISK_FACTOR"  property="riskFactor"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="OPEN_DATE"  property="openDate"  />
+        <result column="CHANNELS"  property="channels"  />
+        <result column="REMARK"  property="remark"  />
+        <result column="CREDIT_LVL"  property="creditLvl"  />
+        <result column="REMOTE_PROTOCOL"  property="remoteProtocol"  />
+        <result column="CUST_SOURCE"  property="custSource"  />
+        <result column="SERVICE_LVL"  property="serviceLvl"  />
+        <result column="CUST_EXT_ATTR"  property="custExtAttr"  />
+        <result column="CLOSE_DATE"  property="closeDate"  />
+        <result column="SUBSYS_SN"  property="subsysSn"  />
+        <result column="IS_VIP"  property="isVip"  />
+        <result column="VIP_SUBSYS_SN"  property="vipSubsysSn"  />
+        <result column="COM_DISCOUNT"  property="comDiscount"  />
+        <result column="MARGIN_LVL"  property="marginLvl"  />
+        <result column="INVESTOR_TYPE"  property="investorType"  />
+        <result column="PROF_INVESTOR_EXP_DATE"  property="profInvestorExpDate"  />
+        <result column="RATING_LVL"  property="ratingLvl"  />
+        <result column="RATING_DATE"  property="ratingDate"  />
+        <result column="RATING_EXP_DATE"  property="ratingExpDate"  />
+        <result column="LOWEST_RISK_FLAG"  property="lowestRiskFlag"  />
+        <result column="INVEST_PRO"  property="investPro"  />
+        <result column="INVEST_LMT"  property="investLmt"  />
+        <result column="EXPECT_INCOME"  property="expectIncome"  />
+        <result column="IS_SIGN"  property="isSign"  />
+        <result column="ACT_SID"  property="actSid"  />
+        <result column="THD_SUBSYS_SN"  property="thdSubsysSn"  />
+        <result column="OPT_CUST_TYPE"  property="optCustType"  />
+    </resultMap>
+
+    <select id="CUSTOMER_SELECT" resultMap="CustomerMap" parameterType="com.szkingdom.data.DataCustomer">
+        select
+        CUST_CODE,CUST_NAME,CUST_TYPE,CUST_CLS,CUST_STATUS,CARD_ID,CRITERION,RISK_FACTOR,
+        INT_ORG,OPEN_DATE,CHANNELS,REMARK,CREDIT_LVL,REMOTE_PROTOCOL,CUST_SOURCE,SERVICE_LVL,
+        CUST_EXT_ATTR,CLOSE_DATE,SUBSYS_SN,IS_VIP,VIP_SUBSYS_SN,COM_DISCOUNT,MARGIN_LVL,INVESTOR_TYPE,
+        PROF_INVESTOR_EXP_DATE,RATING_LVL,RATING_DATE,RATING_EXP_DATE,LOWEST_RISK_FLAG,INVEST_PRO,INVEST_LMT,EXPECT_INCOME,
+        IS_SIGN,ACT_SID,THD_SUBSYS_SN,OPT_CUST_TYPE
+        from CUSTOMER
+        where 1=1
+        <if test="custCode > 0">
+            and CUST_CODE = #{custCode}
+        </if>
+    </select>
+
+    <insert id="CUSTOMER_INSERT" parameterType="com.szkingdom.data.DataCustomer">
+        insert into CUSTOMER(
+        CUST_CODE,CUST_NAME,CUST_TYPE,CUST_CLS,CUST_STATUS,CARD_ID,CRITERION,RISK_FACTOR,
+        INT_ORG,OPEN_DATE,CHANNELS,REMARK,CREDIT_LVL,REMOTE_PROTOCOL,CUST_SOURCE,SERVICE_LVL,
+        CUST_EXT_ATTR,CLOSE_DATE,SUBSYS_SN,IS_VIP,VIP_SUBSYS_SN,COM_DISCOUNT,MARGIN_LVL,INVESTOR_TYPE,
+        PROF_INVESTOR_EXP_DATE,RATING_LVL,RATING_DATE,RATING_EXP_DATE,LOWEST_RISK_FLAG,INVEST_PRO,INVEST_LMT,EXPECT_INCOME,
+        IS_SIGN,ACT_SID,THD_SUBSYS_SN,OPT_CUST_TYPE)
+        values (
+        #{custCode},#{custName},#{custType},#{custCls},#{custStatus},#{cardId},#{criterion},#{riskFactor},
+        #{intOrg},#{openDate},#{channels},#{remark},#{creditLvl},#{remoteProtocol},#{custSource},#{serviceLvl},
+        #{custExtAttr},#{closeDate},#{subsysSn},#{isVip},#{vipSubsysSn},#{comDiscount},#{marginLvl},#{investorType},
+        #{profInvestorExpDate},#{ratingLvl},#{ratingDate},#{ratingExpDate},#{lowestRiskFlag},#{investPro},#{investLmt},#{expectIncome},
+        #{isSign},#{actSid},#{thdSubsysSn},#{optCustType})
+    </insert>
+
+</mapper>

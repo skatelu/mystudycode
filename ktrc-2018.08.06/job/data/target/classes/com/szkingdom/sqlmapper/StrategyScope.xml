@@ -1,0 +1,37 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StrategyScope">
+    <resultMap id="StrategyScopeMap" type="com.szkingdom.data.DataStrategyScope">
+        <result column="MARGIN_STRATEGY"  property="marginStrategy"  />
+        <result column="SCOPE_NO"  property="scopeNo"  />
+        <result column="EDAY_SCOPE_NO"  property="edayScopeNo"  />
+        <result column="SCOPE_TYPE"  property="scopeType"  />
+        <result column="SCOPE_BGN"  property="scopeBgn"  />
+        <result column="BGN_INCLUDE"  property="bgnInclude"  />
+        <result column="SCOPE_END"  property="scopeEnd"  />
+        <result column="END_INCLUDE"  property="endInclude"  />
+    </resultMap>
+
+    <select id="STRATEGY_SCOPE_SELECT" resultMap="StrategyScopeMap" parameterType="com.szkingdom.data.DataStrategyScope">
+        select
+        MARGIN_STRATEGY,SCOPE_NO,EDAY_SCOPE_NO,SCOPE_TYPE,SCOPE_BGN,BGN_INCLUDE,SCOPE_END,END_INCLUDE
+        from STRATEGY_SCOPE
+        where 1=1
+        <if test="marginStrategy != null and marginStrategy != ' ' and marginStrategy != ''">
+            and  MARGIN_STRATEGY = #{marginStrategy}
+        </if>
+        <if test="scopeNo >= 0 ">
+            and SCOPE_NO = #{scopeNo}
+        </if>
+    </select>
+
+    <insert id="STRATEGY_SCOPE_INSERT" parameterType="com.szkingdom.data.DataStrategyScope">
+        insert into STRATEGY_SCOPE(
+        MARGIN_STRATEGY,SCOPE_NO,EDAY_SCOPE_NO,SCOPE_TYPE,SCOPE_BGN,BGN_INCLUDE,SCOPE_END,END_INCLUDE)
+        values ( 
+        #{marginStrategy},#{scopeNo},#{edayScopeNo},#{scopeType},#{scopeBgn},#{bgnInclude},#{scopeEnd},#{endInclude})
+    </insert>
+
+</mapper>

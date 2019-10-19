@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+
+    <service service_code="RAWS00001" service_name="总览屏仪表图" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskAllBrowseScreen_gaugeChart" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RAWS00002" service_name="总览屏饼图" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskAllBrowseScreen_pieChart" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RAWS00003" service_name="总览屏折线图" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskAllBrowseScreen_lineChart" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RAWS00004" service_name="总览屏柱图" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskAllBrowseScreen_barChart" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RAWS00005" service_name="总览屏表格" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskAllBrowseScreen_tableChart" business_type="3"/>
+        </businesses>
+    </service>
+
+</services>

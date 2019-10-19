@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+
+    <bex bex_code="QueryIndicatorOverview" bex_name="风险指标监控总览查询" bex_type="4" page_mode="0" attr1="QueryIndicatorOverview" />
+    
+    <bex bex_code="QueryRiskInfoAsset" bex_name="持仓类风险信息查询" bex_type="4" page_mode="0" attr1="QueryRiskInfoAsset" />
+
+   	<bex bex_code="QueryBizAtrrMenu" bex_name="风险指标监控总览菜单树状查询" bex_type="4" page_mode="0" attr1="QueryBizAtrrMenu" />
+   	<bex bex_code="QueryIndicatorClsMenu" bex_name="风险指标监控总览菜单树状查询" bex_type="4" page_mode="0" attr1="QueryIndicatorClsMenu" />
+   	<bex bex_code="QueryIndicatorOverviewMenu" bex_name="风险指标监控总览菜单树状查询" bex_type="4" page_mode="0" attr1="QueryIndicatorOverviewMenu" />
+
+</bexs>

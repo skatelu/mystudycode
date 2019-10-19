@@ -1,0 +1,49 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.AgrBuybkUndlInfo">
+    <resultMap id="AgrBuybkUndlInfoMap" type="com.szkingdom.data.DataAgrBuybkUndlInfo">
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="AGR_BUYBK_VAST_CODE"  property="agrBuybkVastCode"  />
+        <result column="PRICE_TYPE"  property="priceType"  />
+        <result column="ORG_TRD_PRICE"  property="orgTrdPrice"  />
+        <result column="CONVERT_RATE"  property="convertRate"  />
+        <result column="TOTAL_SHARE_CAPITAL"  property="totalShareCapital"  />
+        <result column="LAST_CONT_AMT"  property="lastContAmt"  />
+        <result column="LAST_BUY_AMT"  property="lastBuyAmt"  />
+        <result column="DAY_BUY_AMT"  property="dayBuyAmt"  />
+    </resultMap>
+
+
+    <select id="AGR_BUYBK_UNDL_INFO_SELECT" resultMap="AgrBuybkUndlInfoMap" parameterType="com.szkingdom.data.DataAgrBuybkUndlInfo">
+        select
+        STKBD,STK_CODE,AGR_BUYBK_VAST_CODE,PRICE_TYPE,ORG_TRD_PRICE,CONVERT_RATE,TOTAL_SHARE_CAPITAL,LAST_CONT_AMT,
+        LAST_BUY_AMT,DAY_BUY_AMT
+        from AGR_BUYBK_UNDL_INFO
+        where STKBD = #{stkbd}
+        and STK_CODE = #{stkCode}
+    </select>
+
+     <select id="AGR_BUYBK_UNDL_INFO_STK_TOTAL_ATM_SELECT" resultMap="AgrBuybkUndlInfoMap" parameterType="com.szkingdom.data.DataAgrBuybkUndlInfo">
+        select sum(LAST_CONT_AMT) as LAST_CONT_AMT,
+        sum(LAST_BUY_AMT) as LAST_BUY_AMT,
+        sum(DAY_BUY_AMT) as DAY_BUY_AMT
+        from AGR_BUYBK_UNDL_INFO
+        where STKBD = #{stkbd}
+        and STK_CODE = #{stkCode}
+    </select>
+    
+
+    <insert id="AGR_BUYBK_UNDL_INFO_INSERT" parameterType="com.szkingdom.data.DataAgrBuybkUndlInfo">
+        insert into AGR_BUYBK_UNDL_INFO(
+        STKBD,STK_CODE,AGR_BUYBK_VAST_CODE,PRICE_TYPE,ORG_TRD_PRICE,CONVERT_RATE,TOTAL_SHARE_CAPITAL,LAST_CONT_AMT,
+        LAST_BUY_AMT,DAY_BUY_AMT)
+        values ( 
+        #{stkbd},#{stkCode},#{agrBuybkVastCode},#{priceType},#{orgTrdPrice},#{convertRate},#{totalShareCapital},#{lastContAmt},
+        #{lastBuyAmt},#{dayBuyAmt})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,41 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkPlgUndlInfo">
+    <resultMap id="StkPlgUndlInfoMap" type="com.szkingdom.data.DataStkPlgUndlInfo">
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="PRICE_TYPE"  property="priceType"  />
+        <result column="ORG_TRD_PRICE"  property="orgTrdPrice"  />
+        <result column="CON_RATE"  property="conRate"  />
+        <result column="LM_CON_RATE"  property="lmConRate"  />
+        <result column="TOTAL_SHARE_CAPITAL"  property="totalShareCapital"  />
+        <result column="LAST_CONT_AMT"  property="lastContAmt"  />
+        <result column="LAST_BUY_AMT"  property="lastBuyAmt"  />
+        <result column="DAY_BUY_AMT"  property="dayBuyAmt"  />
+    </resultMap>
+
+
+    <select id="STK_PLG_UNDL_INFO_SELECT" resultMap="StkPlgUndlInfoMap" parameterType="com.szkingdom.data.DataStkPlgUndlInfo">
+        select
+        STKBD,STK_CODE,PRICE_TYPE,ORG_TRD_PRICE,CON_RATE,LM_CON_RATE,TOTAL_SHARE_CAPITAL,LAST_CONT_AMT,
+        LAST_BUY_AMT,DAY_BUY_AMT
+        from STK_PLG_UNDL_INFO
+        where 1=1
+        <if test="stkbd != null and stkbd != ''"> and STKBD = #{stkbd}</if>
+        <if test="stkCode != null and stkCode != ''"> and STK_CODE = #{stkCode}</if>
+    </select>
+
+
+    <insert id="STK_PLG_UNDL_INFO_INSERT" parameterType="com.szkingdom.data.DataStkPlgUndlInfo">
+        insert into STK_PLG_UNDL_INFO(
+        STKBD,STK_CODE,PRICE_TYPE,ORG_TRD_PRICE,CON_RATE,LM_CON_RATE,TOTAL_SHARE_CAPITAL,LAST_CONT_AMT,
+        LAST_BUY_AMT,DAY_BUY_AMT)
+        values ( 
+        #{stkbd},#{stkCode},#{priceType},#{orgTrdPrice},#{conRate},#{lmConRate},#{totalShareCapital},#{lastContAmt},
+        #{lastBuyAmt},#{dayBuyAmt})
+    </insert>
+
+
+</mapper>

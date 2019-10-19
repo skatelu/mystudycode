@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:b3mn="http://b3mn.org/2007/b3mn"
+xmlns:ext="http://b3mn.org/2007/ext"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:atom="http://b3mn.org/2007/atom+xhtml">
+<head profile="http://purl.org/NET/erdf/profile">
+<meta charset="UTF-8">
+<title>KJDP4.0 流程设计器</title>
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./js/main"></script>
+<link rel="Stylesheet" media="screen" href="./css/custom-style.css" type="text/css" />
+</head>
+<body>
+	<div id="main" class="kui-layout" kui-options="fit:true">
+		<div kui-options="region:'north',border:false" style="height:28px;width:100%;overflow:hidden" 
+			class="x-panel-body x-panel-body-noheader x-panel-body-noborder">
+			<div id="toolbar" style="heigth:20px;" class="north_view"></div>
+		</div>
+		<div id="eastproperty" kui-options="region:'east',split:true" title="对象属性" style="width:220px;">
+			<table id="propertyPanel" class="kui-propertygrid" 
+			kui-options="fit:true,fitColumns:true,showGroup:true,scrollbarSize:0,pagination:false,columns: [[{
+					field: 'name',
+					title: '属性名称',
+					width: 100,
+					sortable: true
+				},
+				{
+					field: 'value',
+					title: '属性值',
+					width: 100,
+					resizable: false
+				}]]"></table>
+		</div>
+		<div id="delegateTaskDialog" style="display:none">
+			<table id="allocation"></table>
+		</div>
+		<div kui-options="region:'west',split:true" title="流程引擎对象" style="width:150px;padding:0px;">
+			<div id="objNode"></div>
+		</div>
+		<div kui-options="region:'center'">
+			<div id="divSvg" style="position:relative"></div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskFactorSources">
+    <resultMap id="RiskFactorSourcesMap" type="com.szkingdom.data.DataRiskFactorSources">
+        <result column="FACTOR_ID"  property="factorId"  />
+        <result column="STK_BIZ"  property="stkBiz"  />
+        <result column="STK_BIZ_ACTION"  property="stkBizAction"  />
+        <result column="DATA_ID"  property="dataId"  />
+    </resultMap>
+
+
+    <select id="RISK_FACTOR_SOURCES_SELECT" resultMap="RiskFactorSourcesMap" parameterType="com.szkingdom.data.DataRiskFactorSources">
+        select
+        FACTOR_ID,STK_BIZ,STK_BIZ_ACTION,DATA_ID
+        from RISK_FACTOR_SOURCES
+    </select>
+
+
+    <insert id="RISK_FACTOR_SOURCES_INSERT" parameterType="com.szkingdom.data.DataRiskFactorSources">
+        insert into RISK_FACTOR_SOURCES(
+        FACTOR_ID,STK_BIZ,STK_BIZ_ACTION,DATA_ID)
+        values ( 
+        #{factorId},#{stkBiz},#{stkBizAction},#{dataId})
+    </insert>
+
+
+
+    <update id="RISK_FACTOR_SOURCES_UPDATE" parameterType="com.szkingdom.data.DataRiskFactorSources">
+        update RISK_FACTOR_SOURCES set
+        FACTOR_ID = #{factorId},STK_BIZ = #{stkBiz},STK_BIZ_ACTION = #{stkBizAction},
+        DATA_ID = #{dataId}
+    </update>
+
+
+</mapper>

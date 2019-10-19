@@ -1,0 +1,30 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptStkexPosiLmt">
+    <resultMap id="OptStkexPosiLmtMap" type="com.szkingdom.data.DataOptStkexPosiLmt">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="LS_FLAG"  property="lsFlag"  />
+        <result column="STKEX_LMT_ATTR"  property="stkexLmtAttr"  />
+        <result column="OPT_POSI_LQTY"  property="optPosiLqty"  />
+    </resultMap>
+
+
+    <select id="OPT_STKEX_POSI_LMT_SELECT" resultMap="OptStkexPosiLmtMap" parameterType="com.szkingdom.data.DataOptStkexPosiLmt">
+        select
+        STKEX,STKBD,LS_FLAG,STKEX_LMT_ATTR,OPT_POSI_LQTY
+        from OPT_STKEX_POSI_LMT
+    </select>
+
+
+    <insert id="OPT_STKEX_POSI_LMT_INSERT" parameterType="com.szkingdom.data.DataOptStkexPosiLmt">
+        insert into OPT_STKEX_POSI_LMT(
+        STKEX,STKBD,LS_FLAG,STKEX_LMT_ATTR,OPT_POSI_LQTY)
+        values ( 
+        #{stkex},#{stkbd},#{lsFlag},#{stkexLmtAttr},#{optPosiLqty})
+    </insert>
+
+
+</mapper>

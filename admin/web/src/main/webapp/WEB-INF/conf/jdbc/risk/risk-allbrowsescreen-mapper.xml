@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+	
+	<select id="RiskAllBrowseScreen_gaugeChart" parameterType="jdbcMap" resultType="jdbcMap">
+	    SELECT long_to_rate(A.OPEN_AMT_USEED_RATE) OPEN_AMT_USEED_RATE, 
+	    long_to_money(A.MARGIN_TOTAL_AMT) MARGIN_TOTAL_AMT, 
+	    long_to_money(A.MARGIN_USED) MARGIN_USED, 
+	    long_to_money(A.MARGIN_AVL) MARGIN_AVL, 
+		long_to_money(MIN(B.MARGIN_AVL)) AS MARGIN_AVL_MIN
+		FROM RISK_INFO_CORP_FUND A, RISK_LOG_CORP_FUND B
+		WHERE A.MARGIN_CORP_ACCT = '041000000000100656'
+		AND A.CURRENCY = '0'
+		AND A.OCC_DATE = #{OCC_DATE}
+		AND A.MARGIN_CORP_ACCT = B.MARGIN_CORP_ACCT
+		AND A.CURRENCY = B.CURRENCY
+		AND A.OCC_DATE = B.OCC_DATE
+		GROUP BY A.OPEN_AMT_USEED_RATE, A.MARGIN_TOTAL_AMT, A.MARGIN_USED, A.MARGIN_AVL
+	</select>
+	
+	<select id="RiskAllBrowseScreen_pieChart" parameterType="jdbcMap" resultType="jdbcMap">
+	    SELECT Q.RISK_HIGHT_COUNT,
+       Z.RISK_LOW_COUNT,
+       Y.TOTAL_COUNT,
+       (Y.TOTAL_COUNT - Q.RISK_HIGHT_COUNT - Z.RISK_LOW_COUNT) AS RISK_WARN_COUNT
+  		FROM (SELECT SUM(T.RISK_HIGHT_COUNT) AS RISK_HIGHT_COUNT
+           FROM (SELECT COUNT(A.CUST_CODE) AS RISK_HIGHT_COUNT
+                   FROM RISK_INFO_FUND A,
+                        (SELECT B.INDICATOR_ID,
+                                C.CUST_CODE,
+                                CASE
+                                  WHEN B.THRES_DIRECT = '0' AND
+                                       B.RISK_TREND = '0' THEN
+                                   '1'
+                                  WHEN B.THRES_DIRECT = '0' AND
+                                       B.RISK_TREND = '1' THEN
+                                   CAST(C.THRES_CNT AS CHAR)
+                                  WHEN B.THRES_DIRECT = '1' AND
+                                       B.RISK_TREND = '0' THEN
+                                   CAST(C.THRES_CNT AS CHAR)
+                                  WHEN B.THRES_DIRECT = '1' AND
+                                       B.RISK_TREND = '1' THEN
+                                   '1'
+                                  ELSE
+                                   '0'
+                                END AS RISK_NO_HIGHT
+                           FROM INDICATOR_IDS_CFG B, CUST_INDICATOR_THRES C
+                          WHERE B.INDICATOR_ID = '60004001'
+                            AND B.INDICATOR_ID_TYPE = '1' 
+                            AND B.INDICATOR_ID = C.INDICATOR_ID) X
+                  WHERE A.RISK_VALID_FLAG = '1'
+                    AND A.INDICATOR_ID = X.INDICATOR_ID
+                    AND A.CUST_CODE = X.CUST_CODE
+                    AND A.THRES_NO = X.RISK_NO_HIGHT
+                 UNION ALL
+                 SELECT COUNT(A.CUST_CODE) AS RISK_HIGHT_COUNT
+                   FROM RISK_INFO_FUND A,
+                        (SELECT B.INDICATOR_ID,
+                                CASE
+                                  WHEN B.THRES_DIRECT = '0' AND
+                                       B.RISK_TREND = '0' THEN
+                                   '1'
+                                  WHEN B.THRES_DIRECT = '0' AND
+                                       B.RISK_TREND = '1' THEN
+                                   CAST(C.THRES_CNT AS CHAR)
+                                  WHEN B.THRES_DIRECT = '1' AND
+                                       B.RISK_TREND = '0' THEN
+                                   CAST(C.THRES_CNT AS CHAR)
+                                  WHEN B.THRES_DIRECT = '1' AND
+                                       B.RISK_TREND = '1' THEN
+                                   '1'
+                                  ELSE
+                                   '0'
+                                END AS RISK_NO_HIGHT
+                           FROM INDICATOR_IDS_CFG B, INDICATOR_THRESHOLD C
+                          WHERE B.INDICATOR_ID = '60004001'
+                            AND B.INDICATOR_ID_TYPE = '0' 
+                            AND B.INDICATOR_ID = C.INDICATOR_ID) X
+                  WHERE A.RISK_VALID_FLAG = '1'
+                    AND A.INDICATOR_ID = X.INDICATOR_ID
+                    AND A.THRES_NO = X.RISK_NO_HIGHT) T) Q,
+        (SELECT SUM(W.RISK_LOW_COUNT) AS RISK_LOW_COUNT
+           FROM (SELECT COUNT(A.CUST_CODE) AS RISK_LOW_COUNT
+                   FROM RISK_INFO_FUND A,
+                        (SELECT B.INDICATOR_ID,
+                                C.CUST_CODE,
+                                CASE
+                                  WHEN B.THRES_DIRECT = '0' AND
+                                       B.RISK_TREND = '0' THEN
+                                   CAST(C.THRES_CNT AS CHAR)
+                                  WHEN B.THRES_DIRECT = '0' AND
+                                       B.RISK_TREND = '1' THEN
+                                   '1'
+                                  WHEN B.THRES_DIRECT = '1' AND
+                                       B.RISK_TREND = '0' THEN
+                                   '1'
+                                  WHEN B.THRES_DIRECT = '1' AND
+                                       B.RISK_TREND = '1' THEN
+                                   CAST(C.THRES_CNT AS CHAR)
+                                  ELSE
+                                   '0'
+                                END AS RISK_NO_LOW
+                           FROM INDICATOR_IDS_CFG B, CUST_INDICATOR_THRES C
+                          WHERE B.INDICATOR_ID = '60004001'
+                            AND B.INDICATOR_ID_TYPE = '1' 
+                            AND B.INDICATOR_ID = C.INDICATOR_ID) X
+                  WHERE A.RISK_VALID_FLAG = '1'
+                    AND A.INDICATOR_ID = X.INDICATOR_ID
+                    AND A.CUST_CODE = X.CUST_CODE
+                    AND A.THRES_NO = X.RISK_NO_LOW
+                 UNION ALL
+                 SELECT COUNT(A.CUST_CODE) AS RISK_LOW_COUNT
+                   FROM RISK_INFO_FUND A,
+                        (SELECT B.INDICATOR_ID,
+                                CASE
+                                  WHEN B.THRES_DIRECT = '0' AND
+                                       B.RISK_TREND = '0' THEN
+                                   CAST(C.THRES_CNT AS CHAR)
+                                  WHEN B.THRES_DIRECT = '0' AND
+                                       B.RISK_TREND = '1' THEN
+                                   '1'
+                                  WHEN B.THRES_DIRECT = '1' AND
+                                       B.RISK_TREND = '0' THEN
+                                   '1'
+                                  WHEN B.THRES_DIRECT = '1' AND
+                                       B.RISK_TREND = '1' THEN
+                                   CAST(C.THRES_CNT AS CHAR)
+                                  ELSE
+                                   '0'
+                                END AS RISK_NO_LOW
+                           FROM INDICATOR_IDS_CFG B, INDICATOR_THRESHOLD C
+                          WHERE B.INDICATOR_ID = '60004001'
+                            AND B.INDICATOR_ID_TYPE = '0' 
+                            AND B.INDICATOR_ID = C.INDICATOR_ID) X
+                  WHERE A.RISK_VALID_FLAG = '1'
+                    AND A.INDICATOR_ID = X.INDICATOR_ID
+                    AND A.THRES_NO = X.RISK_NO_LOW) W) Z,
+        (SELECT COUNT(CUST_CODE) AS TOTAL_COUNT FROM RISK_INFO_FUND) Y
+	</select>
+	
+	<select id="RiskAllBrowseScreen_lineChart" parameterType="jdbcMap" resultType="jdbcMap">
+	    
+	</select>
+	
+	<select id="RiskAllBrowseScreen_barChart" parameterType="jdbcMap" resultType="jdbcMap">
+	    SELECT A.ORG_NAME, X.INT_ORG, (X.TOTAL_POSI / 1000) as TOTAL_POSI FROM UPM_ORG A,
+		(SELECT INT_ORG, SUM(TOTAL_POSI) AS TOTAL_POSI
+		FROM OPT_CUST_UNDL_POSI 
+		WHERE OPT_UNDL_CLS = 'D' and OPT_UNDL_CODE = '510050'
+		GROUP BY INT_ORG) X
+		WHERE CAST(A.ORG_CODE AS SMALLINT ) = X.INT_ORG
+		ORDER BY TOTAL_POSI DESC LIMIT 8
+	</select>
+	
+	<select id="RiskAllBrowseScreen_tableChart" parameterType="jdbcMap" resultType="jdbcMap">
+	    
+	</select>
+	
+</mapper>
+

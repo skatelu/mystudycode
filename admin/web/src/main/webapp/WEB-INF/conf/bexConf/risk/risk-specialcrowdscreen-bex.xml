@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+	<bex bex_code="RiskSpecialCrowdScreen_view" bex_name="特殊人群客户保证金总览 "
+		bex_type="4" page_mode="0" attr1="RiskSpecialCrowdScreen_view" />
+
+	<bex bex_code="RiskSpecialCrowdScreen_barChart" bex_name="特殊人群客户保证金条形图"
+		bex_type="4" page_mode="0" attr1="RiskSpecialCrowdScreen_barChart" />
+
+	<bex bex_code="RiskSpecialCrowdScreen_history" bex_name="特殊人群客户保证金个人历史记录"
+		bex_type="4" page_mode="0" attr1="RiskSpecialCrowdScreen_history" />
+</bexs>

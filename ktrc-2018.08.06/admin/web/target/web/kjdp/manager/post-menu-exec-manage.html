@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗位菜单访问权限设置</title>
+    <link rel="stylesheet" href="./css/uem-emp.css"/>
+    <script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/post-menu-exec-manage" data-iskui="true"></script>
+</head>
+<body>
+<div id="postMenu">
+    <fieldset class="kui-fieldset" kui-options="closable:false,title:'岗位信息'">
+    <div class="search-box clearfix">
+        <div class="post-dl" style="width:250px;">
+            <span class="form-label">岗位代码：</span>
+            <input id="searchKey"/>
+        </div>
+        <div class="post-dl">
+            <a class="kui-linkbutton" kui-options="iconCls:'icon-search',onClick:'searchPostMenu'">查询</a>
+            <a class="kui-linkbutton" kui-options="iconCls:'icon-cancel',onClick:'resetPostMenu'">清空</a>
+        </div>
+    </div>
+    </fieldset>
+    <div class="menu-manage-box clearfix">
+        <div class="execution-box"></div>
+    </div>
+</div>
+
+
+</body>
+</html>

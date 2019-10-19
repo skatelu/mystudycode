@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+    <select id="kjdp_dictJoinSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            DICT.DICT_CODE,
+            DICT.DICT_NAME,
+            DICT.MAINTAIN_FLAG,
+            DICT.DICT_TYPE,
+            ITEMS.DICT_ITEM,
+            ITEMS.DICT_ITEM_NAME,
+            ITEMS.DICT_ORD,
+            ITEMS.ORG_CODE
+        FROM UPM_DICTIONARY DICT
+        LEFT JOIN UPM_DICT_ITEMS ITEMS ON DICT.DICT_CODE = ITEMS.DICT_CODE
+        <where>
+            <if test='DICT_CODE != null and DICT_CODE != ""'>DICT.DICT_CODE = #{DICT_CODE}</if>
+            <if test='DICT_TYPE != null and DICT_TYPE != ""'>AND DICT.DICT_TYPE = #{DICT_TYPE}</if>
+            <if test='ORG_CODE != null and ORG_CODE != ""'>AND ITEMS.ORG_CODE = #{ORG_CODE}</if>
+        </where>
+        ORDER BY DICT.DICT_CODE, ITEMS.DICT_ORD, ITEMS.DICT_ITEM
+    </select>
+
+    <select id="kjdp_dictionarySelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT DISTINCT
+            DICT.DICT_CODE,
+            DICT.DICT_NAME,
+            DICT.MAINTAIN_FLAG,
+            DICT.DICT_TYPE
+        FROM UPM_DICTIONARY DICT
+        <if test='DICT_ITEM_NAME != null and DICT_ITEM_NAME != ""'>
+            LEFT JOIN UPM_DICT_ITEMS ITEMS ON DICT.DICT_CODE = ITEMS.DICT_CODE
+        </if>
+        <where>
+            <if test='DICT_NAME != null and DICT_NAME != ""'>DICT.DICT_NAME LIKE '%${DICT_NAME}%'</if>
+            <if test='DICT_ITEM_NAME != null and DICT_ITEM_NAME != ""'>ITEMS.DICT_ITEM_NAME LIKE '%${DICT_ITEM_NAME}%'</if>
+            <if test='DICT_CODE != null and DICT_CODE != ""'>DICT.DICT_CODE = #{DICT_CODE}</if>
+            <if test='DICT_TYPE != null and DICT_TYPE != ""'>AND DICT.DICT_TYPE = #{DICT_TYPE}</if>
+        </where>
+        ORDER BY DICT_CODE
+    </select>
+
+    <insert id="kjdp_dictionaryInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_DICTIONARY (
+            DICT_CODE,
+            DICT_NAME,
+            MAINTAIN_FLAG,
+            DICT_TYPE
+        ) VALUES (
+            #{DICT_CODE},
+            #{DICT_NAME},
+            #{MAINTAIN_FLAG},
+            #{DICT_TYPE}
+        )
+    </insert>
+
+    <update id="kjdp_dictionaryUpdate" parameterType="jdbcMap">
+        UPDATE UPM_DICTIONARY
+        <set>
+            <if test='DICT_NAME != null and DICT_NAME != ""'>DICT_NAME = #{DICT_NAME},</if>
+            <if test='MAINTAIN_FLAG != null and MAINTAIN_FLAG != ""'>MAINTAIN_FLAG = #{MAINTAIN_FLAG},</if>
+            <if test='DICT_TYPE != null and DICT_TYPE != ""'>DICT_TYPE = #{DICT_TYPE},</if>
+        </set>
+        WHERE
+            DICT_CODE = #{DICT_CODE}
+    </update>
+
+    <delete id="kjdp_dictionaryDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_DICTIONARY
+        WHERE
+            DICT_CODE = #{DICT_CODE}
+    </delete>
+
+    <select id="kjdp_dictItemSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            DICT_CODE,
+            DICT_ITEM,
+            DICT_ITEM_NAME,
+            DICT_ORD,
+            ORG_CODE
+        FROM UPM_DICT_ITEMS
+        <where>
+            <if test='DICT_CODE != null and DICT_CODE != ""'>DICT_CODE = #{DICT_CODE}</if>
+            <if test='DICT_ITEM != null and DICT_ITEM != ""'>AND DICT_ITEM = #{DICT_ITEM}</if>
+            <if test='ORG_CODE != null and ORG_CODE != ""'>AND ORG_CODE = #{ORG_CODE}</if>
+        </where>
+        ORDER BY DICT_CODE,DICT_ORD
+    </select>
+
+    <insert id="kjdp_dictItemInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_DICT_ITEMS (
+            DICT_CODE,
+            DICT_ITEM,
+            DICT_ITEM_NAME,
+            DICT_ORD,
+            ORG_CODE
+        ) VALUES (
+            #{DICT_CODE},
+            #{DICT_ITEM},
+            #{DICT_ITEM_NAME},
+            #{DICT_ORD},
+            #{ORG_CODE}
+        )
+    </insert>
+
+    <update id="kjdp_dictItemUpdate" parameterType="jdbcMap">
+        UPDATE UPM_DICT_ITEMS
+        <set>
+            <if test='DICT_ITEM_NAME != null and DICT_ITEM_NAME != ""'>DICT_ITEM_NAME = #{DICT_ITEM_NAME},</if>
+            <if test='DICT_ORD != null'>DICT_ORD = #{DICT_ORD},</if>
+        </set>
+        WHERE
+            DICT_CODE = #{DICT_CODE} AND DICT_ITEM = #{DICT_ITEM} AND ORG_CODE = #{ORG_CODE}
+    </update>
+
+    <delete id="kjdp_dictItemDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_DICT_ITEMS
+        WHERE
+            DICT_CODE = #{DICT_CODE} AND DICT_ITEM = #{DICT_ITEM} AND ORG_CODE = #{ORG_CODE}
+    </delete>
+
+    <delete id="kjdp_dictItemsDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_DICT_ITEMS
+        WHERE DICT_CODE = #{DICT_CODE}
+    </delete>
+
+    <select id="kjdp_sysParamSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            PAR_CODE,
+            PAR_NAME,
+            DATA_TYPE,
+            MAINTAIN_FLAG,
+            PAR_TYPE,
+            PAR_VAL,
+            REMARK
+        FROM UPM_SYSPARAM
+        <where>
+            <if test='PAR_CODE != null and PAR_CODE != ""'>PAR_CODE = #{PAR_CODE}</if>
+            <if test='PAR_NAME != null and PAR_NAME != ""'>AND PAR_NAME LIKE '%${PAR_NAME}%'</if>
+            <if test='PAR_TYPE != null and PAR_TYPE != ""'>AND PAR_TYPE = #{PAR_TYPE}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_sysParamInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_SYSPARAM (
+            PAR_CODE,
+            PAR_NAME,
+            DATA_TYPE,
+            MAINTAIN_FLAG,
+            PAR_TYPE,
+            PAR_VAL,
+            REMARK
+        ) VALUES (
+            #{PAR_CODE},
+            #{PAR_NAME},
+            #{DATA_TYPE},
+            #{MAINTAIN_FLAG},
+            #{PAR_TYPE},
+            #{PAR_VAL},
+            #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_sysParamUpdate" parameterType="jdbcMap">
+        UPDATE UPM_SYSPARAM
+        <set>
+            <if test='PAR_NAME != null and PAR_NAME != ""'>PAR_NAME = #{PAR_NAME},</if>
+            <if test='DATA_TYPE != null and DATA_TYPE != ""'>DATA_TYPE = #{DATA_TYPE},</if>
+            <if test='MAINTAIN_FLAG != null and MAINTAIN_FLAG != ""'>MAINTAIN_FLAG = #{MAINTAIN_FLAG},</if>
+            <if test='PAR_TYPE != null and PAR_TYPE != ""'>PAR_TYPE = #{PAR_TYPE},</if>
+            <if test='PAR_VAL != null and PAR_VAL != ""'>PAR_VAL = #{PAR_VAL},</if>
+            <if test='REMARK != null and REMARK != ""'>REMARK = #{REMARK}</if>
+        </set>
+        WHERE PAR_CODE = #{PAR_CODE}
+    </update>
+
+    <delete id="kjdp_sysParamDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_SYSPARAM WHERE PAR_CODE = #{PAR_CODE}
+    </delete>
+
+    <select id="kjdp_menuSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            MENU_ID,
+            MENU_NAME,
+            KJDP_SPELL(MENU_NAME) AS MENU_SPELL,
+            PAR_MENU,
+            MENU_LVL,
+            MENU_LINK,
+            MENU_STA,
+            MENU_ICON,
+            REMARK
+        FROM UPM_MENU
+        <where>
+            <if test='MENU_ID != null and MENU_ID != ""'>MENU_ID = #{MENU_ID}</if>
+            <if test='MENU_STA != null and MENU_STA != ""'>AND MENU_STA = #{MENU_STA}</if>
+            <if test='MENU_NAME != null and MENU_NAME != ""'>AND MENU_NAME LIKE #{MENU_NAME}</if>
+            AND <include refid="kjdp_menuPermCond"/>
+        </where>
+        ORDER BY MENU_LVL, MENU_ID
+    </select>
+
+    <insert id="kjdp_menuInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_MENU (
+            MENU_ID,
+            MENU_NAME,
+            PAR_MENU,
+            MENU_LVL,
+            MENU_LINK,
+            MENU_STA,
+            MENU_ICON,
+            REMARK
+        ) VALUES (
+            #{MENU_ID},
+            #{MENU_NAME},
+            #{PAR_MENU},
+            #{MENU_LVL},
+            #{MENU_LINK},
+            #{MENU_STA},
+            #{MENU_ICON},
+            #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_menuUpdate" parameterType="jdbcMap">
+        UPDATE UPM_MENU
+        <set>
+            <if test='MENU_NAME != null and MENU_NAME != ""'>MENU_NAME = #{MENU_NAME},</if>
+            <if test='PAR_MENU != null and PAR_MENU != ""'>PAR_MENU = #{PAR_MENU},</if>
+            <if test='MENU_LINK != null and MENU_LINK != ""'>MENU_LINK = #{MENU_LINK},</if>
+            <if test='MENU_STA != null and MENU_STA != ""'>MENU_STA = #{MENU_STA},</if>
+            <if test='MENU_ICON != null and MENU_ICON != ""'>MENU_ICON = #{MENU_ICON},</if>
+            <if test='REMARK != null and REMARK != ""'>REMARK = #{REMARK},</if>
+        </set>
+        WHERE MENU_ID = #{MENU_ID}
+    </update>
+
+    <delete id="kjdp_menuDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_MENU WHERE MENU_ID = #{MENU_ID}
+    </delete>
+
+    <select id="kjdp_menuServiceSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            MENU_ID,
+            SERVICE_CODE
+        FROM UPM_MENU_SERVICE
+        <where>
+            <if test='MENU_ID != null and MENU_ID != ""'>MENU_ID = #{MENU_ID}</if>
+            <if test='SERVICE_CODE != null and SERVICE_CODE != ""'>AND SERVICE_CODE = #{SERVICE_CODE}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_menuServiceInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_MENU_SERVICE (
+            MENU_ID,
+            SERVICE_CODE
+        ) VALUES (
+            #{MENU_ID},
+            #{SERVICE_CODE}
+        )
+    </insert>
+
+    <delete id="kjdp_menuServiceDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_MENU_SERVICE WHERE MENU_ID = #{MENU_ID} AND SERVICE_CODE = #{SERVICE_CODE}
+    </delete>
+
+    <select id="kjdp_systemSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            SYS_CODE,
+            SYS_NAME,
+            SYS_STATUS,
+            REMARK
+        FROM UPM_SYSTEM
+        <where>
+            <if test='SYS_CODE != null and SYS_CODE != ""'>SYS_CODE = #{SYS_CODE}</if>
+            <if test='SYS_STATUS != null and SYS_STATUS != ""'>AND SYS_STATUS = #{SYS_STATUS}</if>
+            <if test='SYS_NAME != null and SYS_NAME != ""'>AND SYS_NAME LIKE '%${SYS_NAME}%'</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_systemInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_SYSTEM (
+            SYS_CODE,
+            SYS_NAME,
+            SYS_STATUS,
+            REMARK
+        ) VALUES (
+            #{SYS_CODE},
+            #{SYS_NAME},
+            #{SYS_STATUS},
+            #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_systemUpdate" parameterType="jdbcMap">
+        UPDATE UPM_SYSTEM
+        <set>
+            <if test='SYS_NAME != null and SYS_NAME != ""'>SYS_NAME = #{SYS_NAME},</if>
+            <if test='SYS_STATUS != null and SYS_STATUS != ""'>SYS_STATUS = #{SYS_STATUS},</if>
+            <if test='REMARK != null and REMARK != ""'>REMARK = #{REMARK},</if>
+        </set>
+        WHERE SYS_CODE = #{SYS_CODE}
+    </update>
+
+    <delete id="kjdp_systemDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_SYSTEM WHERE SYS_CODE = #{SYS_CODE}
+    </delete>
+
+    <select id="kjdp_systemJoinSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+        US.SYS_CODE,
+        US.SYS_NAME,
+        US.SYS_STATUS,
+        US.REMARK,
+        USN.NODE_ID,
+        USN.ORG_CODES
+        FROM UPM_SYSTEM US
+        LEFT JOIN UPM_SYSTEM_NODE USN ON US.SYS_CODE = USN.SYS_CODE
+        <where>
+            <if test='SYS_CODE != null and SYS_CODE != ""'>US.SYS_CODE = #{SYS_CODE}</if>
+            <if test='SYS_STATUS != null and SYS_STATUS != ""'>US.SYS_STATUS = #{SYS_STATUS}</if>
+            <if test='SYS_NAME != null and SYS_NAME != ""'>US.SYS_NAME LIKE '%${SYS_NAME}%'</if>
+            <if test='NODE_ID != null and NODE_ID != ""'>USN.NODE_ID = #{NODE_ID}</if>
+        </where>
+    </select>
+
+    <select id="kjdp_systemNodeSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+        SYS_CODE,
+        NODE_ID,
+        NODE_NAME,
+        ORG_CODES
+        FROM UPM_SYSTEM_NODE
+        <where>
+            <if test='SYS_CODE != null and SYS_CODE != ""'>SYS_CODE = #{SYS_CODE}</if>
+            <if test='NODE_ID != null and NODE_ID != ""'>NODE_ID = #{NODE_ID}</if>
+            <if test='NODE_NAME != null and NODE_NAME != ""'>NODE_NAME LIKE '%${NODE_NAME}%'</if>
+            <if test='ORG_CODE != null and ORG_CODE != ""'>AND KJDP_SPLIT_CHARINDEX(ORG_CODES, #{ORG_CODE}, ',') > 0</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_systemNodeInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_SYSTEM_NODE (
+        SYS_CODE,
+        NODE_ID,
+        NODE_NAME,
+        ORG_CODES
+        ) VALUES (
+        #{SYS_CODE},
+        #{NODE_ID},
+        #{NODE_NAME},
+        #{ORG_CODES}
+        )
+    </insert>
+
+    <update id="kjdp_systemNodeUpdate" parameterType="jdbcMap">
+        UPDATE UPM_SYSTEM_NODE
+        <set>
+            <if test='ORG_CODES != null and ORG_CODES != ""'>ORG_CODES = #{ORG_CODES},</if>
+            <if test='NODE_NAME != null and NODE_NAME != ""'>NODE_NAME = #{NODE_NAME},</if>
+        </set>
+        WHERE SYS_CODE = #{SYS_CODE} AND NODE_ID = #{NODE_ID}
+    </update>
+
+    <delete id="kjdp_systemNodeDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_SYSTEM_NODE WHERE SYS_CODE = #{SYS_CODE} AND NODE_ID = #{NODE_ID}
+    </delete>
+
+    <select id="kjdp_serviceSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            SERVICE_CODE,
+            SERVICE_NAME,
+            STATUS,
+            LOG_FLAG,
+            DESCRIPTION
+        FROM UPM_SERVICE
+        <where>
+            <if test='SERVICE_CODE != null and SERVICE_CODE != ""'>SERVICE_CODE = #{SERVICE_CODE}</if>
+            <if test='SERVICE_NAME != null and SERVICE_NAME != ""'>AND SERVICE_NAME LIKE '%${SERVICE_NAME}%'</if>
+            <if test='STATUS != null and STATUS != ""'>AND STATUS = #{STATUS}</if>
+            <if test='LOG_FLAG != null and LOG_FLAG != ""'>AND LOG_FLAG = #{LOG_FLAG}</if>
+        </where>
+        ORDER BY SERVICE_CODE
+    </select>
+
+    <insert id="kjdp_serviceInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_SERVICE (
+            SERVICE_CODE,
+            SERVICE_NAME,
+            STATUS,
+            LOG_FLAG,
+            DESCRIPTION
+        ) VALUES (
+            #{SERVICE_CODE},
+            #{SERVICE_NAME},
+            #{STATUS},
+            #{LOG_FLAG},
+            #{DESCRIPTION}
+        )
+    </insert>
+
+    <update id="kjdp_serviceUpdate" parameterType="jdbcMap">
+        UPDATE UPM_SERVICE
+        <set>
+            <if test='SERVICE_NAME != null and SERVICE_NAME != ""'>SERVICE_NAME = #{SERVICE_NAME},</if>
+            <if test='STATUS != null and STATUS != ""'>STATUS = #{STATUS},</if>
+            <if test='LOG_FLAG != null and LOG_FLAG != ""'>LOG_FLAG = #{LOG_FLAG},</if>
+            <if test='DESCRIPTION != null and DESCRIPTION != ""'>DESCRIPTION = #{DESCRIPTION},</if>
+        </set>
+        WHERE SERVICE_CODE = #{SERVICE_CODE}
+    </update>
+
+    <delete id="kjdp_serviceDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_SERVICE
+        WHERE SERVICE_CODE = #{SERVICE_CODE}
+    </delete>
+
+    <select id="kjdp_serviceLogSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        <include refid="kjdp_pagePrefix"/>
+        SELECT
+            USL.LOG_ID,
+            USL.SERVICE_CODE,
+            US.SERVICE_NAME,
+            USL.CHANNEL,
+            USL.IDENTITY,
+            USL.ERROR_CODE,
+            USL.ERROR_MSG,
+            KJDP_TO_CHAR(USL.LOG_DATE) AS LOG_DATE,
+            USL.RUN_TIMES,
+            USL.REQ_ID,
+            USL.PARAM_DATA
+        FROM UPM_SERVICE_LOG USL
+        JOIN UPM_SERVICE US ON US.SERVICE_CODE = USL.SERVICE_CODE
+        <where>
+            <if test='SERVICE_CODE != null and SERVICE_CODE != ""'>SERVICE_CODE = #{SERVICE_CODE}</if>
+            <if test='CHANNEL != null and CHANNEL != ""'>AND CHANNEL = #{CHANNEL}</if>
+            <if test='IDENTITY != null and IDENTITY != ""'>AND IDENTITY = #{IDENTITY}</if>
+            <if test='ERROR_CODE != null and ERROR_CODE != ""'>AND ERROR_CODE = #{ERROR_CODE}</if>
+            <if test='LOG_DATE_BEG != null and LOG_DATE_BEG != ""'>AND LOG_DATE &gt;= '${LOG_DATE_BEG}'</if>
+            <if test='LOG_DATE_END != null and LOG_DATE_END != ""'>AND KJDP_TO_DATE(KJDP_TO_CHAR(LOG_DATE)) &lt;= '${LOG_DATE_END}'</if>
+            <if test='RUN_TIMES_BEG != null and RUN_TIMES_BEG != ""'>AND RUN_TIMES &gt;= '${RUN_TIMES_BEG}'</if>
+            <if test='RUN_TIMES_END != null and RUN_TIMES_END != ""'>AND RUN_TIMES &lt;= '${RUN_TIMES_END}'</if>
+            <if test='REQ_ID != null and REQ_ID != ""'>AND REQ_ID = #{REQ_ID}</if>
+        </where>
+        ORDER BY USL.LOG_ID DESC
+        <include refid="kjdp_pageSuffix"/>
+    </select>
+
+    <select id="kjdp_serviceLogSelect_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT COUNT(*) AS RS_ROWS FROM UPM_SERVICE_LOG
+        <where>
+            <if test='SERVICE_CODE != null and SERVICE_CODE != ""'>SERVICE_CODE = #{SERVICE_CODE}</if>
+            <if test='CHANNEL != null and CHANNEL != ""'>AND CHANNEL = #{CHANNEL}</if>
+            <if test='IDENTITY != null and IDENTITY != ""'>AND IDENTITY = #{IDENTITY}</if>
+            <if test='ERROR_CODE != null and ERROR_CODE != ""'>AND ERROR_CODE = #{ERROR_CODE}</if>
+            <if test='LOG_DATE_BEG != null and LOG_DATE_BEG != ""'>AND LOG_DATE &gt;= '${LOG_DATE_BEG}'</if>
+            <if test='LOG_DATE_END != null and LOG_DATE_END != ""'>AND KJDP_TO_DATE(KJDP_TO_CHAR(LOG_DATE)) &lt;= '${LOG_DATE_END}'</if>
+            <if test='RUN_TIMES_BEG != null and RUN_TIMES_BEG != ""'>AND RUN_TIMES &gt;= '${RUN_TIMES_BEG}'</if>
+            <if test='RUN_TIMES_END != null and RUN_TIMES_END != ""'>AND RUN_TIMES &lt;= '${RUN_TIMES_END}'</if>
+            <if test='REQ_ID != null and REQ_ID != ""'>AND REQ_ID = #{REQ_ID}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_serviceLogInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_SERVICE_LOG (
+            LOG_ID,
+            SERVICE_CODE,
+            CHANNEL,
+            IDENTITY,
+            ERROR_CODE,
+            ERROR_MSG,
+            LOG_DATE,
+            RUN_TIMES,
+            REQ_ID,
+            PARAM_DATA
+        ) VALUES (
+            KJDP_SEQ_NEXTVAL('SEQ_UPM_SERVICE_LOG_ID'),
+            #{SERVICE_CODE},
+            #{CHANNEL},
+            #{IDENTITY},
+            #{ERROR_CODE},
+            #{ERROR_MSG},
+            KJDP_GET_DATETIME(),
+            #{RUN_TIMES},
+            #{REQ_ID},
+            #{PARAM_DATA}
+        )
+    </insert>
+
+    <select id="kjdp_orgSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            ORG_CODE,
+            ORG_CLS,
+            ORG_TYPE,
+            ORG_NAME,
+            ORG_FULL_NAME,
+            ORG_STATUS,
+            PAR_ORG,
+            ORG_LVL,
+            ZIP_CODE,
+            ADDRESS,
+            ORG_TEL,
+            EMAIL,
+            FAX,
+            LINKMAN,
+            REMARK
+        FROM UPM_ORG
+        <where>
+            <if test='ORG_CODE != null and ORG_CODE != ""'>ORG_CODE = #{ORG_CODE}</if>
+            <if test='ORG_CLS != null and ORG_CLS != ""'>AND ORG_CLS = #{ORG_CLS}</if>
+            <if test='ORG_TYPE != null and ORG_TYPE != ""'>AND ORG_TYPE = #{ORG_TYPE}</if>
+            <if test='ORG_NAME != null and ORG_NAME != ""'>AND ORG_NAME LIKE '%${ORG_NAME}%'</if>
+            <if test='ORG_FULL_NAME != null and ORG_FULL_NAME != ""'>AND ORG_FULL_NAME LIKE '%${ORG_FULL_NAME}%'</if>
+            <if test='ORG_STATUS != null and ORG_STATUS != ""'>AND ORG_STATUS = #{ORG_STATUS}</if>
+            <if test='PAR_ORG != null and PAR_ORG != ""'>AND PAR_ORG = #{PAR_ORG}</if>
+            AND <include refid="kjdp_orgPermCond"/>
+        </where>
+    </select>
+
+    <insert id="kjdp_orgInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_ORG (
+            ORG_CODE,
+            ORG_CLS,
+            ORG_TYPE,
+            ORG_NAME,
+            ORG_FULL_NAME,
+            ORG_STATUS,
+            PAR_ORG,
+            ORG_LVL,
+            ZIP_CODE,
+            ADDRESS,
+            ORG_TEL,
+            EMAIL,
+            FAX,
+            LINKMAN,
+            REMARK
+        ) VALUES (
+            #{ORG_CODE},
+            #{ORG_CLS},
+            #{ORG_TYPE},
+            #{ORG_NAME},
+            #{ORG_FULL_NAME},
+            #{ORG_STATUS},
+            #{PAR_ORG},
+            #{ORG_LVL},
+            #{ZIP_CODE},
+            #{ADDRESS},
+            #{ORG_TEL},
+            #{EMAIL},
+            #{FAX},
+            #{LINKMAN},
+            #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_orgUpdate" parameterType="jdbcMap">
+        UPDATE UPM_ORG
+        <set>
+            <if test='ORG_CLS != null and ORG_CLS != ""'>ORG_CLS = #{ORG_CLS},</if>
+            <if test='ORG_TYPE != null and ORG_TYPE != ""'>ORG_TYPE = #{ORG_TYPE},</if>
+            <if test='ORG_NAME != null and ORG_NAME != ""'>ORG_NAME = #{ORG_NAME},</if>
+            <if test='ORG_FULL_NAME != null and ORG_FULL_NAME != ""'>ORG_FULL_NAME = #{ORG_FULL_NAME},</if>
+            <if test='PAR_ORG != null and PAR_ORG != ""'>PAR_ORG = #{PAR_ORG},</if>
+            <if test='ORG_LVL != null and ORG_LVL != ""'>ORG_LVL = #{ORG_LVL},</if>
+            <if test='ZIP_CODE != null and ZIP_CODE != ""'>ZIP_CODE = #{ZIP_CODE},</if>
+            <if test='ADDRESS != null and ADDRESS != ""'>ADDRESS = #{ADDRESS},</if>
+            <if test='ORG_TEL != null and ORG_TEL != ""'>ORG_TEL = #{ORG_TEL},</if>
+            <if test='EMAIL != null and EMAIL != ""'>EMAIL = #{EMAIL},</if>
+            <if test='FAX != null and FAX != ""'>FAX = #{FAX},</if>
+            <if test='LINKMAN != null and LINKMAN != ""'>LINKMAN = #{LINKMAN},</if>
+            <if test='REMARK != null and REMARK != ""'>REMARK = #{REMARK},</if>
+        </set>
+        WHERE ORG_CODE = #{ORG_CODE} AND ORG_TYPE = #{ORG_TYPE}
+    </update>
+
+    <delete id="kjdp_orgDelete" parameterType="jdbcMap">
+        UPDATE UPM_ORG
+        SET ORG_STATUS = '9'
+        WHERE ORG_CODE = #{ORG_CODE} AND ORG_TYPE = #{ORG_TYPE}
+    </delete>
+
+    <insert id="kjdp_clientLogInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_CLIENT_LOG (
+            LOG_ID,
+            URL,
+            CHANNEL,
+            IDENTITY,
+            USER_AGENT,
+            LINE,
+            COL,
+            MESSAGE,
+            STACK,
+            LOG_DATE
+        ) VALUES (
+            KJDP_SEQ_NEXTVAL('SEQ_UPM_CLIENT_LOG_ID'),
+            #{URL},
+            #{CHANNEL},
+            #{IDENTITY},
+            KJDP_IF_EMPTY(KJDP_TRIM(#{USER_AGENT}), ''),
+            #{LINE},
+            #{COL},
+            #{MESSAGE},
+            #{STACK},
+            KJDP_GET_DATETIME()
+        )
+    </insert>
+
+    <select id="kjdp_clientLogSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        <include refid="kjdp_pagePrefix"/>
+        SELECT
+            LOG_ID,
+            URL,
+            CHANNEL,
+            IDENTITY,
+            USER_AGENT,
+            LINE,
+            COL,
+            MESSAGE,
+            STACK,
+            KJDP_TO_CHAR(LOG_DATE) AS LOG_DATE
+        FROM UPM_CLIENT_LOG
+        <where>
+            <if test='URL != null and URL != ""'>AND URL LIKE '%${URL}%'</if>
+            <if test='CHANNEL != null and CHANNEL != ""'>AND CHANNEL = '${CHANNEL}'</if>
+            <if test='MESSAGE != null and MESSAGE != ""'>AND MESSAGE LIKE '%${MESSAGE}%'</if>
+            <if test='LOG_DATE_BEG != null and LOG_DATE_BEG != ""'>AND LOG_DATE &gt;= '${LOG_DATE_BEG}'</if>
+            <if test='LOG_DATE_END != null and LOG_DATE_END != ""'>AND KJDP_TO_DATE(KJDP_TO_CHAR(LOG_DATE)) &lt;= '${LOG_DATE_END}'</if>
+        </where>
+        ORDER BY LOG_ID DESC
+        <include refid="kjdp_pageSuffix"/>
+    </select>
+
+    <select id="kjdp_clientLogSelect_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT COUNT(*) AS RS_ROWS FROM UPM_CLIENT_LOG
+        <where>
+            <if test='URL != null and URL != ""'>AND URL LIKE '%${URL}%'</if>
+            <if test='CHANNEL != null and CHANNEL != ""'>AND CHANNEL = '${CHANNEL}'</if>
+            <if test='MESSAGE != null and MESSAGE != ""'>AND MESSAGE LIKE '%${MESSAGE}%'</if>
+            <if test='LOG_DATE_BEG != null and LOG_DATE_BEG != ""'>AND LOG_DATE &gt;= '${LOG_DATE_BEG}'</if>
+            <if test='LOG_DATE_END != null and LOG_DATE_END != ""'>AND KJDP_TO_DATE(KJDP_TO_CHAR(LOG_DATE)) &lt;= '${LOG_DATE_END}'</if>
+        </where>
+    </select>
+
+    <select id="kjdp_resPermSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            AUTH_ID,
+            RES_TYPE,
+            RES_VALUE,
+            RELATE_VALUE,
+            AUTH_TYPE,
+            OBJ_TYPE,
+            OBJ_CODE,
+            GRANTOR,
+            GRANT_TIME
+        FROM UUM_RES_PERM
+        <where>
+            <if test='RES_TYPE != null and RES_TYPE != ""'>AND RES_TYPE = #{RES_TYPE}</if>
+            <if test='RES_VALUES != null and RES_VALUES != ""'>AND KJDP_SPLIT_CHARINDEX(RES_VALUE, #{RES_VALUES}, ',') > 0</if>
+            <if test='RELATE_VALUE != null and RELATE_VALUE != ""'>AND RELATE_VALUE = #{RELATE_VALUE}</if>
+            <if test='AUTH_TYPE != null and AUTH_TYPE != ""'>AND AUTH_TYPE = #{AUTH_TYPE}</if>
+            <if test='OBJ_TYPE != null and OBJ_TYPE != ""'>AND OBJ_TYPE = #{OBJ_TYPE}</if>
+            <if test='OBJ_CODES != null and OBJ_CODES != ""'>AND KJDP_SPLIT_CHARINDEX(OBJ_CODE, #{OBJ_CODES}, ',') > 0</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_resPermInsert" parameterType="jdbcMap">
+        INSERT INTO UUM_RES_PERM (
+            AUTH_ID,
+            RES_TYPE,
+            RES_VALUE,
+            RELATE_VALUE,
+            AUTH_TYPE,
+            OBJ_TYPE,
+            OBJ_CODE,
+            GRANTOR,
+            GRANT_TIME
+        ) SELECT
+            KJDP_SEQ_NEXTVAL('SEQ_UUM_RES_PERM_AUTH_ID'),
+            #{RES_TYPE},
+            CASE WHEN KJDP_CHARINDEX(':', VAL) = 0 THEN
+                VAL
+            ELSE
+                KJDP_SUBSTR(VAL, 0, KJDP_CHARINDEX(':', VAL))
+            END,
+            CASE WHEN KJDP_CHARINDEX(':', VAL) = 0 THEN
+                ''
+            ELSE
+                KJDP_SUBSTR(VAL, KJDP_CHARINDEX(':', VAL) + 1)
+            END,
+            #{AUTH_TYPE},
+            #{OBJ_TYPE},
+            #{OBJ_CODE},
+            #{GRANTOR},
+            KJDP_GET_DATETIME()
+        FROM KJDP_SPLIT(#{RES_VALUES}) VAL
+    </insert>
+
+    <delete id="kjdp_resPermDelete" parameterType="jdbcMap">
+        DELETE FROM UUM_RES_PERM
+        WHERE RES_TYPE = #{RES_TYPE}
+        AND AUTH_TYPE = #{AUTH_TYPE}
+        AND OBJ_TYPE = #{OBJ_TYPE}
+        AND OBJ_CODE = #{OBJ_CODE}
+        <if test='RES_VALUES != null and RES_VALUES != ""'>
+            AND ((KJDP_CHARINDEX(':', '${RES_VALUES}') = 0 AND KJDP_CHARINDEX(RES_VALUE, #{RES_VALUES}) > 0) OR
+            (SELECT COUNT(*) FROM (SELECT KJDP_SUBSTR(VAL, 0, KJDP_CHARINDEX(':', VAL)) RES_V,KJDP_SUBSTR(VAL, KJDP_CHARINDEX(':', VAL) + 1) REL_V FROM KJDP_SPLIT(#{RES_VALUES}) VAL
+            ) VALS WHERE VALS.RES_V = RES_VALUE AND VALS.REL_V = RELATE_VALUE) > 0)
+        </if>
+    </delete>
+
+    <select id="kjdp_OEMSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            PRODUCT_NAME,
+            OEM_CODE,
+            AUTH_CODE,
+            KJDP_TO_CHAR(DUE_DATE) AS DUE_DATE,
+            REMARK
+        FROM UPM_OEM_PRODUCT
+        <where>
+            <if test='PRODUCT_NAME != null and PRODUCT_NAME != ""'>PRODUCT_NAME like '%${PRODUCT_NAME}%'</if>
+            <if test='DUE_DATE_BEG != null and DUE_DATE_BEG != ""'>AND DUE_DATE &gt;= '${DUE_DATE_BEG}'</if>
+            <if test='DUE_DATE_END != null and DUE_DATE_END != ""'>AND DUE_DATE &lt;= '${DUE_DATE_END}'</if>
+        </where>
+        ORDER BY PRODUCT_NAME
+    </select>
+
+    <insert id="kjdp_OEMInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_OEM_PRODUCT (
+            PRODUCT_NAME,
+            OEM_CODE,
+            AUTH_CODE,
+            DUE_DATE,
+            REMARK
+        ) VALUES (
+            #{PRODUCT_NAME},
+            #{OEM_CODE},
+            #{AUTH_CODE},
+            KJDP_TO_DATE(#{DUE_DATE}),
+            #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_OEMUpdate" parameterType="jdbcMap">
+        UPDATE UPM_OEM_PRODUCT
+        <set>
+            <if test='OEM_CODE != null and OEM_CODE != ""'>OEM_CODE = #{OEM_CODE},</if>
+            <if test='AUTH_CODE != null and AUTH_CODE != ""'>AUTH_CODE = #{AUTH_CODE},</if>
+            <if test='DUE_DATE != null and DUE_DATE != ""'>DUE_DATE = KJDP_TO_DATE(#{DUE_DATE}),</if>
+            <if test='REMARK != null'>REMARK = #{REMARK},</if>
+        </set>
+        WHERE PRODUCT_NAME = #{PRODUCT_NAME}
+    </update>
+
+    <delete id="kjdp_OEMDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_OEM_PRODUCT WHERE PRODUCT_NAME = #{PRODUCT_NAME}
+    </delete>
+
+    <select id="kjdp_jobLogQuery" parameterType="jdbcMap" resultType="jdbcMap">
+        <include refid="kjdp_pagePrefix"/>
+        SELECT
+            LOG_ID,
+            SERVER_NAME,
+            SERVER_IP,
+            JOB_NAME,
+            JOB_GROUP,
+            DESCRIPTION,
+            TRIGGER_NAME,
+            TRIGGER_GROUP,
+            OCCUR_TIME,
+            RUN_TIMES,
+            EXEC_STATE,
+            EXEC_MESSAGE
+        FROM QRTZ_JOB_LOG
+        <where>
+            <if test='JOB_NAME != null and JOB_NAME != ""'>AND JOB_NAME = #{JOB_NAME}</if>
+            <if test='JOB_GROUP != null and JOB_GROUP != ""'>AND JOB_GROUP = #{JOB_GROUP}</if>
+            <if test='OCCUR_DATE_BEG != null and OCCUR_DATE_BEG != ""'>AND OCCUR_TIME &gt;= '${OCCUR_DATE_BEG}'</if>
+            <if test='OCCUR_DATE_END != null and OCCUR_DATE_END != ""'>AND KJDP_TO_DATE(KJDP_TO_CHAR(OCCUR_TIME)) &lt;= '${OCCUR_DATE_END}'</if>
+        </where>
+        ORDER BY OCCUR_TIME DESC
+        <include refid="kjdp_pageSuffix"/>
+    </select>
+
+    <select id="kjdp_jobLogQuery_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT COUNT(*) AS RS_ROWS FROM QRTZ_JOB_LOG
+        <where>
+            <if test='JOB_NAME != null and JOB_NAME != ""'>AND JOB_NAME = #{JOB_NAME}</if>
+            <if test='JOB_GROUP != null and JOB_GROUP != ""'>AND JOB_GROUP = #{JOB_GROUP}</if>
+            <if test='OCCUR_DATE_BEG != null and OCCUR_DATE_BEG != ""'>AND OCCUR_TIME &gt;= '${OCCUR_DATE_BEG}'</if>
+            <if test='OCCUR_DATE_END != null and OCCUR_DATE_END != ""'>AND KJDP_TO_DATE(KJDP_TO_CHAR(OCCUR_TIME)) &lt;= '${OCCUR_DATE_END}'</if>
+        </where>
+    </select>
+</mapper>

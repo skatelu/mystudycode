@@ -1,0 +1,60 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.FundAsset">
+    <resultMap id="StkFundAssetMap" type="com.szkingdom.data.DataFundAsset">
+        <result column="serverid"  property="serverId"  />
+        <result column="orgid"  property="orgId"  />
+        <result column="fundseq"  property="fundSeq"  />
+        <result column="fundid"  property="fundId"  />
+        <result column="moneytype"  property="moneyType"  />
+        <result column="custid"  property="custId"  />
+        <result column="fundlastbal"  property="fundLastBal"  />
+        <result column="fundbal"  property="fundBal"  />
+        <result column="fundavl"  property="fundAvl"  />
+        <result column="overdraw"  property="overDraw"  />
+        <result column="fundbuy"  property="fundBuy"  />
+        <result column="fundsale"  property="fundSale"  />
+        <result column="funduncomebuy"  property="fundUncomeBuy"  />
+        <result column="funduncomesale"  property="fundUncomeSale"  />
+        <result column="fundfrz"  property="fundFrz"  />
+        <result column="fundunfrz"  property="fundUnFrz"  />
+        <result column="fundtrdfrz"  property="fundTrdFrz"  />
+        <result column="fundtrdunfrz"  property="fundTrdUnFrz"  />
+        <result column="fundnightfrz"  property="fundNightFrz"  />
+        <result column="fundloan"  property="fundLoan"  />
+        <result column="creditbal"  property="creditBal"  />
+        <result column="creditbuysale"  property="creditBuySale"  />
+        <result column="fundflag"  property="fundFlag"  />
+        <result column="marketvalue"  property="marketValue"  />
+        <result column="fundstandby"  property="fundStandby"  />
+        <result column="fundbuysale"  property="fundBuySale"  />
+        <result column="fundbrkbuy"  property="fundBrkBuy"  />
+        <result column="fundrealbuy"  property="fundRealBuy"  />
+        <result column="fundbalprefrz"  property="fundBalPrefrz"  />
+        <result column="fundcashpro"  property="fundCashPro"  />
+        <result column="fundavlprefrz"  property="fundAvlPreFrz"  />
+    </resultMap>
+
+
+    <select id="ETF_FUNDASSET_SELECT" resultMap="StkFundAssetMap" parameterType="com.szkingdom.data.DataFundAsset">
+        select
+        SERVERID,ORGID,FUNDSEQ,FUNDID,MONEYTYPE,CUSTID,FUNDLASTBAL,FUNDBAL,FUNDAVL,OVERDRAW,FUNDBUY,FUNDSALE,FUNDUNCOMEBUY,
+        FUNDUNCOMESALE,FUNDFRZ,FUNDUNFRZ,FUNDTRDFRZ,FUNDTRDUNFRZ,FUNDNIGHTFRZ,FUNDLOAN,CREDITBAL,CREDITBUYSALE,FUNDFLAG,
+        MARKETVALUE,FUNDSTANDBY,FUNDBUYSALE,FUNDBRKBUY,FUNDREALBUY,FUNDBALPREFRZ,FUNDCASHPRO,FUNDAVLPREFRZ
+        from FUNDASSET
+        where FUNDID = '1035348'
+            and CUSTID = '6100033305'
+            and MONEYTYPE = '0'
+    </select>
+    <update id="ETF_FUNDASSET_UPDATE" parameterType="com.szkingdom.data.DataFundAsset">
+        update FUNDASSET set
+        fundavl=#{fundAvl}
+        where FUNDID = #{fundId}
+            and CUSTID = #{custId}
+            and MONEYTYPE = #{moneyType}
+    </update>
+
+
+</mapper>

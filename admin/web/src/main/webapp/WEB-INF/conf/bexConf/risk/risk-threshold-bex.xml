@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+    <bex bex_code="queryThresholdSetting" bex_name="监控项阈值设置" bex_type="4" page_mode="2" attr1="queryThresholdSetting" />
+	
+	<bex bex_code="insertThresholdSetting" bex_name="监控项阈值设置" bex_type="4" page_mode="2" attr1="insertThresholdSetting" />
+	
+	<bex bex_code="updateThresholdSetting" bex_name="监控项阈值设置" bex_type="4" page_mode="2" attr1="updateThresholdSetting" />
+	
+</bexs>

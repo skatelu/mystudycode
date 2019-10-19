@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskIndicatorsCls">
+    <resultMap id="RiskIndicatorsClsMap" type="com.szkingdom.data.DataRiskIndicatorsCls">
+        <result column="BIZ_ATTR"  property="bizAttr"  />
+        <result column="INDICATOR_CLS"  property="indicatorCls"  />
+        <result column="INDICATOR_CLS_NAME"  property="indicatorClsName"  />
+    </resultMap>
+
+
+    <select id="RISK_INDICATORS_CLS_SELECT" resultMap="RiskIndicatorsClsMap" parameterType="com.szkingdom.data.DataRiskIndicatorsCls">
+        select
+        BIZ_ATTR,INDICATOR_CLS,INDICATOR_CLS_NAME
+        from RISK_INDICATORS_CLS
+    </select>
+
+
+    <insert id="RISK_INDICATORS_CLS_INSERT" parameterType="com.szkingdom.data.DataRiskIndicatorsCls">
+        insert into RISK_INDICATORS_CLS(
+        BIZ_ATTR,INDICATOR_CLS,INDICATOR_CLS_NAME)
+        values ( 
+        #{bizAttr},#{indicatorCls},#{indicatorClsName})
+    </insert>
+
+
+</mapper>

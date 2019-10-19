@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ktrc</artifactId>
+        <groupId>com.szkingdom.ktrc</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>job</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>common</module>
+        <module>core</module>
+        <module>monitor</module>
+        <module>stresstest</module>
+        <module>data</module>
+        <module>dao</module>
+        <module>factor</module>
+        <module>operation</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.source>1.8</project.build.source>
+        <project.build.target>1.8</project.build.target>
+        <storm.version>1.1.0</storm.version>
+        <storm.kafka.client.version>1.1.0</storm.kafka.client.version>
+        <esper.version>7.1.0</esper.version>
+        <mybatis.version>3.4.0</mybatis.version>
+        <ktrc-common.version>1.0</ktrc-common.version>
+        <ktrc-dao.version>1.0</ktrc-dao.version>
+        <ktrc-data.version>1.0</ktrc-data.version>
+        <ktrc-factor.version>1.0</ktrc-factor.version>
+        <ktrc-operation.version>1.0</ktrc-operation.version>
+        <!--<logback-classic.version>1.2.3</logback-classic.version>-->
+    </properties>
+
+    <!--<repositories>-->
+        <!--<repository>-->
+            <!--<id>alimaven</id>-->
+            <!--<name>aliyun Maven</name>-->
+            <!--<url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
+        <!--</repository>-->
+    <!--</repositories>-->
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-core</artifactId>
+            <version>${storm.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>log4j-api</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>log4j-core</artifactId>
+                    <groupId>org.apache.logging.log4j</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+                <!--<exclusion>-->
+                    <!--<artifactId>log4j-slf4j-impl</artifactId>-->
+                    <!--<groupId>org.apache.logging.log4j</groupId>-->
+                <!--</exclusion>-->
+            </exclusions>
+            <!--本地模式注释，集群模式打开-->
+            <!--scope>provided</scope-->
+        </dependency>
+
+        <!--<dependency><groupId>ch.qos.logback</groupId>-->
+            <!--<artifactId>logback-classic</artifactId>-->
+            <!--<version>${logback-classic.version}</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.apache.storm</groupId>
+            <artifactId>storm-kafka-client</artifactId>
+            <version>${storm.kafka.client.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>kafka-clients</artifactId>
+                    <groupId>org.apache.kafka</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>commons-lang</groupId>-->
+            <!--<artifactId>commons-lang</artifactId>-->
+            <!--<version>${commons-lang.version}</version>-->
+        <!--</dependency>-->
+
+
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.11</artifactId>
+            <version>${kafka.version}</version>
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<artifactId>slf4j-log4j12</artifactId>-->
+                    <!--<groupId>org.slf4j</groupId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.client.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.espertech</groupId>
+            <artifactId>esper</artifactId>
+            <version>${esper.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.log4j12.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+
+       <!-- <dependency>
+            <groupId>com.szkingdom.common</groupId>
+            <artifactId>ktrc-common</artifactId>
+            <version>${ktrc-common.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szkingdom.dao</groupId>
+            <artifactId>ktrc-dao</artifactId>
+            <version>${ktrc-dao.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szkingdom.data</groupId>
+            <artifactId>ktrc-data</artifactId>
+            <version>${ktrc-data.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szkingdom.factor</groupId>
+            <artifactId>ktrc-factor</artifactId>
+            <version>${ktrc-factor.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.szkingdom.operation</groupId>
+            <artifactId>ktrc-operation</artifactId>
+            <version>${ktrc-operation.version}</version>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.singularsys.jep</groupId>
+            <artifactId>jep-java</artifactId>
+            <version>3.4</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <source>${project.build.source}</source>
+                    <target>${project.build.target}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest></manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

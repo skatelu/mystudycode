@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li id="four">4</li>
+            <li>5</li>
+            <li class="green">6</li>
+            <li class="green">7</li>
+            <li>8</li>
+        </ul>
+    </div>
+    <script>
+        //入口函数
+        $(function () {
+            //jquery如何设置样式
+            //css(name,value)
+            //name：样式名  value：样式值
+            //id选择器 $("#id")
+            $("#four").css("backgroundColor","red");
+
+            $(".green").css("backgroundColor","green");
+
+            $("li").css();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+	<bex bex_code="RiskAllBrowseScreen_gaugeChart" bex_name="总览屏仪表图 "
+		bex_type="4" page_mode="0" attr1="RiskAllBrowseScreen_gaugeChart" />
+
+	<bex bex_code="RiskAllBrowseScreen_pieChart" bex_name="总览屏饼图"
+		bex_type="4" page_mode="0" attr1="RiskAllBrowseScreen_pieChart" />
+
+	<bex bex_code="RiskAllBrowseScreen_lineChart" bex_name="总览屏线性图"
+		bex_type="4" page_mode="0" attr1="RiskAllBrowseScreen_lineChart" />
+
+	<bex bex_code="RiskAllBrowseScreen_barChart" bex_name="总览屏柱状图"
+		bex_type="4" page_mode="0" attr1="RiskAllBrowseScreen_barChart" />
+
+	<bex bex_code="RiskAllBrowseScreen_tableChart" bex_name="总览屏表格"
+		bex_type="4" page_mode="0" attr1="RiskAllBrowseScreen_tableChart" />
+
+</bexs>

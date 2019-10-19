@@ -1,0 +1,108 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptInfo">
+    <resultMap id="OptInfoMap" type="com.szkingdom.data.DataOptInfo">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="OPT_NUM"  property="optNum"  />
+        <result column="OPT_CODE"  property="optCode"  />
+        <result column="OPT_NAME"  property="optName"  />
+        <result column="OPT_TYPE"  property="optType"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_UNDL_NAME"  property="optUndlName"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="OPT_EXE_TYPE"  property="optExeType"  />
+        <result column="OPT_UNIT"  property="optUnit"  />
+        <result column="EXERCISE_PRICE"  property="exercisePrice"  />
+        <result column="START_DATE"  property="startDate"  />
+        <result column="END_DATE"  property="endDate"  />
+        <result column="EXERCISE_DATE"  property="exerciseDate"  />
+        <result column="DELIVERY_DATE"  property="deliveryDate"  />
+        <result column="EXPIRE_DATE"  property="expireDate"  />
+        <result column="UPD_VERSION"  property="updVersion"  />
+        <result column="LEAVES_QTY"  property="leavesQty"  />
+        <result column="PRE_CLOSE_PX"  property="preClosePx"  />
+        <result column="PRE_SETT_PRICE"  property="preSettPrice"  />
+        <result column="UNDL_CLS_PRICE"  property="undlClsPrice"  />
+        <result column="PRICE_LMT_TYPE"  property="priceLmtType"  />
+        <result column="OPT_UPLMT_PRICE"  property="optUplmtPrice"  />
+        <result column="OPT_LWLMT_PRICE"  property="optLwlmtPrice"  />
+        <result column="MARGIN_UNIT"  property="marginUnit"  />
+        <result column="MARGIN_RATIO1"  property="marginRatio1"  />
+        <result column="MARGIN_RATIO2"  property="marginRatio2"  />
+        <result column="OPT_LOT_SIZE"  property="optLotSize"  />
+        <result column="OPT_LBUPLMT_QTY"  property="optLbuplmtQty"  />
+        <result column="OPT_LSUPLMT_QTY"  property="optLsuplmtQty"  />
+        <result column="OPT_LLWLMT_QTY"  property="optLlwlmtQty"  />
+        <result column="OPT_MBUPLMT_QTY"  property="optMbuplmtQty"  />
+        <result column="OPT_MSUPLMT_QTY"  property="optMsuplmtQty"  />
+        <result column="OPT_MLWLMT_QTY"  property="optMlwlmtQty"  />
+        <result column="TICK_SIZE"  property="tickSize"  />
+        <result column="OPEN_FLAG"  property="openFlag"  />
+        <result column="SUSPENDED_FLAG"  property="suspendedFlag"  />
+        <result column="EXPIRE_FLAG"  property="expireFlag"  />
+        <result column="ADJUST_FLAG"  property="adjustFlag"  />
+        <result column="OPT_STATUS"  property="optStatus"  />
+        <result column="COMB_FLAG"  property="combFlag"  />
+        <result column="AUTO_SPLIT_DATE"  property="autoSplitDate"  />
+        <result column="UPD_DATE"  property="updDate"  />
+    </resultMap>
+
+
+    <select id="OPT_INFO_SELECT" resultMap="OptInfoMap" parameterType="com.szkingdom.data.DataOptInfo">
+        select
+        STKEX,STKBD,OPT_NUM,OPT_CODE,OPT_NAME,OPT_TYPE,OPT_UNDL_CODE,OPT_UNDL_NAME,
+        OPT_UNDL_CLS,OPT_EXE_TYPE,OPT_UNIT,EXERCISE_PRICE,START_DATE,END_DATE,EXERCISE_DATE,DELIVERY_DATE,
+        EXPIRE_DATE,UPD_VERSION,LEAVES_QTY,PRE_CLOSE_PX,PRE_SETT_PRICE,UNDL_CLS_PRICE,PRICE_LMT_TYPE,OPT_UPLMT_PRICE,
+        OPT_LWLMT_PRICE,MARGIN_UNIT,MARGIN_RATIO1,MARGIN_RATIO2,OPT_LOT_SIZE,OPT_LBUPLMT_QTY,OPT_LSUPLMT_QTY,OPT_LLWLMT_QTY,
+        OPT_MBUPLMT_QTY,OPT_MSUPLMT_QTY,OPT_MLWLMT_QTY,TICK_SIZE,OPEN_FLAG,SUSPENDED_FLAG,EXPIRE_FLAG,ADJUST_FLAG,
+        OPT_STATUS,COMB_FLAG,AUTO_SPLIT_DATE,UPD_DATE
+        from OPT_INFO
+        where 1=1
+        <if test="optNum != null and optNum != '' ">
+            and OPT_NUM = #{optNum}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="optUndlCode != null and optUndlCode != '' ">
+            and OPT_UNDL_CODE = #{optUndlCode}
+        </if>
+
+        <if test="exerciseDate > 0"> and EXERCISE_DATE = #{exerciseDate}</if>
+    </select>
+
+    <select id="OPT_INFO_SELECT_LIST" resultMap="OptInfoMap" parameterType="com.szkingdom.data.DataOptInfo">
+        select
+        STKEX,STKBD,OPT_NUM,OPT_CODE,OPT_NAME,OPT_TYPE,OPT_UNDL_CODE,OPT_UNDL_NAME,
+        OPT_UNDL_CLS,OPT_EXE_TYPE,OPT_UNIT,EXERCISE_PRICE,START_DATE,END_DATE,EXERCISE_DATE,DELIVERY_DATE,
+        EXPIRE_DATE,UPD_VERSION,LEAVES_QTY,PRE_CLOSE_PX,PRE_SETT_PRICE,UNDL_CLS_PRICE,PRICE_LMT_TYPE,OPT_UPLMT_PRICE,
+        OPT_LWLMT_PRICE,MARGIN_UNIT,MARGIN_RATIO1,MARGIN_RATIO2,OPT_LOT_SIZE,OPT_LBUPLMT_QTY,OPT_LSUPLMT_QTY,OPT_LLWLMT_QTY,
+        OPT_MBUPLMT_QTY,OPT_MSUPLMT_QTY,OPT_MLWLMT_QTY,TICK_SIZE,OPEN_FLAG,SUSPENDED_FLAG,EXPIRE_FLAG,ADJUST_FLAG,
+        OPT_STATUS,COMB_FLAG,AUTO_SPLIT_DATE,UPD_DATE
+        from OPT_INFO
+        where EXERCISE_DATE between cast(to_char(CURRENT_DATE - INTERVAL'2 days','YYYYMMDD') as int)
+            and cast(to_char(CURRENT_DATE - INTERVAL'1 days','YYYYMMDD') as int)
+    </select>
+
+    <insert id="OPT_INFO_INSERT" parameterType="com.szkingdom.data.DataOptInfo">
+        insert into OPT_INFO(
+        STKEX,STKBD,OPT_NUM,OPT_CODE,OPT_NAME,OPT_TYPE,OPT_UNDL_CODE,OPT_UNDL_NAME,
+        OPT_UNDL_CLS,OPT_EXE_TYPE,OPT_UNIT,EXERCISE_PRICE,START_DATE,END_DATE,EXERCISE_DATE,DELIVERY_DATE,
+        EXPIRE_DATE,UPD_VERSION,LEAVES_QTY,PRE_CLOSE_PX,PRE_SETT_PRICE,UNDL_CLS_PRICE,PRICE_LMT_TYPE,OPT_UPLMT_PRICE,
+        OPT_LWLMT_PRICE,MARGIN_UNIT,MARGIN_RATIO1,MARGIN_RATIO2,OPT_LOT_SIZE,OPT_LBUPLMT_QTY,OPT_LSUPLMT_QTY,OPT_LLWLMT_QTY,
+        OPT_MBUPLMT_QTY,OPT_MSUPLMT_QTY,OPT_MLWLMT_QTY,TICK_SIZE,OPEN_FLAG,SUSPENDED_FLAG,EXPIRE_FLAG,ADJUST_FLAG,
+        OPT_STATUS,COMB_FLAG,AUTO_SPLIT_DATE,UPD_DATE)
+        values ( 
+        #{stkex},#{stkbd},#{optNum},#{optCode},#{optName},#{optType},#{optUndlCode},#{optUndlName},
+        #{optUndlCls},#{optExeType},#{optUnit},#{exercisePrice},#{startDate},#{endDate},#{exerciseDate},#{deliveryDate},
+        #{expireDate},#{updVersion},#{leavesQty},#{preClosePx},#{preSettPrice},#{undlClsPrice},#{priceLmtType},#{optUplmtPrice},
+        #{optLwlmtPrice},#{marginUnit},#{marginRatio1},#{marginRatio2},#{optLotSize},#{optLbuplmtQty},#{optLsuplmtQty},#{optLlwlmtQty},
+        #{optMbuplmtQty},#{optMsuplmtQty},#{optMlwlmtQty},#{tickSize},#{openFlag},#{suspendedFlag},#{expireFlag},#{adjustFlag},
+        #{optStatus},#{combFlag},#{autoSplitDate},#{updDate})
+    </insert>
+
+
+</mapper>

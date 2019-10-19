@@ -1,0 +1,45 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.Cuacct">
+    <resultMap id="CuacctMap" type="com.szkingdom.data.DataCuacct">
+        <result column="USER_CODE"  property="userCode"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CUACCT_ATTR"  property="cuacctAttr"  />
+        <result column="CUACCT_CLS"  property="cuacctCls"  />
+        <result column="CUACCT_LVL"  property="cuacctLvl"  />
+        <result column="CUACCT_GRP"  property="cuacctGrp"  />
+        <result column="CUACCT_STATUS"  property="cuacctStatus"  />
+        <result column="MAIN_FLAG"  property="mainFlag"  />
+        <result column="CORP_ORG"  property="corpOrg"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="OPEN_DATE"  property="openDate"  />
+        <result column="PRINT_DATE"  property="printDate"  />
+        <result column="CLOSE_DATE"  property="closeDate"  />
+    </resultMap>
+
+
+    <select id="CUACCT_SELECT" resultMap="CuacctMap" parameterType="com.szkingdom.data.DataCuacct">
+        select
+        USER_CODE,CUACCT_CODE,CUACCT_ATTR,CUACCT_CLS,CUACCT_LVL,CUACCT_GRP,CUACCT_STATUS,MAIN_FLAG,
+        CORP_ORG,INT_ORG,OPEN_DATE,PRINT_DATE,CLOSE_DATE
+        from CUACCT
+        where 1=1
+        <if test="cuacctCode > 0 ">
+            and CUACCT_CODE = #{cuacctCode}
+        </if>
+    </select>
+
+
+    <insert id="CUACCT_INSERT" parameterType="com.szkingdom.data.DataCuacct">
+        insert into CUACCT(
+        USER_CODE,CUACCT_CODE,CUACCT_ATTR,CUACCT_CLS,CUACCT_LVL,CUACCT_GRP,CUACCT_STATUS,MAIN_FLAG,
+        CORP_ORG,INT_ORG,OPEN_DATE,PRINT_DATE,CLOSE_DATE)
+        values ( 
+        #{userCode},#{cuacctCode},#{cuacctAttr},#{cuacctCls},#{cuacctLvl},#{cuacctGrp},#{cuacctStatus},#{mainFlag},
+        #{corpOrg},#{intOrg},#{openDate},#{printDate},#{closeDate})
+    </insert>
+
+
+</mapper>

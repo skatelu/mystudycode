@@ -1,0 +1,18 @@
+<div id="menuTreeTpl">
+    {{each menuPurList}}
+    <div title="{{$value.DICT_ITEM_NAME}}" class="menu-pur">
+        <div class="toolbar top-toolbar">
+            <a class="kui-linkbutton expandAll">全部展开</a>
+            <a class="kui-linkbutton collapseAll">全部折叠</a>
+            <a class="kui-linkbutton checkedAll">&nbsp;&nbsp;全选&nbsp;&nbsp;</a>
+            <a class="kui-linkbutton unChecked">&nbsp;&nbsp;反选&nbsp;&nbsp;</a>
+            <a class="kui-linkbutton unCheckedAll">&nbsp;&nbsp;全清&nbsp;&nbsp;</a>
+            <a class="kui-linkbutton reset">&nbsp;&nbsp;重置&nbsp;&nbsp;</a>
+        </div>
+        <div id="menuPur{{$value.DICT_ITEM}}" class="tree-box kui-tree" kui-options="cascadeCheck:{{cascadeCheck}},checkbox:true,animate:true,conf:{treeType:'1',parNode:'PAR_MENU',nodeId:'MENU_ID',nodeName:'MENU_NAME'},animate:true,animateSpeed:300"></div>
+    </div>
+    {{/each}}
+    <div class="toolbar bottom-toolbar">
+        <a class="kui-linkbutton submit" kui-options="iconCls:'icon-save'">提交</a>
+    </div>
+</div>

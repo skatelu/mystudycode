@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="storm-kafka-client-1.1.0-tests">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/storm-kafka-client-1.1.0-tests.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

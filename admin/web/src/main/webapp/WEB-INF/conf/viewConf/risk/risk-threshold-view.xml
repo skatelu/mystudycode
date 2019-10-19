@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    
+    <view id="RISK_MONITOR_SETTING_THRESHOLD" render="datagrid" title="阈值统一设置" >
+        <conf service="THR00001" pageSize="50" pageList="[20,50,100]" fit="true"   singleSelect="true" remotePagination = "true"/>
+        <qry_item field="BIZ_ATTR" edt_width="130" title="业务属性"  edt_onSelect="loadIndicatorType" type="combobox"  edt_dict="BIZ_ATTR"   edt_panelWidth="180" edt_validType="val[1,32]" edt_defaultValue="00"/>
+        <qry_item field="INDICATOR_CLS" title="指标类别" edt_width="130"  type="combobox" edt_panelWidth="180" edt_validType="val[1,64]" edt_textField='INDICATOR_CLS,INDICATOR_CLS_NAME' edt_valueField='INDICATOR_CLS'/>
+        <qry_item field="INDICATOR_NAME" title="指标名称" edt_width="130" type="input" edt_validType="val[1,64]"/>
+        <btn_item text="新增" iconCls="icon-add" handler="thresholdAdd"/>
+        <btn_item text="修改" iconCls="icon-edit" handler="thresholdModify"/>
+
+        <col_item field="THRES_VALID" title="阈值启动" width="100" type="combobox" edt_dict="THRES_VALID" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" sortable="false"/>
+        <col_item field="THRES_CODE" title="阈值 ID" width="100" type="input" />
+        <col_item field="THRES_NAME" title="阈值名称" width="100" type="input"/>
+        <col_item field="INDICATOR_NAME" title="指标名称/ID" width="100" type="input"/>
+        <col_item field="INDICATOR_RESULT_TYPE" title="阈值类型" width="100" type="input" edt_dict="INDICATOR_RESULT_TYPE" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" sortable="false"/>
+        <col_item field="THRES_OPER" title="阈值运算关系"  width="100" type="input" edt_dict="THRES_OPER" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME"/>
+        <col_item field="THRESHOLD" title="阈值"  width="100" type="input"/>
+        <col_item field="INDICATOR_ID" title="指标ID"  width="100" type="input" hidden="true"/>
+        <col_item field="INDICATOR_CLS" title="指标类型"  width="100" type="input" hidden="true"/>
+        <col_item field="BIZ_ATTR" title="业务属性"  width="100" type="input" hidden="true"/>
+        <col_item field="THRES_NO" title="阈值编号"  width="100" type="input"/>
+        <col_item field="THRES_COLOR" title="显示颜色"  width="100" type="combobox" edt_dict="THRES_COLOR" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" sortable="false"/>
+    </view>
+
+    <view id="RISK_MONITOR_SETTING_THRESHOLD_CUST" title="指标阈值对应特定客户" render="datagrid">
+        <conf pageSize="50" pageList="[20,50,100]" fit="true" onInitSuccess="onInitCustSuccess"/>
+        <qry_item field="BIZ_ATTR" edt_width="130" title="分公司" edt_onSelect="" type="combobox"  edt_dict="BIZ_ATTR" edt_panelWidth="150" edt_validType="val[1,32]"/>
+        <qry_item field="INDICATOR_TYPE" title="营业部" edt_width="130"  type="combobox" edt_panelWidth="150" edt_validType="val[1,64]"/>
+        <qry_item field="THRESHOLD_ID" title="客户账号" edt_width="130" type="input" edt_validType="val[1,64]"/>
+        <btn_item text="修改" service="P0000019" iconCls="icon-edit" handler="custModify"/>
+        <col_item field="check" title="启动" type="checkbox"/>
+        <col_item field="CUST_CODE" title="客户编号" type="input" />
+        <col_item field="INDICATOR_NAME" title="监控项名称" width="100" type="input"  />
+        <col_item field="INDICATOR_ID" title="监控项名称ID" width="100" type="input"  hidden="true"/>
+        <col_item field="MONITOR_TYPE" title="阈值类型" width="100" type="input" />
+        <col_item field="THRES1_OPER" title="一级阈值" width="100" type="input" />
+        <col_item field="THRES2_OPER" title="二级阈值" type="input" width="100"/>
+        <col_item field="THRES3_OPER" title="三级阈值" type="input" width="100"/>
+        <col_item field="THRES4_OPER" title="四级阈值" type="input" width="100"/>
+        <col_item field="THRES1_NO" title="一级阈值编号" type="input"  hidden="true" width="100"/>
+        <col_item field="THRES2_NO" title="二级阈值编号" type="input"   hidden="true" width="100"/>
+        <col_item field="THRES3_NO" title="三级阈值编号" width="120" type="input"  hidden="true"/>
+        <col_item field="THRES4_NO" title="四级阈值编号" width="100" type="input"  hidden="true"/>
+    </view>
+
+</views>

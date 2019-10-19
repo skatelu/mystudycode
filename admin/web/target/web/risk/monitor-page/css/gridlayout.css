@@ -1,0 +1,15 @@
+.gridlayout-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.gridlayout-child {
+  position: absolute;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.gridlayout-child.gridchild-boxshadow {
+  box-shadow: 1px 1px 2px 1px #bbbbbb;
+}

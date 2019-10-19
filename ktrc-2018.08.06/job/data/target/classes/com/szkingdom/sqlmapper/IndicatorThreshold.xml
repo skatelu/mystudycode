@@ -1,0 +1,63 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.IndicatorThreshold">
+    <resultMap id="IndicatorThresholdMap" type="com.szkingdom.data.DataIndicatorThreshold">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="THRES_CNT"  property="thresCnt"  />
+        <result column="THRESHOLD1"  property="threshold1"  />
+        <result column="THRES1_NO"  property="thres1No"  />
+        <result column="THRES1_NAME"  property="thres1Name"  />
+        <result column="THRES1_COLOR"  property="thres1Color"  />
+        <result column="THRES1_OPER"  property="thres1Oper"  />
+        <result column="THRES1_VALID"  property="thres1Valid"  />
+        <result column="THRESHOLD2"  property="threshold2"  />
+        <result column="THRES2_NO"  property="thres2No"  />
+        <result column="THRES2_NAME"  property="thres2Name"  />
+        <result column="THRES2_COLOR"  property="thres2Color"  />
+        <result column="THRES2_OPER"  property="thres2Oper"  />
+        <result column="THRES2_VALID"  property="thres2Valid"  />
+        <result column="THRESHOLD3"  property="threshold3"  />
+        <result column="THRES3_NO"  property="thres3No"  />
+        <result column="THRES3_NAME"  property="thres3Name"  />
+        <result column="THRES3_COLOR"  property="thres3Color"  />
+        <result column="THRES3_OPER"  property="thres3Oper"  />
+        <result column="THRES3_VALID"  property="thres3Valid"  />
+        <result column="THRESHOLD4"  property="threshold4"  />
+        <result column="THRES4_NO"  property="thres4No"  />
+        <result column="THRES4_NAME"  property="thres4Name"  />
+        <result column="THRES4_COLOR"  property="thres4Color"  />
+        <result column="THRES4_OPER"  property="thres4Oper"  />
+        <result column="THRES4_VALID"  property="thres4Valid"  />
+    </resultMap>
+
+
+    <select id="INDICATOR_THRESHOLD_SELECT" resultMap="IndicatorThresholdMap" parameterType="com.szkingdom.data.DataIndicatorThreshold">
+        select
+        INDICATOR_ID,THRES_CNT,THRESHOLD1,THRES1_NO,THRES1_NAME,THRES1_COLOR,THRES1_OPER,THRES1_VALID,
+        THRESHOLD2,THRES2_NO,THRES2_NAME,THRES2_COLOR,THRES2_OPER,THRES2_VALID,THRESHOLD3,THRES3_NO,
+        THRES3_NAME,THRES3_COLOR,THRES3_OPER,THRES3_VALID,THRESHOLD4,THRES4_NO,THRES4_NAME,THRES4_COLOR,
+        THRES4_OPER,THRES4_VALID
+        from INDICATOR_THRESHOLD
+        where 1=1
+        <if test="indicatorId != null and indicatorId != ''"> and INDICATOR_ID = #{indicatorId}</if>
+
+    </select>
+
+
+    <insert id="INDICATOR_THRESHOLD_INSERT" parameterType="com.szkingdom.data.DataIndicatorThreshold">
+        insert into INDICATOR_THRESHOLD(
+        INDICATOR_ID,THRES_CNT,THRESHOLD1,THRES1_NO,THRES1_NAME,THRES1_COLOR,THRES1_OPER,THRES1_VALID,
+        THRESHOLD2,THRES2_NO,THRES2_NAME,THRES2_COLOR,THRES2_OPER,THRES2_VALID,THRESHOLD3,THRES3_NO,
+        THRES3_NAME,THRES3_COLOR,THRES3_OPER,THRES3_VALID,THRESHOLD4,THRES4_NO,THRES4_NAME,THRES4_COLOR,
+        THRES4_OPER,THRES4_VALID)
+        values ( 
+        #{indicatorId},#{thresCnt},#{threshold1},#{thres1No},#{thres1Name},#{thres1Color},#{thres1Oper},#{thres1Valid},
+        #{threshold2},#{thres2No},#{thres2Name},#{thres2Color},#{thres2Oper},#{thres2Valid},#{threshold3},#{thres3No},
+        #{thres3Name},#{thres3Color},#{thres3Oper},#{thres3Valid},#{threshold4},#{thres4No},#{thres4Name},#{thres4Color},
+        #{thres4Oper},#{thres4Valid})
+    </insert>
+
+
+</mapper>

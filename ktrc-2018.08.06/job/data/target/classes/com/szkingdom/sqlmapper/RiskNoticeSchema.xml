@@ -1,0 +1,40 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskNoticeSchema">
+    <resultMap id="RiskNoticeSchemaMap" type="com.szkingdom.data.DataRiskNoticeSchema">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="NOTICE_USER_ROLE"  property="noticeUserRole"  />
+        <result column="PRE_THRES_NO"  property="preThresNo"  />
+        <result column="THRES_NO"  property="thresNo"  />
+        <result column="SCHEMA_NAME"  property="schemaName"  />
+        <result column="NOTICE_CHNL"  property="noticeChnl"  />
+        <result column="SCHEMA_VALIDE"  property="schemaValide"  />
+        <result column="SCHEMA_CONT"  property="schemaCont"  />
+        <result column="NOTICE_CLS"  property="noticeCls"  />
+        <result column="SCHEMA_BACK"  property="schemaBack"  />
+        <result column="QM_NAME"  property="qmName"  />
+        <result column="QUEUE_NAME"  property="queueName"  />
+    </resultMap>
+
+
+    <select id="RISK_NOTICE_SCHEMA_SELECT" resultMap="RiskNoticeSchemaMap" parameterType="com.szkingdom.data.DataRiskNoticeSchema">
+        select
+        INDICATOR_ID,NOTICE_USER_ROLE,PRE_THRES_NO,THRES_NO,SCHEMA_NAME,NOTICE_CHNL,SCHEMA_VALIDE,SCHEMA_CONT,
+        NOTICE_CLS,SCHEMA_BACK,QM_NAME,QUEUE_NAME
+        from RISK_NOTICE_SCHEMA
+    </select>
+
+
+    <insert id="RISK_NOTICE_SCHEMA_INSERT" parameterType="com.szkingdom.data.DataRiskNoticeSchema">
+        insert into RISK_NOTICE_SCHEMA(
+        INDICATOR_ID,NOTICE_USER_ROLE,PRE_THRES_NO,THRES_NO,SCHEMA_NAME,NOTICE_CHNL,SCHEMA_VALIDE,SCHEMA_CONT,
+        NOTICE_CLS,SCHEMA_BACK,QM_NAME,QUEUE_NAME)
+        values ( 
+        #{indicatorId},#{noticeUserRole},#{preThresNo},#{thresNo},#{schemaName},#{noticeChnl},#{schemaValide},#{schemaCont},
+        #{noticeCls},#{schemaBack},#{qmName},#{queueName})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,77 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptTrdacct">
+    <resultMap id="OptTrdacctMap" type="com.szkingdom.data.DataOptTrdacct">
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="SUBACCT_CODE"  property="subacctCode"  />
+        <result column="SUBACCT_TYPE"  property="subacctType"  />
+        <result column="TRDACCT_EXCLS"  property="trdacctExcls"  />
+        <result column="OPT_TRDACCT_LVL"  property="optTrdacctLvl"  />
+        <result column="OPT_MARGIN_SN"  property="optMarginSn"  />
+        <result column="QUOTA_VAL"  property="quotaVal"  />
+        <result column="QUOTA_VAL_USED"  property="quotaValUsed"  />
+        <result column="TRDACCT_EX"  property="trdacctEx"  />
+        <result column="STKPBU_EX"  property="stkpbuEx"  />
+        <result column="CUACCT_CODE_EX"  property="cuacctCodeEx"  />
+        <result column="OP_FLAG"  property="opFlag"  />
+        <result column="VIP_ACT_SID"  property="vipActSid"  />
+        <result column="DAILY_ENQRY_COUNT"  property="dailyEnqryCount"  />
+        <result column="OPT_TRDACCT_USAGE"  property="optTrdacctUsage"  />
+    </resultMap>
+
+
+    <select id="OPT_TRDACCT_SELECT" resultMap="OptTrdacctMap" parameterType="com.szkingdom.data.DataOptTrdacct">
+        select
+        CUST_CODE,STKEX,STKBD,TRDACCT,SUBACCT_CODE,SUBACCT_TYPE,TRDACCT_EXCLS,OPT_TRDACCT_LVL,
+        OPT_MARGIN_SN,QUOTA_VAL,QUOTA_VAL_USED,TRDACCT_EX,STKPBU_EX,CUACCT_CODE_EX,OP_FLAG,VIP_ACT_SID,
+        DAILY_ENQRY_COUNT,OPT_TRDACCT_USAGE
+        from OPT_TRDACCT
+        where 1=1
+        <if test="custCode != 0"> and CUST_CODE = #{custCode} </if>
+        <if test="stkbd != null and stkbd != ''"> and STKBD = #{stkbd}</if>
+        <if test="trdacct != null and trdacct != ''"> and TRDACCT = #{trdacct}</if>
+    </select>
+
+    <select id="OPT_TRDACCT_SELECT_LOCK" resultMap="OptTrdacctMap" parameterType="com.szkingdom.data.DataOptTrdacct">
+        select
+        CUST_CODE,STKEX,STKBD,TRDACCT,SUBACCT_CODE,SUBACCT_TYPE,TRDACCT_EXCLS,OPT_TRDACCT_LVL,
+        OPT_MARGIN_SN,QUOTA_VAL,QUOTA_VAL_USED,TRDACCT_EX,STKPBU_EX,CUACCT_CODE_EX,OP_FLAG,VIP_ACT_SID,
+        DAILY_ENQRY_COUNT,OPT_TRDACCT_USAGE
+        from OPT_TRDACCT
+        where CUST_CODE = #{custCode}
+        and STKBD = #{stkbd}
+        and TRDACCT = #{trdacct}
+        for update
+    </select>
+
+    <update id="OPT_TRDACCT_UPDATE" parameterType="com.szkingdom.data.DataOptTrdacct">
+        update OPT_TRDACCT
+        set CUST_CODE=#{custCode},STKEX=#{stkex},STKBD=#{stkbd},TRDACCT=#{trdacct},
+        SUBACCT_CODE=#{subacctCode},SUBACCT_TYPE=#{subacctType},TRDACCT_EXCLS=#{trdacctExcls},OPT_TRDACCT_LVL=#{optTrdacctLvl},
+        OPT_MARGIN_SN=#{optMarginSn},QUOTA_VAL=#{quotaVal},QUOTA_VAL_USED=#{quotaValUsed},TRDACCT_EX=#{trdacctEx},
+        STKPBU_EX=#{stkpbuEx},CUACCT_CODE_EX=#{cuacctCodeEx},OP_FLAG=#{opFlag},VIP_ACT_SID=#{vipActSid},
+        DAILY_ENQRY_COUNT=#{dailyEnqryCount},OPT_TRDACCT_USAGE=#{optTrdacctUsage}
+
+        where CUST_CODE = #{custCode}
+        and STKBD = #{stkbd}
+        and TRDACCT = #{trdacct}
+    </update>
+
+    <insert id="OPT_TRDACCT_INSERT" parameterType="com.szkingdom.data.DataOptTrdacct">
+        insert into OPT_TRDACCT(
+        CUST_CODE,STKEX,STKBD,TRDACCT,SUBACCT_CODE,SUBACCT_TYPE,TRDACCT_EXCLS,OPT_TRDACCT_LVL,
+        OPT_MARGIN_SN,QUOTA_VAL,QUOTA_VAL_USED,TRDACCT_EX,STKPBU_EX,CUACCT_CODE_EX,OP_FLAG,VIP_ACT_SID,
+        DAILY_ENQRY_COUNT,OPT_TRDACCT_USAGE)
+        values ( 
+        #{custCode},#{stkex},#{stkbd},#{trdacct},#{subacctCode},#{subacctType},#{trdacctExcls},#{optTrdacctLvl},
+        #{optMarginSn},#{quotaVal},#{quotaValUsed},#{trdacctEx},#{stkpbuEx},#{cuacctCodeEx},#{opFlag},#{vipActSid},
+        #{dailyEnqryCount},#{optTrdacctUsage})
+    </insert>
+
+
+</mapper>

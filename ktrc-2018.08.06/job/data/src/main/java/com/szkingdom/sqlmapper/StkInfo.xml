@@ -1,0 +1,69 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkInfo">
+    <resultMap id="StkInfoMap" type="com.szkingdom.data.DataStkInfo">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_NAME"  property="stkName"  />
+        <result column="STK_ISIN"  property="stkIsin"  />
+        <result column="STK_CLS"  property="stkCls"  />
+        <result column="STK_SUB_CLS"  property="stkSubCls"  />
+        <result column="STK_STATUS"  property="stkStatus"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STK_UPLMT_RATIO"  property="stkUplmtRatio"  />
+        <result column="STK_LWLMT_RATIO"  property="stkLwlmtRatio"  />
+        <result column="STK_UPLMT_PRICE"  property="stkUplmtPrice"  />
+        <result column="STK_LWLMT_PRICE"  property="stkLwlmtPrice"  />
+        <result column="STK_UPLMT_QTY"  property="stkUplmtQty"  />
+        <result column="STK_LWLMT_QTY"  property="stkLwlmtQty"  />
+        <result column="STK_LOT_SIZE"  property="stkLotSize"  />
+        <result column="STK_LOT_FLAG"  property="stkLotFlag"  />
+        <result column="STK_SPREAD"  property="stkSpread"  />
+        <result column="STK_FACE_VAL"  property="stkFaceVal"  />
+        <result column="STK_CAL_MKTVAL"  property="stkCalMktval"  />
+        <result column="STK_SUSPENDED"  property="stkSuspended"  />
+        <result column="STK_CUSTODY_MODE"  property="stkCustodyMode"  />
+        <result column="STK_UNDL_CODE"  property="stkUndlCode"  />
+        <result column="STK_BIZES"  property="stkBizes"  />
+        <result column="UPD_DATE"  property="updDate"  />
+        <result column="STK_LEVEL"  property="stkLevel"  />
+        <result column="STK_DEADLINE"  property="stkDeadline"  />
+        <result column="REMIND_MESSAGE"  property="remindMessage"  />
+    </resultMap>
+
+
+    <select id="STK_INFO_SELECT" resultMap="StkInfoMap" parameterType="com.szkingdom.data.DataStkInfo">
+        select
+        STKEX,STKBD,STK_CODE,STK_NAME,STK_ISIN,STK_CLS,STK_SUB_CLS,STK_STATUS,
+        CURRENCY,STK_UPLMT_RATIO,STK_LWLMT_RATIO,STK_UPLMT_PRICE,STK_LWLMT_PRICE,STK_UPLMT_QTY,STK_LWLMT_QTY,STK_LOT_SIZE,
+        STK_LOT_FLAG,STK_SPREAD,STK_FACE_VAL,STK_CAL_MKTVAL,STK_SUSPENDED,STK_CUSTODY_MODE,STK_UNDL_CODE,STK_BIZES,
+        UPD_DATE,STK_LEVEL,STK_DEADLINE,REMIND_MESSAGE
+        from STK_INFO
+        where 1=1
+        <if test="stkCode != null and stkCode != '' ">
+            and STK_CODE = #{stkCode}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+    </select>
+
+
+    <insert id="STK_INFO_INSERT" parameterType="com.szkingdom.data.DataStkInfo">
+        insert into STK_INFO(
+        STKEX,STKBD,STK_CODE,STK_NAME,STK_ISIN,STK_CLS,STK_SUB_CLS,STK_STATUS,
+        CURRENCY,STK_UPLMT_RATIO,STK_LWLMT_RATIO,STK_UPLMT_PRICE,STK_LWLMT_PRICE,STK_UPLMT_QTY,STK_LWLMT_QTY,STK_LOT_SIZE,
+        STK_LOT_FLAG,STK_SPREAD,STK_FACE_VAL,STK_CAL_MKTVAL,STK_SUSPENDED,STK_CUSTODY_MODE,STK_UNDL_CODE,STK_BIZES,
+        UPD_DATE,STK_LEVEL,STK_DEADLINE,REMIND_MESSAGE)
+        values ( 
+        #{stkex},#{stkbd},#{stkCode},#{stkName},#{stkIsin},#{stkCls},#{stkSubCls},#{stkStatus},
+        #{currency},#{stkUplmtRatio},#{stkLwlmtRatio},#{stkUplmtPrice},#{stkLwlmtPrice},#{stkUplmtQty},#{stkLwlmtQty},#{stkLotSize},
+        #{stkLotFlag},#{stkSpread},#{stkFaceVal},#{stkCalMktval},#{stkSuspended},#{stkCustodyMode},#{stkUndlCode},#{stkBizes},
+        #{updDate},#{stkLevel},#{stkDeadline},#{remindMessage})
+    </insert>
+
+
+</mapper>

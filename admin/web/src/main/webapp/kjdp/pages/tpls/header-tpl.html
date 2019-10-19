@@ -1,0 +1,35 @@
+<div class="container-wrap clearfix header-wrap header-wrap-1">
+    <div class="container header">
+        <div class="header-top">
+            <div class="logo logo-1 "></div>
+            <div class="user-info-box pull-right">
+                <div class="pull-group">
+                    {{if showAutoSearch}}
+                    <div class="search-wrap menu-autosearch"></div>
+                    {{/if}}
+                    <div class="user-info pull-left clearfix">
+                        <span class="user-name" id="USER_NAME"></span>
+                        <span class="user-code" id="USER_CODE"></span>
+                        <span class="post-name" id="POST_NAME"></span>
+                    </div>
+                    <div class="org-info pull-left clearfix">
+                        <span class="post-name" id="ORG_NAME"></span>
+                    </div>
+                </div>
+                <div class="pull-group pull-group-back">
+                    <div class="head-icon-wrap pull-right">
+<!--                        <a class="icon-common icon-lock" title="锁定" id="lock"></a>-->
+                        <a class="icon-common icon-logout" title="退出" id="logout"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <ul class="btn-wrap clearfix">
+                {{each buttons as item i }}
+                <li class="header-btn" id="{{item.id}}">{{item.text}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>

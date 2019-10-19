@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>岗位访问权限设置</title>
+    <link rel="stylesheet" href="./css/uem-emp.css"/>
+    <script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/post-resource-permission"></script>
+</head>
+<body>
+<div id="empInfoPublic">
+    <div id="empInfoTpl" class="clearfix">
+        <fieldset class="kui-fieldset">
+            <legend>岗位信息</legend>
+            <div class="clearfix form-box" style="padding: 0;">
+                <div class="form-group-inline">
+                    <span class="form-label">岗位代码：</span>
+                    <input id="POST_ID" name="POST_ID" class="kui-combobox"
+                           kui-options="required:true,width:150,panelWidth:150,valueField:'POST_ID',textField:'POST_ID,POST_NAME', autoFill:false,req:[{service:'P0000033'}]"/>
+                </div>
+                <div class="form-group-inline">
+                    <a class="kui-linkbutton" kui-options="iconCls:'icon-search',onClick:'searchEmpInfoCallback'">查询</a>
+                    <a class="kui-linkbutton" kui-options="iconCls:'icon-cancel',onClick:'resetEmpInfoCallback'">重置</a>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+</div>
+</body>
+</html>

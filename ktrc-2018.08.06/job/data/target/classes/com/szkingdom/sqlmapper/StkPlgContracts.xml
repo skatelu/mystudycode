@@ -1,0 +1,141 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkPlgContracts">
+    <resultMap id="StkPlgContractsMap" type="com.szkingdom.data.DataStkPlgContracts">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="CONSTR_SN"  property="constrSn"  />
+        <result column="TRDACCT_IN"  property="trdacctIn"  />
+        <result column="CUST_CODE_IN"  property="custCodeIn"  />
+        <result column="CUACCT_IN"  property="cuacctIn"  />
+        <result column="CURRENCY_IN"  property="currencyIn"  />
+        <result column="TRDACCT_OUT"  property="trdacctOut"  />
+        <result column="CUST_CODE_OUT"  property="custCodeOut"  />
+        <result column="CUACCT_OUT"  property="cuacctOut"  />
+        <result column="CURRENCY_OUT"  property="currencyOut"  />
+        <result column="LENDER_CLS"  property="lenderCls"  />
+        <result column="PAWNEE_CLS"  property="pawneeCls"  />
+        <result column="ORDER_ID"  property="orderId"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_NATURE"  property="stkNature"  />
+        <result column="ORG_CONT_QTY"  property="orgContQty"  />
+        <result column="HAS_BUYBK_QTY"  property="hasBuybkQty"  />
+        <result column="INT_QTY"  property="intQty"  />
+        <result column="BUYBK_QTY"  property="buybkQty"  />
+        <result column="ORG_CONT_AMT"  property="orgContAmt"  />
+        <result column="FI_RATE"  property="fiRate"  />
+        <result column="FI_INTEREST"  property="fiInterest"  />
+        <result column="HAS_BUYBK_AMT"  property="hasBuybkAmt"  />
+        <result column="BONUS_AMT"  property="bonusAmt"  />
+        <result column="BUYBK_AMT"  property="buybkAmt"  />
+        <result column="ORG_BUYBK_DATE"  property="orgBuybkDate"  />
+        <result column="BUYBK_DATE"  property="buybkDate"  />
+        <result column="FI_DEADLINE"  property="fiDeadline"  />
+        <result column="ORG_FI_DEADLINE"  property="orgFiDeadline"  />
+        <result column="ORG_FI_RATE"  property="orgFiRate"  />
+        <result column="ORG_FI_QUOTA"  property="orgFiQuota"  />
+        <result column="CONT_STATUS"  property="contStatus"  />
+        <result column="CONT_FLAG"  property="contFlag"  />
+        <result column="PERFORM_DATE"  property="performDate"  />
+        <result column="PERFORM_FLAG"  property="performFlag"  />
+        <result column="PERFORM_AMT"  property="performAmt"  />
+        <result column="OMARKET_AMT"  property="omarketAmt"  />
+        <result column="HANDLE_DATE"  property="handleDate"  />
+        <result column="FLOW_TYPE"  property="flowType"  />
+        <result column="RIGHTS_CLS"  property="rightsCls"  />
+        <result column="LISTING_YEAR"  property="listingYear"  />
+        <result column="FI_WAY"  property="fiWay"  />
+        <result column="MER_TRD_DATE"  property="merTrdDate"  />
+        <result column="MER_CONSTR_SN"  property="merConstrSn"  />
+        <result column="CASH_AMT"  property="cashAmt"  />
+        <result column="HAS_CONTR_AMT"  property="hasContrAmt"  />
+        <result column="INVEST_VART"  property="investVart"  />
+        <result column="OTHER_GUARANTEE_VAL"  property="otherGuaranteeVal"  />
+        <result column="CAL_INT_DAYS"  property="calIntDays"  />
+        <result column="INT_SUB_FLAG"  property="intSubFlag"  />
+        <result column="CURR_INT_ACCR"  property="currIntAccr"  />
+        <result column="CURR_INT_AMT"  property="currIntAmt"  />
+        <result column="UP_DATE_FEEAMTT"  property="upDateFeeamtt"  />
+        <result column="UP_DATE_FEEACCRU"  property="upDateFeeaccru"  />
+        <result column="RISK_RATE_MODE"  property="riskRateMode"  />
+        <result column="GUARANTEE_RISK_MODE"  property="guaranteeRiskMode"  />
+    </resultMap>
+
+
+    <select id="STK_PLG_CONTRACTS_SELECT" resultMap="StkPlgContractsMap" parameterType="com.szkingdom.data.DataStkPlgContracts">
+        select
+        TRD_DATE,STKBD,CONSTR_SN,TRDACCT_IN,CUST_CODE_IN,CUACCT_IN,CURRENCY_IN,TRDACCT_OUT,
+        CUST_CODE_OUT,CUACCT_OUT,CURRENCY_OUT,LENDER_CLS,PAWNEE_CLS,ORDER_ID,STK_CODE,STK_NATURE,
+        ORG_CONT_QTY,HAS_BUYBK_QTY,INT_QTY,BUYBK_QTY,ORG_CONT_AMT,FI_RATE,FI_INTEREST,HAS_BUYBK_AMT,
+        BONUS_AMT,BUYBK_AMT,ORG_BUYBK_DATE,BUYBK_DATE,FI_DEADLINE,ORG_FI_DEADLINE,ORG_FI_RATE,ORG_FI_QUOTA,
+        CONT_STATUS,CONT_FLAG,PERFORM_DATE,PERFORM_FLAG,PERFORM_AMT,OMARKET_AMT,HANDLE_DATE,FLOW_TYPE,
+        RIGHTS_CLS,LISTING_YEAR,FI_WAY,MER_TRD_DATE,MER_CONSTR_SN,CASH_AMT,HAS_CONTR_AMT,INVEST_VART,
+        OTHER_GUARANTEE_VAL,CAL_INT_DAYS,INT_SUB_FLAG,CURR_INT_ACCR,CURR_INT_AMT,UP_DATE_FEEAMTT,UP_DATE_FEEACCRU,RISK_RATE_MODE,
+        GUARANTEE_RISK_MODE
+        from STK_PLG_CONTRACTS
+        where 1=1
+        <if test="trdDate > 0">and TRD_DATE = #{trdDate}</if>
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+        <if test="constrSn != null and constrSn != ''">and CONSTR_SN = #{constrSn}</if>
+    </select>
+
+
+    <select id="STK_PLG_CONTRACTS_SELECT_LIST" resultMap="StkPlgContractsMap" parameterType="com.szkingdom.data.DataStkPlgContracts">
+        select
+          A.STKBD, A.TRD_DATE, A.CONSTR_SN,  A.TRDACCT_IN, A.TRDACCT_OUT, A.CUST_CODE_IN,
+          A.STK_CODE, A.ORG_CONT_AMT, A.ORG_FI_DEADLINE, A.FI_DEADLINE,
+          A.ORG_BUYBK_DATE, A.ORG_FI_QUOTA, A.ORG_FI_RATE, A.PAWNEE_CLS,
+          abs(A.BUYBK_AMT) BUYBK_AMT, A.BUYBK_DATE, A.FI_RATE, A.ORG_CONT_QTY,
+          coalesce(B.CONT_QTY,0) perform_amt, A.HAS_BUYBK_QTY+coalesce(B.HAS_BUYBK_QTY,0) HAS_BUYBK_QTY,
+          A.INT_QTY+coalesce(B.INT_QTY,0) INT_QTY,
+          (case when B.CONT_STATUS='2' then A.BUYBK_QTY
+                else A.BUYBK_QTY + coalesce(B.BUYBK_QTY,0) end) BUYBK_QTY,
+          A.BONUS_AMT+coalesce(B.BONUS_AMT,0) BONUS_AMT, A.CONT_STATUS, A.CONT_FLAG,
+          A.FI_WAY, A.OTHER_GUARANTEE_VAL, A.HAS_BUYBK_AMT, A.INT_SUB_FLAG, A.CAL_INT_DAYS,
+          A.CURR_INT_AMT, A.CURR_INT_ACCR, A.RISK_RATE_MODE, A.GUARANTEE_RISK_MODE,
+          A.HAS_CONTR_AMT, A.CASH_AMT
+          from STK_PLG_CONTRACTS A left join
+               (
+               select
+               BX.ORG_TRD_DATE TRD_DATE, BX.ORG_CONSTR_SN CONSTR_SN, BX.STK_CODE,
+               BX.STKBD, BX.CONT_STATUS, sum(BX.CONT_QTY) CONT_QTY, sum(BX.BUYBK_QTY) BUYBK_QTY,
+               sum(BX.HAS_BUYBK_QTY) HAS_BUYBK_QTY, sum(BX.BONUS_AMT) BONUS_AMT, sum(BX.INT_QTY) INT_QTY
+               from STK_PLG_SUP_CONTRACTS BX
+               group by BX.ORG_TRD_DATE, BX.ORG_CONSTR_SN, BX.STK_CODE,
+                        BX.STKBD, BX.CONT_STATUS
+               ) B
+          on A.STKBD = B.STKBD and A.TRD_DATE = B.TRD_DATE
+             and A.CONSTR_SN = B.CONSTR_SN and A.STK_CODE = B.STK_CODE
+        where 1=1
+        <if test="trdDate > 0">and A.TRD_DATE = #{trdDate}</if>
+        <if test="stkbd != null and stkbd != ''">and A.STKBD = #{stkbd}</if>
+        <if test="constrSn != null and constrSn != ''">and A.CONSTR_SN = #{constrSn}</if>
+
+    </select>
+
+
+    <insert id="STK_PLG_CONTRACTS_INSERT" parameterType="com.szkingdom.data.DataStkPlgContracts">
+        insert into STK_PLG_CONTRACTS(
+        TRD_DATE,STKBD,CONSTR_SN,TRDACCT_IN,CUST_CODE_IN,CUACCT_IN,CURRENCY_IN,TRDACCT_OUT,
+        CUST_CODE_OUT,CUACCT_OUT,CURRENCY_OUT,LENDER_CLS,PAWNEE_CLS,ORDER_ID,STK_CODE,STK_NATURE,
+        ORG_CONT_QTY,HAS_BUYBK_QTY,INT_QTY,BUYBK_QTY,ORG_CONT_AMT,FI_RATE,FI_INTEREST,HAS_BUYBK_AMT,
+        BONUS_AMT,BUYBK_AMT,ORG_BUYBK_DATE,BUYBK_DATE,FI_DEADLINE,ORG_FI_DEADLINE,ORG_FI_RATE,ORG_FI_QUOTA,
+        CONT_STATUS,CONT_FLAG,PERFORM_DATE,PERFORM_FLAG,PERFORM_AMT,OMARKET_AMT,HANDLE_DATE,FLOW_TYPE,
+        RIGHTS_CLS,LISTING_YEAR,FI_WAY,MER_TRD_DATE,MER_CONSTR_SN,CASH_AMT,HAS_CONTR_AMT,INVEST_VART,
+        OTHER_GUARANTEE_VAL,CAL_INT_DAYS,INT_SUB_FLAG,CURR_INT_ACCR,CURR_INT_AMT,UP_DATE_FEEAMTT,UP_DATE_FEEACCRU,RISK_RATE_MODE,
+        GUARANTEE_RISK_MODE)
+        values ( 
+        #{trdDate},#{stkbd},#{constrSn},#{trdacctIn},#{custCodeIn},#{cuacctIn},#{currencyIn},#{trdacctOut},
+        #{custCodeOut},#{cuacctOut},#{currencyOut},#{lenderCls},#{pawneeCls},#{orderId},#{stkCode},#{stkNature},
+        #{orgContQty},#{hasBuybkQty},#{intQty},#{buybkQty},#{orgContAmt},#{fiRate},#{fiInterest},#{hasBuybkAmt},
+        #{bonusAmt},#{buybkAmt},#{orgBuybkDate},#{buybkDate},#{fiDeadline},#{orgFiDeadline},#{orgFiRate},#{orgFiQuota},
+        #{contStatus},#{contFlag},#{performDate},#{performFlag},#{performAmt},#{omarketAmt},#{handleDate},#{flowType},
+        #{rightsCls},#{listingYear},#{fiWay},#{merTrdDate},#{merConstrSn},#{cashAmt},#{hasContrAmt},#{investVart},
+        #{otherGuaranteeVal},#{calIntDays},#{intSubFlag},#{currIntAccr},#{currIntAmt},#{upDateFeeamtt},#{upDateFeeaccru},#{riskRateMode},
+        #{guaranteeRiskMode})
+    </insert>
+
+
+</mapper>

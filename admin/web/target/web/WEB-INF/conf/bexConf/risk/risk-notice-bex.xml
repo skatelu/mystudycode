@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+    <bex bex_code="QueryRiskNoticeSchema" bex_name="通知模板设置查询" bex_type="4" page_mode="0" attr1="QueryRiskNoticeSchema" />
+	<bex bex_code="QueryRiskIndicatorCls" bex_name="指标类别查询" bex_type="4" page_mode="0" attr1="QueryRiskIndicatorCls" />
+    
+	<bex bex_code="AddRiskNoticeSchema" bex_name="指标类别查询" bex_type="4" page_mode="0" attr1="AddRiskNoticeSchema" />
+    
+	<bex bex_code="UpdateRiskNoticeSchema" bex_name="指标类别查询" bex_type="4" page_mode="0" attr1="UpdateRiskNoticeSchema" />
+    
+	<bex bex_code="QueryRiskNoticeSchemaDetail" bex_name="指标类别查询" bex_type="4" page_mode="0" attr1="QueryRiskNoticeSchemaDetail" />
+    
+	<bex bex_code="QueryRiskIndicator" bex_name="通过业务类型查询指标" bex_type="4" page_mode="0" attr1="QueryRiskIndicator" />
+
+	<bex bex_code="QueryRiskThreshold" bex_name="通过指标查询阈值" bex_type="4" page_mode="0" attr1="QueryRiskThreshold" />
+	
+	<bex bex_code="QueryRiskNoticeMark" bex_name="通过指标查询阈值" bex_type="4" page_mode="0" attr1="QueryRiskNoticeMark" />
+	
+</bexs>

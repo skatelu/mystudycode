@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>风险触发记录屏</title>
+<link rel="stylesheet" href="./css/gridlayout.css"/>
+<link rel="stylesheet" href="./css/kuichart.css"/>
+<link rel="stylesheet" href="./css/monitor-page.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/risk-triggerscreen" data-iskui="true"></script>
+</head>
+<body>
+	<div id="monitorPage">
+		<div id="noticePara">
+			<div class="clearfix">
+				<div class="dl">
+					<span class="dl-label">机构代码</span>
+					<input id="ORG_CODE" name="ORG_CODE" class="kui-combotree"
+                       kui-options="req:[{service:'P0000037',ORG_TYPE:'0'}],
+                           editable:true,
+                           required:true,
+                           conf:{
+                                treeType: '1',
+                                nodeId:'ORG_CODE',
+                                nodeName: 'ORG_CODE,ORG_FULL_NAME',
+                                parNode: 'PAR_ORG'
+                            },panelWidth:300,panelHeight:350,width:'150'"/>
+				</div>
+				<div class="dl">
+					<span class="dl-label">数据更新</span> <input id="REFRESH_TIME"
+						name="REFRESH_TIME" class="kui-textinput"
+						kui-options="width:'120',disabled:'disabled'" />
+				</div>
+				<div class="dl">
+					<a id="searchEmpInfo" class="kui-linkbutton">总览屏</a> <a
+					   id="searchEmpInfo" class="kui-linkbutton">详细屏</a> <a
+					   id="searchEmpInfo" class="kui-linkbutton">特殊屏</a>
+				</div>
+			</div>
+		</div>
+	</div>
+<div style="margin-left:5px"><form id="allbrowerscreen_margin" class="kui-sform"></form></div>
+<div style="margin:5px">
+<div class="kui-gridlayout"
+  style="background-color: #f5f5f5;width: 100%;height:480px;"
+  kui-options='colNum:6, colWidth:[1/6, 1/6,1/6, 1/6,1/6,1/6],
+    rowNum:2, rowHeight:[ 1/2, 1/2], colGap: 4, rowGap: 2, hasShadow:true, 
+    gridPos:[
+    {w:2, h:1, x:0, y:0},
+    {w:1, h:1, x:2, y:0},
+    {w:2, h:1, x:3, y:0},
+    {w:1, h:1, x:5, y:0},
+    {w:2, h:1, x:0, y:1},
+    {w:1, h:1, x:2, y:1},
+    {w:2, h:1, x:3, y:1},
+    {w:1, h:1, x:5, y:1}],'>
+    <div id="chart2" class="kui-kuichart" kui-options='type: "gaugeChart", title: "期权总账户盘中保证金占用比例",
+      config: {
+        color:[
+          [0.6, "#5490d6"],
+          [0.8, "#4ad789"],
+          [0.9, "#1ecb6b"],
+          [0.95, "#0aba61"],
+          [1, "#0aba86"],
+        ],
+        axisWidth: 12,
+        pointerWidth: 5,
+        axisTick: 10,
+        splitLine: 15,
+        titlePos: [0, "85%"],
+        axisLabelDst: 0,
+        detailFormatter: "{per|{value}}",
+        detailRich: {
+          per: {
+            backgroundColor: "#5490d6",
+            fontSize: 30,
+            color: "white",
+            padding: [2, 6],
+            borderRadius: 5,
+          },
+        }
+      }'>
+    </div>
+     <div id="chart3" class="kui-kuichart" kui-options='type: "singleValue", 
+      config: {
+        color: "#ccc",
+      }'></div>
+    <div id="chart4" class="kui-kuichart" kui-options='type: "pieChart", title: "期权客户保证金分布情况",
+      config: {
+        legendShow: false,
+        labelFormatter: "{text|{b}}\n{per|{d}%}",
+        labelRich: {
+          text: {
+            fontSize:12,
+          },
+          per: {
+            fontSize:16,
+          },
+        },
+      },  req: {},'></div>
+    <div id="chart5" class="kui-kuichart" kui-options='type: "singleValue", 
+      config: {
+        color: "#ccc",
+      }'></div>
+    <div id="chart6" class="kui-kuichart" kui-options='type: "lineChart", title: "过去5分钟盘中保证金占用比例增速_资金盯市",
+      config: {
+        smooth: false,
+        dataStack:true,
+        titlePaddingTop: true,
+        lineNames:["历史时间截面均值","当日值"],
+        gridTop: 30,
+      }, data: {
+        category: ["9:00", "15:00"],
+        values: [[36, 55],[20, 30]]
+      },'></div>
+       <div id="chart7" class="kui-kuichart" kui-options='type: "singleValue", 
+      config: {
+        color: "#ccc",
+      }'></div>
+    <div id="chart8" class="kui-kuichart" kui-options='type: "barChart", title: "各营业部的50ETF品种总持仓额度情况(单位：千张)",
+      config: {
+        barWidth: "50%",
+      }'></div>
+       <div id="chart9" class="kui-kuichart" kui-options='type: "singleValue", 
+      config: {
+        color: "#ccc",
+      }'></div>
+  </div>
+ </div>
+</body>
+</html>

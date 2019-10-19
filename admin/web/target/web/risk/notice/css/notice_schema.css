@@ -1,0 +1,283 @@
+.long-date-label {
+	position: absolute;
+	width: 50px;
+	left: 225px;
+	height: 20px;
+	display: inline-block;
+	line-height: 20px;
+	cursor: pointer
+}
+
+.relative {
+	position: relative
+}
+
+.op-code-input.form-label {
+	padding-left: 16px
+}
+
+#empInfoPublic {
+	margin: 0 5px
+}
+
+#empInfoPublic .form-group-dl {
+	width: 240px
+}
+
+#empInfoPublic .form-group-dl .form-label {
+	display: inline-block;
+	width: 80px;
+	text-align: right
+}
+
+#empInfoTpl .tpl-dl {
+	width: 230px;
+	float: left;
+	height: 27px;
+	line-height: 26px;
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis
+}
+
+#empInfoTpl .tpl-dl .auto-search-box {
+	float: none;
+	display: inline-block;
+	width: auto
+}
+
+#empInfoTpl .tpl-dl-auto {
+	height: 31px
+}
+
+#empInfoTpl .tpl-dl .dl-label {
+	display: inline-block;
+	width: 80px;
+	text-align: right;
+	color: #5B5B5B
+}
+
+#empInfoTpl .tpl-dl-form {
+	height: 30px;
+	border-bottom: 1px solid #EEE
+}
+
+#empInfoTpl a.l-btn, #empInfoTpl a.l-btn span.l-btn-left {
+	height: 25px;
+	line-height: 25px
+}
+
+#empInfoTpl a.l-btn span span.l-btn-text {
+	margin: 0 4px;
+	line-height: 25px;
+	height: 25px
+}
+
+#empInfoTpl a.l-btn span.ui-tool-icons {
+	margin-top: 5px
+}
+
+#noticeSchema {
+	margin: 0 5px;
+	overflow: hidden
+}
+
+#noticeSchema .yzs-top {
+	padding: 4px 0 4px 2px
+}
+
+#noticeSchema .dl {
+	width: 250px;
+	float: left;
+	height: 26px;
+	position: relative;
+	display: inline-block;
+	padding: 6px 0
+}
+
+#noticeSchema .dl .dl-label {
+	text-align: right;
+	font-weight: 700;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	width: 90px;
+	display: inline-block
+}
+
+#noticeSchema .long-date-label {
+	position: absolute;
+	top: 10px;
+	display: block;
+	width: 50px;
+	left: 225px;
+	height: 20px;
+	line-height: 20px;
+	cursor: pointer
+}
+
+#noticeSchema .long-date-label input {
+	margin: 0;
+	display: inline-block;
+	position: relative;
+	top: 2px
+}
+
+#noticeSchema .dl a.l-btn, #noticeSchema .dl a.l-btn span.l-btn-left {
+	height: 25px;
+	line-height: 25px
+}
+
+#noticeSchema .dl a.l-btn span span.l-btn-text {
+	margin: 0 4px
+}
+
+#noticeSchema .user-icon-div {
+	float: right;
+	width: 200px;
+	height: 226px;
+	text-align: center;
+	background-color: #FCFCFC;
+	border: 1px solid #F1F1F1;
+	border-radius: 5px;
+	overflow: hidden;
+	position: relative
+}
+
+#noticeSchema .user-icon-tip {
+	margin-top: 20px
+}
+
+#noticeSchema .user-icon-img {
+	display: block;
+	margin: 10px auto 2px;
+	width: 109px;
+	height: 152px
+}
+
+#noticeSchema .user-icon-img.has-img {
+	width: 107px;
+	height: 150px;
+	border: 1px solid #F1F1F1
+}
+
+#noticeSchema #filePath {
+	position: absolute;
+	top: 10px;
+	left: 46px
+}
+
+#noticeSchema .uploadify-queue-item {
+	padding: 0
+}
+
+#noticeSchema .uploadify-queue {
+	margin-bottom: 0
+}
+
+#noticeSchema #EMP_RESOURCE_TRADE_ALL {
+	border: 1px solid #cfd1d3;
+	border-top-width: 0;
+	overflow: hidden
+}
+
+#noticeSchema .kui-fieldset>legend .l-btn {
+	color: #3E72BF;
+	background-color: #fff
+}
+
+#noticeSchema .dl-item-delete {
+	display: inline-block;
+	float: right;
+	margin-right: 18%;
+	width: 6%
+}
+
+#postMenu .search-box {
+	height: 35px;
+	margin-top: 8px
+}
+
+#postMenu .post-dl {
+	width: 250px;
+	float: left;
+	height: 26px;
+	position: relative;
+	display: inline-block
+}
+
+#postMenu .post-dl .form-label {
+	display: inline-block;
+	width: 80px;
+	height: 26px;
+	line-height: 26px
+}
+
+#postMenu .post-dl a.l-btn, #postMenu .post-dl a.l-btn span.l-btn-left {
+	height: 25px;
+	line-height: 25px
+}
+
+#postMenu .post-dl a.l-btn span span.l-btn-text {
+	margin: 0 4px
+}
+
+#postMenu .authorization-box, #postMenu .execution-box {
+	overflow: hidden;
+	position: relative
+}
+
+#empMenu .authorization-box, #empMenu .execution-box {
+	position: relative
+}
+
+#empMenu .panel-body {
+	overflow: hidden
+}
+
+#menuTreeTpl {
+	position: relative;
+	overflow: hidden
+}
+
+#menuTreeTpl .menu-pur {
+	height: 100%;
+	position: relative;
+	overflow: hidden
+}
+
+#menuTreeTpl a.l-btn, #menuTreeTpl a.l-btn span.l-btn-left {
+	height: 25px;
+	line-height: 25px
+}
+
+#menuTreeTpl a.l-btn span span.l-btn-text {
+	margin: 0 4px
+}
+
+#menuTreeTpl .toolbar {
+	height: 26px;
+	position: absolute;
+	left: 0;
+	padding: 2px 1%;
+	width: 98%
+}
+
+#menuTreeTpl .top-toolbar {
+	top: 0;
+	text-align: right;
+	border-bottom: 3px solid #f4f4f4
+}
+
+#menuTreeTpl .bottom-toolbar {
+	bottom: 0;
+	text-align: right;
+	border-top: 1px solid #cfd1d3
+}
+
+#menuTreeTpl .tree-box {
+	position: absolute;
+	overflow-y: auto
+}

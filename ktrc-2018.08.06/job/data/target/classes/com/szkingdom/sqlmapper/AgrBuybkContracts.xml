@@ -1,0 +1,154 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.AgrBuybkContracts">
+    <resultMap id="AgrBuybkContractsMap" type="com.szkingdom.data.DataAgrBuybkContracts">
+        <result column="ADD_DATE"  property="addDate"  />
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="BUYBK_DATE"  property="buybkDate"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_CLS"  property="custCls"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="CUACCT_CLS"  property="cuacctCls"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="TRDACCT_NAME"  property="trdacctName"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="ORDER_ID"  property="orderId"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="MATCH_SN"  property="matchSn"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_NAME"  property="stkName"  />
+        <result column="STK_CLS"  property="stkCls"  />
+        <result column="STK_BIZ"  property="stkBiz"  />
+        <result column="STK_BIZ_ACTION"  property="stkBizAction"  />
+        <result column="ORDER_PRICE"  property="orderPrice"  />
+        <result column="CONT_AMT"  property="contAmt"  />
+        <result column="BUYBK_PRICE"  property="buybkPrice"  />
+        <result column="BUYBK_QTY"  property="buybkQty"  />
+        <result column="BUYBK_AMT"  property="buybkAmt"  />
+        <result column="BUYBK_STATUS"  property="buybkStatus"  />
+        <result column="PERFORM_FLAG"  property="performFlag"  />
+        <result column="PERFORM_AMT"  property="performAmt"  />
+        <result column="STK_TRD_FRZ"  property="stkTrdFrz"  />
+        <result column="TRD_FRZ_AMT"  property="trdFrzAmt"  />
+        <result column="STK_UNDL_CODE"  property="stkUndlCode"  />
+        <result column="BIZ_CODE"  property="bizCode"  />
+        <result column="PATH_NO"  property="pathNo"  />
+        <result column="AGR_BUYBK_VAST_CODE"  property="agrBuybkVastCode"  />
+        <result column="BUYBK_RATE"  property="buybkRate"  />
+        <result column="UNDL_CON_RATE"  property="undlConRate"  />
+        <result column="CON_FLAG"  property="conFlag"  />
+        <result column="DELAY_BUYBK_COUNT"  property="delayBuybkCount"  />
+        <result column="CPT_CONT_TRD_DATE"  property="cptContTrdDate"  />
+        <result column="CPT_CONT_MATCH_SN"  property="cptContMatchSn"  />
+    </resultMap>
+
+    <select id="AGR_BUYBK_CONTRACTS_SELECT" resultMap="AgrBuybkContractsMap" parameterType="com.szkingdom.data.DataAgrBuybkContracts">
+        select
+        ADD_DATE,TRD_DATE,BUYBK_DATE,CUST_CODE,CUST_CLS,CUACCT_CODE,CURRENCY,CUACCT_CLS,
+        INT_ORG,TRDACCT_NAME,TRDACCT,STKEX,STKBD,ORDER_ID,STKPBU,MATCH_SN,
+        STK_CODE,STK_NAME,STK_CLS,STK_BIZ,STK_BIZ_ACTION,ORDER_PRICE,CONT_AMT,BUYBK_PRICE,
+        BUYBK_QTY,BUYBK_AMT,BUYBK_STATUS,PERFORM_FLAG,PERFORM_AMT,STK_TRD_FRZ,TRD_FRZ_AMT,STK_UNDL_CODE,
+        BIZ_CODE,PATH_NO,AGR_BUYBK_VAST_CODE,BUYBK_RATE,UNDL_CON_RATE,CON_FLAG,DELAY_BUYBK_COUNT,CPT_CONT_TRD_DATE,
+        CPT_CONT_MATCH_SN
+        from AGR_BUYBK_CONTRACTS
+    </select>
+
+    <select id="AGR_BUYBK_CONTRACTS_TRD_DATE_SELECT" resultMap="AgrBuybkContractsMap" 
+        parameterType="com.szkingdom.data.DataAgrBuybkContracts">
+        select TRD_DATE 
+        from AGR_BUYBK_CONTRACTS
+        where TRD_DATE = #{trdDate}
+              and MATCH_SN = #{matchSn}
+           <if test="stkbd != null and stkbd!= ''">
+               and STKBD = #{stkbd}
+           </if>
+           <if test="stkex != null and stkex != ''">
+                and STKEX = #{stkex}
+           </if>
+           <if test="stkCode != null and stkCode != ''">
+                and STK_CODE = #{stkCode}
+           </if>
+    </select>
+
+    <select id="AGR_BUYBK_CONTRACTS_BUYBK_AMT_SELECT" resultMap="AgrBuybkContractsMap" 
+        parameterType="com.szkingdom.data.DataAgrBuybkContracts">
+        select sum(BUYBK_AMT) as BUYBK_AMT from (
+        select BUYBK_AMT from AGR_BUYBK_CONTRACTS where TRD_DATE = #{trdDate} and MATCH_SN = #{matchSn}
+       	<if test="stkbd != null and stkbd!= ''">
+               and STKBD = #{stkbd}
+         </if>
+         <if test="stkex != null and stkex != ''">
+              and STKEX = #{stkex}
+         </if>
+         <if test="stkCode != null and stkCode != ''">
+              and STK_CODE = #{stkCode}
+         </if>
+        union all
+         select sum(BUYBK_AMT) as BUYBK_AMT from AGR_BUYBK_CONTRACTS 
+         where CPT_CONT_TRD_DATE = #{trdDate} and CPT_CONT_MATCH_SN = #{matchSn}
+         <if test="stkbd != null and stkbd!= ''">
+               and STKBD = #{stkbd}
+         </if>
+         <if test="stkex != null and stkex != ''">
+              and STKEX = #{stkex}
+         </if>
+         <if test="stkCode != null and stkCode != ''">
+              and STK_CODE = #{stkCode}
+         </if>
+         ) t
+    </select>
+    
+     <select id="AGR_BUYBK_CONTRACTS_BUYBK_QTY_SELECT" resultMap="AgrBuybkContractsMap" 
+         parameterType="com.szkingdom.data.DataAgrBuybkContracts">
+        select sum(BUYBK_QTY) as BUYBK_QTY from (
+        select BUYBK_QTY from AGR_BUYBK_CONTRACTS where TRD_DATE = #{trdDate} and MATCH_SN = #{matchSn}
+       	<if test="stkbd != null and stkbd!= ''">
+               and STKBD = #{stkbd}
+         </if>
+         <if test="stkex != null and stkex != ''">
+              and STKEX = #{stkex}
+         </if>
+         <if test="stkCode != null and stkCode != ''">
+              and STK_CODE = #{stkCode}
+         </if>
+        union all
+         select sum(BUYBK_QTY) as BUYBK_QTY from AGR_BUYBK_CONTRACTS 
+         where CPT_CONT_TRD_DATE = #{trdDate} and CPT_CONT_MATCH_SN = #{matchSn}
+         <if test="stkbd != null and stkbd!= ''">
+               and STKBD = #{stkbd}
+         </if>
+         <if test="stkex != null and stkex != ''">
+              and STKEX = #{stkex}
+         </if>
+         <if test="stkCode != null and stkCode != ''">
+              and STK_CODE = #{stkCode}
+         </if>
+         ) t
+    </select>
+    
+     
+
+    <insert id="AGR_BUYBK_CONTRACTS_INSERT" parameterType="com.szkingdom.data.DataAgrBuybkContracts">
+        insert into AGR_BUYBK_CONTRACTS(
+        ADD_DATE,TRD_DATE,BUYBK_DATE,CUST_CODE,CUST_CLS,CUACCT_CODE,CURRENCY,CUACCT_CLS,
+        INT_ORG,TRDACCT_NAME,TRDACCT,STKEX,STKBD,ORDER_ID,STKPBU,MATCH_SN,
+        STK_CODE,STK_NAME,STK_CLS,STK_BIZ,STK_BIZ_ACTION,ORDER_PRICE,CONT_AMT,BUYBK_PRICE,
+        BUYBK_QTY,BUYBK_AMT,BUYBK_STATUS,PERFORM_FLAG,PERFORM_AMT,STK_TRD_FRZ,TRD_FRZ_AMT,STK_UNDL_CODE,
+        BIZ_CODE,PATH_NO,AGR_BUYBK_VAST_CODE,BUYBK_RATE,UNDL_CON_RATE,CON_FLAG,DELAY_BUYBK_COUNT,CPT_CONT_TRD_DATE,
+        CPT_CONT_MATCH_SN)
+        values ( 
+        #{addDate},#{trdDate},#{buybkDate},#{custCode},#{custCls},#{cuacctCode},#{currency},#{cuacctCls},
+        #{intOrg},#{trdacctName},#{trdacct},#{stkex},#{stkbd},#{orderId},#{stkpbu},#{matchSn},
+        #{stkCode},#{stkName},#{stkCls},#{stkBiz},#{stkBizAction},#{orderPrice},#{contAmt},#{buybkPrice},
+        #{buybkQty},#{buybkAmt},#{buybkStatus},#{performFlag},#{performAmt},#{stkTrdFrz},#{trdFrzAmt},#{stkUndlCode},
+        #{bizCode},#{pathNo},#{agrBuybkVastCode},#{buybkRate},#{undlConRate},#{conFlag},#{delayBuybkCount},#{cptContTrdDate},
+        #{cptContMatchSn})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+	<view id="RISK_FACTORS_MANAGE_INFO" render="datagrid" title="因子管理"
+		data-main="./src/factors-manage.js">
+		<conf service="FACT00001" pageSize="50" pageList="[50,100]"
+			fit="true" onInitSuccess ="onInitSuccess" singleSelect="true"/>
+		<qry_item field="BIZ_ATTR" edt_width="130" title="业务属性"
+			edt_onSelect="loadIndicatorType" type="combobox" edt_dict="BIZ_ATTR"
+			edt_required="false" edt_defaultValue="00" edt_panelWidth="150"
+			edt_validType="val[1,32]" />
+		
+		<qry_item field="FACTOR_CLS" edt_width="130" title="因子类别"
+			edt_onSelect="loadIndicatorType" type="combobox" edt_dict="FACTOR_CLS"
+			edt_required="false" edt_defaultValue="00" edt_panelWidth="150"
+			edt_validType="val[1,32]" />
+		<qry_item field="FACTOR_NAME" title="因子名称" edt_width="130"
+			type="input" edt_validType="val[1,64]" placeholder="提示语..."/>
+		<!-- <btn_item text="新增" service="P0000111" iconCls="icon-add"
+			handler="commonAdd" panelHeight="220" /> -->
+		<btn_item text="管理" service="FACT00002" iconCls="icon-edit"
+			handler="commonModify" panelHeight="220"/>
+		<!-- <btn_item text="管理" service="P0000112" iconCls="icon-edit"
+			handler="manage" panelHeight="220" onclick="manage()"/> -->
+		<!-- <btn_item text="删除" service="P0000012" iconCls="icon-remove"
+			handler="commonDelete" /> -->
+		<col_item field="FACTOR_CLS" title="因子类别" width="100"
+			type="combobox" edt_dict="FACTOR_CLS" edt_required="true" edt_valueField="DICT_ITEM"
+			edt_textField="DICT_ITEM_NAME" sortable="false"/>	
+		<col_item field="FACTOR_ID" title="因子编号" width="100" edt_disabled="true"
+			type="input" />
+		<col_item field="FACTOR_NAME" title="因子名称" width="200" edt_required="true"
+			type="input" />
+		<col_item field="FACTOR_REMARK" title="因子说明" width="400" edt_required="true"
+			type="input" />
+	</view>
+
+
+
+</views>

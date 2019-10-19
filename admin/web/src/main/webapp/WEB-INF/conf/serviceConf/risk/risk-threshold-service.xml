@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+
+     <service service_code="THR00001" service_name="查询监控项阈值" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_queryThresholdSetting" business_type="3"/>
+        </businesses>
+    </service>
+    
+      <service service_code="THR00002" service_name="保存监控项阈值" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_saveThresholdSetting" business_type="3"/>
+        </businesses>
+    </service>
+
+</services>

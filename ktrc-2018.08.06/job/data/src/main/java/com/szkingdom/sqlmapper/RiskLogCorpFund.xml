@@ -1,0 +1,49 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskLogCorpFund">
+    <resultMap id="RiskLogCorpFundMap" type="com.szkingdom.data.DataRiskLogCorpFund">
+        <result column="RISK_LOG_SN"  property="riskLogSn"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="MARGIN_CORP_ACCT"  property="marginCorpAcct"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="ACCT_TYPE"  property="acctType"  />
+        <result column="MARGIN_USED"  property="marginUsed"  />
+        <result column="MARGIN_AVL"  property="marginAvl"  />
+        <result column="MARGIN_TOTAL_AMT"  property="marginTotalAmt"  />
+        <result column="OPEN_AMT_USEED_RATE"  property="openAmtUseedRate"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+    </resultMap>
+
+
+    <select id="RISK_LOG_CORP_FUND_SELECT" resultMap="RiskLogCorpFundMap" parameterType="com.szkingdom.data.DataRiskLogCorpFund">
+        select
+        RISK_LOG_SN,STKBD,MARGIN_CORP_ACCT,CURRENCY,ACCT_TYPE,MARGIN_USED,MARGIN_AVL,MARGIN_TOTAL_AMT,
+        OPEN_AMT_USEED_RATE,OCC_DATE,OCC_TIME
+        from RISK_LOG_CORP_FUND
+    </select>
+
+
+    <insert id="RISK_LOG_CORP_FUND_INSERT" parameterType="com.szkingdom.data.DataRiskLogCorpFund">
+        insert into RISK_LOG_CORP_FUND(
+        STKBD,MARGIN_CORP_ACCT,CURRENCY,ACCT_TYPE,MARGIN_USED,MARGIN_AVL,MARGIN_TOTAL_AMT,
+        OPEN_AMT_USEED_RATE,OCC_DATE,OCC_TIME)
+        values ( 
+        #{stkbd},#{marginCorpAcct},#{currency},#{acctType},#{marginUsed},#{marginAvl},#{marginTotalAmt},
+        #{openAmtUseedRate},#{occDate},#{occTime})
+    </insert>
+
+
+
+    <update id="RISK_LOG_CORP_FUND_UPDATE" parameterType="com.szkingdom.data.DataRiskLogCorpFund">
+        update RISK_LOG_CORP_FUND set
+        STKBD = #{stkbd},MARGIN_CORP_ACCT = #{marginCorpAcct},
+        CURRENCY = #{currency},ACCT_TYPE = #{acctType},MARGIN_USED = #{marginUsed},
+        MARGIN_AVL = #{marginAvl},MARGIN_TOTAL_AMT = #{marginTotalAmt},OPEN_AMT_USEED_RATE = #{openAmtUseedRate},
+        OCC_DATE = #{occDate},OCC_TIME = #{occTime}
+    </update>
+
+
+</mapper>

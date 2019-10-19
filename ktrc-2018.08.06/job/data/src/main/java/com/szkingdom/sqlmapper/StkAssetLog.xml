@@ -1,0 +1,54 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkAssetLog">
+    <resultMap id="StkAssetLogMap" type="com.szkingdom.data.DataStkAssetLog">
+        <result column="SERIAL_NO"  property="serialNo"  />
+        <result column="OCCUR_DATE"  property="occurDate"  />
+        <result column="OCCUR_TIME"  property="occurTime"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="BIZ_CODE"  property="bizCode"  />
+        <result column="BIZ_CONTEXT"  property="bizContext"  />
+        <result column="BIZ_SN"  property="bizSn"  />
+        <result column="STK_AVL"  property="stkAvl"  />
+        <result column="STK_BLN_EFFECT"  property="stkBlnEffect"  />
+        <result column="STK_AVL_EFFECT"  property="stkAvlEffect"  />
+        <result column="REVERSE_STATUS"  property="reverseStatus"  />
+        <result column="SUBSYS_SN"  property="subsysSn"  />
+    </resultMap>
+
+    <select id="STK_ASSET_LOG_SELECT" resultMap="StkAssetLogMap" parameterType="com.szkingdom.data.DataStkAssetLog">
+        select
+        SERIAL_NO,OCCUR_DATE,OCCUR_TIME,CUST_CODE,CUACCT_CODE,INT_ORG,CURRENCY,
+        STKBD,STKPBU,TRDACCT,STK_CODE,BIZ_CODE,BIZ_CONTEXT,BIZ_SN,STK_AVL,
+        STK_BLN_EFFECT,STK_AVL_EFFECT,REVERSE_STATUS,SUBSYS_SN
+        from STK_ASSET_LOG
+        where 1=1
+        <if test="serialNo > 0">
+            and SERIAL_NO = #{serialNo}
+        </if>
+        <if test="custCode > 0">
+            and CUST_CODE = #{custCode}
+        </if>
+    </select>
+
+    <insert id="STK_ASSET_LOG_INSERT" parameterType="com.szkingdom.data.DataStkAssetLog">
+        insert into STK_ASSET_LOG(
+        SERIAL_NO,OCCUR_DATE,OCCUR_TIME,CUST_CODE,CUACCT_CODE,INT_ORG,CURRENCY,
+        STKBD,STKPBU,TRDACCT,STK_CODE,BIZ_CODE,BIZ_CONTEXT,BIZ_SN,STK_AVL,
+        STK_BLN_EFFECT,STK_AVL_EFFECT,REVERSE_STATUS,SUBSYS_SN)
+        values ( 
+        #{serialNo},#{occurDate},#{occurTime},#{custCode},#{cuacctCode},#{intOrg},#{currency},
+        #{stkbd},#{stkpbu},#{trdacct},#{stkCode},#{bizCode},#{bizContext},#{bizSn},#{stkAvl},
+        #{stkBlnEffect},#{stkAvlEffect},#{reverseStatus},#{subsysSn})
+    </insert>
+
+</mapper>

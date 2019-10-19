@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+	<select id="QueryRiskIndicatorsManage" parameterType="jdbcMap"
+		resultType="jdbcMap">
+		select 
+		b.indicator_cls_name as INDICATOR_CLS_NAME,
+		a.INDICATOR_ID as INDICATOR_ID,
+		a.INDICATOR_NAME as INDICATOR_NAME,
+		a.INDICATOR_FORMULA as INDICATOR_FORMULA,
+		a.INDICATOR_REMARK as INDICATOR_REMARK,
+		a.BIZ_ATTR as  BIZ_ATTR,
+		a.INDICATOR_CLS as INDICATOR_CLS
+		from RISK_INDICATORS a 
+		left join RISK_INDICATOR_CLS b 
+		on a.BIZ_ATTR = b.BIZ_ATTR                             
+		and a.INDICATOR_CLS = b.INDICATOR_CLS
+		where 1=1
+    	<if test="BIZ_ATTR != null and BIZ_ATTR != ''">
+	        and a.BIZ_ATTR = #{BIZ_ATTR}
+	    </if>
+    	<if test="INDICATOR_CLS != null and INDICATOR_CLS != ''">
+	        and a.INDICATOR_CLS = #{INDICATOR_CLS}
+	    </if>
+    	<if test="INDICATOR_NAME != null and INDICATOR_NAME != ''"> 
+			and (a.INDICATOR_NAME like '%${INDICATOR_NAME}%' or a.INDICATOR_ID like '%${INDICATOR_NAME}%')
+		</if>
+		order by INDICATOR_ID asc
+	</select>
+	
+	<select id="QueryRiskIndicatorClsNameByBizAttr" parameterType="jdbcMap"
+		resultType="jdbcMap">
+    	select
+    	distinct INDICATOR_CLS,INDICATOR_CLS_NAME from RISK_INDICATOR_CLS 
+    	where 1=1
+    	<if test="BIZ_ATTR != null and BIZ_ATTR != ''">
+			and BIZ_ATTR = #{BIZ_ATTR}
+		</if>
+		order by INDICATOR_CLS
+	</select>
+	
+	<update id="UpdateRiskIndicator" parameterType="jdbcMap">
+	    <!-- update RISK_INDICATORS set INDICATOR_CLS = #{INDICATOR_CLS_NAME},INDICATOR_NAME=#{INDICATOR_NAME},INDICATOR_REMARK=#{INDICATOR_REMARK}
+	    where INDICATOR_ID=#{INDICATOR_ID} -->
+	    update RISK_INDICATORS set INDICATOR_CLS = #{INDICATOR_CLS},INDICATOR_NAME=#{INDICATOR_NAME},INDICATOR_REMARK=#{INDICATOR_REMARK}
+	    where INDICATOR_ID=#{INDICATOR_ID}
+	</update>
+</mapper>
+

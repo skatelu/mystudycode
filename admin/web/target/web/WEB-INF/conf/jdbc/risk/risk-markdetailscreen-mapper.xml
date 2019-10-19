@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+	
+	<select id="QueryBizAtrrMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+  			concat('6',A.biz_attr) AS MENU_ID, B.dict_item_name AS MENU_NAME, '-1' AS PAR_MENU, '' AS PAR_NAME
+		FROM
+  			(SELECT biz_attr FROM risk_indicator_overview GROUP BY biz_attr) A
+    	LEFT JOIN (SELECT * FROM UPM_DICT_ITEMS WHERE dict_code = 'BIZ_ATTR') B ON A.biz_attr = B.dict_item
+    </select>
+    <select id="QueryIndicatorClsMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        select 
+        	concat('6',biz_attr) as par_menu,concat('6',biz_attr,indicator_cls) as menu_id,indicator_cls_name as MENU_NAME 
+        from risk_indicator_overview 
+        group by biz_attr,indicator_cls,indicator_cls_name
+    </select>
+
+    <select id="QueryIndicatorOverviewMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        select trim(indicator_id) as menu_id, indicator_name as MENU_NAME,concat('6',biz_attr,indicator_cls) as par_menu,indicator_cls_name as par_name 
+        from risk_indicator_overview order by indicator_id;
+    </select>
+
+
+    <select id="QueryIndicatorOverview" parameterType="jdbcMap" resultType="jdbcMap">
+        select * from risk_indicator_overview
+        where 1=1
+        <if test="RISK_TRIGGER_QTY!='' and RISK_TRIGGER_QTY!=null">
+            AND RISK_TRIGGER_QTY !=  CAST(#{RISK_TRIGGER_QTY} AS bigint)
+        </if>
+        <if test="INDICATOR_ID!='' and INDICATOR_ID!=null">
+            AND INDICATOR_ID  like '${INDICATOR_ID}%'
+        </if>
+
+    </select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_ACCT" parameterType="jdbcMap" resultType="jdbcMap">
+	    <include refid="kjdp_pagePrefix"/>
+	    select * from RISK_INFO_ACCT where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+        <include refid="kjdp_pageSuffix"/>
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_FUND" parameterType="jdbcMap" resultType="jdbcMap">
+	    <include refid="kjdp_pagePrefix"/>
+	    select 
+		INDICATOR_ID
+		,INDICATOR_NAME
+		,OCC_DATE
+		,OCC_TIME
+		,PRE_THRESHOLD
+		,PRE_THRES_NO
+		,PRE_THRES_NAME
+		,PRE_THRES_COLOR
+		,long_to_rate(PRE_RISK_VALUE) as PRE_RISK_VALUE
+		,THRESHOLD
+		,THRES_NO
+		,THRES_NAME
+		,THRES_COLOR
+		,long_to_rate(RISK_VALUE) as RISK_VALUE0
+		,long_to_rate(RISK_VALUE_RLT) as RISK_VALUE_RLT
+		,long_to_rate(STKEX_RISK_VALUE) as STKEX_RISK_VALUE
+		,long_to_rate(STKEX_RISK_VALUE_RLT) as STKEX_RISK_VALUE_RLT
+		,long_to_rate(CLOSE_FUND_RISK_VALUE) as CLOSE_FUND_RISK_VALUE
+		,long_to_money(EQUITY) as EQUITY
+		,long_to_money(FUND_BLN) as FUND_BLN
+		,long_to_money(FUND_AVL) FUND_AVL
+		,long_to_money(FUND_RET) FUND_RET
+		,long_to_money(MARGIN_USED) MARGIN_USED
+		,long_to_money(MARGIN_USED_RLT) MARGIN_USED_RLT
+		,long_to_money(STKEX_MAG_USED) STKEX_MAG_USED
+		,long_to_money(STKEX_MAG_USED_RLT) STKEX_MAG_USED_RLT
+		,long_to_money(DUE_ADD_AMT) DUE_ADD_AMT
+		,long_to_money(DAILY_IN_AMT) DAILY_IN_AMT
+		,long_to_money(DAILY_OUT_AMT) DAILY_OUT_AMT
+		,INT_ORG
+		,CUST_CODE
+		,CUST_NAME
+		,CUST_TYPE
+		,CUACCT_CODE
+		,CURRENCY
+		,RISK_VALID_FLAG
+		,NOTICE_SENT_LEVEL
+		,NOTICE_SENT_LEVEL_NAME
+		,MARGIN_CLS 
+		from RISK_INFO_FUND where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+        <include refid="kjdp_pageSuffix"/>
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_FUND_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+	     select count(*) AS RS_ROWS from  (
+	    select 
+		INDICATOR_ID
+		from RISK_INFO_FUND where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+        )t
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_ASSET" parameterType="jdbcMap" resultType="jdbcMap">
+	    <include refid="kjdp_pagePrefix"/>
+	    select 
+		INDICATOR_ID
+		,INDICATOR_NAME
+		,OCC_DATE
+		,OCC_TIME
+		,PRE_THRESHOLD
+		,PRE_THRES_NO
+		,PRE_THRES_NAME
+		,PRE_THRES_COLOR
+		,long_to_rate(PRE_RISK_VALUE) PRE_RISK_VALUE
+		,THRESHOLD
+		,THRES_NO
+		,THRES_NAME
+		,THRES_COLOR
+		,long_to_rate(RISK_VALUE) RISK_VALUE0
+		,POSI_QTY
+		,POSI_LQTY
+		,long_to_money(QUOTA_VAL_USED) QUOTA_VAL_USED
+		,long_to_money(QUOTA_VAL) QUOTA_VAL
+		,CVD_SHORT_TYPE
+		,STK_QTY_NEED
+		,STK_QTY_LOCKED
+		,STK_QTY_ACT
+		,CVT_QTY_LACK
+		,INT_ORG
+		,CUST_CODE
+		,CUST_NAME
+		,CUST_TYPE
+		,CUST_CLS
+		,CUACCT_CODE
+		,CURRENCY
+		,STKBD
+		,TRDACCT
+		,SUBACCT_CODE
+		,OPT_UNDL_CODE
+		,OPT_UNDL_NAME
+		,OPT_UNDL_CLS as STK_CLS
+		,LS_FLAG
+		,RISK_VALID_FLAG
+		,NOTICE_SENT_LEVEL
+		,NOTICE_SENT_LEVEL_NAME
+		 from RISK_INFO_ASSET where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+        <include refid="kjdp_pageSuffix"/>
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_ASSET_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+	      select count(*) AS RS_ROWS from  (
+	     select 
+		 INDICATOR_ID
+		 from RISK_INFO_ASSET where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+         )t
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_EXE_FUND" parameterType="jdbcMap" resultType="jdbcMap">
+	   	<include refid="kjdp_pagePrefix"/>
+	    select INDICATOR_ID,INDICATOR_NAME,OCC_DATE
+			,OCC_TIME,LONG_TO_RATE(RISK_VALUE) RISK_VALUE0
+			,LONG_TO_MONEY(FUND_BLN) FUND_BLN
+			,LONG_TO_MONEY(FUND_AVL) FUND_AVL
+			,LONG_TO_MONEY(FUND_RET) FUND_RET
+			,LONG_TO_MONEY(APPOINTED_NEED_AMT) APPOINTED_NEED_AMT
+			,LONG_TO_MONEY(APPOINTED_LACK_AMT) APPOINTED_LACK_AMT
+			,LONG_TO_MONEY(FUND_NET_DLVY) FUND_NET_DLVY
+			,LONG_TO_MONEY(CASH_SETT_AMT) CASH_SETT_AMT
+			,LONG_TO_MONEY(DLVY_EXE_MARGIN) DLVY_EXE_MARGIN
+			,LONG_TO_MONEY(FUND_EXE_MARGIN) FUND_EXE_MARGIN
+			,LONG_TO_MONEY(FUND_EXE_FRZ) FUND_EXE_FRZ
+			,LONG_TO_MONEY(FUND_FEE_FRZ) FUND_FEE_FRZ
+			,DLVY_DATE,INT_ORG,CUST_CODE,CUST_NAME
+			,CUST_TYPE,CUST_CLS,CUACCT_CODE,CURRENCY
+			,RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME
+			 from RISK_INFO_EXE_FUND where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+        <include refid="kjdp_pageSuffix"/>
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_EXE_FUND_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+	     select count(*) AS RS_ROWS from  (
+	    select INDICATOR_ID
+			 from RISK_INFO_EXE_FUND where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+       )t
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_EXE_STK" parameterType="jdbcMap" resultType="jdbcMap">
+	    <include refid="kjdp_pagePrefix"/>
+	    select INDICATOR_ID	,INDICATOR_NAME,OCC_DATE,OCC_TIME,
+				LONG_TO_RATE(RISK_VALUE) as RISK_VALUE0
+				,LONG_TO_RATE(DEFAULT_RISK_VALUE1) as DEFAULT_RISK_VALUE1
+				,LONG_TO_RATE(DEFAULT_RISK_VALUE2) as DEFAULT_RISK_VALUE2
+				,OPT_UNDL_CODE,OPT_UNDL_NAME,OPT_UNDL_CLS as STK_CLS,STK_QTY_ACT
+				,STK_NET_DLVY_QTY,STK_QTY_FAR,
+				LONG_TO_MONEY(CASH_SETT_AMT) as CASH_SETT_AMT
+				,STK_QTY_EXELACK1,STK_QTY_EXELACK2,DLVY_DATE,INT_ORG
+				,CUST_CODE,CUST_NAME,CUST_TYPE,CUST_CLS,CUACCT_CODE
+				,CURRENCY,STKBD,TRDACCT,SUBACCT_CODE,TRDACCT_EXCLS
+				,RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME
+				 from RISK_INFO_EXE_STK where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+        <include refid="kjdp_pageSuffix"/>
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_EXE_STK_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+	     select count(*) AS RS_ROWS from  (
+	    select INDICATOR_ID	
+				 from RISK_INFO_EXE_STK where indicator_id = #{INDICATOR_ID}
+	    <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+        ) t
+	</select>
+	
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_CORP_FUND" parameterType="jdbcMap" resultType="jdbcMap">
+	    <include refid="kjdp_pagePrefix"/>
+	    select STKBD,MARGIN_CORP_ACCT,CURRENCY,ACCT_TYPE
+			,LONG_TO_MONEY(MARGIN_USED) as MARGIN_USED
+			,LONG_TO_MONEY(MARGIN_AVL) as MARGIN_AVL
+			,LONG_TO_MONEY(MARGIN_TOTAL_AMT) as MARGIN_TOTAL_AMT
+			,LONG_TO_RATE(OPEN_AMT_USEED_RATE) as OPEN_AMT_USEED_RATE
+			,OCC_DATE,OCC_TIME from RISK_INFO_CORP_FUND 
+		<include refid="kjdp_pageSuffix"/>
+	</select>
+	
+	<select id="RiskMarkDetailScreen_RISK_INFO_CORP_FUND_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+	     select count(*) AS RS_ROWS from  (
+	    select STKBD,MARGIN_CORP_ACCT,CURRENCY,ACCT_TYPE
+			,LONG_TO_MONEY(MARGIN_USED) as MARGIN_USED
+			,LONG_TO_MONEY(MARGIN_AVL) as MARGIN_AVL
+			,LONG_TO_MONEY(MARGIN_TOTAL_AMT) as MARGIN_TOTAL_AMT
+			,LONG_TO_RATE(OPEN_AMT_USEED_RATE) as OPEN_AMT_USEED_RATE
+			,OCC_DATE,OCC_TIME from RISK_INFO_CORP_FUND 
+		) t
+	</select>
+	
+	
+</mapper>
+

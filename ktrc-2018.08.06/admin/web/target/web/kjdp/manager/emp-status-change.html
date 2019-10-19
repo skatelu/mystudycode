@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>员工状态设置</title>
+    <link rel="stylesheet" href="./css/uem-emp.css"/>
+    <script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/emp-status-change" data-iskui="true"></script>
+</head>
+<body>
+<div id="empInfoPublic">
+    <fieldset class="kui-fieldset">
+        <legend>员工状态设置</legend>
+        <div class="form-box">
+            <div class="form-group-inline">
+                <span class="form-label">员工状态：</span>
+                <input class="kui-combobox" id="OP_STATUS" name="OP_STATUS"
+                        kui-options="dict:'OP_STATUS',required:true,width:'140',autoFill:false,loadFilter:'!9'"/>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <a href="javascript:void(0)" class="kui-linkbutton" id="submit" kui-options="iconCls:'icon-ok',onClick:'empStatusChange'">提交</a>
+            <a href="javascript:void(0)" class="kui-linkbutton" id="reset" kui-options="iconCls:'icon-cancel',onClick:'empInfoReset'">清空</a>
+        </div>
+    </fieldset>
+</div>
+
+</body>
+</html>

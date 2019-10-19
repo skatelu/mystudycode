@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="KJDP_MICRO_UPM_SERVICE" render="datagrid" title="微服务管理">
+        <conf req="[{service:'P0000115'}]" colNumbers="4" fit="true"/>
+        <qry_item field="SERVICE_CODE" title="服务编号" type="input" edt_validType="length[1,32]"/>
+
+        <btn_item text="新增" service="P0000116" title="新增" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000117" title="修改" iconCls="icon-edit" handler="commonModify"/>
+        <btn_item text="删除" service="P0000118" title="删除" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="SERVICE_CODE" title="服务编号" width="120" type="input" edt_required="true" edit_flag="1" edt_validType="length[1,32]"/>
+        <col_item field="SERVICE_NAME" title="服务名称" width="150" type="input" edt_required="true" edt_validType="length[1,128]"/>
+        <col_item field="DESCRIPTION" title="服务描述" width="300" type="input" edt_validType="length[0,256]" colspan="4" edt_width="345"/>
+    </view>
+</views>

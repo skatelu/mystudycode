@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.Customer">
+
+    <resultMap id="dataCustomerMap" type="com.szkingdom.data.DataCustomer">
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME" property="custName" />
+        <result column="CUST_TYPE" property="custType" />
+        <result column="CUST_CLS" property="custCls" />
+    </resultMap>
+    
+    <select id="COMMON_CUSTOMER_SELECT" resultMap="dataCustomerMap" parameterType="com.szkingdom.data.DataCustomer">
+        SELECT CUST_CODE, CUST_NAME, CUST_TYPE, CUST_CLS
+           FROM CUSTOMER
+           WHERE 1=1
+        <if test="custCode > 0">
+    	    AND CUST_CODE = #{custCode}
+    	  </if>
+    </select>
+</mapper>

@@ -1,0 +1,177 @@
+@charset "UTF-8";
+.tree-icon{
+    /*background: none;*/
+}
+
+.left-menu-wrap{
+    height: 100%;
+}
+.left-menu-wrap .tree {
+    display: inline-block;
+    min-width: 223px;
+}
+
+.left-menu-wrap .tree-expanded{
+    background: transparent;
+}
+.left-menu-wrap .tree-collapsed{
+    background: transparent;
+}
+
+.left-menu-wrap div.tree-node{
+    position:relative;
+    /*width: 210px;*/
+    height: 26px;
+    padding-top: 10px;
+    margin-left:-2px;
+    overflow: hidden;
+    border-bottom: #fafafa 0px solid;
+    color: #000;
+}
+.left-menu-wrap .tree li{
+    white-space: nowrap;
+    border-bottom: 0;
+}
+
+.left-menu-wrap div.tree-node>span.tree-indent,
+.left-menu-wrap div.tree-node>span.tree-icon,
+.left-menu-wrap div.tree-node>span.tree-hit{
+    display: inline-block;
+}
+
+.left-menu-wrap .kui-tree>li>div{
+    border-bottom: 1px #f4f4f4 solid;
+}
+.left-menu-wrap .tree-node .tree-hit{
+    width: 16px;
+    height: 18px;
+}
+.left-menu-wrap .tree-node .tree-indent{
+    width: 15px;
+    height: 18px;
+}
+.left-menu-wrap .tree-node .tree-collapsed:after{
+    content: "";
+    position: absolute;
+    right: 9px;
+    top: 9px;
+    width:20px;
+    height:20px;
+    background: transparent url('images/ui-frame-icons.png') no-repeat;
+    background-position: -160px -20px;
+}
+.left-menu-wrap .tree-node .tree-expanded:after{
+    content: "";
+    position: absolute;
+    right: 9px;
+    top: 10px;
+    width:20px;
+    height:20px;
+    background: transparent url('images/ui-frame-icons.png') no-repeat;
+    background-position: -180px -20px;
+}
+/*.left-menu-wrap .tree-icon.frame-icon{
+    width: 20px;
+    height: 20px;
+    background: transparent url('../images/icon-manage-meun.png') no-repeat;
+    float: left;
+    cursor: pointer;
+}*/
+
+.left-menu-wrap .tree-node .tree-icon{
+    float:none;
+    margin-left: -3px;
+}
+.left-menu-wrap .tree-node .tree-title{
+    font-size: 13px;
+    padding:0 3px;
+    vertical-align: top;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.left-menu-wrap .kui-tree>li>div>.tree-title{
+    margin-left: 8px;
+    font-size: 13px !important;
+    padding:0;
+    overflow:hidden;
+    padding-left: 3px;
+}
+.left-menu-wrap .tree-node.menu-node-click{
+    background-color: #44B4EF;
+    font-weight:normal;
+}
+.left-menu-wrap div.tree-node.tree-node-selected{
+    background-color: #3E72BF;
+    font-weight: normal;
+    color: #fff;
+}
+.left-menu-wrap .tree-node.tree-node-hover,
+.left-menu-wrap .tree-node-hover{
+    background-color: #ebf6ff;
+}
+
+/*以下是菜单特殊处理，二级菜单高度调整*/
+.left-menu-wrap .kui-tree>li>ul .tree-node{
+    height: 30px !important;
+    line-height: 30px !important;
+	color: #6c6c6c;
+}
+/*.left-menu-wrap .kui-tree>li>ul .tree-node span.frame-icon{
+    width: 20px !important;
+    height: 20px !important;
+}*/
+.left-menu-wrap .kui-tree>li>ul .tree-node .tree-title{
+    height: 30px;
+    line-height: 30px;
+}
+.left-menu-wrap .kui-tree>li>ul .tree-node .tree-collapsed:after{
+    top : 4px;
+}
+.left-menu-wrap .kui-tree>li>ul .tree-node .tree-expanded:after{
+    top : 4px;
+}
+.left-menu-wrap .kui-tree>li>ul div.tree-node:hover,
+.left-menu-wrap .kui-tree>li div.tree-node:hover {
+    color: #000000;
+    background-color: #f3f3f3;
+    border-radius: 0px;
+}
+.left-menu-wrap .kui-tree>li>ul div.tree-node.tree-node-selected{
+    color: #FFFFFF;
+    background-color: #4780c8;
+    border-radius: 0px;
+}
+
+.left-menu-wrap .kui-tree>li div.tree-node.tree-node-selected,
+.left-menu-wrap .kui-tree>li div.tree-node.tree-node-selected:hover{
+    color: #FFFFFF;
+    background-color: #4780c8;
+    border-radius: 0px;
+}
+.left-menu-wrap .tree li{
+    padding: 0 2px;
+}
+
+.left-menu-wrap .kui-tree>li>div{
+    width: 230px !important;
+}
+.left-menu-wrap div.tree-node{
+    padding-top: 0px !important;
+}
+.left-menu-wrap .tree-node .tree-collapsed:after{
+    margin-top: 0;
+}
+.left-menu-wrap ul.kui-tree>li .tree-title{
+    height: 38px;
+    /*width: 135px;*/
+    line-height: 38px;
+    margin: 0;
+    font-size: 12px;
+}
+.left-menu-wrap ul.kui-tree>li>ul>li{
+    padding: 0;
+}
+
+.left-menu-wrap ul.kui-tree>li>ul>li .tree-title{
+    border-bottom: none;
+}

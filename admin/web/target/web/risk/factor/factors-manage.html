@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>因子列表</title>
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/factors-manage.js"></script>
+<script id="genericTemplate" type="text/html">
+    {{if viewConfArr.length === 1}}
+    {{if viewConfArr[0].isForm}}
+    <form id="{{viewConfArr[0].viewId}}" class="kui-{{viewConfArr[0].render}}" style="width:{{winWidth}}px;height:{{winHeight}}px"></form>
+    {{else}}
+    <table id="{{viewConfArr[0].viewId}}" class="kui-{{viewConfArr[0].render}}" style="width:{{winWidth}}px;height:{{winHeight}}px" kui-options="fit:true"></table>
+    {{/if}}
+    {{else if viewConfArr.length === 2}}
+    <div class="kui-layout" kui-options="fit:true,onBeforeResize:'onBeforeResize'">
+        {{if isVertical && "false" !== isVertical}}
+        <div kui-options="region:'north'" style="height:{{winHeight / 2}}px;">
+        {{else}}
+        <div kui-options="region:'west'" style="width:{{winWidth / 2}}px;">
+        {{/if}}
+            <table id="{{viewConfArr[0].viewId}}" class='kui-datagrid' data-sub-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+        <div kui-options="region:'center',split:true,iconCls:'icon-ok'">
+            <table id="{{viewConfArr[1].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[0].viewId}}"></table>
+        </div>
+    </div>
+    {{else if viewConfArr.length === 3}}
+    <div class="kui-layout" kui-options="fit:true">
+        <div kui-options="region:'north'" style="height:{{winHeight*4 / 10}}px;">
+            <table id="{{viewConfArr[0].viewId}}" class='kui-datagrid' data-sub-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+        <div kui-options="region:'center'" style="height:{{winHeight*3 / 10}}px;">
+            <table id="{{viewConfArr[1].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[0].viewId}}" data-sub-datagrid="{{viewConfArr[2].viewId}}"></table>
+        </div>
+        <div kui-options="region:'south'" style="height:{{winHeight*3 / 10}}px;">
+            <table id="{{viewConfArr[2].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+    </div>
+    {{/if}}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

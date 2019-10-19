@@ -1,0 +1,58 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.RiskIndicatorOverview">
+
+    <resultMap id="dataRiskIndicatorOverviewMap" type="com.szkingdom.data.DataRiskIndicatorOverview">
+        <result column="INDICATOR_ID"  property="indicatorId" />
+        <result column="INDICATOR_NAME"  property="indicatorName" />
+        <result column="BIZ_ATTR"  property="bizAttr" />
+        <result column="INDICATOR_CLS"  property="indicatorCls" />
+        <result column="INDICATOR_CLS_NAME"  property="indicatorClsName" />
+        <result column="OCC_DATE"  property="occDate" />
+        <result column="OCC_TIME"  property="occTime" />
+        <result column="RISK_TRIGGER_QTY"  property="riskTriggerQty" />
+        <result column="TO_BE_NOTICED_QTY"  property="toBeNoticedQty" />
+        <result column="RISK_TRIGGER_FLAG"  property="riskTriggerFlag" />
+        <result column="TO_BE_NOTICED_FLAG"  property="toBeNoticedFlag" />
+    </resultMap>
+
+    <select id="COMMON_RISK_INDICATOR_OVERVIEW_SELECT" resultMap="dataRiskIndicatorOverviewMap" parameterType="com.szkingdom.data.DataRiskIndicatorOverview">
+        select * from RISK_INDICATOR_OVERVIEW
+        where 1=1
+        <if test="indicatorId != null and indicatorId != ''">
+            and INDICATOR_ID = #{indicatorId}
+        </if>
+    </select>
+
+    <update id="COMMON_RISK_INDICATOR_OVERVIEW_UPDATE" parameterType="com.szkingdom.data.DataRiskIndicatorOverview">
+        update RISK_INDICATOR_OVERVIEW set RISK_TRIGGER_FLAG='1', TO_BE_NOTICED_FLAG='1'
+        <!--set>
+            <if test="indicatorName != null and indicatorName != ''">INDICATOR_NAME=#{indicatorName},</if>
+            <if test="bizAttr != null and bizAttr != ''">BIZ_ATTR=#{bizAttr},</if>
+            <if test="indicatorCls != null and indicatorCls != ''">INDICATOR_CLS=#{indicatorCls},</if>
+            <if test="indicatorClsName != null and indicatorClsName != ''">INDICATOR_CLS_NAME=#{indicatorClsName},</if>
+            <if test="occDate >= 0">OCC_DATE=#{occDate},</if>
+            <if test="occTime >= 0">OCC_TIME=#{occTime},</if>
+            <if test="riskTriggerQty >= 0">RISK_TRIGGER_QTY=#{riskTriggerQty},</if>
+            <if test="toBeNoticedQty >= 0">TO_BE_NOTICED_QTY=#{toBeNoticedQty},</if>
+            <if test="riskTriggerFlag != null and riskTriggerFlag != ''">RISK_TRIGGER_FLAG=#{riskTriggerFlag},</if>
+            <if test="toBeNoticedFlag != null and toBeNoticedFlag != ''">TO_BE_NOTICED_FLAG=#{toBeNoticedFlag}</if>
+        </set-->
+        where INDICATOR_ID = '${indicatorId}'
+        and BIZ_ATTR = '${bizAttr}'
+        and INDICATOR_CLS = '${indicatorCls}'
+        and exists (select * from risk_info_asset where indicator_id = '${indicatorId}' and RISK_VALID_FLAG = '1')
+
+
+    </update>
+
+    <insert id="COMMON_RISK_INDICATOR_OVERVIEW_INSERT" parameterType="com.szkingdom.data.DataRiskIndicatorOverview">
+        INSERT INTO RISK_INDICATOR_OVERVIEW
+        (INDICATOR_ID,INDICATOR_NAME,BIZ_ATTR,INDICATOR_CLS,INDICATOR_CLS_NAME,
+        OCC_DATE,OCC_TIME,RISK_TRIGGER_QTY,TO_BE_NOTICED_QTY,RISK_TRIGGER_FLAG,TO_BE_NOTICED_FLAG)
+        VALUES (#{indicatorId},#{indicatorName},#{bizAttr},#{indicatorCls},#{indicatorClsName},
+        #{occDate},#{occTime},#{riskTriggerQty},#{toBeNoticedQty},#{riskTriggerFlag},#{toBeNoticedFlag})
+    </insert>
+</mapper>

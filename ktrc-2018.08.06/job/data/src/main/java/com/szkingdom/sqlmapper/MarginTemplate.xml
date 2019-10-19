@@ -1,0 +1,84 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.MarginTemplate">
+    <resultMap id="MarginTemplateMap" type="com.szkingdom.data.DataMarginTemplate">
+        <result column="STRATEGY_TEMPLATE"  property="strategyTemplate"  />
+        <result column="TEMPLATE_CFG_LVL"  property="templateCfgLvl"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_NUM"  property="optNum"  />
+        <result column="OPT_TYPE"  property="optType"  />
+        <result column="MARGIN_STRATEGY"  property="marginStrategy"  />
+        <result column="COMB_STRA_CODE"  property="combStraCode"  />
+        <result column="SCOPE_NO"  property="scopeNo"  />
+        <result column="PARAM_NO"  property="paramNo"  />
+    </resultMap>
+
+
+    <select id="MARGIN_TEMPLATE_SELECT" resultMap="MarginTemplateMap" parameterType="com.szkingdom.data.DataMarginTemplate">
+        select
+        STRATEGY_TEMPLATE,TEMPLATE_CFG_LVL,STKEX,STKBD,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_NUM,OPT_TYPE,
+        MARGIN_STRATEGY,COMB_STRA_CODE,SCOPE_NO,PARAM_NO
+        from MARGIN_TEMPLATE
+        where 1=1
+        <if test="strategyTemplate != null and strategyTemplate != ' ' and strategyTemplate != ''">
+            and  STRATEGY_TEMPLATE = #{strategyTemplate}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="optUndlCls != null and optUndlCls != ' ' and optUndlCls != ''">
+            and  OPT_UNDL_CLS = #{optUndlCls}
+        </if>
+        <if test="optUndlCode != null and optUndlCode != '' ">
+            and OPT_UNDL_CODE = #{optUndlCode}
+        </if>
+        <if test="optNum != null and optNum != '' ">
+            and OPT_NUM = #{optNum}
+        </if>
+        <if test="optType != null and optType != ' ' and optType != ''">
+            and  OPT_TYPE = #{optType}
+        </if>
+        <if test="marginStrategy != null and marginStrategy != ' ' and marginStrategy != ''">
+            and  MARGIN_STRATEGY = #{marginStrategy}
+        </if>
+        <if test="scopeNo > 0 ">
+            and SCOPE_NO = #{scopeNo}
+        </if>
+        <if test="combStraCode != null and combStraCode != '' ">
+            and  COMB_STRA_CODE = #{combStraCode}
+        </if>
+    </select>
+
+    <select id="MARGIN_TEMPLATE_SELECT_FOR_MAGIN_RISK" resultMap="MarginTemplateMap" parameterType="com.szkingdom.data.DataMarginTemplate">
+        select
+        STRATEGY_TEMPLATE,TEMPLATE_CFG_LVL,STKEX,STKBD,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_NUM,OPT_TYPE,
+        MARGIN_STRATEGY,COMB_STRA_CODE,SCOPE_NO,PARAM_NO
+        from MARGIN_TEMPLATE
+        where STRATEGY_TEMPLATE = #{strategyTemplate}
+        and (STKBD = #{stkbd} or '@' = STKBD)
+        and  (OPT_UNDL_CLS = #{optUndlCls} or '@' = OPT_UNDL_CLS)
+        and (OPT_UNDL_CODE = #{optUndlCode} or '@' = OPT_UNDL_CODE)
+        and (OPT_NUM = #{optNum} or '@' = OPT_NUM)
+        and  (OPT_TYPE = #{optType} or '@' = OPT_TYPE)
+        and  MARGIN_STRATEGY = #{marginStrategy}
+        and SCOPE_NO = #{scopeNo}
+        and  (COMB_STRA_CODE = #{combStraCode} or '@' = COMB_STRA_CODE)
+        order by OPT_NUM, OPT_UNDL_CODE, OPT_UNDL_CLS desc, OPT_TYPE desc, STKBD, COMB_STRA_CODE desc;
+    </select>
+
+    <insert id="MARGIN_TEMPLATE_INSERT" parameterType="com.szkingdom.data.DataMarginTemplate">
+        insert into MARGIN_TEMPLATE(
+        STRATEGY_TEMPLATE,TEMPLATE_CFG_LVL,STKEX,STKBD,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_NUM,OPT_TYPE,
+        MARGIN_STRATEGY,COMB_STRA_CODE,SCOPE_NO,PARAM_NO)
+        values ( 
+        #{strategyTemplate},#{templateCfgLvl},#{stkex},#{stkbd},#{optUndlCls},#{optUndlCode},#{optNum},#{optType},
+        #{marginStrategy},#{combStraCode},#{scopeNo},#{paramNo})
+    </insert>
+
+
+</mapper>

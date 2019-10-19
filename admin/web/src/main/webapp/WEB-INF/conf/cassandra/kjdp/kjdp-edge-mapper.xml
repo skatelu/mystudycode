@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+    <select id="kjdp_clusterSelect" parameterType="map" resultType="map">
+        SELECT CLUSTER_ID, CLUSTER_NAME, PROTOCOL, CLIENT, RULE, RULE_EXPR FROM UPM_CLUSTER
+        <where>
+            <if test='CLUSTER_ID != null and CLUSTER_ID != ""'>CLUSTER_ID = #{CLUSTER_ID}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_clusterInsert" parameterType="map">
+        INSERT INTO UPM_CLUSTER(CLUSTER_ID, CLUSTER_NAME, PROTOCOL, CLIENT, RULE, RULE_EXPR)
+        VALUES(
+            #{CLUSTER_ID},
+            #{CLUSTER_NAME},
+            #{PROTOCOL},
+            #{CLIENT},
+            #{RULE},
+            #{RULE_EXPR}
+        )
+    </insert>
+
+    <update id="kjdp_clusterUpdate" parameterType="map">
+        UPDATE UPM_CLUSTER
+        <set>
+            <if test='CLUSTER_NAME != null and CLUSTER_NAME != ""'>CLUSTER_NAME = #{CLUSTER_NAME},</if>
+            <if test='PROTOCOL != null and PROTOCOL != ""'>PROTOCOL = #{PROTOCOL},</if>
+            <if test='CLIENT != null and CLIENT != ""'>CLIENT = #{CLIENT},</if>
+            <if test='RULE != null and RULE != ""'>RULE = #{RULE},</if>
+        </set>
+        <where>
+            CLUSTER_ID = #{CLUSTER_ID}
+        </where>
+    </update>
+
+    <delete id="kjdp_clusterDelete" parameterType="map">
+        DELETE FROM UPM_CLUSTER
+        WHERE CLUSTER_ID = #{CLUSTER_ID}
+    </delete>
+
+    <select id="kjdp_protocolSelect" parameterType="map" resultType="map">
+        SELECT PROTOCOL, PARSER FROM UPM_PROTOCOL
+        <where>
+            <if test='PROTOCOL != null and PROTOCOL != ""'>PROTOCOL = #{PROTOCOL}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_protocolInsert" parameterType="map">
+        INSERT INTO UPM_PROTOCOL(PROTOCOL, PARSER)
+        VALUES(
+            #{PROTOCOL},
+            #{PARSER}
+        )
+    </insert>
+
+    <update id="kjdp_protocolUpdate" parameterType="map">
+        UPDATE UPM_PROTOCOL
+        <set>
+            <if test='PARSER != null and PARSER != ""'>PARSER = #{PARSER},</if>
+        </set>
+        <where>
+            PROTOCOL = #{PROTOCOL}
+        </where>
+    </update>
+
+    <delete id="kjdp_protocolDelete" parameterType="map">
+        DELETE FROM UPM_PROTOCOL
+        WHERE PROTOCOL = #{PROTOCOL}
+    </delete>
+
+    <select id="kjdp_upmServiceConfSelect" parameterType="map" resultType="map">
+        SELECT SERVICE_CODE, MAX_CONCURRENCY, TIMEOUT, LOG_ENABLE, TOKEN_LEVEL FROM UPM_SERVICE_CONF
+        <where>
+            <if test='SERVICE_CODE != null and SERVICE_CODE != ""'>SERVICE_CODE = #{SERVICE_CODE}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_upmServiceConfInsert" parameterType="map">
+        INSERT INTO UPM_SERVICE_CONF(SERVICE_CODE, MAX_CONCURRENCY, TIMEOUT, LOG_ENABLE, TOKEN_LEVEL)
+        VALUES(
+            #{SERVICE_CODE},
+            #{MAX_CONCURRENCY},
+            #{TIMEOUT},
+            #{LOG_ENABLE},
+            #{TOKEN_LEVEL}
+        )
+    </insert>
+
+    <update id="kjdp_upmServiceConfUpdate" parameterType="map">
+        UPDATE UPM_SERVICE_CONF
+        <set>
+            <if test='MAX_CONCURRENCY != -1'>MAX_CONCURRENCY = #{MAX_CONCURRENCY},</if>
+            <if test='TIMEOUT != null and TIMEOUT != ""'>TIMEOUT = #{TIMEOUT},</if>
+            <if test='LOG_ENABLE != null and LOG_ENABLE != ""'>LOG_ENABLE = #{LOG_ENABLE},</if>
+            <if test='TOKEN_LEVEL != null and TOKEN_LEVEL != ""'>TOKEN_LEVEL = #{TOKEN_LEVEL}</if>
+        </set>
+        <where>
+            SERVICE_CODE = #{SERVICE_CODE}
+        </where>
+    </update>
+
+    <delete id="kjdp_upmServiceConfDelete" parameterType="map">
+        DELETE FROM UPM_SERVICE_CONF
+        WHERE SERVICE_CODE = #{SERVICE_CODE}
+    </delete>
+
+    <select id="kjdp_serviceScriptSelect" parameterType="map" resultType="map">
+        SELECT
+            SERVICE_CODE,
+            ACTIVE,
+            CREATION_TIME,
+            SERVICE_DESC,
+            SERVICE_NAME,
+            SERVICE_VERSION
+        FROM UPM_SERVICE_SCRIPTS
+        <where>
+            <if test='SERVICE_CODE != null and SERVICE_CODE != ""'>SERVICE_CODE = #{SERVICE_CODE}</if>
+        </where>
+        ALLOW FILTERING
+    </select>
+
+    <insert id="kjdp_serviceScriptInsert" parameterType="map">
+        INSERT INTO UPM_SERVICE_SCRIPTS(
+            SERVICE_CODE,
+            ACTIVE,
+            CREATION_TIME,
+            SCRIPT_CODE,
+            SERVICE_DESC,
+            SERVICE_NAME,
+            SERVICE_VERSION
+        )
+        VALUES(
+            #{SERVICE_CODE},
+            #{ACTIVE},
+            TOTIMESTAMP(NOW()),
+            #{SCRIPT_CODE},
+            #{SERVICE_DESC},
+            #{SERVICE_NAME},
+            #{SERVICE_VERSION}
+        )
+    </insert>
+
+    <update id="kjdp_serviceScriptUpdate" parameterType="map">
+        UPDATE UPM_SERVICE_SCRIPTS
+        <set>
+            <if test='SCRIPT_CODE != null'>SCRIPT_CODE = #{SCRIPT_CODE},</if>
+            <if test='SERVICE_NAME != null'>SERVICE_NAME = #{SERVICE_NAME},</if>
+            <if test='SERVICE_DESC != null'>SERVICE_DESC = #{SERVICE_DESC},</if>
+            <if test='ACTIVE != null'>ACTIVE = #{ACTIVE},</if>
+        </set>
+        <where>
+            SERVICE_CODE = #{SERVICE_CODE} AND SERVICE_VERSION = #{SERVICE_VERSION}
+        </where>
+    </update>
+
+    <delete id="kjdp_serviceScriptDelete" parameterType="map">
+        DELETE FROM UPM_SERVICE_SCRIPTS
+        WHERE SERVICE_CODE = #{SERVICE_CODE} AND SERVICE_VERSION = #{SERVICE_VERSION}
+    </delete>
+
+    <select id="kjdp_serviceScriptDetailSelect" parameterType="map" resultType="map">
+        SELECT
+            SERVICE_CODE,
+            SERVICE_VERSION,
+            SCRIPT_CODE
+        FROM UPM_SERVICE_SCRIPTS
+        WHERE SERVICE_CODE = #{SERVICE_CODE} AND SERVICE_VERSION = #{SERVICE_VERSION}
+    </select>
+
+    <select id="kjdp_edgeServiceLogSelect" parameterType="map" resultType="map">
+        SELECT
+            SERVICE_CODE,
+            CREATION_TIME,
+            AUTH_ID,
+            CALL_CHAIN,
+            RETURN_CODE,
+            RETURN_MSG,
+            SERVICE_PARAMS,
+            SERVICE_VERSION,
+            TOKEN_ID
+        FROM UPM_SERVICE_LOG
+        <where>
+            <if test='SERVICE_CODE != null and SERVICE_CODE != ""'>SERVICE_CODE = #{SERVICE_CODE}</if>
+            <if test='LOG_DATE_BEG != null and LOG_DATE_BEG != ""'>AND CREATION_TIME &gt;= #{LOG_DATE_BEG}</if>
+            <if test='LOG_DATE_END != null and LOG_DATE_END != ""'>AND CREATION_TIME &lt;= '${LOG_DATE_END} 23:59:59'</if>
+        </where>
+        ALLOW FILTERING
+    </select>
+</mapper>

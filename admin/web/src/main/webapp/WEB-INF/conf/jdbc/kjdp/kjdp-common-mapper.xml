@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+    <sql id="kjdp_pagePrefix" databaseId="postgresql">
+        SELECT * FROM (
+    </sql>
+
+    <sql id="kjdp_pageSuffix" databaseId="postgresql">
+        ) PAGE
+        LIMIT KJDP_IF_EMPTY('${PAGE_SIZE}', '100') :: BIGINT
+        OFFSET (KJDP_IF_EMPTY('${PAGE_NUM}', '1') :: BIGINT - 1) * KJDP_IF_EMPTY('${PAGE_SIZE}', '100') :: BIGINT
+    </sql>
+
+    <sql id="kjdp_pagePrefix" databaseId="mssql">
+        SELECT PAGE.* FROM (
+            SELECT RESULTS.*, ROW_NUMBER() OVER(ORDER BY ${SORT_FIELD})) AS ROW_NUM FROM (
+    </sql>
+
+    <sql id="kjdp_pageSuffix" databaseId="mssql">
+            ) RESULTS
+        ) PAGE
+        WHERE
+            ROW_NUM &gt; CAST(KJDP_IF_EMPTY('${PAGE_SIZE}', '100') AS BIGINT) * (CAST(KJDP_IF_EMPTY('${PAGE_NUM}', '1') AS BIGINT) - 1)
+        AND ROW_NUM &lt;= CAST(KJDP_IF_EMPTY('${PAGE_SIZE}', '100') AS BIGINT) * CAST(KJDP_IF_EMPTY('${PAGE_NUM}', '1') AS BIGINT)
+    </sql>
+
+    <select id="kjdp_seqValSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT KJDP_SEQ_NEXTVAL(#{SEQ_NAME}) AS SEQ_VAL FROM DUMMY
+    </select>
+
+    <select id="kjdp_createLvlSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT KJDP_CREATE_LVL(#{TABLE_NAME}, #{ID_FIELD_NAME}, #{PAR_FIELD_NAME}, #{LVL_FIELD_NAME}, #{PAR_VAL}) AS LVL FROM DUMMY
+    </select>
+
+    <select id="kjdp_moveLvlSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT KJDP_MOVE_LVL(#{TABLE_NAME}, #{ID_FIELD_NAME}, #{PAR_FIELD_NAME}, #{LVL_FIELD_NAME}, #{ID_VAL}, #{TARGET_PAR_VAL}, #{BEFORE_ID_VAL}) FROM DUMMY
+    </select>
+</mapper>

@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="web:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4920c54c-440d-4b36-9c14-f93bf044fae4" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/web/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/base/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1415289533">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="1" />
+          <entry key="html" value="21" />
+          <entry key="java" value="1" />
+          <entry key="js" value="20" />
+          <entry key="project" value="1" />
+          <entry key="properties" value="1" />
+          <entry key="xml" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="1" />
+          <entry key="Eclipse" value="1" />
+          <entry key="HTML" value="21" />
+          <entry key="JAVA" value="1" />
+          <entry key="JavaScript" value="20" />
+          <entry key="Properties" value="1" />
+          <entry key="XML" value="13" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="61" />
+          <entry key="js" value="550" />
+          <entry key="xml" value="76" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="62" />
+          <entry key="JavaScript" value="549" />
+          <entry key="SQL" value="5" />
+          <entry key="XML" value="71" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>loader.js</find>
+      <find>RISK_FACTORS_MANAGE_INFO</find>
+      <find>FACT00002</find>
+      <find>R60005000</find>
+      <find>QueryFundInfoSF</find>
+      <find>YYYY-MM-DD HH24:MI:SS.MS</find>
+      <find>INDICATOR_ID</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+      <replace>HH24:MI:SS.MS</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/viewConf/KettleLog/kettle-log-detail.xml" />
+        <option value="$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/HKSocket/pages/funddebts-risk.html" />
+        <option value="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/jdbc/HKSocket/HKSocket.xml" />
+        <option value="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/bexConf/KettleLog/risk-staduy-detail-bex.xml" />
+        <option value="$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/KettleLog/pages/staduy-risk.html" />
+        <option value="$PROJECT_DIR$/web/src/main/webapp/risk/monitor-page/src/risk-markdetailscreen.js" />
+        <option value="$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/KettleLog/pages/src/staduy-risk.js" />
+        <option value="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/jdbc/KettleLog/kettle-log-mapper.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/maven/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="admin" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="base" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="web Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-clean/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/ansi-styles/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/escape-string-regexp/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/has-ansi/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/strip-ansi/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/node_modules/chalk/node_modules/supports-color/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/node_modules/chalk/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-copy/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/chalk/node_modules/ansi-styles/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/chalk/node_modules/escape-string-regexp/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/chalk/node_modules/has-ansi/node_modules/ansi-regex/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/chalk/node_modules/has-ansi/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/chalk/node_modules/strip-ansi/node_modules/ansi-regex/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/chalk/node_modules/strip-ansi/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/chalk/node_modules/supports-color/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/chalk/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/clean-css/node_modules/commander/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/clean-css/node_modules/source-map/node_modules/amdefine/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/clean-css/node_modules/source-map/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/clean-css/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/figures/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/browserify-zlib/node_modules/pako/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/browserify-zlib/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/browserify-zlib/test/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream/node_modules/inherits/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream/node_modules/readable-stream/node_modules/core-util-is/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream/node_modules/readable-stream/node_modules/isarray/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream/node_modules/readable-stream/node_modules/string_decoder/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream/node_modules/readable-stream/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream/node_modules/typedarray/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/node_modules/concat-stream/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/gzip-size/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/pretty-bytes/node_modules/get-stdin/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/node_modules/pretty-bytes/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/node_modules/maxmin/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-contrib-cssmin/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/art-template/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/semver/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/async/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/optimist/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/source-map/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/uglify-to-browserify/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/amd/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/cmd-alias/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/cmd/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/combo-off/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/escape-off/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/global/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/helper/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/include/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/syntax-native/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/syntax/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/tpl/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt-tmod/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/async/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/coffee-script/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/colors/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/dateformat/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/eventemitter2/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/exit/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/inherits/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/sigmund/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/getobject/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/glob/node_modules/inherits/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/glob/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/grunt-legacy-log/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/grunt-legacy-util/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/hooker/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/iconv-lite/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/node_modules/esprima/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/lodash/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/minimatch/node_modules/sigmund/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/minimatch/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/nopt/node_modules/abbrev/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/nopt/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/rimraf/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/underscore.string/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/node_modules/which/package.json" />
+      <path value="$PROJECT_DIR$/web/src/main/webapp/node_modules/grunt/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="54" />
+    <option name="width" value="1709" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="risk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="risk" type="462c0819:PsiDirectoryNode" />
+              <item name="ktrc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="risk" type="462c0819:PsiDirectoryNode" />
+              <item name="ktrc" type="462c0819:PsiDirectoryNode" />
+              <item name="KettleLog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="risk" type="462c0819:PsiDirectoryNode" />
+              <item name="ktrc" type="462c0819:PsiDirectoryNode" />
+              <item name="KettleLog" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="risk" type="462c0819:PsiDirectoryNode" />
+              <item name="ktrc" type="462c0819:PsiDirectoryNode" />
+              <item name="KettleLog" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="risk" type="462c0819:PsiDirectoryNode" />
+              <item name="monitor-page" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="risk" type="462c0819:PsiDirectoryNode" />
+              <item name="monitor-page" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="bexConf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="bexConf" type="462c0819:PsiDirectoryNode" />
+              <item name="KettleLog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
+              <item name="KettleLog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="serviceConf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="serviceConf" type="462c0819:PsiDirectoryNode" />
+              <item name="KettleLog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="viewConf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
+              <item name="viewConf" type="462c0819:PsiDirectoryNode" />
+              <item name="KettleLog" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540370102176" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kafka" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.33" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_admin" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="56135" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="admin" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.33" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="web:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_admin" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="56135" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="web:war exploded" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\E570.000\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4920c54c-440d-4b36-9c14-f93bf044fae4" name="Default Changelist" comment="" />
+      <created>1539944639135</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1539944639135</updated>
+      <workItem from="1539944642457" duration="1326000" />
+      <workItem from="1540105604186" duration="683000" />
+      <workItem from="1540169790160" duration="11343000" />
+      <workItem from="1540200152319" duration="692000" />
+      <workItem from="1540201837925" duration="173000" />
+      <workItem from="1540202042961" duration="2144000" />
+      <workItem from="1540254969917" duration="10171000" />
+      <workItem from="1540272843149" duration="602000" />
+      <workItem from="1540359781333" duration="628000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="27762000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22761194" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32516703" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32962137" />
+      <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32962137" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32962137" />
+      <window_info anchor="bottom" id="Tool Output" order="10" weight="0.32962137" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32962137" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32962137" />
+      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="15" show_stripe_button="false" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="16" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.project">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="39" lean-forward="true" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/java/com/szkingdom/krtc/biz/message/AtomResultMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="54" lean-forward="true" selection-start-line="13" selection-start-column="54" selection-end-line="13" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/register.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/lib/kui/window.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="41" lean-forward="true" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/notice/notice_schema.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="8" column="67" lean-forward="true" selection-start-line="8" selection-start-column="67" selection-end-line="8" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/threshold/threshold_setting.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/lib/frameworks.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/lib/kui.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/lib/core.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/viewConf/risk/risk-factors-manage.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/serviceConf/risk/risk-factors-manage.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/factor/factors-manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/threshold/src/threshold_setting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5670" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/indicator/indicators-manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2248" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/monitor-page/risk-allbrowsescreen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3958" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/monitor-page/risk-custdetailscreen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1994" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/monitor-page/risk-markdetailscreen.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-478">
+          <caret line="8" column="66" lean-forward="true" selection-start-line="8" selection-start-column="51" selection-end-line="8" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/HKSocket/pages/css/HKSocket.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/HKSocket/pages/funddebts-risk.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-240">
+          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/HKSocket/pages/src/funddebts-risk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="39" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/KettleLog/pages/src/floatbox.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/jdbc/HKSocket/HKSocket.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3270">
+          <caret line="109" column="29" lean-forward="true" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/KettleLog/pages/staduy-risk.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-105">
+          <caret line="16" column="35" lean-forward="true" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/monitor-page/src/risk-markdetailscreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/risk/ktrc/KettleLog/pages/src/staduy-risk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4860">
+          <caret line="162" column="36" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/serviceConf/KettleLog/teststaduy-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3960">
+          <caret line="132" column="14" selection-start-line="132" selection-start-column="14" selection-end-line="132" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/bexConf/KettleLog/risk-staduy-detail-bex.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="13" column="47" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/viewConf/KettleLog/kettle-log-detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/main/webapp/WEB-INF/conf/jdbc/KettleLog/kettle-log-mapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="245" column="21" selection-start-line="245" selection-start-column="21" selection-end-line="245" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>web:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>admin</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: junit:junit:4.11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

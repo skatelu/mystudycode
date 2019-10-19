@@ -1,0 +1,53 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkRepchInfo">
+    <resultMap id="StkRepchInfoMap" type="com.szkingdom.data.DataStkRepchInfo">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="REPCH_CODE"  property="repchCode"  />
+        <result column="REPCH_CLS"  property="repchCls"  />
+        <result column="REPCH_DAYS"  property="repchDays"  />
+        <result column="REPCH_INT_DAYS"  property="repchIntDays"  />
+        <result column="REPCH_MFUND_FLAG"  property="repchMfundFlag"  />
+        <result column="REPCH_MCERT_FLAG"  property="repchMcertFlag"  />
+        <result column="REPCH_FFUND_FLAG"  property="repchFfundFlag"  />
+        <result column="REPCH_FCERT_FLAG"  property="repchFcertFlag"  />
+        <result column="QUOTE_YEAR_RATE"  property="quoteYearRate"  />
+        <result column="QUOTE_BREAK_RATE"  property="quoteBreakRate"  />
+        <result column="QUOTE_AUTO_BUY_FLAG"  property="quoteAutoBuyFlag"  />
+        <result column="QUOTE_TRADE_FLAG"  property="quoteTradeFlag"  />
+    </resultMap>
+
+
+    <select id="STK_REPCH_INFO_SELECT" resultMap="StkRepchInfoMap" parameterType="com.szkingdom.data.DataStkRepchInfo">
+        select
+        STKEX,STKBD,REPCH_CODE,REPCH_CLS,REPCH_DAYS,REPCH_INT_DAYS,REPCH_MFUND_FLAG,REPCH_MCERT_FLAG,
+        REPCH_FFUND_FLAG,REPCH_FCERT_FLAG,QUOTE_YEAR_RATE,QUOTE_BREAK_RATE,QUOTE_AUTO_BUY_FLAG,QUOTE_TRADE_FLAG
+        from STK_REPCH_INFO
+    </select>
+
+
+    <insert id="STK_REPCH_INFO_INSERT" parameterType="com.szkingdom.data.DataStkRepchInfo">
+        insert into STK_REPCH_INFO(
+        STKEX,STKBD,REPCH_CODE,REPCH_CLS,REPCH_DAYS,REPCH_INT_DAYS,REPCH_MFUND_FLAG,REPCH_MCERT_FLAG,
+        REPCH_FFUND_FLAG,REPCH_FCERT_FLAG,QUOTE_YEAR_RATE,QUOTE_BREAK_RATE,QUOTE_AUTO_BUY_FLAG,QUOTE_TRADE_FLAG)
+        values ( 
+        #{stkex},#{stkbd},#{repchCode},#{repchCls},#{repchDays},#{repchIntDays},#{repchMfundFlag},#{repchMcertFlag},
+        #{repchFfundFlag},#{repchFcertFlag},#{quoteYearRate},#{quoteBreakRate},#{quoteAutoBuyFlag},#{quoteTradeFlag})
+    </insert>
+
+
+
+    <update id="STK_REPCH_INFO_UPDATE" parameterType="com.szkingdom.data.DataStkRepchInfo">
+        update STK_REPCH_INFO set
+        STKEX = #{stkex},STKBD = #{stkbd},REPCH_CODE = #{repchCode},
+        REPCH_CLS = #{repchCls},REPCH_DAYS = #{repchDays},REPCH_INT_DAYS = #{repchIntDays},
+        REPCH_MFUND_FLAG = #{repchMfundFlag},REPCH_MCERT_FLAG = #{repchMcertFlag},REPCH_FFUND_FLAG = #{repchFfundFlag},
+        REPCH_FCERT_FLAG = #{repchFcertFlag},QUOTE_YEAR_RATE = #{quoteYearRate},QUOTE_BREAK_RATE = #{quoteBreakRate},
+        QUOTE_AUTO_BUY_FLAG = #{quoteAutoBuyFlag},QUOTE_TRADE_FLAG = #{quoteTradeFlag}
+    </update>
+
+
+</mapper>

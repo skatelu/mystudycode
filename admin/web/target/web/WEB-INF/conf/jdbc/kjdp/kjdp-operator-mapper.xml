@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+    <select id="kjdp_opJoinSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        <include refid="kjdp_pagePrefix"/>
+        SELECT
+            OP.OP_CODE,
+            OP.OP_PASS,
+            OP.OP_STATUS,
+            OP.OP_CLS,
+            OP.CHANNELS,
+            OP.ORG_CODE,
+            KJDP_TO_CHAR(OP.OPEN_DATE) AS OPEN_DATE,
+            KJDP_TO_CHAR(OP.CLOSE_DATE) AS CLOSE_DATE,
+            OP.FAIL_NUM,
+            KJDP_TO_CHAR(OP.LOCK_TIME) AS LOCK_TIME,
+            OP.REMARK AS OP_REMARK,
+            OPI.OP_NAME,
+            OPI.ID_TYPE,
+            OPI.ID_CODE,
+            KJDP_TO_CHAR(OPI.ID_EXP_DATE) AS ID_EXP_DATE,
+            OPI.ID_ISS_AGCY,
+            OPI.ID_ADDR,
+            KJDP_TO_CHAR(OPI.BIRTHDAY) AS BIRTHDAY,
+            OPI.SEX,
+            OPI.CITIZENSHIP,
+            OPI.NATIONALITY,
+            OPI.EDUCATION,
+            OPI.NATIVE_PLACE,
+            OPI.ADDRESS,
+            OPI.ZIP_CODE,
+            OPI.MOBILE_TEL,
+            OPI.TEL,
+            OPI.EMAIL,
+            OPI.OP_ICON,
+            OPI.REMARK AS OP_INFO_REMARK,
+            ORG.ORG_NAME,
+            ORG.ORG_FULL_NAME,
+            (
+                SELECT KJDP_AGGREGATE(UP.POST_NAME, ',') FROM UUM_POST UP, UUM_OPERATOR_POST UOP
+                WHERE UP.POST_ID = UOP.POST_ID AND UOP.OP_CODE = OP.OP_CODE
+            ) AS POST_NAMES,
+            (
+                SELECT KJDP_AGGREGATE(UP.POST_ID, ',') FROM UUM_POST UP, UUM_OPERATOR_POST UOP
+                WHERE UP.POST_ID = UOP.POST_ID AND UOP.OP_CODE = OP.OP_CODE
+            ) AS POST_IDS
+        FROM UUM_OPERATOR OP
+        LEFT JOIN UUM_OPERATOR_INFO OPI ON OP.OP_CODE = OPI.OP_CODE
+        LEFT JOIN UPM_ORG ORG ON ORG.ORG_CODE = OP.ORG_CODE AND ORG_TYPE = '0'
+        <where>
+            <if test='OP_CODE != null and OP_CODE != ""'>OP.OP_CODE = #{OP_CODE}</if>
+        </where>
+        <include refid="kjdp_pageSuffix"/>
+    </select>
+
+    <insert id="kjdp_opInsert" parameterType="jdbcMap">
+        INSERT INTO UUM_OPERATOR (
+            OP_CODE,
+            OP_PASS,
+            OP_STATUS,
+            OP_CLS,
+            CHANNELS,
+            ORG_CODE,
+            OPEN_DATE,
+            FAIL_NUM,
+            REMARK
+        ) VALUES (
+            #{OP_CODE},
+            #{OP_PASS},
+            #{OP_STATUS},
+            #{OP_CLS},
+            #{CHANNELS},
+            #{ORG_CODE},
+            KJDP_GET_DATE(),
+            #{FAIL_NUM},
+            #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_opUpdate" parameterType="jdbcMap">
+        UPDATE UUM_OPERATOR
+        <set>
+            <if test='OP_CLS != null and OP_CLS != ""'>OP_CLS = #{OP_CLS},</if>
+            <if test='CHANNELS != null and CHANNELS != ""'>CHANNELS = #{CHANNELS},</if>
+            <if test='ORG_CODE != null and ORG_CODE != ""'>ORG_CODE = #{ORG_CODE},</if>
+            <if test='CLOSE_DATE != null'>CLOSE_DATE = KJDP_TO_DATE(KJDP_IF_EMPTY(#{CLOSE_DATE}, NULL)),</if>
+            <if test='FAIL_NUM != null'>FAIL_NUM = #{FAIL_NUM},</if>
+            <if test='LOCK_TIME != null'>LOCK_TIME = KJDP_TO_DATETIME(KJDP_IF_EMPTY(#{LOCK_TIME}, NULL)),</if>
+            <if test='REMARK != null and REMARK != ""'>REMARK = #{REMARK},</if>
+        </set>
+        WHERE OP_CODE = #{OP_CODE}
+    </update>
+
+    <update id="kjdp_opStatusUpdate" parameterType="jdbcMap">
+        UPDATE UUM_OPERATOR
+            SET OP_STATUS = #{OP_STATUS}
+        WHERE OP_CODE = #{OP_CODE}
+    </update>
+
+    <update id="kjdp_opPassUpdate" parameterType="jdbcMap">
+        UPDATE UUM_OPERATOR
+            SET OP_PASS = #{OP_PASS}
+        WHERE OP_CODE = #{OP_CODE}
+    </update>
+
+    <insert id="kjdp_opInfoInsert" parameterType="jdbcMap">
+        INSERT INTO UUM_OPERATOR_INFO (
+            OP_CODE,
+            OP_NAME,
+            ID_TYPE,
+            ID_CODE,
+            ID_EXP_DATE,
+            ID_ISS_AGCY,
+            ID_ADDR,
+            BIRTHDAY,
+            SEX,
+            CITIZENSHIP,
+            NATIONALITY,
+            EDUCATION,
+            NATIVE_PLACE,
+            ADDRESS,
+            ZIP_CODE,
+            MOBILE_TEL,
+            TEL,
+            EMAIL,
+            OP_ICON,
+            REMARK
+        ) VALUES (
+            #{OP_CODE},
+            #{OP_NAME},
+            #{ID_TYPE},
+            #{ID_CODE},
+            KJDP_TO_DATE(#{ID_EXP_DATE}),
+            #{ID_ISS_AGCY},
+            #{ID_ADDR},
+            KJDP_TO_DATE(#{BIRTHDAY}),
+            #{SEX},
+            #{CITIZENSHIP},
+            #{NATIONALITY},
+            #{EDUCATION},
+            #{NATIVE_PLACE},
+            #{ADDRESS},
+            #{ZIP_CODE},
+            #{MOBILE_TEL},
+            #{TEL},
+            #{EMAIL},
+            #{OP_ICON},
+            #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_opInfoUpdate" parameterType="jdbcMap">
+        UPDATE UUM_OPERATOR_INFO
+        <set>
+            <if test='OP_NAME != null and OP_NAME != ""'>OP_NAME = #{OP_NAME},</if>
+            <if test='ID_TYPE != null and ID_TYPE != ""'>ID_TYPE = #{ID_TYPE},</if>
+            <if test='ID_CODE != null and ID_CODE != ""'>ID_CODE = #{ID_CODE},</if>
+            <if test='ID_EXP_DATE != null and ID_EXP_DATE != ""'>ID_EXP_DATE = KJDP_TO_DATE(KJDP_IF_EMPTY(#{ID_EXP_DATE}, NULL)),</if>
+            <if test='ID_ISS_AGCY != null'>ID_ISS_AGCY = #{ID_ISS_AGCY},</if>
+            <if test='ID_ADDR != null'>ID_ADDR = #{ID_ADDR},</if>
+            <if test='BIRTHDAY != null and BIRTHDAY !=""'>BIRTHDAY = KJDP_TO_DATE(#{BIRTHDAY}),</if>
+            <if test='SEX != null and SEX != ""'>SEX = #{SEX},</if>
+            <if test='CITIZENSHIP != null and CITIZENSHIP != ""'>CITIZENSHIP = #{CITIZENSHIP},</if>
+            <if test='NATIONALITY != null and NATIONALITY != ""'>NATIONALITY = #{NATIONALITY},</if>
+            <if test='EDUCATION != null'>EDUCATION = #{EDUCATION},</if>
+            <if test='NATIVE_PLACE != null'>NATIVE_PLACE = #{NATIVE_PLACE},</if>
+            <if test='ADDRESS != null and ADDRESS != ""'>ADDRESS = #{ADDRESS},</if>
+            <if test='ZIP_CODE != null'>ZIP_CODE = #{ZIP_CODE},</if>
+            <if test='MOBILE_TEL != null and MOBILE_TEL != ""'>MOBILE_TEL = #{MOBILE_TEL},</if>
+            <if test='TEL != null'>TEL = #{TEL},</if>
+            <if test='EMAIL != null'>EMAIL = #{EMAIL},</if>
+            <if test='OP_ICON != null'>OP_ICON = #{OP_ICON},</if>
+            <if test='REMARK != null'>REMARK = #{REMARK},</if>
+        </set>
+        WHERE OP_CODE = #{OP_CODE}
+    </update>
+
+    <select id="kjdp_opPostJoinSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            UOP.OP_CODE,
+            UOP.POST_ID,
+            UOP.MAIN_FLAG,
+            UP.POST_NAME,
+            UP.POST_TYPE,
+            UP.MAINTAIN_FLAG,
+            UP.REMARK
+        FROM UUM_OPERATOR_POST UOP
+        LEFT JOIN UUM_POST UP ON UOP.POST_ID = UP.POST_ID
+        <where>
+            <if test='OP_CODE != null and OP_CODE != ""'>UOP.OP_CODE = #{OP_CODE}</if>
+            <if test='POST_ID != null and POST_ID != ""'>UOP.POST_ID = #{POST_ID}</if>
+        </where>
+    </select>
+
+    <select id="kjdp_opPostSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            OP_CODE,
+            POST_ID,
+            MAIN_FLAG
+        FROM UUM_OPERATOR_POST
+        <where>
+            <if test='OP_CODE != null and OP_CODE != ""'>OP_CODE = #{OP_CODE}</if>
+            <if test='POST_ID != null and POST_ID != ""'>POST_ID = #{POST_ID}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_opPostInsert" parameterType="jdbcMap">
+        INSERT INTO UUM_OPERATOR_POST (
+            OP_CODE,
+            POST_ID,
+            MAIN_FLAG
+        ) VALUES (
+            #{OP_CODE},
+            #{POST_ID},
+            #{MAIN_FLAG}
+        )
+    </insert>
+
+    <update id="kjdp_opPostUpdate" parameterType="jdbcMap">
+        UPDATE UUM_OPERATOR_POST
+        SET MAIN_FLAG = #{MAIN_FLAG}
+        WHERE OP_CODE = #{OP_CODE} AND POST_ID = #{POST_ID}
+    </update>
+
+    <delete id="kjdp_opPostDelete" parameterType="jdbcMap">
+        DELETE FROM UUM_OPERATOR_POST WHERE OP_CODE = #{OP_CODE} AND POST_ID = #{POST_ID}
+    </delete>
+
+    <select id="kjdp_postSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+            POST_ID,
+            POST_NAME,
+            POST_TYPE,
+            MAINTAIN_FLAG,
+            REMARK
+        FROM UUM_POST
+        <where>
+            <if test='POST_ID != null and POST_ID != ""'>POST_ID = #{POST_ID}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_postInsert" parameterType="jdbcMap">
+        INSERT INTO UUM_POST (
+            POST_ID,
+            POST_NAME,
+            POST_TYPE,
+            MAINTAIN_FLAG,
+            REMARK
+        ) VALUES (
+            #{POST_ID},
+            #{POST_NAME},
+            #{POST_TYPE},
+            #{MAINTAIN_FLAG},
+            #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_postUpdate" parameterType="jdbcMap">
+        UPDATE UUM_POST
+        <set>
+            <if test='POST_NAME != null and POST_NAME != ""'>POST_NAME = #{POST_NAME},</if>
+            <if test='POST_TYPE != null and POST_TYPE != ""'>POST_TYPE = #{POST_TYPE},</if>
+            <if test='MAINTAIN_FLAG != null and MAINTAIN_FLAG != ""'>MAINTAIN_FLAG = #{MAINTAIN_FLAG},</if>
+            <if test='REMARK != null and REMARK != ""'>REMARK = #{REMARK},</if>
+        </set>
+        WHERE POST_ID = #{POST_ID}
+    </update>
+
+    <delete id="kjdp_postDelete" parameterType="jdbcMap">
+        DELETE FROM UUM_POST WHERE POST_ID = #{POST_ID}
+    </delete>
+
+    <select id="kjdp_virtualOpSelect" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+        SYS_CODE,
+        ORG_CODE,
+        OP_CODE,
+        F_OP_USER,
+        F_SESSION,
+        REMARK
+        FROM UPM_VIRTUAL_OPERATOR
+        <where>
+            <if test='SYS_CODE != null and SYS_CODE != ""'>SYS_CODE = #{SYS_CODE}</if>
+            <if test='ORG_CODE != null and ORG_CODE != ""'>AND ORG_CODE = #{ORG_CODE}</if>
+            <if test='OP_CODE != null and OP_CODE != ""'>AND OP_CODE = #{OP_CODE}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_virtualOpInsert" parameterType="jdbcMap">
+        INSERT INTO UPM_VIRTUAL_OPERATOR (
+        SYS_CODE,
+        ORG_CODE,
+        OP_CODE,
+        F_OP_USER,
+        F_SESSION,
+        REMARK
+        ) VALUES (
+        #{SYS_CODE},
+        #{ORG_CODE},
+        #{OP_CODE},
+        #{OP_USER},
+        #{OP_SESSION},
+        #{REMARK}
+        )
+    </insert>
+
+    <update id="kjdp_virtualOpUpdate" parameterType="jdbcMap">
+        UPDATE UPM_VIRTUAL_OPERATOR
+        <set>
+            <if test='OP_CODE != null and OP_CODE != ""'>OP_CODE = #{OP_CODE},</if>
+            <if test='OP_USER != null and OP_USER != ""'>F_OP_USER = #{OP_USER},</if>
+            <if test='OP_SESSION != null and OP_SESSION != ""'>F_SESSION = #{OP_SESSION},</if>
+            <if test='REMARK != null'>REMARK = #{REMARK},</if>
+        </set>
+        WHERE SYS_CODE = #{SYS_CODE} AND ORG_CODE = #{ORG_CODE}
+    </update>
+
+    <delete id="kjdp_virtualOpDelete" parameterType="jdbcMap">
+        DELETE FROM UPM_VIRTUAL_OPERATOR WHERE SYS_CODE = #{SYS_CODE} AND ORG_CODE = #{ORG_CODE}
+    </delete>
+</mapper>

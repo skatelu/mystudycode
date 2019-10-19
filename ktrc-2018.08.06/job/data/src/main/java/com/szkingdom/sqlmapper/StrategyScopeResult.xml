@@ -1,0 +1,50 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StrategyScopeResult">
+    <resultMap id="StrategyScopeResultMap" type="com.szkingdom.data.DataStrategyScopeResult">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="OPT_NUM"  property="optNum"  />
+        <result column="MARGIN_STRATEGY"  property="marginStrategy"  />
+        <result column="AUTO_SPLIT_DAY"  property="autoSplitDay"  />
+        <result column="SCOPE_TYPE"  property="scopeType"  />
+        <result column="SCOPE_RESULT"  property="scopeResult"  />
+        <result column="SCOPE_NO"  property="scopeNo"  />
+    </resultMap>
+
+    <select id="STRATEGY_SCOPE_RESULT_SELECT" resultMap="StrategyScopeResultMap" parameterType="com.szkingdom.data.DataStrategyScopeResult">
+        select
+        TRD_DATE,STKEX,STKBD,OPT_NUM,MARGIN_STRATEGY,AUTO_SPLIT_DAY,SCOPE_TYPE,SCOPE_RESULT,
+        SCOPE_NO
+        from STRATEGY_SCOPE_RESULT
+        where 1=1
+        <if test="optNum != null and optNum != '' ">
+            and OPT_NUM = #{optNum}
+        </if>
+        <if test="trdDate > 0">
+            and TRD_DATE = #{trdDate}
+        </if>
+        <if test="stkbd != null and stkbd !=''">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="marginStrategy != null and marginStrategy != ' ' and marginStrategy != ''">
+            and MARGIN_STRATEGY = #{marginStrategy}
+        </if>
+        <if test="autoSplitDay != null and autoSplitDay != ' ' and autoSplitDay != ''">
+            and AUTO_SPLIT_DAY = #{autoSplitDay}
+        </if>
+    </select>
+
+    <insert id="STRATEGY_SCOPE_RESULT_INSERT" parameterType="com.szkingdom.data.DataStrategyScopeResult">
+        insert into STRATEGY_SCOPE_RESULT(
+        TRD_DATE,STKEX,STKBD,OPT_NUM,MARGIN_STRATEGY,AUTO_SPLIT_DAY,SCOPE_TYPE,SCOPE_RESULT,
+        SCOPE_NO)
+        values ( 
+        #{trdDate},#{stkex},#{stkbd},#{optNum},#{marginStrategy},#{autoSplitDay},#{scopeType},#{scopeResult},
+        #{scopeNo})
+    </insert>
+
+</mapper>

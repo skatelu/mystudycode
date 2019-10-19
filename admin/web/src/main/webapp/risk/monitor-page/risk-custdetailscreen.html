@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>客户详细信息</title>
+<link rel="stylesheet" href="./css/gridlayout.css" />
+<link rel="stylesheet" href="./css/kuichart.css" />
+<link rel="stylesheet" href="./css/monitor-page.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js"
+	data-main="./src/risk-custdetailscreen" data-iskui="true"></script>
+</head>
+<body>
+	<div
+		style="padding-left: 10px; padding-right: 10px; padding-bottom: 10px">
+		<div id="cust_head">
+			<table style="width:100%">
+			<tr>
+			<td style="width:50%"><div class="panel-header panel-title" style="width:95px;margin-left: ">客户详细信息</div></td>
+			<td style="width:50%" align="right" >
+			<div>
+					<a href="#" class="kui-linkbutton" kui-options="onClick:'doFresh'">刷新</a>
+					<a href="#" class="kui-linkbutton" kui-options="onClick:'doBack'">返回</a>
+				</div>
+			</td>
+			</tr>
+			</table>
+		</div>
+
+		<div id="cust_info" style="width: 100%; height: auto;">
+			<div id="asset_info" style="width: 50%; height: auto; float: left;">
+				<div style="margin-left: 20px;margin-right: 20px;padding-bottom: 10px">
+				<div style="font-size:15px;background-color: #c7c5c5;width:100px;padding:5px">资产信息</div>
+				<div>
+				<form id="custdetialscreen_asset_info" class="kui-sform" style="background-color:#f1ecec;padding:10px"></form>
+				</div>
+				</div>
+			</div>
+			<div id="base_info"
+				style="width: 50%; height: auto; margin-left: 50%">
+				<div style="margin-left: 20px;margin-right: 20px;padding-bottom: 10px">
+				<div style="font-size:15px;background-color: #c7c5c5;width:100px;padding:5px">基本信息</div>
+				<form id="custdetialscreen_base_info" class="kui-sform" style="background-color:#f1ecec;padding:10px;height:150px"></form>
+				</div>
+			</div>
+		</div>
+
+		<div id="risk_indicator_detail" style="height: 300px;width:100%">
+			<div id="custdetialscreen_risk_indicator_detail" class="kui-datagrid"></div>
+		</div>
+		<div style="width: 100%; height: auto;">
+			<div class="panel-header panel-title" style="width:115px">历史风险触发列表</div>
+			<div><span style="margin-left:15px;margin-right:5px">起始日期</span>
+			<input id = "startDate" class = "kui-datebox">
+			<span style="margin-left:15px;margin-right:5px">终止日期</span>
+			<input id = "endDate" class = "kui-datebox">
+			<a href="#" class="kui-linkbutton" kui-options="onClick:'doSearch'">搜索</a></div>
+			<div style="width: 100%; height: auto;">
+				<div id="history_risk_pic"
+					style="height: 300px; width: 40%; float: left;">
+					<div id="chart8" class="kui-kuichart"
+						kui-options='type: "barChart", title: "风险触发记录详情（单位：次）",
+				      config: {
+				        barWidth: "50%",
+				      }, data: {
+				        category: ["目录1", "目录2"],
+				        values: [36, 55],
+				      }, req: {},'></div>
+				</div>
+				<div id="history_risk_trigger"
+					style="height: 300px; margin-left: 40%;width:60%">
+					<div id="custdetialscreen_history_risk_trigger"
+						class="kui-datagrid"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

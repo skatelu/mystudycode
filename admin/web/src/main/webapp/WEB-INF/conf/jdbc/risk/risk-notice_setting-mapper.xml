@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+	<select id="QueryRiskNoticeSchema" parameterType="jdbcMap" resultType="jdbcMap">
+      select 
+       (rs.INDICATOR_ID||rs.NOTICE_USER_ROLE||rs.THRES_NO) as SCHEMA_CODE,
+       rs.SCHEMA_NAME,
+       (ri.INDICATOR_NAME || '('|| ri.INDICATOR_ID ||')') as INDICATOR_NAME,
+	   ri.INDICATOR_ID as INDICATOR_ID,
+       (case when rs.THRES_NO = '1' then rt.THRES1_NAME || '('|| rt.INDICATOR_ID || rs.THRES_NO ||')'
+             when rs.THRES_NO = '2' then rt.THRES2_NAME || '('|| rt.INDICATOR_ID || rs.THRES_NO ||')'
+             when rs.THRES_NO = '3' then rt.THRES3_NAME || '('|| rt.INDICATOR_ID || rs.THRES_NO ||')'
+             else rt.THRES4_NAME || '('|| rt.INDICATOR_ID || rs.THRES_NO ||')'
+       end) as THRES_NAME,
+	   rs.THRES_NO as THRES_NO,
+       rs.SCHEMA_CONT,
+       rs.NOTICE_CLS,
+       rs.NOTICE_CHNL as NOTICE_CHNL,
+	   rs.NOTICE_USER_ROLE,
+       rs.SCHEMA_BACK,
+       rs.SCHEMA_VALIDE 
+       from RISK_NOTICE_SCHEMA rs inner join RISK_INDICATORS ri on rs.INDICATOR_ID = ri.INDICATOR_ID
+       inner join INDICATOR_THRESHOLD rt on ri.INDICATOR_ID = rt.INDICATOR_ID
+       where 1=1
+       <if test="BIZ_ATTR != null and BIZ_ATTR != ''">
+           and ri.BIZ_ATTR = #{BIZ_ATTR}
+       </if>
+        <if test="INDICATOR_CLS != null and INDICATOR_CLS != ''">
+           and ri.INDICATOR_CLS = #{INDICATOR_CLS}
+       </if>
+       <if test="INDICATOR_NAME != null and INDICATOR_NAME != ''">
+           and (ri.INDICATOR_NAME = #{INDICATOR_NAME} or ri.INDICATOR_ID = #{INDICATOR_NAME})
+       </if>	
+       order by rs.INDICATOR_ID||rs.NOTICE_USER_ROLE||rs.THRES_NO					
+    </select>
+    
+	<select id="QueryRiskIndicatorCls" parameterType="jdbcMap" resultType="jdbcMap">
+	      select INDICATOR_CLS,INDICATOR_CLS_NAME from risk_indicator_cls 
+	     where 1=1
+       <if test="BIZ_ATTR != null and BIZ_ATTR != ''">
+           and BIZ_ATTR = #{BIZ_ATTR}
+       </if>
+       order by INDICATOR_CLS
+	</select>
+	
+	<select id="QueryRiskIndicator" parameterType="jdbcMap" resultType="jdbcMap">
+	      select distinct INDICATOR_ID,INDICATOR_NAME,INDICATOR_RESULT_TYPE  from RISK_INDICATORS 
+	     where 1=1
+       <if test="BIZ_ATTR != null and BIZ_ATTR != ''">
+           and BIZ_ATTR = #{BIZ_ATTR}
+       </if>
+        <if test="INDICATOR_CLS != null and INDICATOR_CLS != ''">
+           and INDICATOR_CLS = #{INDICATOR_CLS}
+       </if>
+        <if test="INDICATOR_NAME != null and INDICATOR_NAME != ''">
+           and (INDICATOR_NAME = #{INDICATOR_NAME} or INDICATOR_ID = #{INDICATOR_NAME})
+       </if>
+       order by INDICATOR_ID
+	</select>
+	
+	<select id="QueryRiskNoticeSchemaDetail" parameterType="jdbcMap" resultType="jdbcMap">
+	    select 
+	    ri.BIZ_ATTR,
+	    ri.INDICATOR_NAME,
+	    ri.INDICATOR_ID,
+	    (case when rs.THRES_NO = '1' then rt.THRES1_NAME
+              when rs.THRES_NO = '2' then rt.THRES2_NAME
+              when rs.THRES_NO = '3' then rt.THRES3_NAME
+              else rt.THRES4_NAME
+         end) as THRES_NAME,
+       	 rs.THRES_NO as THRES_NO,
+       	 rs.SCHEMA_CONT,
+       	 rs.NOTICE_CLS,
+       	 rs.NOTICE_CHNL as NOTICE_CHNL,
+	   	 rs.NOTICE_USER_ROLE,
+	   	 rs.SCHEMA_NAME,
+       	 rs.SCHEMA_BACK,
+       	 rs.SCHEMA_VALIDE 
+	    from RISK_NOTICE_SCHEMA rs inner join RISK_INDICATORS ri on rs.INDICATOR_ID = ri.INDICATOR_ID
+	    inner join INDICATOR_THRESHOLD rt on ri.INDICATOR_ID = rt.INDICATOR_ID
+	    where rs.INDICATOR_ID = #{INDICATOR_ID}
+	    and rs.THRES_NO = #{THRES_NO}
+	    and rs.NOTICE_USER_ROLE = #{NOTICE_USER_ROLE}
+	</select>
+	
+	<select id="QueryRiskThreshold" parameterType="jdbcMap" resultType="jdbcMap">
+	    select ri.THRES1_NO as THRES_NO, ri.THRES1_NAME as THRES_NAME from INDICATOR_THRESHOLD ri 
+	    where ri.INDICATOR_ID = #{INDICATOR_ID}
+	    and THRES1_NAME is not null and length(THRES1_NAME) >= 1
+	    union all
+	    select ri.THRES2_NO as THRES_NO,ri.THRES2_NAME as THRES_NAME from INDICATOR_THRESHOLD ri 
+	    where ri.INDICATOR_ID = #{INDICATOR_ID}
+	    and THRES2_NAME is not null and length(THRES2_NAME) >= 1
+	    union all
+	    select ri.THRES3_NO as THRES_NO,ri.THRES3_NAME as THRES_NAME from INDICATOR_THRESHOLD ri
+	     where ri.INDICATOR_ID = #{INDICATOR_ID}
+	    and THRES3_NAME is not null and length(THRES3_NAME) >= 1
+	    union all
+	    select ri.THRES4_NO as THRES_NO,ri.THRES4_NAME as THRES_NAME from INDICATOR_THRESHOLD ri 
+	    where ri.INDICATOR_ID = #{INDICATOR_ID}
+	    and THRES4_NAME is not null and length(THRES4_NAME) >= 1
+	</select>
+	
+	<insert id = "AddRiskNoticeSchema" parameterType="jdbcMap">
+	    insert into RISK_NOTICE_SCHEMA
+	    (INDICATOR_ID,NOTICE_USER_ROLE,PRE_THRES_NO,THRES_NO,SCHEMA_NAME,
+	    NOTICE_CHNL,SCHEMA_VALIDE,SCHEMA_CONT,NOTICE_CLS,SCHEMA_BACK,QM_NAME,QUEUE_NAME) values
+	    (#{INDICATOR_ID},#{NOTICE_USER_ROLE},#{THRES_NO},#{THRES_NO},#{SCHEMA_NAME},
+	    #{NOTICE_CHNL},#{SCHEMA_VALIDE},#{SCHEMA_CONT},#{NOTICE_CLS},#{SCHEMA_BACK},'','')
+	</insert>
+	
+	<update id = "UpdateRiskNoticeSchema" parameterType="jdbcMap" >
+	    update RISK_NOTICE_SCHEMA set SCHEMA_CONT=#{SCHEMA_CONT}, NOTICE_CLS = #{NOTICE_CLS},
+	    NOTICE_CHNL=#{NOTICE_CHNL}, NOTICE_USER_ROLE = #{NOTICE_USER_ROLE},
+	    SCHEMA_NAME=#{SCHEMA_NAME},SCHEMA_BACK=#{SCHEMA_BACK},SCHEMA_VALIDE=#{SCHEMA_VALIDE}
+	    where INDICATOR_ID = #{INDICATOR_ID}
+	    and THRES_NO = #{THRES_NO}
+	    and NOTICE_USER_ROLE = #{NOTICE_USER_ROLE}
+	</update>
+
+	<select id="QueryRiskNoticeMark" parameterType="jdbcMap" resultType="jdbcMap">
+	    select MARK_NAME from RISK_NOTICE_MARK where 
+          INDICATOR_ID = #{INDICATOR_ID}
+	</select>
+</mapper>
+

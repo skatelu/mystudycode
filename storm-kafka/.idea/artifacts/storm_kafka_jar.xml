@@ -1,0 +1,53 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="storm-kafka:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/storm_kafka_jar</output-path>
+    <root id="root">
+      <element id="archive" name="storm-kafka.jar">
+        <element id="module-output" name="storm-kafka" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/lib/mail-1.4.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/asm-5.0.3.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/kryo-3.0.3.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/druid-1.1.9.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/esper-7.1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/janino-3.0.7.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/ktrc-dao-1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/lz4-java-1.4.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/minlog-1.3.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/clojure-1.7.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/ktrc-data-1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/log4j-api-2.8.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/mybatis-3.4.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/objenesis-2.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/zkclient-0.10.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/activation-1.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/log4j-core-2.8.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/disruptor-3.3.2.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/fastjson-1.2.37.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/ktrc-common-1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/ring-cors-0.1.5.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/servlet-api-2.5.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/kafka_2.11-1.0.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/slf4j-api-1.7.21.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/storm-core-1.1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/cglib-nodep-3.2.5.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/commons-lang3-3.2.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jopt-simple-5.0.4.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/postgresql-42.2.2.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/reflectasm-1.10.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/snappy-java-1.1.4.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/antlr4-runtime-4.7.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jackson-core-2.9.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/metrics-core-2.2.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/kafka-clients-1.0.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/log4j-slf4j-impl-2.8.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/scala-library-2.11.11.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/commons-compiler-3.0.7.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jackson-databind-2.9.1.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/log4j-over-slf4j-1.6.6.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/storm-rename-hack-1.1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/storm-kafka-client-1.1.0.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/jackson-annotations-2.9.0.jar" />
+    </root>
+  </artifact>
+</component>

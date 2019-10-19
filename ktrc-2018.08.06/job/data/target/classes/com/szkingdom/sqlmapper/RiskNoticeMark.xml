@@ -1,0 +1,30 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskNoticeMark">
+    <resultMap id="RiskNoticeMarkMap" type="com.szkingdom.data.DataRiskNoticeMark">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="MARK_NAME"  property="markName"  />
+        <result column="MARK_ID"  property="markId"  />
+        <result column="DD_FLAG"  property="ddFlag"  />
+        <result column="MARK_DD"  property="markDd"  />
+    </resultMap>
+
+
+    <select id="RISK_NOTICE_MARK_SELECT" resultMap="RiskNoticeMarkMap" parameterType="com.szkingdom.data.DataRiskNoticeMark">
+        select
+        INDICATOR_ID,MARK_NAME,MARK_ID,DD_FLAG,MARK_DD
+        from RISK_NOTICE_MARK
+    </select>
+
+
+    <insert id="RISK_NOTICE_MARK_INSERT" parameterType="com.szkingdom.data.DataRiskNoticeMark">
+        insert into RISK_NOTICE_MARK(
+        INDICATOR_ID,MARK_NAME,MARK_ID,DD_FLAG,MARK_DD)
+        values ( 
+        #{indicatorId},#{markName},#{markId},#{ddFlag},#{markDd})
+    </insert>
+
+
+</mapper>

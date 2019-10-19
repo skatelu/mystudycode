@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <service service_code="P0000092" service_name="自动任务查询">
+        <businesses>
+            <service_business business_code="kjdp_queryAllJobsAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000093" service_name="自动任务新增">
+        <businesses>
+            <service_business business_code="kjdp_addJobDetailAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000094" service_name="自动任务删除">
+        <businesses>
+            <service_business business_code="kjdp_deleteJobDetailAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000095" service_name="执行自动任务">
+        <businesses>
+            <service_business business_code="kjdp_triggerJobAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000096" service_name="自动任务参数查询">
+        <businesses>
+            <service_business business_code="kjdp_getJobDataAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000097" service_name="自动任务参数新增">
+        <businesses>
+            <service_business business_code="kjdp_addJobDataAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000098" service_name="自动任务参数删除">
+        <businesses>
+            <service_business business_code="kjdp_deleteJobDataAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000099" service_name="触发器查询">
+        <businesses>
+            <service_business business_code="kjdp_queryCronTriggersAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000100" service_name="触发器新增">
+        <businesses>
+            <service_business business_code="kjdp_addCronTriggerAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000101" service_name="触发器删除">
+        <businesses>
+            <service_business business_code="kjdp_deleteCronTriggerAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000102" service_name="暂停触发器">
+        <businesses>
+            <service_business business_code="kjdp_pauseCronTriggerAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000103" service_name="恢复触发器">
+        <businesses>
+            <service_business business_code="kjdp_resumeCronTriggerAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000104" service_name="自动任务日志查询">
+        <businesses>
+            <service_business business_code="kjdp_jobLogQueryBex" business_type="1"/>
+        </businesses>
+    </service>
+</services>

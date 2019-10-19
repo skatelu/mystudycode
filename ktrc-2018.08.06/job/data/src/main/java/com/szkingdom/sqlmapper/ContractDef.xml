@@ -1,0 +1,32 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.ContractDef">
+    <resultMap id="ContractDefMap" type="com.szkingdom.data.DataContractDef">
+        <result column="CONTRACT_CODE"  property="contractCode"  />
+        <result column="CONTRACT_TYPE"  property="contractType"  />
+        <result column="CONTRACT_NAME"  property="contractName"  />
+        <result column="CONTRACT_LOCATION"  property="contractLocation"  />
+        <result column="IS_SYNC_UAS"  property="isSyncUas"  />
+        <result column="CREATE_TIME"  property="createTime"  />
+        <result column="UPDATE_TIME"  property="updateTime"  />
+    </resultMap>
+
+
+    <select id="CONTRACT_DEF_SELECT" resultMap="ContractDefMap" parameterType="com.szkingdom.data.DataContractDef">
+        select
+        CONTRACT_CODE,CONTRACT_TYPE,CONTRACT_NAME,CONTRACT_LOCATION,IS_SYNC_UAS,CREATE_TIME,UPDATE_TIME
+        from CONTRACT_DEF
+    </select>
+
+
+    <insert id="CONTRACT_DEF_INSERT" parameterType="com.szkingdom.data.DataContractDef">
+        insert into CONTRACT_DEF(
+        CONTRACT_CODE,CONTRACT_TYPE,CONTRACT_NAME,CONTRACT_LOCATION,IS_SYNC_UAS,CREATE_TIME,UPDATE_TIME)
+        values ( 
+        #{contractCode},#{contractType},#{contractName},#{contractLocation},#{isSyncUas},#{createTime},#{updateTime})
+    </insert>
+
+
+</mapper>

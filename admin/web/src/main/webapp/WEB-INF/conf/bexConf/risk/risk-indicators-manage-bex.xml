@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+	<bex bex_code="QueryRiskIndicatorsManage" bex_name="指标列表查询" bex_type="4"
+		page_mode="0" attr1="QueryRiskIndicatorsManage">
+		<!-- <param para_code="FACTOR_ID" para_name="因子编号" para_type="0"
+			length="256" />
+		<param para_code="FACTOR_NAME" para_name="因子名称" para_type="0"
+			length="256" />
+		<param para_code="FACTOR_CLS" para_name="因子类别" para_type="0"
+			length="256" />
+		<param para_code="FACTOR_REMARK" para_name="因子说明" para_type="0"
+			length="256" /> -->
+	</bex>
+	<bex bex_code="QueryRiskIndicatorClsNameByBizAttr" bex_name="通过业务属性查询指标" bex_type="4"
+		page_mode="0" attr1="QueryRiskIndicatorClsNameByBizAttr">
+	</bex>
+	<bex bex_code="UpdateRiskIndicator" bex_name="指标管理修改" bex_type="4"
+		page_mode="0" attr1="UpdateRiskIndicator">
+	</bex>
+</bexs>

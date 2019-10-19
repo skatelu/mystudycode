@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="KJDP_UUM_OPERATOR_INFO" title="操作员信息查询" render="datagrid">
+        <conf service="P0000041" fit="true" sortName="OP_CODE" pageSize="50" remotePagination="true"/>
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_req="[{service:'P0000037',ORG_TYPE:'0'}]" edt_conf="{treeType:'1',nodeId:'ORG_CODE',nodeName:'ORG_CODE,ORG_FULL_NAME',parNode:'PAR_ORG'}" edt_panelWidth="250" edt_panelHeight="300" edt_treeExpand="1" edt_multiple="true" edt_width="130" treeExpand="all"  />
+        <qry_item field="OP_CODE" title="操作员编号" type="input" edt_validType="num[0,32]" edt_width="130"/>
+        <qry_item field="OP_NAME" title="操作员名称" type="input" edt_validType="val[0,128]" edt_width="130"/>
+        <qry_item field="OP_CLS" title="操作员类别" type="combobox" edt_dict="OP_CLS" edt_autoFill="false" edt_width="130"/>
+        <qry_item field="OP_STATUS"  title="操作员状态" type="combobox" edt_dict="OP_STATUS" edt_width="130"/>
+        <qry_item field="POST_ID" title="操作员岗位" type="combobox" edt_req="[{service:'P0000033'}]" edt_valueField="POST_ID" edt_textField="POST_ID,POST_NAME" edt_panelWidth="160" edt_autoFill="false" edt_multiple="true" edt_width="130"/>
+
+        <col_item field="ORG_CODE" title="机构代码" width="150" type="combobox" edt_req="[{service:'P0000037',ORG_TYPE:'0'}]" edt_valueField="ORG_CODE" edt_textField="ORG_CODE,ORG_FULL_NAME"/>
+        <col_item field="POST_IDS" title="操作员岗位" type="combobox" width="120" edt_req="[{service:'P0000033'}]" edt_valueField="POST_ID" edt_textField="POST_ID,POST_NAME"/>
+        <col_item field="OP_CODE" title="操作员编号" width="60" type="input"/>
+        <col_item field="OP_NAME" title="操作员名称" width="80" type="input"/>
+        <col_item field="OP_STATUS" title="操作员状态" width="60"  type="combobox" edt_dict="OP_STATUS"/>
+        <col_item field="ID_TYPE" title="证件类型" width="80" type="combobox" edt_dict="ID_TYPE"/>
+        <col_item field="ID_CODE" title="证件号码" width="150" type="input"/>
+        <col_item field="MOBILE_TEL" title="移动电话" width="80" type="input"/>
+        <col_item field="EMAIL" title="电子邮箱" width="140" type="input"/>
+        <col_item field="TEL" title="固定电话" width="80" type="input"/>
+        <col_item field="ADDRESS" title="联系地址" width="120" type="input"/>
+
+        <col_item field="CHANNELS" title="操作渠道" width="100" type="combobox" edt_dict="CHANNEL"/>
+        <col_item field="OP_CLS" title="操作员类别" type="combobox" width="80" edt_dict="OP_CLS"/>
+        <col_item field="SEX" title="性别" width="60" type="combobox" edt_dict="SEX"/>
+        <col_item field="ID_ADDR" title="证件地址" width="120" type="input"/>
+        <col_item field="BIRTHDAY" title="出生日期" width="80" type="datebox"/>
+        <col_item field="CITIZENSHIP" title="国籍" width="60" type="combobox" edt_dict="CITIZENSHIP"/>
+        <col_item field="NATIONALITY" title="民族" width="60" type="combobox" edt_dict="NATIONALITY"/>
+        <col_item field="EDUCATION" title="教育程度" width="60" type="combobox" edt_dict="EDUCATION"/>
+        <col_item field="NATIVE_PLACE" title="籍贯" width="80" type="input"/>
+        <col_item field="ZIP_CODE" title="邮编" width="80" type="input"/>
+        <col_item field="ID_EXP_DATE" title="证件过期日期" width="80" type="datebox"/>
+        <col_item field="ID_ISS_AGCY" title="证件签发机关" width="120" type="input"/>
+
+        <col_item field="OPEN_DATE" title="开户日期" width="80" type="datebox"/>
+        <col_item field="CLOSE_DATE" title="销户日期" width="80" type="datebox"/>
+        <col_item field="LOCK_TIME" title="锁定时间" width="150" type="input"/>
+        <col_item field="REMARK" title="备注信息" width="300" type="input"/>
+    </view>
+
+    <view id="KJDP_OPERATOR_BASE" title="基本信息" render="form">
+        <conf colNumbers="4" onInitSuccess="empOpenFormInitSuccess"/>
+        <col_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_treeExpand="true" wrap="true"/>
+        <col_item field="OP_CLS" title="员工类别" type="combobox" edt_dict="OP_CLS" edt_width="130" edt_required="true" edt_autoFill="false" edt_defaultValue="0"/>
+        <col_item field="OP_CODE" title="员工代码" type="textinput" edt_width="130" edt_required="true" edt_validType="num[1,10]" colspan="4" edt_disabled="true"/>
+        <col_item field="CHANNELS" title="操作渠道" type="combobox" edt_dict="CHANNEL" edt_width="130" edt_required="true" edt_autoFill="false" edt_singleByte="true" edt_multiple="true" edt_panelWidth="150" edt_disabled="true" edt_defaultValue="0" hidden="true"/>
+        <col_item field="OP_NAME" title="员工姓名" type="textinput" edt_width="130" edt_required="true" edt_validType="val[1,16]" />
+        <col_item field="ID_TYPE" title="证件类型" type="combobox" edt_width="130" edt_autoFill="false" edt_dict="ID_TYPE" edt_panelWidth="170" edt_defaultValue="00" edt_required="true" edt_onSelect="idTypeSelect"/>
+        <col_item field="ID_CODE" title="证件号码" type="textinput" edt_width="130" edt_validType="cardno[true]" edt_required="true" edt_onBlur="checkIdCode"/>
+        <col_item field="ID_EXP_DATE" title="证件有效期" type="datebox"  edt_width="130" edt_defaultValue="30001231" edt_required="true"/>
+        <col_item field="BIRTHDAY" title="出生日期" type="datebox" edt_width="130" edt_editable="true" edt_required="true"/>
+        <col_item field="MOBILE_TEL" title="移动电话" type="textinput" edt_width="130" edt_validType="mobile" edt_maxLength="11" edt_required="true"/>
+        <col_item field="ADDRESS" title="联系地址" type="textinput" edt_width="360" edt_validType="val[1,256]" edt_required="true" long="true" edt_maxLength="256" colspan="4"/>
+        <col_item field="SEX" title="性别" type="combobox" edt_dict="SEX" edt_width="130" edt_autoFill="false" edt_defaultValue="0" edt_required="true"/>
+        <col_item field="CITIZENSHIP" title="国籍" type="combobox" edt_dict="CITIZENSHIP" edt_width="130" edt_defaultValue="CHN" edt_required="true" edt_panelWidth="160" edt_panelHeight="200"/>
+        <col_item field="NATIONALITY" title="民族" type="combobox" edt_dict="NATIONALITY" edt_width="130" edt_defaultValue="00" edt_required="true" edt_panelWidth="130"/>
+        <col_item field="NATIVE_PLACE" title="籍贯" type="textinput" edt_width="130" edt_validType="val[1,32]"/>
+        <col_item field="TEL" title="固定电话" type="textinput" edt_validType="tel[6,11]" edt_width="130"/>
+        <col_item field="ZIP_CODE" title="邮政编码" type="textinput" edt_validType="num[6,6]" edt_width="130"/>
+        <col_item field="ID_ADDR" title="证件地址" type="textinput" edt_validType="val[1,256]" long="true" colspan="4" edt_width="365" />
+        <col_item field="ID_ISS_AGCY" title="发证机关" type="textinput" edt_width="130" edt_validType="val[1,64]" />
+        <col_item field="EMAIL" title="电子邮箱" edt_width="130" type="textinput" edt_validType="email" />
+        <col_item field="REMARK" title="备注信息" type="textinput" edt_width="365" edt_validType="val[1,128]" long="true" wrap="true" edt_maxLength="128" colspan="4"/>
+
+        <btn_item text="确定" handler="submit"  />
+        <btn_item text="撤销" handler="clearForm" />
+    </view>
+
+    <view id="KJDP_EMP_INFO" render="form">
+        <col_item field="OP_CODE" title="员工代码"/>
+        <col_item field="ORG_CODE" title="机构代码"/>
+        <col_item field="OP_NAME" title="员工姓名"/>
+        <col_item field="POST_NAME" title="员工岗位"/>
+        <col_item field="OP_CLS" title="员工类别" edt_dict="OP_CLS"/>
+        <col_item field="OP_STATUS" title="员工状态" edt_dict="OP_STATUS"/>
+        <col_item field="ID_TYPE" title="证件类型" edt_dict="ID_TYPE"/>
+        <col_item field="ID_CODE" title="证件号码" />
+        <col_item field="SEX" title="性&amp;emsp;&amp;emsp;别" edt_dict="SEX"/>
+        <col_item field="OPEN_DATE" title="开户日期"/>
+        <col_item field="REMARK" title="备注信息"/>
+    </view>
+
+    <view id="KJDP_EMP_POST_SET" render="sform">
+        <conf onInitSuccess="onInitSuccess"/>
+        <btn_item text="提交" title="提交" iconCls="icon-ok" handler="empPostSetSubmit"/>
+        <btn_item text="清空" title="清空" iconCls="icon-cancel" handler="empPostSetCancel"/>
+        <col_item field="POST_ID" title="岗位代码" sortType="number" width="120" type="combobox" edt_required="true" edit_flag="1" edt_req="[{service:'P0000033'}]" edt_valueField="POST_ID" edt_textField="POST_ID,POST_NAME" edt_autoFill="false" edt_panelWidth="250" edt_multiple="true" />
+        <col_item field="MAIN_POST_ID" title="主岗位" sortType="number" width="120" type="combobox" edt_required="true" edt_valueField="POST_ID" edt_textField="POST_ID,POST_NAME" edt_panelWidth="250" edt_autoFill="false"/>
+    </view>
+
+    <view id="KJDP_PERMISSION_01" render="datagrid">
+        <conf fit="true" required="true" pagination="false" singleSelect="false" />
+        <btn_item text="新增" title="新增" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="删除" title="删除" iconCls="icon-remove" handler="commonDelete"/>
+        <col_item type="checkbox"  edit_flag="3"/>
+        <col_item field="RES_TYPE" title="权限类别" width="150" type="combobox" edt_dict="RES_TYPE" edt_required="true" edt_defaultValue="10" hidden="true"/>
+        <col_item field="RES_VALUE" title="机构代码" width="200" edit_flag="1" type="combotree" edt_required="true" edt_req="[{service:'P0000037',ORG_TYPE:'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_FULL_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="250" edt_panelHeight="300" edt_treeExpand="1" edt_nodeId="ORG_CODE" edt_nodeName="ORG_CODE,ORG_FULL_NAME" edt_multiple="true" edt_cascadeCheck="false"/>
+    </view>
+
+    <view id="KJDP_PERMISSION_10" render="treegrid">
+        <conf pageSize="20" required="true" fit="true" collapseAll="false" idField="MENU_ID" treeField="MENU_ID"/>
+        <btn_item text="保存" title="保存" iconCls="icon-edit" handler="saveOpPermissonData" />
+
+        <col_item field="MENU_ID" title="菜单名称" type="combobox" width="400"  edt_req="[{service:'P0000008'}]" edt_valueField="MENU_ID" edt_textField="MENU_ID,MENU_NAME" />
+        <col_item field="RES_TYPE" title="资源类型" type="input" hidden="true"/>
+        <col_item field="PAR_MENU" title="父级菜单" type="input" hidden="true"/>
+        <col_item field="PER_ADD" title="新增" width="80" type="input" formatter="opPerFormatter" />
+        <col_item field="PER_MODIFY" title="修改/保存" width="80" type="input" formatter="opPerFormatter" />
+        <col_item field="PER_DELETE" title="删除" width="80" type="input" formatter="opPerFormatter" />
+<!--        <col_item field="PER_IMPORT" title="导入" width="80" type="input" formatter="opPerFormatter" />
+        <col_item field="PER_EXPORT" title="导出" width="80" type="input" formatter="opPerFormatter" />
+        <col_item field="PER_PRINT" title="打印" width="80" type="input" formatter="opPerFormatter" />-->
+    </view>
+
+    <view id="KJDP_VIRTUAL_OP_SET" render="datagrid" title="虚拟柜员设置" data-main="kjdp/manager/src/sys-manage" >
+        <conf req="[{service:'P0000066'}]" colNumbers="4" fit="true" />
+
+        <qry_item field="SYS_CODE" title="系统代码" type="combobox" edt_panelWidth="200"
+                  edt_cache="c_system" edt_valueField="SYS_CODE" edt_textField="SYS_CODE,SYS_NAME"
+                  edt_autoFill="false" edt_defaultValue="99" />
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="200"
+                  edt_req="[{service:'P0000037',ORG_TYPE:'0'}]"
+                  edt_conf="{ treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_FULL_NAME',parNode: 'PAR_ORG'}"
+                  edt_nodeId="ORG_CODE" edt_nodeName='ORG_CODE,ORG_FULL_NAME' edt_parNode="PAR_ORG"
+                  edt_panelWidth="200" edt_panelHeight="300"/>
+
+        <btn_item text="新增" service="P0000067" title="新增" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000068" title="修改" iconCls="icon-edit" handler="commonModify" onBeforeSave="beforeModifyVirtualOpInfo"/>
+        <btn_item text="删除" service="P0000069" title="删除" iconCls="icon-remove" handler="commonDelete"/>
+        <btn_item text="刷新缓存" title="刷新缓存" handler="refreshVirtualOpInfoCache" iconCls="icon-reload" />
+
+        <col_item field="SYS_CODE" title="系统代码" width="200" type="combobox" edt_required="true" edt_cache="c_system" edt_valueField="SYS_CODE" edt_textField="SYS_CODE,SYS_NAME" edt_defaultValue="99" edit_flag="1"/>
+        <col_item field="ORG_CODE" title="机构代码" width="200" type="combotree" edt_required="true" edt_req="[{service:'P0000037',ORG_TYPE:'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_FULL_NAME',parNode: 'PAR_ORG'}" edt_nodeId="ORG_CODE" edt_nodeName="ORG_CODE,ORG_FULL_NAME" edt_panelWidth="260" edt_panelHeight="250" edt_treeExpand="true" edit_flag="1"/>
+        <col_item field="OP_CODE" title="员工代码" width="100" type="input" edt_required="true"/>
+        <col_item field="REMARK" title="备注信息" width="365" type="input" edt_validType="val[1,256]"/>
+    </view>
+
+    <view id="KJDP_P_OP_MANAGE" render="datagrid" title="员工会话管理" data-main="kjdp/manager/src/emp-manage" >
+        <conf req="[{service:'P0000090'}]" colNumbers="4" fit="true" pageSize="20"/>
+        <qry_item field="OP_CODE" title="柜员代码" type="input" />
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="150"
+                  edt_req="[{service:'P0000037',ORG_TYPE:'0'}]"
+                  edt_conf="{ treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_FULL_NAME',parNode: 'PAR_ORG'}"
+                  edt_nodeId="ORG_CODE" edt_nodeName='ORG_CODE,ORG_FULL_NAME' edt_parNode="PAR_ORG"
+                  edt_panelWidth="200" edt_panelHeight="300" edt_multiple="true"/>
+
+        <btn_item text="下线" title="下线" iconCls="icon-remove" handler="exitOp"/>
+
+        <col_item field="OP_CODE" title="柜员代码" width="80" type="input" edt_required="true"/>
+        <col_item field="OP_NAME" title="柜员名称" width="100" type="input" edt_required="true"/>
+        <col_item field="ORG_CODE" title="机构名称" width="150" type="input" edt_required="true" textField="ORG_CODE,ORG_NAME"/>
+        <col_item field="CHANNEL" title="渠道" width="100" type="input" edt_required="true"  edt_dict="CHANNEL"/>
+        <col_item field="LOGIN_IP" title="访问IP" width="100" type="input" edt_required="true"/>
+        <col_item field="LAST_ACCESS_TIME" title="最后访问时间" width="120" type="input" edt_validType="val[1,256]"/>
+        <col_item field="SESSION_EXPIRE_TIME" title="会话过期时间" width="120" type="input" edt_validType="val[1,256]"/>
+    </view>
+</views>

@@ -1,0 +1,35 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.OptTotalPosiLmt">
+
+    <resultMap id="dataOptTotalPosiLmtMap" type="com.szkingdom.data.DataOptTotalPosiLmt">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD" property="stkbd" />
+        <result column="TOTAL_LMT_ATTR" property="totalLmtAttr" />
+        <result column="OPT_POSI_LQTY" property="optPosiLqty" />
+    </resultMap>
+
+    <select id="COMMON_OPT_TOTAL_POSI_LMT_SELECT" resultMap="dataOptTotalPosiLmtMap" parameterType="com.szkingdom.data.DataOptTotalPosiLmt">
+        select STKEX,STKBD,TOTAL_LMT_ATTR,OPT_POSI_LQTY  from OPT_TOTAL_POSI_LMT where 1=1
+        <if test="stkex != null and stkex !=''">
+            and STKEX = #{stkex}
+        </if>
+        <if test="stkbd != null and stkbd !='' ">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="totalLmtAttr != null and totalLmtAttr !=''">
+            and TOTAL_LMT_ATTR = #{totalLmtAttr}
+        </if>
+        <if test="optPosiLqty > 0">
+            and OPT_POSI_LQTY = #{optPosiLqty}
+        </if>
+
+
+    </select>
+
+
+
+
+</mapper>

@@ -1,0 +1,97 @@
+.kuichart-wrapper {
+  position: relative;
+  background-color: white;
+  /* border: 1px solid #ccc; */
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.kuichart-chart-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+.kuichart-chart-layer.chartlayer-title-paddingtop {
+  top: 30px;
+}
+
+.kuichart-float-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.kuichart-float-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/*自定义的图表的样式*/
+
+.kuichart-single-value-wrap {
+  cursor: default;
+  position: relative;
+  margin: auto;
+}
+
+.kuichart-single-value-span {
+  font-size: 36px;
+  line-height: 36px;
+}
+
+.kuichart-single-text-span {
+  position: absolute;
+  bottom: 0;
+  white-space: nowrap;
+}
+
+.kuichart-custom-table-wrap {
+  margin-top: 40px;
+  width: 80%;
+  margin-left: 10%;
+
+  font-family: verdana,arial,sans-serif;
+	font-size:14px;
+	color:#333333;
+	border-collapse: collapse;
+}
+
+.kuichart-custom-thead-tr {
+  background-color: #dedede;
+  text-align: center;
+}
+
+.kuichart-custom-thead-th {
+	border-width: 1px;
+	border-color: #666666;
+	border-style: solid;
+}
+
+.kuichart-custom-tbody-tr {
+	background-color: #ffffff;
+  text-align: center;
+}
+
+.kuichart-custom-tbody-td {
+  padding: 0;
+	border-width: 1px;
+	border-color: #666666;
+	border-style: solid;
+}

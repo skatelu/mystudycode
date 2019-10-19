@@ -1,0 +1,63 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkBondInfo">
+    <resultMap id="StkBondInfoMap" type="com.szkingdom.data.DataStkBondInfo">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="BOND_CODE"  property="bondCode"  />
+        <result column="BOND_CVTRATE"  property="bondCvtrate"  />
+        <result column="BGN_DATE"  property="bgnDate"  />
+        <result column="END_DATE"  property="endDate"  />
+        <result column="UPD_DATE"  property="updDate"  />
+        <result column="BOND_PARA"  property="bondPara"  />
+        <result column="INT_PARA"  property="intPara"  />
+        <result column="BOND_INCOMETAX_RATE"  property="bondIncometaxRate"  />
+        <result column="RISK_LEVEL"  property="riskLevel"  />
+        <result column="BOND_SUITABLE"  property="bondSuitable"  />
+        <result column="BOND_ADJUST_PARA"  property="bondAdjustPara"  />
+        <result column="BOND_CLS"  property="bondCls"  />
+        <result column="BOND_TOTAL_TRUST"  property="bondTotalTrust"  />
+        <result column="CREDIT_LEVEL"  property="creditLevel"  />
+    </resultMap>
+
+
+    <select id="STK_BOND_INFO_SELECT" resultMap="StkBondInfoMap" parameterType="com.szkingdom.data.DataStkBondInfo">
+        select
+        STKEX,STKBD,BOND_CODE,BOND_CVTRATE,BGN_DATE,END_DATE,UPD_DATE,BOND_PARA,
+        INT_PARA,BOND_INCOMETAX_RATE,RISK_LEVEL,BOND_SUITABLE,BOND_ADJUST_PARA,BOND_CLS,BOND_TOTAL_TRUST,CREDIT_LEVEL
+        from STK_BOND_INFO
+        where 1=1
+        <if test="stkbd != null and stkbd != ''">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="bondCode != null and bondCode != ''">
+            and BOND_CODE = #{bondCode}
+        </if>
+    </select>
+
+
+    <insert id="STK_BOND_INFO_INSERT" parameterType="com.szkingdom.data.DataStkBondInfo">
+        insert into STK_BOND_INFO(
+        STKEX,STKBD,BOND_CODE,BOND_CVTRATE,BGN_DATE,END_DATE,UPD_DATE,BOND_PARA,
+        INT_PARA,BOND_INCOMETAX_RATE,RISK_LEVEL,BOND_SUITABLE,BOND_ADJUST_PARA,BOND_CLS,BOND_TOTAL_TRUST,CREDIT_LEVEL)
+        values ( 
+        #{stkex},#{stkbd},#{bondCode},#{bondCvtrate},#{bgnDate},#{endDate},#{updDate},#{bondPara},
+        #{intPara},#{bondIncometaxRate},#{riskLevel},#{bondSuitable},#{bondAdjustPara},#{bondCls},#{bondTotalTrust},#{creditLevel})
+    </insert>
+
+
+
+    <update id="STK_BOND_INFO_UPDATE" parameterType="com.szkingdom.data.DataStkBondInfo">
+        update STK_BOND_INFO set
+        STKEX = #{stkex},STKBD = #{stkbd},BOND_CODE = #{bondCode},
+        BOND_CVTRATE = #{bondCvtrate},BGN_DATE = #{bgnDate},END_DATE = #{endDate},
+        UPD_DATE = #{updDate},BOND_PARA = #{bondPara},INT_PARA = #{intPara},
+        BOND_INCOMETAX_RATE = #{bondIncometaxRate},RISK_LEVEL = #{riskLevel},BOND_SUITABLE = #{bondSuitable},
+        BOND_ADJUST_PARA = #{bondAdjustPara},BOND_CLS = #{bondCls},BOND_TOTAL_TRUST = #{bondTotalTrust},
+        CREDIT_LEVEL = #{creditLevel}
+    </update>
+
+
+</mapper>

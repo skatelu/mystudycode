@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <service service_code="P6000700" service_name="ETF差额扣款" >
+        <businesses>
+            <service_business business_code="QueryETFCashcomponent" business_type="1"/>
+        </businesses>
+    </service>
+</services>

@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkTrdTimeslice">
+    <resultMap id="StkTrdTimesliceMap" type="com.szkingdom.data.DataStkTrdTimeslice">
+        <result column="TIMESLICE"  property="timeslice"  />
+        <result column="TIMESLICE_NAME"  property="timesliceName"  />
+        <result column="BGN_TIME"  property="bgnTime"  />
+        <result column="END_TIME"  property="endTime"  />
+    </resultMap>
+
+
+    <select id="STK_TRD_TIMESLICE_SELECT" resultMap="StkTrdTimesliceMap" parameterType="com.szkingdom.data.DataStkTrdTimeslice">
+        select
+        TIMESLICE,TIMESLICE_NAME,BGN_TIME,END_TIME
+        from STK_TRD_TIMESLICE
+    </select>
+
+
+    <insert id="STK_TRD_TIMESLICE_INSERT" parameterType="com.szkingdom.data.DataStkTrdTimeslice">
+        insert into STK_TRD_TIMESLICE(
+        TIMESLICE,TIMESLICE_NAME,BGN_TIME,END_TIME)
+        values ( 
+        #{timeslice},#{timesliceName},#{bgnTime},#{endTime})
+    </insert>
+
+
+</mapper>

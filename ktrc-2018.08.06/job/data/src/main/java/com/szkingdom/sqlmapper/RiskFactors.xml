@@ -1,0 +1,39 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskFactors">
+    <resultMap id="RiskFactorsMap" type="com.szkingdom.data.DataRiskFactors">
+        <result column="FACTOR_ID"  property="factorId"  />
+        <result column="FACTOR_NAME"  property="factorName"  />
+        <result column="BIZ_ATTR"  property="bizAttr"  />
+        <result column="FACTOR_CLS"  property="factorCls"  />
+        <result column="FACTOR_CLASS"  property="factorClass"  />
+        <result column="FACTOR_REMARK"  property="factorRemark"  />
+    </resultMap>
+
+
+    <select id="RISK_FACTORS_SELECT" resultMap="RiskFactorsMap" parameterType="com.szkingdom.data.DataRiskFactors">
+        select
+        FACTOR_ID,FACTOR_NAME,BIZ_ATTR,FACTOR_CLS,FACTOR_CLASS,FACTOR_REMARK
+        from RISK_FACTORS
+    </select>
+
+
+    <insert id="RISK_FACTORS_INSERT" parameterType="com.szkingdom.data.DataRiskFactors">
+        insert into RISK_FACTORS(
+        FACTOR_ID,FACTOR_NAME,BIZ_ATTR,FACTOR_CLS,FACTOR_CLASS,FACTOR_REMARK)
+        values ( 
+        #{factorId},#{factorName},#{bizAttr},#{factorCls},#{factorClass},#{factorRemark})
+    </insert>
+
+
+
+    <update id="RISK_FACTORS_UPDATE" parameterType="com.szkingdom.data.DataRiskFactors">
+        update RISK_FACTORS set
+        FACTOR_ID = #{factorId},FACTOR_NAME = #{factorName},BIZ_ATTR = #{bizAttr},
+        FACTOR_CLS = #{factorCls},FACTOR_CLASS = #{factorClass},FACTOR_REMARK = #{factorRemark}
+    </update>
+
+
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+    
+    <sql id="kjdp_permPrefix">
+        (
+            <if test="PERM_FLAG == '0'">
+                1 = 1 OR
+            </if>
+            KJDP_CHARINDEX('8888', #{P_OP_CODE}) > 0 OR (
+
+    </sql>
+
+    <sql id="kjdp_permSuffix">
+            )
+        )
+    </sql>
+
+    <sql id="kjdp_permObjType">
+        (
+            (OBJ_TYPE = '00' AND KJDP_CHARINDEX(OBJ_CODE, #{P_OP_ROLES}) > 0)
+            OR (OBJ_TYPE = '01' AND OBJ_CODE = #{P_OP_CODE})
+        )
+    </sql>
+
+    <sql id="kjdp_menuPermCond">
+        <include refid="kjdp_permPrefix"/>
+            MENU_ID IN (
+                SELECT RES_VALUE FROM UUM_RES_PERM URP
+                WHERE RES_TYPE = '00' AND <include refid="kjdp_permObjType"/>
+            )
+        <include refid="kjdp_permSuffix"/>
+    </sql>
+
+    <sql id="kjdp_orgPermCond">
+        <include refid="kjdp_permPrefix"/>
+            ORG_CODE IN (
+                SELECT RES_VALUE FROM UUM_RES_PERM URP
+                WHERE RES_TYPE = '10' AND <include refid="kjdp_permObjType"/>
+            )
+        <include refid="kjdp_permSuffix"/>
+    </sql>
+
+</mapper>

@@ -1,0 +1,146 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.RiskInfoAsset">
+
+    <resultMap id="dataRiskInfoAssetMap" type="com.szkingdom.data.DataRiskInfoAsset">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_NAME"  property="indicatorName"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+        <result column="PRE_THRESHOLD"  property="preThreshold"  />
+        <result column="PRE_THRES_NO"  property="preThresNo"  />
+        <result column="PRE_THRES_NAME"  property="preThresName"  />
+        <result column="PRE_THRES_COLOR"  property="preThresColor"  />
+        <result column="PRE_RISK_VALUE"  property="preRiskValue"  />
+        <result column="THRESHOLD"  property="threshold"  />
+        <result column="THRES_NO"  property="thresNo"  />
+        <result column="THRES_NAME"  property="thresName"  />
+        <result column="THRES_COLOR"  property="thresColor"  />
+        <result column="RISK_VALUE"  property="riskValue"  />
+        <result column="POSI_QTY"  property="posiQty"  />
+        <result column="POSI_LQTY"  property="posiLqty"  />
+        <result column="QUOTA_VAL_USED"  property="quotaValUsed"  />
+        <result column="QUOTA_VAL"  property="quotaVal"  />
+        <result column="CVD_SHORT_TYPE"  property="cvdShortType"  />
+        <result column="STK_QTY_NEED"  property="stkQtyNeed"  />
+        <result column="STK_QTY_LOCKED"  property="stkQtyLocked"  />
+        <result column="STK_QTY_ACT"  property="stkQtyAct"  />
+        <result column="CVT_QTY_LACK"  property="cvtQtyLack"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUST_CLS"  property="custCls"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="SUBACCT_CODE"  property="subacctCode"  />
+        <result column="TRDACCT_EXCLS"  property="trdacctExcls"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_UNDL_NAME"  property="optUndlName"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="LS_FLAG"  property="lsFlag"  />
+        <result column="RISK_VALID_FLAG"  property="riskValidFlag"  />
+        <result column="RISK_INFO_SRC"  property="riskInfoSrc"  />
+        <result column="NOTICE_SENT_LEVEL"  property="noticeSentLevel"  />
+        <result column="NOTICE_SENT_LEVEL_NAME"  property="noticeSentLevelName"  />
+
+    </resultMap>
+
+    <select id="COMMON_RISK_INFO_ASSET_SELECT" resultMap="dataRiskInfoAssetMap" parameterType="com.szkingdom.data.DataRiskInfoAsset">
+        SELECT CUST_CODE, TRDACCT, SUBACCT_CODE, INDICATOR_ID, OPT_UNDL_CODE, STKBD
+        FROM RISK_INFO_ASSET
+        WHERE 1=1
+        <if test="custCode > 0">AND CUST_CODE = #{custCode}</if>
+
+    </select>
+
+    <select id="COMMON_RISK_INFO_ASSET_SELECT_BY_UNIQUE_INDEX" resultMap="dataRiskInfoAssetMap" parameterType="com.szkingdom.data.DataRiskInfoAsset">
+        SELECT * FROM RISK_INFO_ASSET
+        WHERE 1=1
+        <if test="custCode > 0">AND CUST_CODE = #{custCode}</if>
+        <if test="trdacct != null and trdacct != ''">AND TRDACCT = #{trdacct}</if>
+        <if test="subacctCode != null and subacctCode != ''">AND SUBACCT_CODE = #{subacctCode}</if>
+        <if test="indicatorId != null and indicatorId != ''">AND INDICATOR_ID = #{indicatorId}</if>
+        <if test="optUndlCode != null and optUndlCode != ''">AND OPT_UNDL_CODE = #{optUndlCode}</if>
+        <if test="stkbd != null and stkbd != ''">AND STKBD = #{stkbd}</if>
+
+    </select>
+
+    <update id="COMMON_RISK_INFO_ASSET_UPDATE"  parameterType="com.szkingdom.data.DataRiskInfoAsset">
+        UPDATE RISK_INFO_ASSET
+        <set>
+            <if test="indicatorName != null and indicatorName != ''">INDICATOR_NAME=#{indicatorName},</if>
+            <if test="occDate >= 0">OCC_DATE=#{occDate},</if>
+            <if test="occTime >= 0">OCC_TIME=#{occTime},</if>
+            <if test="preThreshold >= 0">PRE_THRESHOLD=#{preThreshold},</if>
+            <if test="preThresNo != null">PRE_THRES_NO=#{preThresNo},</if>
+            <if test="preThresName != null and preThresName != ''">PRE_THRES_NAME=#{preThresName},</if>
+            <if test="preThresColor != null and preThresColor != ''">PRE_THRES_COLOR=#{preThresColor},</if>
+            <if test="preRiskValue >= 0">PRE_RISK_VALUE=#{preRiskValue},</if>
+            <if test="threshold >= 0">THRESHOLD=#{threshold},</if>
+            <if test="thresNo != null">THRES_NO=#{thresNo},</if>
+            <if test="thresName != null and thresName != ''">THRES_NAME=#{thresName},</if>
+            <if test="thresColor != null and thresColor != ''">THRES_COLOR=#{thresColor},</if>
+            <if test="riskValue >= 0">RISK_VALUE=#{riskValue},</if>
+            <if test="posiQty >= 0">POSI_QTY=#{posiQty},</if>
+            <if test="posiLqty >= 0">POSI_LQTY=#{posiLqty},</if>
+            <if test="quotaValUsed >= 0">QUOTA_VAL_USED=#{quotaValUsed},</if>
+            <if test="quotaVal >= 0">QUOTA_VAL=#{quotaVal},</if>
+            <if test="cvdShortType != null">CVD_SHORT_TYPE=#{cvdShortType},</if>
+            <if test="stkQtyNeed >= 0">STK_QTY_NEED=#{stkQtyNeed},</if>
+            <if test="stkQtyLocked >= 0">STK_QTY_LOCKED=#{stkQtyLocked},</if>
+            <if test="stkQtyAct >= 0">STK_QTY_ACT=#{stkQtyAct},</if>
+            <if test="cvtQtyLack >= 0">CVT_QTY_LACK=#{cvtQtyLack},</if>
+            <if test="intOrg >= 0">INT_ORG=#{intOrg},</if>
+            <if test="custName != null and custName != ''">CUST_NAME=#{custName},</if>
+            <if test="custType != null">CUST_TYPE=#{custType},</if>
+            <if test="custCls != null">CUST_CLS=#{custCls},</if>
+            <if test="cuacctCode >= 0">CUACCT_CODE=#{cuacctCode},</if>
+            <if test="currency != null">CURRENCY=#{currency},</if>
+            <if test="trdacctExcls != null">TRDACCT_EXCLS=#{trdacctExcls},</if>
+            <if test="optUndlName != null and optUndlName != ''">OPT_UNDL_NAME=#{optUndlName},</if>
+            <if test="optUndlCls != null">OPT_UNDL_CLS=#{optUndlCls},</if>
+            <if test="lsFlag != null">LS_FLAG=#{lsFlag},</if>
+            <if test="riskValidFlag != null">RISK_VALID_FLAG=#{riskValidFlag},</if>
+            <if test="riskInfoSrc != null">RISK_INFO_SRC=#{riskInfoSrc},</if>
+            <if test="noticeSentLevel != null">NOTICE_SENT_LEVEL=#{noticeSentLevel},</if>
+            <if test="noticeSentLevelName != null and noticeSentLevelName != ''">NOTICE_SENT_LEVEL_NAME=#{noticeSentLevelName}</if>
+        </set>
+        WHERE 1=1
+        <if test="custCode > 0">AND CUST_CODE = #{custCode}</if>
+        <if test="trdacct != null and trdacct != ''">AND TRDACCT = #{trdacct}</if>
+        <if test="subacctCode != null and subacctCode != ''">AND SUBACCT_CODE = #{subacctCode}</if>
+        <if test="indicatorId != null and indicatorId != ''">AND INDICATOR_ID = #{indicatorId}</if>
+        <if test="optUndlCode != null and optUndlCode != ''">AND OPT_UNDL_CODE = #{optUndlCode}</if>
+        <if test="stkbd != null and stkbd != ''">AND STKBD = #{stkbd}</if>
+
+    </update>
+
+    <insert id="COMMON_RISK_INFO_ASSET_INSERT" parameterType="com.szkingdom.data.DataRiskInfoAsset">
+        INSERT INTO RISK_INFO_ASSET
+        (INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,
+        PRE_THRESHOLD,PRE_THRES_NO,PRE_THRES_NAME,PRE_THRES_COLOR,PRE_RISK_VALUE,
+        THRESHOLD,THRES_NO,THRES_NAME,THRES_COLOR,RISK_VALUE,
+        POSI_QTY,POSI_LQTY,QUOTA_VAL_USED,QUOTA_VAL,CVD_SHORT_TYPE,
+        STK_QTY_NEED,STK_QTY_LOCKED,STK_QTY_ACT,CVT_QTY_LACK,INT_ORG,
+        CUST_CODE,CUST_NAME,CUST_TYPE,CUST_CLS,CUACCT_CODE,
+        CURRENCY,STKBD,TRDACCT,SUBACCT_CODE,TRDACCT_EXCLS,
+        OPT_UNDL_CODE,OPT_UNDL_NAME,OPT_UNDL_CLS,LS_FLAG,RISK_VALID_FLAG,
+        RISK_INFO_SRC,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME)
+        VALUES (#{indicatorId},#{indicatorName},#{occDate},#{occTime},
+        #{preThreshold},#{preThresNo},#{preThresName},#{preThresColor},#{preRiskValue},
+        #{threshold},#{thresNo},#{thresName},#{thresColor},#{riskValue},
+        #{posiQty},#{posiLqty},#{quotaValUsed},#{quotaVal},#{cvdShortType},
+        #{stkQtyNeed},#{stkQtyLocked},#{stkQtyAct},#{cvtQtyLack},#{intOrg},
+        #{custCode},#{custName},#{custType},#{custCls},#{cuacctCode},
+        #{currency},#{stkbd},#{trdacct},#{subacctCode},#{trdacctExcls},
+        #{optUndlCode},#{optUndlName},#{optUndlCls},#{lsFlag},#{riskValidFlag},
+        #{riskInfoSrc},#{noticeSentLevel},#{noticeSentLevelName})
+    </insert>
+
+
+</mapper>

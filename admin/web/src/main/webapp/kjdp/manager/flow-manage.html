@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>流程定义管理</title>
+<script id="seajsnode" type="text/javascript" src="../../../../loader.js"
+        data-main="./src/flow-manage" data-iskui="true"></script>
+</head>
+<body>
+<table id="KJDP_PROCESS_MODEL_DEF" title="流程定义管理" class="kui-datagrid"></table>
+
+<div id="importProcessDialog" style="display: none;width:660px;height:200px;">
+    <form id="importProcessForm" class="kui-form" style="margin-top: 10px;">
+        <table width="95%" >
+            <tr><td></td><td><span style="color:red;">*温馨提示：只能上传一个文件!</span></td></tr>
+            <tr>
+                <td class="form-label" style="vertical-align: top;padding-top: 10px;">导入流程：</td>
+                <td id="processFileUpload"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<iframe id="exportModelDiv" scrolling="auto" frameborder="0" allowtransparency="true"
+        style="width:0px;height:0px;"></iframe>
+</body>
+</html>

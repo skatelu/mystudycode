@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.footer-wrap {
+    border-top: 2px solid #44B4EF;
+}
+
+.footer-wrap-no-border {
+    border: none;
+    width: 100%;
+}
+@media screen and (min-height:610px){
+    .footer-wrap-no-border{
+        bottom: 0;
+        position: absolute;
+    }
+}
+.footer {
+    color: #D7D7D7;
+    height: 40px;
+    line-height: 40px;
+    /*background: #FFFFFF;*/
+}
+
+.footer .copyright{
+    background: url("../../images/yzt-logo.png") no-repeat;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    margin-bottom: -10px;
+}
+
+.footer.container{
+    padding-left:0;
+}

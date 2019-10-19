@@ -1,0 +1,57 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkPlgSupContracts">
+    <resultMap id="StkPlgSupContractsMap" type="com.szkingdom.data.DataStkPlgSupContracts">
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="SUP_CONSTR_SN"  property="supConstrSn"  />
+        <result column="TRDACCT_IN"  property="trdacctIn"  />
+        <result column="ORG_TRD_DATE"  property="orgTrdDate"  />
+        <result column="ORG_CONSTR_SN"  property="orgConstrSn"  />
+        <result column="ORDER_ID"  property="orderId"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="SHARE_CLS"  property="shareCls"  />
+        <result column="CONT_QTY"  property="contQty"  />
+        <result column="CONT_AVL"  property="contAvl"  />
+        <result column="CONT_BUYBK_FRZ"  property="contBuybkFrz"  />
+        <result column="HAS_BUYBK_QTY"  property="hasBuybkQty"  />
+        <result column="BONUS_AMT"  property="bonusAmt"  />
+        <result column="INT_QTY"  property="intQty"  />
+        <result column="CONT_STATUS"  property="contStatus"  />
+        <result column="BUYBK_QTY"  property="buybkQty"  />
+        <result column="FLOW_TYPE"  property="flowType"  />
+        <result column="RIGHTS_CLS"  property="rightsCls"  />
+        <result column="LISTING_YEAR"  property="listingYear"  />
+        <result column="ACT_BUYBK_DATE"  property="actBuybkDate"  />
+    </resultMap>
+
+
+    <select id="STK_PLG_SUP_CONTRACTS_SELECT" resultMap="StkPlgSupContractsMap" parameterType="com.szkingdom.data.DataStkPlgSupContracts">
+        select
+        STKBD,TRD_DATE,SUP_CONSTR_SN,TRDACCT_IN,ORG_TRD_DATE,ORG_CONSTR_SN,ORDER_ID,STK_CODE,
+        SHARE_CLS,CONT_QTY,CONT_AVL,CONT_BUYBK_FRZ,HAS_BUYBK_QTY,BONUS_AMT,INT_QTY,CONT_STATUS,
+        BUYBK_QTY,FLOW_TYPE,RIGHTS_CLS,LISTING_YEAR,ACT_BUYBK_DATE
+        from STK_PLG_SUP_CONTRACTS
+        where 1=1
+        <if test="trdDate > 0">and TRD_DATE = #{trdDate}</if>
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+        <if test="supConstrSn != null and supConstrSn != ''">and SUP_CONSTR_SN = #{supConstrSn}</if>
+        <if test="stkCode != null and stkCode != ''">and STK_CODE = #{stkCode}</if>
+    </select>
+
+
+    <insert id="STK_PLG_SUP_CONTRACTS_INSERT" parameterType="com.szkingdom.data.DataStkPlgSupContracts">
+        insert into STK_PLG_SUP_CONTRACTS(
+        STKBD,TRD_DATE,SUP_CONSTR_SN,TRDACCT_IN,ORG_TRD_DATE,ORG_CONSTR_SN,ORDER_ID,STK_CODE,
+        SHARE_CLS,CONT_QTY,CONT_AVL,CONT_BUYBK_FRZ,HAS_BUYBK_QTY,BONUS_AMT,INT_QTY,CONT_STATUS,
+        BUYBK_QTY,FLOW_TYPE,RIGHTS_CLS,LISTING_YEAR,ACT_BUYBK_DATE)
+        values ( 
+        #{stkbd},#{trdDate},#{supConstrSn},#{trdacctIn},#{orgTrdDate},#{orgConstrSn},#{orderId},#{stkCode},
+        #{shareCls},#{contQty},#{contAvl},#{contBuybkFrz},#{hasBuybkQty},#{bonusAmt},#{intQty},#{contStatus},
+        #{buybkQty},#{flowType},#{rightsCls},#{listingYear},#{actBuybkDate})
+    </insert>
+
+
+</mapper>

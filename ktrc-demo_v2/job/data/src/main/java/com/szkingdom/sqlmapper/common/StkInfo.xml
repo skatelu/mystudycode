@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.StkInfo">
+
+    <resultMap id="dataStkInfoMap" type="com.szkingdom.data.DataStkInfo">
+        <result column="STKEX" property="stkex" />
+        <result column="STKBD" property="stkbd" />
+        <result column="STK_CODE"  property="stkCode" />
+        <result column="STK_NAME"  property="stkName" />
+        <result column="STK_CLS"  property="stkCls" />
+        <result column="STK_STATUS"  property="stkStatus" />
+        <result column="STK_SUSPENDED"  property="stkSuspended" />
+    </resultMap>
+
+    <select id="COMMON_STK_INFO_SELECT" resultMap="dataStkInfoMap" parameterType="com.szkingdom.data.DataStkInfo">
+        select STKEX, STKBD, STK_CODE, STK_NAME, STK_CLS, STK_STATUS, STK_SUSPENDED
+            from STK_INFO
+            where 1=1
+        <if test="stkCode != null and stkCode !=''">
+            and STK_CODE = #{stkCode}
+        </if>
+        <if test="stkbd != null and stkbd !='' ">
+            and STKBD = #{stkbd}
+        </if>
+    </select>
+</mapper>

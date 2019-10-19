@@ -1,0 +1,117 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkRepchContract">
+    <resultMap id="StkRepchContractMap" type="com.szkingdom.data.DataStkRepchContract">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="STK_BIZ"  property="stkBiz"  />
+        <result column="STK_BIZ_ACTION"  property="stkBizAction"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="MATCH_ID"  property="matchId"  />
+        <result column="MATCH_QTY"  property="matchQty"  />
+        <result column="MATCH_PRICE"  property="matchPrice"  />
+        <result column="MATCH_AMT"  property="matchAmt"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_CLS"  property="stkCls"  />
+        <result column="STK_FLAG"  property="stkFlag"  />
+        <result column="REPCH_DATE"  property="repchDate"  />
+        <result column="REPCH_AMT"  property="repchAmt"  />
+        <result column="REPCH_STATUS"  property="repchStatus"  />
+        <result column="MATCH_TIME"  property="matchTime"  />
+        <result column="LAST_RATE"  property="lastRate"  />
+        <result column="CALL_RATE"  property="callRate"  />
+        <result column="DELAY_FLAG"  property="delayFlag"  />
+        <result column="AUTO_BUY_DATE"  property="autoBuyDate"  />
+        <result column="ACTUAL_USED_DAYS"  property="actualUsedDays"  />
+    </resultMap>
+
+
+    <select id="STK_REPCH_CONTRACT_SELECT" resultMap="StkRepchContractMap" parameterType="com.szkingdom.data.DataStkRepchContract">
+        select
+        TRD_DATE,STKEX,STKBD,STKPBU,STK_BIZ,STK_BIZ_ACTION,INT_ORG,CUST_CODE,
+        CUST_NAME,CUACCT_CODE,TRDACCT,MATCH_ID,MATCH_QTY,MATCH_PRICE,MATCH_AMT,
+        CURRENCY,STK_CODE,STK_CLS,STK_FLAG,REPCH_DATE,REPCH_AMT,REPCH_STATUS,MATCH_TIME,
+        LAST_RATE,CALL_RATE,DELAY_FLAG,AUTO_BUY_DATE,ACTUAL_USED_DAYS
+        from STK_REPCH_CONTRACT
+        where 1=1
+        <if test="trdDate > 0">
+            and TRD_DATE = #{trdDate}
+        </if>
+        <if test="stkbd != null and stkbd != ''">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="stkBiz > 0">
+            and STK_BIZ = #{stkBiz}
+        </if>
+        <if test="cuacctCode > 0">
+            and CUACCT_CODE = #{cuacctCode}
+        </if>
+        <if test="matchId != null and matchId != ''">
+            and MATCH_ID = #{matchId}
+        </if>
+        <if test="stkCode != null and stkCode != ''">
+            and STK_CODE = #{stkCode}
+        </if>
+        <if test="custCode > 0">
+            and CUST_CODE  = #{custCode}
+        </if>
+        <if test="repchDate > 0">
+            and REPCH_DATE = #{repchDate}
+        </if>
+    </select>
+
+    <select id="STK_REPCH_CONTRACT_SELECT_LOCK" resultMap="StkRepchContractMap" parameterType="com.szkingdom.data.DataStkRepchContract">
+        select
+        TRD_DATE,STKEX,STKBD,STKPBU,STK_BIZ,STK_BIZ_ACTION,INT_ORG,CUST_CODE,
+        CUST_NAME,CUACCT_CODE,TRDACCT,MATCH_ID,MATCH_QTY,MATCH_PRICE,MATCH_AMT,
+        CURRENCY,STK_CODE,STK_CLS,STK_FLAG,REPCH_DATE,REPCH_AMT,REPCH_STATUS,MATCH_TIME,
+        LAST_RATE,CALL_RATE,DELAY_FLAG,AUTO_BUY_DATE,ACTUAL_USED_DAYS
+        from STK_REPCH_CONTRACT
+        where TRD_DATE = #{trdDate}
+        and STKBD = #{stkbd}
+        and STK_BIZ = #{stkBiz}
+        and CUACCT_CODE = #{cuacctCode}
+        and MATCH_ID = #{matchId}
+        and STK_CODE = #{stkCode}
+        for update
+    </select>
+
+    <insert id="STK_REPCH_CONTRACT_INSERT" parameterType="com.szkingdom.data.DataStkRepchContract">
+        insert into STK_REPCH_CONTRACT(
+        TRD_DATE,STKEX,STKBD,STKPBU,STK_BIZ,STK_BIZ_ACTION,INT_ORG,CUST_CODE,
+        CUST_NAME,CUACCT_CODE,TRDACCT,MATCH_ID,MATCH_QTY,MATCH_PRICE,MATCH_AMT,
+        CURRENCY,STK_CODE,STK_CLS,STK_FLAG,REPCH_DATE,REPCH_AMT,REPCH_STATUS,MATCH_TIME,
+        LAST_RATE,CALL_RATE,DELAY_FLAG,AUTO_BUY_DATE,ACTUAL_USED_DAYS)
+        values ( 
+        #{trdDate},#{stkex},#{stkbd},#{stkpbu},#{stkBiz},#{stkBizAction},#{intOrg},#{custCode},
+        #{custName},#{cuacctCode},#{trdacct},#{matchId},#{matchQty},#{matchPrice},#{matchAmt},
+        #{currency},#{stkCode},#{stkCls},#{stkFlag},#{repchDate},#{repchAmt},#{repchStatus},#{matchTime},
+        #{lastRate},#{callRate},#{delayFlag},#{autoBuyDate},#{actualUsedDays})
+    </insert>
+
+
+    <update id="STK_REPCH_CONTRACT_UPDATE" parameterType="com.szkingdom.data.DataStkRepchContract">
+        update STK_REPCH_CONTRACT set
+        TRD_DATE = #{trdDate},STKEX = #{stkex},STKBD = #{stkbd},
+        STKPBU = #{stkpbu},STK_BIZ = #{stkBiz},STK_BIZ_ACTION = #{stkBizAction},
+        INT_ORG = #{intOrg},CUST_CODE = #{custCode},CUST_NAME = #{custName},
+        CUACCT_CODE = #{cuacctCode},TRDACCT = #{trdacct},MATCH_ID = #{matchId},
+        MATCH_QTY = #{matchQty},MATCH_PRICE = #{matchPrice},MATCH_AMT = #{matchAmt},
+        CURRENCY = #{currency},STK_CODE = #{stkCode},
+        STK_CLS = #{stkCls},STK_FLAG = #{stkFlag},REPCH_DATE = #{repchDate},
+        REPCH_AMT = #{repchAmt},REPCH_STATUS = #{repchStatus},MATCH_TIME = #{matchTime},
+        LAST_RATE = #{lastRate},CALL_RATE = #{callRate},
+        DELAY_FLAG = #{delayFlag},AUTO_BUY_DATE = #{autoBuyDate},ACTUAL_USED_DAYS = #{actualUsedDays}
+    </update>
+
+
+</mapper>

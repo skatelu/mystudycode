@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>接口测试</title>
+<link rel="Shortcut Icon" href="common/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="./css/test.css"/>
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/test"></script>
+</head>
+<body class="noselect">
+<div class="test-wrap">
+    <span>用户代码：</span><input id="userCode" type="text" class="kui-textinput" kui-options="value:8888" placeholder="用户代码">
+    <span>用户密码：</span><input id="password" type="password" class="kui-textinput" kui-options="value:888888" placeholder="用户密码">
+    <span>验证码：</span><input id="validateCode" type="text" class="kui-textinput" placeholder="验证码">
+    <img id="validateImg" width="60" height="20"/>
+    <a class="kui-linkbutton" kui-options="onClick:'loginBtnClick'">登录</a>
+    <a class="kui-linkbutton" kui-options="onClick:'logoutBtnClick'">退出</a>
+</div>
+
+<div class="test-wrap">
+    <span>服务编号：</span>
+    <input id="service" class="kui-textinput" placeholder="service编号">
+    <a class="kui-linkbutton" kui-options="onClick:'testBtnClick'">测试</a>
+    <a class="kui-linkbutton" kui-options="onClick:'clearBtnClick'">清空</a>
+</div>
+
+<div class="test-wrap">
+    <span>输入参数：</span>
+    <textarea id="param" class="kui-textinput small" placeholder="service输入参数，格式参考：foo=123;bar=456;str=abc"></textarea>
+</div>
+
+<div class="test-wrap">
+    <span>头部信息：</span>
+    <textarea id="head" class="kui-textinput small" kui-options="readonly:true" placeholder="ANS_MSG_HDR，service返回的头信息"></textarea>
+</div>
+
+<div class="test-wrap">
+    <span>返回数据：</span>
+    <textarea id="data" class="kui-textinput large" kui-options="readonly:true" placeholder="ANS_COMM_DATA，service返回的数据"></textarea>
+</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <service service_code="P0000001" service_name="操作员登录" ticket_check="0">
+        <businesses>
+            <service_business business_code="kjdp_opLoginAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000003" service_name="操作员注销">
+        <businesses>
+            <service_business business_code="kjdp_opLogoutAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000007" service_name="操作员岗位信息查询">
+        <businesses>
+            <service_business business_code="kjdp_opPostJoinSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000033" service_name="岗位信息查询">
+        <businesses>
+            <service_business business_code="kjdp_postSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000034" service_name="岗位信息新增">
+        <businesses>
+            <service_business business_code="kjdp_postInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000035" service_name="岗位信息更新">
+        <businesses>
+            <service_business business_code="kjdp_postUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000036" service_name="岗位信息删除">
+        <businesses>
+            <service_business business_code="kjdp_postDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000041" service_name="操作员信息查询">
+        <businesses>
+            <service_business business_code="kjdp_opJoinSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000042" service_name="操作员信息新增">
+        <businesses>
+            <service_business business_code="kjdp_openOpAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000043" service_name="操作员信息更新">
+        <businesses>
+            <service_business business_code="kjdp_opUpdateBex" business_type="1"/>
+            <service_business business_code="kjdp_opInfoUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000044" service_name="操作员状态更新">
+        <businesses>
+            <service_business business_code="kjdp_opStatusUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000045" service_name="操作员密码更新">
+        <businesses>
+            <service_business business_code="kjdp_opPassUpdateAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000046" service_name="操作员密码重置">
+        <businesses>
+            <service_business business_code="kjdp_opPassUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000050" service_name="获取操作员编号">
+        <businesses>
+            <service_business business_code="kjdp_generateOpCodeAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000051" service_name="操作员信息更新">
+        <businesses>
+            <service_business business_code="kjdp_opUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000055" service_name="操作员岗位新增">
+        <businesses>
+            <service_business business_code="kjdp_opPostInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000056" service_name="操作员岗位更新">
+        <businesses>
+            <service_business business_code="kjdp_opPostUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000057" service_name="操作员岗位删除">
+        <businesses>
+            <service_business business_code="kjdp_opPostDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000066" service_name="虚拟柜员查询">
+        <businesses>
+            <service_business business_code="kjdp_virtualOpSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+        <service service_code="P0000067" service_name="虚拟柜员新增">
+        <businesses>
+            <service_business business_code="kjdp_openVirtualOpAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000068" service_name="虚拟柜员更新">
+        <businesses>
+            <service_business business_code="kjdp_modifyVirtualOpInfoAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000069" service_name="虚拟柜员删除">
+        <businesses>
+            <service_business business_code="kjdp_virtualOpDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000090" service_name="员工会话信息查询">
+        <businesses>
+            <service_business business_code="kjdp_getOnlineOpAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000091" service_name="员工会话终止">
+        <businesses>
+            <service_business business_code="kjdp_exitOpAtom" business_type="3"/>
+        </businesses>
+    </service>
+</services>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/kuichart.css" />
+  <link rel="stylesheet" href="./css/gridlayout.css" />
+  <link rel="stylesheet" href="./css/monitor-page.css" />
+  
+  <title>综合评分</title>
+  <script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/risk-specialcrowdscreen.js"></script>
+</head>
+
+<body>
+  <div id="monitorPage">
+		<div id="noticePara">
+			<div class="clearfix">
+				<div class="dl">
+					<span class="dl-label">机构代码</span>
+					<input id="ORG_CODE" name="ORG_CODE" class="kui-combotree"
+                       kui-options="req:[{service:'P0000037',ORG_TYPE:'0'}],
+                           editable:true,
+                           required:true,
+                           conf:{
+                                treeType: '1',
+                                nodeId:'ORG_CODE',
+                                nodeName: 'ORG_CODE,ORG_FULL_NAME',
+                                parNode: 'PAR_ORG'
+                            },panelWidth:300,panelHeight:350,width:'150'"/>
+				</div>
+				<div class="dl">
+					<span class="dl-label">数据更新</span> <input id="REFRESH_TIME"
+						name="REFRESH_TIME" class="kui-textinput"
+						kui-options="width:'120',disabled:'disabled'" />
+				</div>
+				<div class="dl">
+					<a id="searchEmpInfo" class="kui-linkbutton">总览屏</a> <a
+					   id="searchEmpInfo" class="kui-linkbutton">详细屏</a> <a
+					   id="searchEmpInfo" class="kui-linkbutton">特殊屏</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	 <div kui-options="region:'center',title:''">
+        <div id="menuTabs" class="kui-tabs" kui-options="fit:true">
+            <div id="menuInfoPanel" class="form-panel" title="关注名单(1/3)" style="padding:5px;"></div>
+            <!-- <div id="sibMenuPanel" class="form-panel" title="添加同级菜单" style="padding:5px;"></div>
+            <div id="childMenuPanel" class="form-panel" title="添加子菜单" style="padding:5px;"></div> -->
+        </div>
+    </div>
+    <div>
+    	<input type='radio' name='FLAGDATA' value='-1' checked="true"><label>全部</label>
+    	<input type='radio' name='FLAGDATA' value='1'><label>正常</label>
+    	<input type='radio' name='FLAGDATA' value='2'><label>大于已通知最高等级</label>
+    	<input type='radio' name='FLAGDATA' value='3'><label>小于已通知最高等级</label>
+    </div>
+		<div>
+		<div id="tablePage1" style="margin-top:10px;height:500px;width:70%;float:left">
+		<div id = "SpecialCrowdScreen_Total" class = "kui-datagrid"></div>
+		</div>
+		<div id="picture" style="margin-left:20px;width:28%;float:right">
+			<span style="font-weight:bold;font-size:16px">客户名称：<span id="customName"></span>
+			<span style="float:right">电话  <span id="tel"></span></span></span><br>
+			<span id="CUST_CODE"></span>（客户代码）
+			<div class="kui-gridlayout"
+			  style="background-color: #f5f5f5;width: 100%;height:215px;"
+			  kui-options='colNum:6, colWidth:[1/6, 1/6,1/6, 1/6,1/6,1/6],
+			    rowNum:3, rowHeight:[1], colGap: 4, rowGap: 3, hasShadow:true, 
+			    gridPos:[
+			    {w:6, h:1, x:0, y:0},
+			    ],'>
+			      <!--  <div id="chart2" class="kui-kuichart" kui-options='type: "barChart", title: "风险触发记录详情",
+			      config: {
+			        barWidth: "45%",
+			      }, data: {
+			        category: ["拉抬打压", "虚假申报","关联交易","自买自卖","其他异常"],
+			        values: [5,12,2,1,1],
+			      }, req: {},'></div> -->
+			       <div id="chart2" class="kui-kuichart" kui-options='type: "barChart", title: "风险触发记录详情",
+				      config: {
+				        barWidth: "45%",
+				        gridLeft:60,
+        				gridBottom:70,
+				      }'></div>
+			  </div>
+		</div>
+		<div id="tablePage2" style="margin-top:10px;width:28%;height:215px;float:right">
+			<!-- <table height="215px" width="100%" border="1px solid #0094ff">
+				<tr>
+					<td></td>
+				</tr>
+			</table> -->
+			<table id = "SpecialCrowdScreen_Detail" class = "kui-datagrid"></table>
+		</div>
+	</div>
+  <!-- <div class="kui-gridlayout"
+  style="background-color: #f5f5f5;width: 100%;height:650px;"
+  kui-options='colNum:6, colWidth:[1/6, 1/6,1/6, 1/6,1/6,1/6],
+    rowNum:3, rowHeight:[1/3, 1/3, 1/3], colGap: 4, rowGap: 3, hasShadow:true, 
+    gridPos:[
+    {w:4, h:2, x:0, y:0},
+    {w:2, h:1, x:4, y:0},
+    {w:2, h:1, x:4, y:1},
+    ],'>
+    <div id="chart1" class="kui-kuichart" kui-options='type: "customTable", title: "",
+      config: {}, data: {
+        category: [{
+          key: "INDEX",
+          text: "序列",
+        }, {
+          key: "DS_NAME",
+          text: "客户名称",
+        }, {
+          key: "BIAOZHUN",
+          text: "标准券缺口",
+        }, {
+          key: "HUIGOU",
+          text: "回购标准券使用率",
+        }, {
+          key: "s1",
+          text: "公司盘中提醒线",
+        }, {
+          key: "s2",
+          text: "过去30日警示次数",
+        }, {
+          key: "s3",
+          text: "风险状态",
+        }, {
+          key: "s4",
+          text: "通知状态",
+        }, {
+          key: "s5",
+          text: "已通知最高等级主题",
+        }],
+        values: [{
+          INDEX:1,
+          DS_NAME: "李七",
+          BIAOZHUN: "119000",
+          HUIGOU: "97%",
+          s1: "90%",
+          s2: "95%",
+          s3: "5",
+          s4: "大于已通知最高等级",
+          s5: "待通知",
+          s6: "警示线",
+        }, {
+          INDEX:2,
+          DS_NAME: "张三丰",
+          BIAOZHUN: "87050",
+          HUIGOU: "91.5%",
+          s1: "90%",
+          s2: "95%",
+          s3: "4",
+          s4: "大于已通知最高等级",
+          s5: "待通知",
+          s6: "提醒线",
+        }],
+      }, req: {},'></div>
+       <div id="chart2" class="kui-kuichart" kui-options='type: "barChart", title: "过去30个交易日内风险触发最高级别记录（单位：次数）",
+      config: {
+        barWidth: "50%",
+      }, data: {
+        category: ["一级预警", "二级预警","三级预警","四级预警"],
+        values: [5,3,1,0],
+      }, req: {},'></div>
+       <div id="chart3" class="kui-kuichart" kui-options='type: "customTable", title: "",
+      config: {}, data: {
+        category: [{
+          key: "INDEX",
+          text: "日期",
+        }, {
+          key: "DS_NAME",
+          text: "风险指标",
+        }, {
+          key: "BIAOZHUN",
+          text: "触发等级",
+        }, {
+          key: "HUIGOU",
+          text: "触发次数",
+        }, {
+          key: "s1",
+          text: "已处置次数",
+        }],
+        values: [{
+          INDEX:20180622,
+          DS_NAME: "回购标准券使用率",
+          BIAOZHUN: "一级",
+          HUIGOU: "1",
+          s1: "1",
+        }, {
+          INDEX:20180518,
+          DS_NAME: "信用债入库集中度",
+          BIAOZHUN: "一级",
+          HUIGOU: "1",
+          s1: "1",
+        }],
+      }, req: {},'></div>
+  </div> -->
+  
+  
+</body>
+
+</html>

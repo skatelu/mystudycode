@@ -1,0 +1,168 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.OptAsset">
+	
+    <resultMap id="dataOptAssetMap" type="com.szkingdom.data.DataOptAsset">
+		<result column="CUST_CODE"  property="custCode" />
+		<result column="CUST_TYPE"  property="custType" />
+		<result column="CUACCT_CODE"  property="cuacctCode" />
+		<result column="CUACCT_ATTR"  property="cuacctAttr"  />
+		<result column="CUACCT_CLS"  property="cuacctCls"  />
+		<result column="CUACCT_LVL"  property="cuacctLvl"  />
+		<result column="CUACCT_GRP"  property="cuacctGrp"  />
+		<result column="INT_ORG"  property="intOrg"  />
+		<result column="STKEX"  property="stkex"  />
+		<result column="STKBD"  property="stkbd"  />
+		<result column="STKPBU"  property="stkpbu"  />
+		<result column="TRDACCT"  property="trdacct"  />
+		<result column="SUBACCT_CODE"  property="subacctCode"  />
+		<result column="TRDACCT_EXCLS"  property="trdacctExcls"  />
+		<result column="CURRENCY"  property="currency"  />
+		<result column="OPT_NUM"  property="optNum"  />
+		<result column="OPT_CODE"  property="optCode"  />
+		<result column="OPT_NAME"  property="optName"  />
+		<result column="OPT_TYPE"  property="optType"  />
+		<result column="OPT_SIDE"  property="optSide"  />
+		<result column="OPT_CVD_FLAG"  property="optCvdFlag"  />
+		<result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+		<result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+		<result column="OPT_PREBLN"  property="optPrebln"  />
+		<result column="OPT_BLN"  property="optBln"  />
+		<result column="OPT_AVL"  property="optAvl"  />
+		<result column="OPT_FRZ"  property="optFrz"  />
+		<result column="OPT_UFZ"  property="optUfz"  />
+		<result column="OPT_TRD_FRZ"  property="optTrdFrz"  />
+		<result column="OPT_TRD_UFZ"  property="optTrdUfz"  />
+		<result column="OPT_TRD_OTD"  property="optTrdOtd"  />
+		<result column="OPT_TRD_BLN"  property="optTrdBln"  />
+		<result column="OPT_CLR_FRZ"  property="optClrFrz"  />
+		<result column="OPT_CLR_UFZ"  property="optClrUfz"  />
+		<result column="OPT_CLR_OTD"  property="optClrOtd"  />
+		<result column="OPT_BCOST"  property="optBcost"  />
+		<result column="OPT_BCOST_RLT"  property="optBcostRlt"  />
+		<result column="OPT_PLAMT"  property="optPlamt"  />
+		<result column="OPT_PLAMT_RLT"  property="optPlamtRlt"  />
+		<result column="OPT_MKT_VAL"  property="optMktVal"  />
+		<result column="OPT_PREMIUM"  property="optPremium"  />
+		<result column="QUOTA_VAL_USED"  property="quotaValUsed"  />
+		<result column="OPT_MARGIN"  property="optMargin"  />
+		<result column="OPT_CVD_ASSET"  property="optCvdAsset"  />
+		<result column="OPT_CLS_PROFIT"  property="optClsProfit"  />
+		<result column="PRE_CLS_PROFIT"  property="preClsProfit"  />
+		<result column="OPT_FLOAT_PROFIT"  property="optFloatProfit"  />
+		<result column="OPT_POSI_RLT"  property="optPosiRlt"  />
+		<result column="OPT_AUTO_EXE_QTY"  property="optAutoExeQty"  />
+		<result column="OPT_CLS_UNMATCHED"  property="optClsUnmatched"  />
+		<result column="OPT_DAILY_OPEN_RLT"  property="optDailyOpenRlt"  />
+		<result column="COMBED_QTY"  property="combedQty"  />
+		<result column="UPD_TIME"  property="updTime"  />
+		<result column="MAC"  property="mac"  />
+
+	</resultMap>
+    
+	<select id="COMMON_OPT_ASSET_SELECT" resultMap="dataOptAssetMap" parameterType="com.szkingdom.data.DataOptAsset">
+    	SELECT * FROM OPT_ASSET
+    	WHERE 1=1
+    	<if test="cuacctCode > 0">AND CUACCT_CODE = #{cuacctCode}</if>
+    	<if test="optNum != null and optNum != ''">AND OPT_NUM = #{optNum}</if>
+    	<if test="stkbd != null and stkbd !=''">AND STKBD = #{stkbd}</if>
+		<if test="stkpbu != null and stkpbu !=''">AND STKPBU = #{stkpbu}</if>
+    	<if test="trdacct != null and trdacct !=''">AND TRDACCT = #{trdacct}</if>
+    	<if test="optSide != null and optSide !=''">AND OPT_SIDE = #{optSide}</if>
+  	</select>
+
+	<update id="COMMON_OPT_ASSET_UPDATE" parameterType="com.szkingdom.data.DataOptAsset">
+		UPDATE OPT_ASSET
+		<set>
+			<if test="custCode >= 0">CUST_CODE=#{custCode},</if>
+			<if test="custType!= null">CUST_TYPE=#{custType},</if>
+			<if test="cuacctCode >= 0">CUACCT_CODE=#{cuacctCode},</if>
+			<if test="cuacctAttr!= null">CUACCT_ATTR=#{cuacctAttr},</if>
+			<if test="cuacctCls!= null">CUACCT_CLS=#{cuacctCls},</if>
+			<if test="cuacctLvl!= null">CUACCT_LVL=#{cuacctLvl},</if>
+			<if test="cuacctGrp!= null">CUACCT_GRP=#{cuacctGrp},</if>
+			<if test="intOrg >= 0">INT_ORG=#{intOrg},</if>
+			<if test="stkex!= null">STKEX=#{stkex},</if>
+			<if test="stkbd!= null">STKBD=#{stkbd},</if>
+			<if test="stkpbu!= null">STKPBU=#{stkpbu},</if>
+			<if test="trdacct!= null">TRDACCT=#{trdacct},</if>
+			<if test="subacctCode!= null">SUBACCT_CODE=#{subacctCode},</if>
+			<if test="trdacctExcls!= null">TRDACCT_EXCLS=#{trdacctExcls},</if>
+			<if test="currency!= null">CURRENCY=#{currency},</if>
+			<if test="optNum!= null">OPT_NUM=#{optNum},</if>
+			<if test="optCode!= null">OPT_CODE=#{optCode},</if>
+			<if test="optName!= null">OPT_NAME=#{optName},</if>
+			<if test="optType!= null">OPT_TYPE=#{optType},</if>
+			<if test="optSide!= null">OPT_SIDE=#{optSide},</if>
+			<if test="optCvdFlag!= null">OPT_CVD_FLAG=#{optCvdFlag},</if>
+			<if test="optUndlCls!= null">OPT_UNDL_CLS=#{optUndlCls},</if>
+			<if test="optUndlCode!= null">OPT_UNDL_CODE=#{optUndlCode},</if>
+			<if test="optPrebln >= 0">OPT_PREBLN=#{optPrebln},</if>
+			<if test="optBln >= 0">OPT_BLN=#{optBln},</if>
+			<if test="optAvl >= 0">OPT_AVL=#{optAvl},</if>
+			<if test="optFrz >= 0">OPT_FRZ=#{optFrz},</if>
+			<if test="optUfz >= 0">OPT_UFZ=#{optUfz},</if>
+			<if test="optTrdFrz >= 0">OPT_TRD_FRZ=#{optTrdFrz},</if>
+			<if test="optTrdUfz >= 0">OPT_TRD_UFZ=#{optTrdUfz},</if>
+			<if test="optTrdOtd >= 0">OPT_TRD_OTD=#{optTrdOtd},</if>
+			<if test="optTrdBln >= 0">OPT_TRD_BLN=#{optTrdBln},</if>
+			<if test="optClrFrz >= 0">OPT_CLR_FRZ=#{optClrFrz},</if>
+			<if test="optClrUfz >= 0">OPT_CLR_UFZ=#{optClrUfz},</if>
+			<if test="optClrOtd >= 0">OPT_CLR_OTD=#{optClrOtd},</if>
+			<if test="optBcost >= 0">OPT_BCOST=#{optBcost},</if>
+			<if test="optBcostRlt >= 0">OPT_BCOST_RLT=#{optBcostRlt},</if>
+			<if test="optPlamt >= 0">OPT_PLAMT=#{optPlamt},</if>
+			<if test="optPlamtRlt >= 0">OPT_PLAMT_RLT=#{optPlamtRlt},</if>
+			<if test="optMktVal >= 0">OPT_MKT_VAL=#{optMktVal},</if>
+			<if test="optPremium >= 0">OPT_PREMIUM=#{optPremium},</if>
+			<if test="quotaValUsed >= 0">QUOTA_VAL_USED=#{quotaValUsed},</if>
+			<if test="optMargin >= 0">OPT_MARGIN=#{optMargin},</if>
+			<if test="optCvdAsset >= 0">OPT_CVD_ASSET=#{optCvdAsset},</if>
+			<if test="optClsProfit >= 0">OPT_CLS_PROFIT=#{optClsProfit},</if>
+			<if test="preClsProfit >= 0">PRE_CLS_PROFIT=#{preClsProfit},</if>
+			<if test="optFloatProfit >= 0">OPT_FLOAT_PROFIT=#{optFloatProfit},</if>
+			<if test="optPosiRlt >= 0">OPT_POSI_RLT=#{optPosiRlt},</if>
+			<if test="optAutoExeQty >= 0">OPT_AUTO_EXE_QTY=#{optAutoExeQty},</if>
+			<if test="optClsUnmatched >= 0">OPT_CLS_UNMATCHED=#{optClsUnmatched},</if>
+			<if test="optDailyOpenRlt >= 0">OPT_DAILY_OPEN_RLT=#{optDailyOpenRlt},</if>
+			<if test="combedQty >= 0">COMBED_QTY=#{combedQty},</if>
+			<if test="updTime!= null">UPD_TIME=#{updTime},</if>
+			<if test="mac!= null">MAC=#{mac}</if>
+		</set>
+		WHERE 1=1
+		<if test="cuacctCode > 0">AND CUACCT_CODE = #{cuacctCode}</if>
+		<if test="optNum != null and optNum != ''">AND OPT_NUM = #{optNum}</if>
+		<if test="stkbd != null and stkbd !=''">AND STKBD = #{stkbd}</if>
+		<if test="stkpbu != null and stkpbu !=''">AND STKPBU = #{stkpbu}</if>
+		<if test="trdacct != null and trdacct !=''">AND TRDACCT = #{trdacct}</if>
+		<if test="optSide != null and optSide !=''">AND OPT_SIDE = #{optSide}</if>
+	</update>
+
+	<insert id="COMMON_OPT_ASSET_INSERT" parameterType="com.szkingdom.data.DataOptAsset">
+		INSERT INTO OPT_ASSET
+		(CUST_CODE,CUST_TYPE,CUACCT_CODE,CUACCT_ATTR,CUACCT_CLS
+		,CUACCT_LVL,CUACCT_GRP,INT_ORG,STKEX,STKBD
+		,STKPBU,TRDACCT,SUBACCT_CODE,TRDACCT_EXCLS,CURRENCY
+		,OPT_NUM,OPT_CODE,OPT_NAME,OPT_TYPE,OPT_SIDE
+		,OPT_CVD_FLAG,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_PREBLN,OPT_BLN
+		,OPT_AVL,OPT_FRZ,OPT_UFZ,OPT_TRD_FRZ,OPT_TRD_UFZ
+		,OPT_TRD_OTD,OPT_TRD_BLN,OPT_CLR_FRZ,OPT_CLR_UFZ,OPT_CLR_OTD
+		,OPT_BCOST,OPT_BCOST_RLT,OPT_PLAMT,OPT_PLAMT_RLT,OPT_MKT_VAL
+		,OPT_PREMIUM,QUOTA_VAL_USED,OPT_MARGIN,OPT_CVD_ASSET,OPT_CLS_PROFIT
+		,PRE_CLS_PROFIT,OPT_FLOAT_PROFIT,OPT_POSI_RLT,OPT_AUTO_EXE_QTY,OPT_CLS_UNMATCHED
+		,OPT_DAILY_OPEN_RLT,COMBED_QTY,UPD_TIME,MAC)
+		VALUES (#{custCode},#{custType},#{cuacctCode},#{cuacctAttr},#{cuacctCls},
+		#{cuacctLvl},#{cuacctGrp},#{intOrg},#{stkex},#{stkbd},
+		#{stkpbu},#{trdacct},#{subacctCode},#{trdacctExcls},#{currency},
+		#{optNum},#{optCode},#{optName},#{optType},#{optSide},
+		#{optCvdFlag},#{optUndlCls},#{optUndlCode},#{optPrebln},#{optBln},
+		#{optAvl},#{optFrz},#{optUfz},#{optTrdFrz},#{optTrdUfz},
+		#{optTrdOtd},#{optTrdBln},#{optClrFrz},#{optClrUfz},#{optClrOtd},
+		#{optBcost},#{optBcostRlt},#{optPlamt},#{optPlamtRlt},#{optMktVal},
+		#{optPremium},#{quotaValUsed},#{optMargin},#{optCvdAsset},#{optClsProfit},
+		#{preClsProfit},#{optFloatProfit},#{optPosiRlt},#{optAutoExeQty},#{optClsUnmatched},
+		#{optDailyOpenRlt},#{combedQty},#{updTime},#{mac})
+	</insert>
+</mapper>

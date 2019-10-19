@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    
+    <view id="RISK_NOTICE_SCHEMA_INFO" render="datagrid" title="通知模板设置">
+        <conf service="N0000001" pageSize="50" pageList="[50,100]" fit="true" onInitSuccess="onInitSuccess" singleSelect="true" remotePagination = "true"/>
+       
+        <qry_item field="BIZ_ATTR" edt_width="130" title="业务属性" edt_onSelect="loadDataByBizAttrS" type="combobox"  edt_dict="BIZ_ATTR"   edt_panelWidth="180" edt_validType="val[1,32]"/>
+        <qry_item field="INDICATOR_CLS" title="指标类别" edt_width="130"  type="combobox" edt_panelWidth="180" edt_validType="val[1,64]" edt_textField='INDICATOR_CLS,INDICATOR_CLS_NAME' edt_valueField='INDICATOR_CLS'/>
+        <qry_item field="INDICATOR_NAME" title="指标名称" edt_width="130" type="input" edt_validType="val[1,64]"/>
+        <btn_item text="新增" iconCls="icon-add" handler="noticedAdd"/>
+        <btn_item text="修改" iconCls="icon-edit" handler="noticedModify"/>
+        
+        
+        <col_item field="SCHEMA_CODE" title="模板 ID" width="100" type="input" sortable="false"/>
+        <col_item field="SCHEMA_NAME" title="通知主题" width="100" type="input"   sortable="false"/>
+        <col_item field="INDICATOR_NAME" title="指标（场景）名称/ID" width="100" type="input" sortable="false"/>
+        <col_item field="INDICATOR_ID" width="100" type="input" sortable="false" hidden="true"/>
+        <col_item field="THRES_NAME" title="阈值名称/ID" width="100" type="input" sortable="false"/>
+        <col_item field="THRES_NO"  width="100" type="input" sortable="false" hidden="true"/>
+        <col_item field="SCHEMA_CONT" title="通知内容" width="200" type="input" sortable="false"/>
+        <col_item field="NOTICE_CLS" title="通知类型" width="100" type="combobox" edt_dict="NOTICE_CLS" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" sortable="false"/>
+        <col_item field="NOTICE_CHNL" title="通知渠道" width="100" type="combobox" edt_dict="NOTICE_CHNL" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" sortable="false"/>
+        <col_item field="NOTICE_USER_ROLE" title="通知范围" width="100" type="combobox" edt_dict="NOTICE_USER_ROLE" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME"  sortable="false"/>
+        <col_item field="SCHEMA_BACK" title="反馈标志" width="100" type="combobox" edt_dict="SCHEMA_BACK" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" sortable="false"/>
+        <col_item field="SCHEMA_VALIDE" title="启用状态" width="100" type="combobox" edt_dict="SCHEMA_VALIDE" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" sortable="false"/>
+    </view> 
+    
+
+
+</views>

@@ -1,0 +1,55 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptCustPosiLmt">
+	
+    <resultMap id="OptCustPosiLmtMap" type="com.szkingdom.data.DataOptCustPosiLmt">
+    	<result column="STKEX" property="stkex" />
+    	<result column="STKBD" property="stkbd" />
+    	<result column="CUST_CODE"  property="custCode"  />
+    	<result column="TRDACCT" property="trdacct" />
+    	<result column="OPT_UNDL_CLS" property="optUndlCls" />
+    	<result column="OPT_UNDL_CODE" property="optUndlCode" />
+    	<result column="LS_FLAG" property="lsFlag" />
+    	<result column="CUST_LMT_ATTR" property="custLmtAttr" />
+    	<result column="OPT_POSI_LQTY" property="optPosiLqty" />
+    	<result column="POSI_BGN_DATE" property="posiBgnDate" />
+    	<result column="POSI_END_DATE" property="posiEndDate" />
+  	</resultMap>
+    
+	<select id="OPT_CUST_POSI_LMT_SELECT" resultMap="OptCustPosiLmtMap" parameterType="com.szkingdom.data.DataOptCustPosiLmt">
+    	select STKEX, STKBD, CUST_CODE, TRDACCT, OPT_UNDL_CLS, OPT_UNDL_CODE, LS_FLAG, CUST_LMT_ATTR,
+    				 OPT_POSI_LQTY, POSI_BGN_DATE, POSI_END_DATE 
+    		from OPT_CUST_POSI_LMT
+    		where 1=1
+    	<if test="custCode > 0">
+    	    and CUST_CODE = #{custCode}
+    	</if>
+
+    	<if test="trdacct != null and trdacct !=''">
+    	    and TRDACCT = #{trdacct}
+    	</if>
+
+    	<if test="stkbd != null and stkbd !=''">
+			and STKBD = #{stkbd}
+    	</if>
+
+    	<if test="optUndlCls != null and optUndlCls !=''">
+			and OPT_UNDL_CLS = #{optUndlCls}
+    	</if>
+
+		<if test="optUndlCode != null and optUndlCode !=''">
+			and OPT_UNDL_CODE = #{optUndlCode}
+		</if>
+
+    	<if test="lsFlag != null and lsFlag !=''">
+			and LS_FLAG = #{lsFlag}
+    	</if>
+
+    	<if test="custLmtAttr != null and custLmtAttr !=''">
+			and CUST_LMT_ATTR = #{custLmtAttr}
+    	</if>
+
+  	</select>
+</mapper>

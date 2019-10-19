@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+
+    <service service_code="P6000500" service_name="佣金非港币客户实时查询" >
+        <businesses>
+            <service_business business_code="QueryNonHKCommissionCustomerNow" business_type="1"/>
+        </businesses>
+    </service>
+    <service service_code="P6000600" service_name="持有港股但未登记客户详情查询" >
+        <businesses>
+            <service_business business_code="QueryunRegistedCustomer" business_type="1"/>
+        </businesses>
+    </service>
+    <service service_code="R60005000" service_name="证券组合经应收未收" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryFundInfoSF" business_type="1"/>
+        </businesses>
+    </service>
+</services>

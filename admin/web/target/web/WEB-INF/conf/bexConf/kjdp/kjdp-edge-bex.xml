@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+    <bex bex_code="kjdp_clusterSelectBex" bex_name="服务集群查询" bex_type="18" page_mode="0" attr1="kjdp_clusterSelect">
+        <param para_code="CLUSTER_ID" para_name="集群标识" para_type="0" length="32"/>
+    </bex>
+    <bex bex_code="kjdp_clusterInsertBex" bex_name="服务集群新增" bex_type="18" page_mode="0" attr1="kjdp_clusterInsert">
+        <param para_code="CLUSTER_ID" para_name="集群标识" para_type="0" nullable="false" length="32"/>
+        <param para_code="CLUSTER_NAME" para_name="集群名称" para_type="0" nullable="false" length="128"/>
+        <param para_code="PROTOCOL" para_name="协议标识" para_type="0" nullable="false" length="32"/>
+        <param para_code="CLIENT" para_name="客户端" para_type="0" nullable="false" length="256"/>
+        <param para_code="RULE" para_name="路由规则" para_type="0" nullable="false" length="256"/>
+    </bex>
+    <bex bex_code="kjdp_clusterUpdateBex" bex_name="服务集群更新" bex_type="18" page_mode="0" attr1="kjdp_clusterUpdate">
+        <param para_code="CLUSTER_ID" para_name="集群标识" para_type="0" nullable="false" length="32"/>
+        <param para_code="CLUSTER_NAME" para_name="集群名称" para_type="0" nullable="false" length="128" group="1"/>
+        <param para_code="PROTOCOL" para_name="协议标识" para_type="0" nullable="false" length="32" group="1"/>
+        <param para_code="CLIENT" para_name="客户端" para_type="0" nullable="false" length="256" group="1"/>
+        <param para_code="RULE" para_name="路由规则" para_type="0" nullable="false" length="256" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_clusterDeleteBex" bex_name="服务集群删除" bex_type="18" page_mode="0" attr1="kjdp_clusterDelete">
+        <param para_code="CLUSTER_ID" para_name="集群标识" para_type="0" nullable="false" length="32"/>
+    </bex>
+
+    <bex bex_code="kjdp_protocolSelectBex" bex_name="服务协议查询" bex_type="18" page_mode="0" attr1="kjdp_protocolSelect">
+        <param para_code="PROTOCOL" para_name="协议标识" para_type="0" length="32"/>
+    </bex>
+    <bex bex_code="kjdp_protocolInsertBex" bex_name="服务协议新增" bex_type="18" page_mode="0" attr1="kjdp_protocolInsert">
+        <param para_code="PROTOCOL" para_name="协议标识" para_type="0" nullable="false" length="32"/>
+        <param para_code="PARSER" para_name="解析器" para_type="0" nullable="false" length="256"/>
+    </bex>
+    <bex bex_code="kjdp_protocolUpdateBex" bex_name="服务协议更新" bex_type="18" page_mode="0" attr1="kjdp_protocolUpdate">
+        <param para_code="PROTOCOL" para_name="协议标识" para_type="0" nullable="false" length="32"/>
+        <param para_code="PARSER" para_name="解析器" para_type="0" nullable="false" length="256"/>
+    </bex>
+    <bex bex_code="kjdp_protocolDeleteBex" bex_name="服务协议删除" bex_type="18" page_mode="0" attr1="kjdp_protocolDelete">
+        <param para_code="PROTOCOL" para_name="协议标识" para_type="0" nullable="false" length="32"/>
+    </bex>
+
+    <bex bex_code="kjdp_upmServiceConfSelectBex" bex_name="服务配置查询" bex_type="18" page_mode="0" attr1="kjdp_upmServiceConfSelect">
+        <param para_code="SERVICE_CODE" para_name="协议标识" para_type="0" length="32"/>
+    </bex>
+    <bex bex_code="kjdp_upmServiceConfInsertBex" bex_name="服务配置新增" bex_type="18" page_mode="0" attr1="kjdp_upmServiceConfInsert">
+        <param para_code="SERVICE_CODE" para_name="协议标识" para_type="0" nullable="false" length="32"/>
+        <param para_code="MAX_CONCURRENCY" para_name="最大并发数" para_type="0" nullable="false" data_type="int"/>
+        <param para_code="TIMEOUT" para_name="超时时间" para_type="0" nullable="false" data_type="int"/>
+        <param para_code="LOG_ENABLE" para_name="日志是否开启" para_type="0" length="1" group="1" nullable="false"/>
+        <param para_code="TOKEN_LEVEL" para_name="会话级别" para_type="0" length="1" group="1" nullable="false"/>
+    </bex>
+    <bex bex_code="kjdp_upmServiceConfUpdateBex" bex_name="服务配置更新" bex_type="18" page_mode="0" attr1="kjdp_upmServiceConfUpdate">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="MAX_CONCURRENCY" para_name="最大并发数" para_type="0" nullable="false" data_type="int" group="1"/>
+        <param para_code="TIMEOUT" para_name="超时时间" para_type="0" nullable="false" data_type="int" group="1"/>
+        <param para_code="LOG_ENABLE" para_name="日志是否开启" para_type="0" length="1" group="1"/>
+        <param para_code="TOKEN_LEVEL" para_name="会话级别" para_type="0" length="1" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_upmServiceConfDeleteBex" bex_name="服务配置删除" bex_type="18" page_mode="0" attr1="kjdp_upmServiceConfDelete">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+    </bex>
+
+    <bex bex_code="kjdp_serviceScriptSelectBex" bex_name="服务脚本查询" bex_type="18" page_mode="0" attr1="kjdp_serviceScriptSelect">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" length="32"/>
+    </bex>
+    <bex bex_code="kjdp_serviceScriptInsertBex" bex_name="服务脚本新增" bex_type="18" page_mode="0" attr1="kjdp_serviceScriptInsert">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="ACTIVE" para_name="是否启用" para_type="0" nullable="false"/>
+        <param para_code="SERVICE_VERSION" para_name="服务版本" para_type="0" nullable="false"/>
+        <param para_code="SERVICE_DESC" para_name="服务描述" para_type="0" nullable="false"/>
+        <param para_code="SERVICE_NAME" para_name="服务名称" para_type="0" nullable="false"/>
+        <param para_code="SCRIPT_CODE" para_name="脚本代码" para_type="0" nullable="false"/>
+    </bex>
+    <bex bex_code="kjdp_serviceScriptUpdateBex" bex_name="服务脚本更新" bex_type="18" page_mode="0" attr1="kjdp_serviceScriptUpdate">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="ACTIVE" para_name="是否启用" para_type="0" length="1" group="1"/>
+        <param para_code="SERVICE_VERSION" para_name="服务版本" para_type="0" nullable="false" length="32" group="1"/>
+        <param para_code="SERVICE_DESC" para_name="服务描述" para_type="0" length="256" group="1"/>
+        <param para_code="SERVICE_NAME" para_name="服务名称" para_type="0" length="256" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_serviceScriptDeleteBex" bex_name="服务脚本更新" bex_type="18" page_mode="0" attr1="kjdp_serviceScriptDelete">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" nullable="false" length="32"/>
+        <param para_code="SERVICE_VERSION" para_name="服务版本" para_type="0" nullable="false" length="32" group="1"/>
+    </bex>
+    <bex bex_code="kjdp_serviceScriptDetailSelectBex" bex_name="服务脚本查询" bex_type="18" page_mode="0" attr1="kjdp_serviceScriptDetailSelect">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" length="32"/>
+    </bex>
+    
+    <bex bex_code="kjdp_edgeServiceLogSelectBex" bex_name="服务日志查询" bex_type="18" page_mode="0" attr1="kjdp_edgeServiceLogSelect">
+        <param para_code="SERVICE_CODE" para_name="服务编号" para_type="0" length="32"/>
+        <param para_code="LOG_DATE_BEG" para_name="开始日期" para_type="0" data_type="date" format="1"/>
+        <param para_code="LOG_DATE_END" para_name="结束日期" para_type="0" data_type="date" format="1"/>
+    </bex>
+</bexs>

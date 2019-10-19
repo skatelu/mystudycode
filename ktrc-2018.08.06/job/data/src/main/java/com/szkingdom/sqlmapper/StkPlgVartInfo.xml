@@ -1,0 +1,45 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkPlgVartInfo">
+    <resultMap id="StkPlgVartInfoMap" type="com.szkingdom.data.DataStkPlgVartInfo">
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STK_PLG_VART_CODE"  property="stkPlgVartCode"  />
+        <result column="STK_PLG_VART_NAME"  property="stkPlgVartName"  />
+        <result column="STK_PLG_VART_DAYS"  property="stkPlgVartDays"  />
+        <result column="BUYBK_RATE"  property="buybkRate"  />
+        <result column="TRD_FLAG"  property="trdFlag"  />
+        <result column="CAL_INT_DAYS"  property="calIntDays"  />
+        <result column="FST_DAYS"  property="fstDays"  />
+        <result column="FST_RATE"  property="fstRate"  />
+        <result column="SECD_DAYS"  property="secdDays"  />
+        <result column="SECD_RATE"  property="secdRate"  />
+        <result column="THRD_DAYS"  property="thrdDays"  />
+        <result column="THRD_RATE"  property="thrdRate"  />
+    </resultMap>
+
+
+    <select id="STK_PLG_VART_INFO_SELECT" resultMap="StkPlgVartInfoMap" parameterType="com.szkingdom.data.DataStkPlgVartInfo">
+        select
+        STKBD,STK_PLG_VART_CODE,STK_PLG_VART_NAME,STK_PLG_VART_DAYS,BUYBK_RATE,TRD_FLAG,CAL_INT_DAYS,FST_DAYS,
+        FST_RATE,SECD_DAYS,SECD_RATE,THRD_DAYS,THRD_RATE
+        from STK_PLG_VART_INFO
+        where 1=1
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+        <if test="stkPlgVartCode != null and stkPlgVartCode != ''">and STK_PLG_VART_CODE = #{stkPlgVartCode}</if>
+
+    </select>
+
+
+    <insert id="STK_PLG_VART_INFO_INSERT" parameterType="com.szkingdom.data.DataStkPlgVartInfo">
+        insert into STK_PLG_VART_INFO(
+        STKBD,STK_PLG_VART_CODE,STK_PLG_VART_NAME,STK_PLG_VART_DAYS,BUYBK_RATE,TRD_FLAG,CAL_INT_DAYS,FST_DAYS,
+        FST_RATE,SECD_DAYS,SECD_RATE,THRD_DAYS,THRD_RATE)
+        values ( 
+        #{stkbd},#{stkPlgVartCode},#{stkPlgVartName},#{stkPlgVartDays},#{buybkRate},#{trdFlag},#{calIntDays},#{fstDays},
+        #{fstRate},#{secdDays},#{secdRate},#{thrdDays},#{thrdRate})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+    <bex bex_code="RiskMarkDetailScreen_RISK_INFO_ACCT" bex_name="账户类风险信息" 
+        bex_type="4" page_mode="2" attr1="RiskMarkDetailScreen_RISK_INFO_ACCT" />
+    
+    <bex bex_code="RiskMarkDetailScreen_RISK_INFO_FUND" bex_name="资金类风险信息" 
+        bex_type="4" page_mode="2" attr1="RiskMarkDetailScreen_RISK_INFO_FUND" />
+    
+    <bex bex_code="RiskMarkDetailScreen_RISK_INFO_ASSET" bex_name="持仓类风险信息" 
+        bex_type="4" page_mode="2" attr1="RiskMarkDetailScreen_RISK_INFO_ASSET" />
+    
+    <bex bex_code="RiskMarkDetailScreen_RISK_INFO_EXE_FUND" bex_name="行权资金类风险信息" 
+        bex_type="4" page_mode="2" attr1="RiskMarkDetailScreen_RISK_INFO_EXE_FUND" />
+    
+    <bex bex_code="RiskMarkDetailScreen_RISK_INFO_EXE_STK" bex_name="行权证券类风险信息" 
+        bex_type="4" page_mode="2" attr1="RiskMarkDetailScreen_RISK_INFO_EXE_STK" />
+    
+    <bex bex_code="RiskMarkDetailScreen_RISK_INFO_CORP_FUND" bex_name="经济业务类资金风险信息" 
+        bex_type="4" page_mode="2" attr1="RiskMarkDetailScreen_RISK_INFO_CORP_FUND" />
+	
+    <bex bex_code="QueryIndicatorOverview" bex_name="风险指标监控总览查询" bex_type="4"
+         page_mode="0" attr1="QueryIndicatorOverview" />
+    
+    <bex bex_code="QueryRiskInfoAsset" bex_name="持仓类风险信息查询" bex_type="4" 
+        page_mode="0" attr1="QueryRiskInfoAsset" />
+
+   	<bex bex_code="QueryBizAtrrMenu" bex_name="风险指标监控总览菜单树状查询" bex_type="4" 
+   	    page_mode="0" attr1="QueryBizAtrrMenu" />
+   	
+   	<bex bex_code="QueryIndicatorClsMenu" bex_name="风险指标监控总览菜单树状查询" bex_type="4" 
+   	    page_mode="0" attr1="QueryIndicatorClsMenu" />
+   	
+   	<bex bex_code="QueryIndicatorOverviewMenu" bex_name="风险指标监控总览菜单树状查询" bex_type="4" 
+   	    page_mode="0" attr1="QueryIndicatorOverviewMenu" />
+    
+</bexs>

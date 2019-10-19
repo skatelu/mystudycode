@@ -1,0 +1,41 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.MobileAppeal">
+    <resultMap id="MobileAppealMap" type="com.szkingdom.data.DataMobileAppeal">
+        <result column="APPEAL_CODE"  property="appealCode"  />
+        <result column="USER_ID"  property="userId"  />
+        <result column="MOBILE"  property="mobile"  />
+        <result column="APPEAL_STATUS"  property="appealStatus"  />
+        <result column="APPEAL_REASON"  property="appealReason"  />
+        <result column="APPEAL_DATE"  property="appealDate"  />
+        <result column="OPP_USER_ID"  property="oppUserId"  />
+        <result column="OPP_MOBILE"  property="oppMobile"  />
+        <result column="HANDLE_OPINION"  property="handleOpinion"  />
+        <result column="HANDLE_DATE"  property="handleDate"  />
+        <result column="HANDLER"  property="handler"  />
+        <result column="CREATE_TIME"  property="createTime"  />
+        <result column="UPDATE_TIME"  property="updateTime"  />
+    </resultMap>
+
+
+    <select id="MOBILE_APPEAL_SELECT" resultMap="MobileAppealMap" parameterType="com.szkingdom.data.DataMobileAppeal">
+        select
+        APPEAL_CODE,USER_ID,MOBILE,APPEAL_STATUS,APPEAL_REASON,APPEAL_DATE,OPP_USER_ID,OPP_MOBILE,
+        HANDLE_OPINION,HANDLE_DATE,HANDLER,CREATE_TIME,UPDATE_TIME
+        from MOBILE_APPEAL
+    </select>
+
+
+    <insert id="MOBILE_APPEAL_INSERT" parameterType="com.szkingdom.data.DataMobileAppeal">
+        insert into MOBILE_APPEAL(
+        APPEAL_CODE,USER_ID,MOBILE,APPEAL_STATUS,APPEAL_REASON,APPEAL_DATE,OPP_USER_ID,OPP_MOBILE,
+        HANDLE_OPINION,HANDLE_DATE,HANDLER,CREATE_TIME,UPDATE_TIME)
+        values ( 
+        #{appealCode},#{userId},#{mobile},#{appealStatus},#{appealReason},#{appealDate},#{oppUserId},#{oppMobile},
+        #{handleOpinion},#{handleDate},#{handler},#{createTime},#{updateTime})
+    </insert>
+
+
+</mapper>

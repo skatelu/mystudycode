@@ -1,0 +1,81 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptPerbizData">
+    <resultMap id="OptPerbizDataMap" type="com.szkingdom.data.DataOptPerbizData">
+        <result column="ITF_ID"  property="itfId"  />
+        <result column="ITF_CFG_SN"  property="itfCfgSn"  />
+        <result column="REC_SN"  property="recSn"  />
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="SETT_DATE"  property="settDate"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="SUBACCT_CODE"  property="subacctCode"  />
+        <result column="BIZ_CODE"  property="bizCode"  />
+        <result column="STK_BIZ"  property="stkBiz"  />
+        <result column="STK_BIZ_ACTION"  property="stkBizAction"  />
+        <result column="ORDER_PRICE"  property="orderPrice"  />
+        <result column="ORDER_QTY"  property="orderQty"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_UNDL_NAME"  property="optUndlName"  />
+        <result column="MATCH_PRICE"  property="matchPrice"  />
+        <result column="MATCH_QTY"  property="matchQty"  />
+        <result column="MATCH_AMT"  property="matchAmt"  />
+        <result column="SETT_AMT"  property="settAmt"  />
+        <result column="COME_IN_DATE"  property="comeInDate"  />
+    </resultMap>
+
+
+    <select id="OPT_PERBIZ_DATA_SELECT" resultMap="OptPerbizDataMap" parameterType="com.szkingdom.data.DataOptPerbizData">
+        select
+        ITF_ID,ITF_CFG_SN,REC_SN,TRD_DATE,SETT_DATE,INT_ORG,CUST_CODE,CUST_NAME,
+        CUACCT_CODE,CURRENCY,STKEX,STKBD,TRDACCT,SUBACCT_CODE,BIZ_CODE,STK_BIZ,
+        STK_BIZ_ACTION,ORDER_PRICE,ORDER_QTY,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_UNDL_NAME,MATCH_PRICE,MATCH_QTY,
+        MATCH_AMT,SETT_AMT,COME_IN_DATE
+        from OPT_PERBIZ_DATA
+        where 1= 1
+        <if test="itfCfgSn != 0"> and ITF_CFG_SN = #{itfCfgSn} </if>
+        <if test="recSn != 0"> and REC_SN = #{recSn} </if>
+        <if test="trdDate != 0"> and TRD_DATE = #{trdDate} </if>
+
+    </select>
+
+    <select id="OPT_PERBIZ_DATA_SELECT_LIST" resultMap="OptPerbizDataMap" parameterType="com.szkingdom.data.DataOptPerbizData">
+        select
+        ORDER_QTY,SETT_AMT
+        from OPT_PERBIZ_DATA
+        where 1= 1
+        <if test="stkbd != null and stkbd !='' "> and STKBD = #{stkbd} </if>
+        <if test="custCode != 0"> and CUST_CODE = #{custCode} </if>
+        <if test="trdacct != null and trdacct != ''"> and TRDACCT = #{trdacct} </if>
+
+        <if test="cuacctCode != 0"> and CUACCT_CODE = #{cuacctCode}</if>
+        <if test="currency != null"> and CURRENCY = #{currency}</if>
+        <if test="optUndlCode != null and optUndlCode != ''">and OPT_UNDL_CODE = #{optUndlCode}</if>
+        and STK_BIZ_ACTION IN ('210','211','212','213','214')
+        and COME_IN_DATE >= #{comeInDate}
+    </select>
+
+    <insert id="OPT_PERBIZ_DATA_INSERT" parameterType="com.szkingdom.data.DataOptPerbizData">
+        insert into OPT_PERBIZ_DATA(
+        ITF_ID,ITF_CFG_SN,REC_SN,TRD_DATE,SETT_DATE,INT_ORG,CUST_CODE,CUST_NAME,
+        CUACCT_CODE,CURRENCY,STKEX,STKBD,TRDACCT,SUBACCT_CODE,BIZ_CODE,STK_BIZ,
+        STK_BIZ_ACTION,ORDER_PRICE,ORDER_QTY,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_UNDL_NAME,MATCH_PRICE,MATCH_QTY,
+        MATCH_AMT,SETT_AMT,COME_IN_DATE)
+        values ( 
+        #{itfId},#{itfCfgSn},#{recSn},#{trdDate},#{settDate},#{intOrg},#{custCode},#{custName},
+        #{cuacctCode},#{currency},#{stkex},#{stkbd},#{trdacct},#{subacctCode},#{bizCode},#{stkBiz},
+        #{stkBizAction},#{orderPrice},#{orderQty},#{optUndlCls},#{optUndlCode},#{optUndlName},#{matchPrice},#{matchQty},
+        #{matchAmt},#{settAmt},#{comeInDate})
+    </insert>
+
+
+</mapper>

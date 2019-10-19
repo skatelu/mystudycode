@@ -1,0 +1,37 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptRealTotalPosi">
+    <resultMap id="OptRealTotalPosiMap" type="com.szkingdom.data.DataOptRealTotalPosi">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_UNDL_NAME"  property="optUndlName"  />
+        <result column="LS_FLAG"  property="lsFlag"  />
+        <result column="CORP_LMT_ATTR"  property="corpLmtAttr"  />
+        <result column="ACT_TOTAL_POSI"  property="actTotalPosi"  />
+        <result column="REAL_TOTAL_POSI"  property="realTotalPosi"  />
+        <result column="CHECK_FLAG"  property="checkFlag"  />
+    </resultMap>
+
+
+    <select id="OPT_REAL_TOTAL_POSI_SELECT" resultMap="OptRealTotalPosiMap" parameterType="com.szkingdom.data.DataOptRealTotalPosi">
+        select
+        STKEX,STKBD,OPT_UNDL_CODE,OPT_UNDL_NAME,LS_FLAG,CORP_LMT_ATTR,ACT_TOTAL_POSI,REAL_TOTAL_POSI,
+        CHECK_FLAG
+        from OPT_REAL_TOTAL_POSI
+    </select>
+
+
+    <insert id="OPT_REAL_TOTAL_POSI_INSERT" parameterType="com.szkingdom.data.DataOptRealTotalPosi">
+        insert into OPT_REAL_TOTAL_POSI(
+        STKEX,STKBD,OPT_UNDL_CODE,OPT_UNDL_NAME,LS_FLAG,CORP_LMT_ATTR,ACT_TOTAL_POSI,REAL_TOTAL_POSI,
+        CHECK_FLAG)
+        values ( 
+        #{stkex},#{stkbd},#{optUndlCode},#{optUndlName},#{lsFlag},#{corpLmtAttr},#{actTotalPosi},#{realTotalPosi},
+        #{checkFlag})
+    </insert>
+
+
+</mapper>

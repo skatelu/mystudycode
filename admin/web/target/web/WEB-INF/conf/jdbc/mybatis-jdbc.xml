@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="callSettersOnNulls" value="true" />
+    </settings>
+    
+    <mappers>
+        <mapper resource="../conf/jdbc/kjdp/kjdp-common-mapper.xml" />
+        <mapper resource="../conf/jdbc/kjdp/kjdp-frame-mapper.xml" />
+        <mapper resource="../conf/jdbc/kjdp/kjdp-operator-mapper.xml" />
+        <mapper resource="../conf/jdbc/kjdp/kjdp-perm-mapper.xml" />
+        <mapper resource="../conf/jdbc/risk/risk-notice_setting-mapper.xml" />
+        <mapper resource="../conf/jdbc/risk/risk-threshold-mapper.xml" />
+        <mapper resource="../conf/jdbc/risk/risk-markdetailscreen-mapper.xml" />
+        <mapper resource="../conf/jdbc/risk/risk-factors-manage-mapper.xml" />
+        <mapper resource="../conf/jdbc/risk/risk-indicators-manage-mapper.xml" />
+	    <mapper resource="../conf/jdbc/risk/risk-allbrowsescreen-mapper.xml" />
+	    <mapper resource="../conf/jdbc/risk/risk-specialcrowdscreen-mapper.xml" />
+	    <mapper resource="../conf/jdbc/risk/risk-custdetailscreen-mapper.xml" />
+		<mapper resource="../conf/jdbc/HKSocket/HKSocket.xml" />
+	    <mapper resource="../conf/jdbc/ETFCashcomponent/ETFCashcomponent.xml" />
+		<mapper resource="../conf/jdbc/KettleLog/kettle-log-mapper.xml" />
+	</mappers>
+</configuration>

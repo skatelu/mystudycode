@@ -1,0 +1,24 @@
+@charset "UTF-8";
+.container-wrap {
+    min-width: 1006px;
+    background-color: #e6e9eb;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    *zoom: 1;
+    min-width: 407px;
+    width: 98%;
+}
+
+.container:before,
+.container:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.container:after {
+    clear: both;
+}

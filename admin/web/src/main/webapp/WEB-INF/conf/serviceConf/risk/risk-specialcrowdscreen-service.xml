@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+
+	<!--risk_indicator_overview风险指标监控总览-->
+    <service service_code="TSRQ0001" service_name="特殊人群客户保证金总览" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskSpecialCrowdScreen" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="TSRQ0002" service_name="特殊人群客户保证金条形图" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskSpecialCrowdScreen_barChart" business_type="3"/>
+        </businesses>
+    </service>
+    
+    <service service_code="TSRQ0003" service_name="特殊人群客户保证金个人历史记录" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskSpecialCrowdScreen_history" business_type="3"/>
+        </businesses>
+    </service>
+  
+</services>

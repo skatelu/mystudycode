@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="web:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c6f8fc80-70b5-4cbd-b3f2-ecbd8ca83bdc" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/connect/kafkaFileConnect/target/" />
+    <ignored path="$PROJECT_DIR$/job/data/target/" />
+    <ignored path="$PROJECT_DIR$/connect/target/" />
+    <ignored path="$PROJECT_DIR$/job/core/target/" />
+    <ignored path="$PROJECT_DIR$/job/stresstest/target/" />
+    <ignored path="$PROJECT_DIR$/job/monitor/target/" />
+    <ignored path="$PROJECT_DIR$/admin/target/" />
+    <ignored path="$PROJECT_DIR$/job/factor/target/" />
+    <ignored path="$PROJECT_DIR$/job/operation/target/" />
+    <ignored path="$PROJECT_DIR$/job/dao/target/" />
+    <ignored path="$PROJECT_DIR$/job/common/target/" />
+    <ignored path="$PROJECT_DIR$/admin/web/target/" />
+    <ignored path="$PROJECT_DIR$/admin/base/target/" />
+    <ignored path="$PROJECT_DIR$/job/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1356103671">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.91" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="38" />
+          <entry key="properties" value="2" />
+          <entry key="xml" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="38" />
+          <entry key="Properties" value="2" />
+          <entry key="XML" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.file.extensions.edit" />
+      <usages-collector id="statistics.file.types.edit" />
+    </session>
+    <session id="-1815839491">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="12" />
+          <entry key="java" value="32" />
+          <entry key="properties" value="2" />
+          <entry key="xml" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="12" />
+          <entry key="JAVA" value="32" />
+          <entry key="Properties" value="2" />
+          <entry key="XML" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="76" />
+          <entry key="properties" value="12" />
+          <entry key="xml" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="76" />
+          <entry key="Properties" value="12" />
+          <entry key="XML" value="7" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.vcs.git.usages" />
+    </session>
+    <session id="-1831065746">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="5" />
+          <entry key="xml" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="5" />
+          <entry key="XML" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
+      <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.file.types.edit" />
+      <usages-collector id="statistics.vcs.git.usages" />
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.file.extensions.edit" />
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/job/monitor/src/test/java/com/szkingdom/test/TestMybatis.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/job/monitor/src/main/java/com/szkingdom/monitor/KtrcMonitorMain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/job/monitor/src/main/java/com/szkingdom/monitor/MaintainRealtimeDataBolt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1410">
+              <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationCheckParam.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1560">
+              <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/job/monitor/src/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/job/pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationDistinctData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7980">
+              <caret line="286" column="60" selection-start-line="286" selection-start-column="40" selection-end-line="286" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>emit</find>
+      <find>ETF_FUNDASSET_UPDATE</find>
+      <find>ETF_FUNDASSET_SELECT</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/job/pom.xml" />
+        <option value="$PROJECT_DIR$/config/config.properties" />
+        <option value="$PROJECT_DIR$/job/monitor/src/main/java/com/szkingdom/monitor/KtrcMonitorMain.java" />
+        <option value="$PROJECT_DIR$/job/data/src/main/java/com/szkingdom/data/DataFundAsset.java" />
+        <option value="$PROJECT_DIR$/job/data/src/main/java/com/szkingdom/sqlmapper/FundAsset.xml" />
+        <option value="$PROJECT_DIR$/job/monitor/src/test/java/com/szkingdom/test/TestMybatis.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/maven/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ktrc" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="ktrc" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-contrib-clean/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/art-template/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/semver/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/async/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/optimist/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/source-map/node_modules/amdefine/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/source-map/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/node_modules/uglify-to-browserify/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/node_modules/uglify-js/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/amd/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/cmd-alias/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/cmd/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/combo-off/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/escape-off/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/global/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/helper/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/include/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/syntax-native/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/test-all/syntax/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/node_modules/tmodjs/test/tpl/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt-tmod/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/async/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/coffee-script/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/colors/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/dateformat/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/eventemitter2/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/exit/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/inherits/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/lru-cache/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/node_modules/sigmund/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/node_modules/minimatch/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/glob/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/node_modules/lodash/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/findup-sync/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/getobject/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/glob/node_modules/graceful-fs/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/glob/node_modules/inherits/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/glob/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/grunt-legacy-log/node_modules/lodash/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/grunt-legacy-log/node_modules/underscore.string/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/grunt-legacy-log/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/grunt-legacy-util/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/hooker/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/iconv-lite/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore.string/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/node_modules/underscore/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/node_modules/argparse/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/node_modules/esprima/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/js-yaml/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/lodash/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/minimatch/node_modules/lru-cache/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/minimatch/node_modules/sigmund/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/minimatch/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/nopt/node_modules/abbrev/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/nopt/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/rimraf/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/underscore.string/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/node_modules/which/package.json" />
+      <path value="$PROJECT_DIR$/admin/web/src/main/webapp/node_modules/grunt/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ktrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ktrc-2018.08.06" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ktrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ktrc-2018.08.06" type="462c0819:PsiDirectoryNode" />
+              <item name="job" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ktrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ktrc-2018.08.06" type="462c0819:PsiDirectoryNode" />
+              <item name="job" type="462c0819:PsiDirectoryNode" />
+              <item name="monitor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ktrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ktrc-2018.08.06" type="462c0819:PsiDirectoryNode" />
+              <item name="job" type="462c0819:PsiDirectoryNode" />
+              <item name="monitor" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539248019018" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IDEAWorkSpace\ktrc-2018.08.06\job\monitor\src" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.KtrcMonitorMain">
+    <configuration name="KtrcMonitorMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.szkingdom.monitor.KtrcMonitorMain" />
+      <module name="monitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.szkingdom.monitor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMybatis" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.szkingdom.test.TestMybatis" />
+      <module name="monitor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.szkingdom.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.34" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <deployment>
+        <artifact name="web:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_ktrc" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="56963" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="web:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Tomcat Server.Unnamed" />
+      <item itemvalue="Application.KtrcMonitorMain" />
+      <item itemvalue="Application.TestMybatis" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.KtrcMonitorMain" />
+        <item itemvalue="Application.TestMybatis" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c6f8fc80-70b5-4cbd-b3f2-ecbd8ca83bdc" name="Default Changelist" comment="" />
+      <created>1539077319861</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1539077319861</updated>
+      <workItem from="1539077337177" duration="16673000" />
+      <workItem from="1539218258390" duration="614000" />
+      <workItem from="1539239199629" duration="7097000" />
+      <workItem from="1539246552597" duration="1423000" />
+      <workItem from="1540438936184" duration="423000" />
+      <workItem from="1540950316362" duration="3295000" />
+      <workItem from="1543990941430" duration="344000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="29869000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Web" order="4" side_tool="true" />
+      <window_info id="Designer" order="5" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.20948827" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="0" />
+      <window_info anchor="bottom" id="Tool Output" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="4" />
+      <window_info anchor="bottom" id="Java Enterprise" order="5" />
+      <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32936078" />
+      <window_info anchor="bottom" id="Message" order="9" />
+      <window_info anchor="bottom" id="Find" order="10" />
+      <window_info anchor="bottom" id="Run" order="11" weight="0.32850778" />
+      <window_info anchor="bottom" id="Debug" order="12" weight="0.3997773" />
+      <window_info anchor="bottom" id="Cvs" order="13" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="14" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="15" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Maven Projects" order="1" weight="0.32995737" />
+      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationDistinctData.java</url>
+          <line>302</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationDistinctData.java</url>
+          <line>309</line>
+          <properties />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationDistinctData.java</url>
+          <line>308</line>
+          <properties />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationDataIdEccodesign.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.0/mybatis-3.4.0-sources.jar!/org/apache/ibatis/session/SqlSession.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.37/fastjson-1.2.37-sources.jar!/com/alibaba/fastjson/JSON.java" />
+    <entry file="file://$PROJECT_DIR$/job/common/src/main/java/com/szkingdom/common/ZtsConstantUtil.java" />
+    <entry file="file://$PROJECT_DIR$/job/data/src/main/java/com/szkingdom/data/DataEtfCashcomponent.java" />
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationExhaustiveRiskIndicators.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/common/src/main/java/com/szkingdom/common/ConstantUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2070">
+          <caret line="78" column="31" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationLockDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationEtfCashcomponent.java" />
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationDataIdFundAsset.java" />
+    <entry file="file://$PROJECT_DIR$/config/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/druid.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.0/mybatis-3.4.0.jar!/org/apache/ibatis/io/ClassLoaderWrapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.0/mybatis-3.4.0.jar!/org/apache/ibatis/io/Resources.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/data/src/main/java/com/szkingdom/data/mybatisbuilder/KingdomXMLConfigBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-slf4j-impl/2.8/log4j-slf4j-impl-2.8.jar!/org/slf4j/impl/StaticLoggerBinder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar!/org/slf4j/LoggerFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="287" selection-start-line="287" selection-end-line="287" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.8.2/log4j-api-2.8.2.jar!/org/apache/logging/log4j/spi/AbstractLoggerAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-slf4j-impl/2.8/log4j-slf4j-impl-2.8.jar!/org/apache/logging/slf4j/Log4jLoggerFactory.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.8.2/log4j-api-2.8.2.jar!/org/apache/logging/log4j/util/ReflectionUtil.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.1.0/storm-core-1.1.0-sources.jar!/org/apache/storm/utils/DisruptorQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="459" selection-start-line="459" selection-end-line="459" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.1.0/storm-core-1.1.0.jar!/org/apache/storm/disruptor$consume_batch_when_available.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/storm/storm-core/1.1.0/storm-core-1.1.0.jar!/org/apache/storm/util$async_loop$fn__555.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/dao/src/main/java/com/szkingdom/datasource/DataSourceUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/monitor/src/test/java/com/szkingdom/test/MakeDataAndDao.java" />
+    <entry file="file://$PROJECT_DIR$/job/monitor/src/test/java/com/szkingdom/test/MakeFactor.java" />
+    <entry file="file://$PROJECT_DIR$/job/data/src/main/java/com/szkingdom/sqlmapper/EtfCashcomponent.xml" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.0/mybatis-3.4.0.jar!/org/apache/ibatis/session/SqlSessionException.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" selection-start-line="9" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.0/mybatis-3.4.0.jar!/org/apache/ibatis/session/SqlSession.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/dao/src/main/java/com/szkingdom/dao/DaoBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="155" column="57" lean-forward="true" selection-start-line="155" selection-start-column="57" selection-end-line="155" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/data/src/main/java/com/szkingdom/sqlmapper/Eccodesign.xml" />
+    <entry file="file://$PROJECT_DIR$/job/data/src/main/java/com/szkingdom/sqlmapper/FundAsset.xml" />
+    <entry file="file://$PROJECT_DIR$/job/dao/src/main/java/com/szkingdom/dao/DaoEtfCashcomponent.java" />
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.4.0/mybatis-3.4.0.jar!/org/apache/ibatis/session/Configuration.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="833" column="29" lean-forward="true" selection-start-line="833" selection-start-column="29" selection-end-line="833" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="369" column="15" selection-start-line="369" selection-start-column="15" selection-end-line="369" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/data/src/main/java/com/szkingdom/data/DataFundAsset.java" />
+    <entry file="file://$PROJECT_DIR$/job/dao/src/main/java/com/szkingdom/dao/DaoFundAsset.java" />
+    <entry file="file://$PROJECT_DIR$/job/dao/src/main/java/com/szkingdom/dao/DaoEccodesign.java" />
+    <entry file="file://$PROJECT_DIR$/job/dao/src/main/java/com/szkingdom/dao/DaoDummy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/dao/src/main/java/com/szkingdom/dao/DaoCustomer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="25" column="30" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/dao/src/main/java/com/szkingdom/dao/DaoRegistry.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationCuacctFund.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="138" column="63" lean-forward="true" selection-start-line="138" selection-start-column="63" selection-end-line="138" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/monitor/src/test/java/com/szkingdom/test/TestMybatis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/monitor/src/main/java/com/szkingdom/monitor/MaintainRealtimeDataBolt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="74" column="46" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationCheckParam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1560">
+          <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/monitor/src/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/operation/src/main/java/com/szkingdom/operation/OperationDistinctData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7980">
+          <caret line="286" column="60" selection-start-line="286" selection-start-column="40" selection-end-line="286" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/job/monitor/src/main/java/com/szkingdom/monitor/KtrcMonitorMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="27" column="39" lean-forward="true" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

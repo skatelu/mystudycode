@@ -1,0 +1,101 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptMktinfo">
+    <resultMap id="OptMktinfoMap" type="com.szkingdom.data.DataOptMktinfo">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="OPT_NUM"  property="optNum"  />
+        <result column="OPT_CODE"  property="optCode"  />
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="TOTAL_AMT"  property="totalAmt"  />
+        <result column="TOTAL_VOLUME"  property="totalVolume"  />
+        <result column="PRE_CLOSE_PX"  property="preClosePx"  />
+        <result column="PRE_SETT_PRICE"  property="preSettPrice"  />
+        <result column="OPT_OPEN_PRICE"  property="optOpenPrice"  />
+        <result column="OPT_CURR_PRICE"  property="optCurrPrice"  />
+        <result column="OPT_HIGH_PRICE"  property="optHighPrice"  />
+        <result column="OPT_LOW_PRICE"  property="optLowPrice"  />
+        <result column="OPT_TRD_PRICE"  property="optTrdPrice"  />
+        <result column="LEAVES_QTY"  property="leavesQty"  />
+        <result column="OPT_AUCT_PRICE"  property="optAuctPrice"  />
+        <result column="OPT_AUCT_QTY"  property="optAuctQty"  />
+        <result column="OPT_SETT_PRICE"  property="optSettPrice"  />
+        <result column="BUY_PRICE1"  property="buyPrice1"  />
+        <result column="BUY_VOLUME1"  property="buyVolume1"  />
+        <result column="SELL_PRICE1"  property="sellPrice1"  />
+        <result column="SELL_VOLUME1"  property="sellVolume1"  />
+        <result column="BUY_PRICE2"  property="buyPrice2"  />
+        <result column="BUY_VOLUME2"  property="buyVolume2"  />
+        <result column="SELL_PRICE2"  property="sellPrice2"  />
+        <result column="SELL_VOLUME2"  property="sellVolume2"  />
+        <result column="BUY_PRICE3"  property="buyPrice3"  />
+        <result column="BUY_VOLUME3"  property="buyVolume3"  />
+        <result column="SELL_PRICE3"  property="sellPrice3"  />
+        <result column="SELL_VOLUME3"  property="sellVolume3"  />
+        <result column="BUY_PRICE4"  property="buyPrice4"  />
+        <result column="BUY_VOLUME4"  property="buyVolume4"  />
+        <result column="SELL_PRICE4"  property="sellPrice4"  />
+        <result column="SELL_VOLUME4"  property="sellVolume4"  />
+        <result column="BUY_PRICE5"  property="buyPrice5"  />
+        <result column="BUY_VOLUME5"  property="buyVolume5"  />
+        <result column="SELL_PRICE5"  property="sellPrice5"  />
+        <result column="SELL_VOLUME5"  property="sellVolume5"  />
+        <result column="RLT_PHASE"  property="rltPhase"  />
+        <result column="RLT_FLAG"  property="rltFlag"  />
+        <result column="RLT_OPEN_FLAG"  property="rltOpenFlag"  />
+        <result column="LATEST_ENQRY_TIME"  property="latestEnqryTime"  />
+    </resultMap>
+
+    <select id="OPT_MKTINFO_SELECT" resultMap="OptMktinfoMap" parameterType="com.szkingdom.data.DataOptMktinfo">
+        select
+        STKEX,STKBD,OPT_NUM,OPT_CODE,TRD_DATE,TOTAL_AMT,TOTAL_VOLUME,PRE_CLOSE_PX,
+        PRE_SETT_PRICE,OPT_OPEN_PRICE,OPT_CURR_PRICE,OPT_HIGH_PRICE,OPT_LOW_PRICE,OPT_TRD_PRICE,LEAVES_QTY,OPT_AUCT_PRICE,
+        OPT_AUCT_QTY,OPT_SETT_PRICE,BUY_PRICE1,BUY_VOLUME1,SELL_PRICE1,SELL_VOLUME1,BUY_PRICE2,BUY_VOLUME2,
+        SELL_PRICE2,SELL_VOLUME2,BUY_PRICE3,BUY_VOLUME3,SELL_PRICE3,SELL_VOLUME3,BUY_PRICE4,BUY_VOLUME4,
+        SELL_PRICE4,SELL_VOLUME4,BUY_PRICE5,BUY_VOLUME5,SELL_PRICE5,SELL_VOLUME5,RLT_PHASE,RLT_FLAG,
+        RLT_OPEN_FLAG,LATEST_ENQRY_TIME
+        from OPT_MKTINFO
+        where 1=1
+        <if test="optNum != null and optNum != '' ">
+            and OPT_NUM = #{optNum}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+    </select>
+
+    <update id="OPT_MKTINFO_UPDATE" parameterType="com.szkingdom.data.DataOptMktinfo">
+        update OPT_MKTINFO
+        set STKEX=#{stkex}, STKBD=#{stkbd}, OPT_NUM=#{optNum}, OPT_CODE=#{optCode}, TRD_DATE=#{trdDate}, TOTAL_AMT=#{totalAmt},
+        TOTAL_VOLUME=#{totalVolume}, PRE_CLOSE_PX=#{preClosePx}, PRE_SETT_PRICE=#{preSettPrice}, OPT_OPEN_PRICE=#{optOpenPrice},
+        OPT_CURR_PRICE=#{optCurrPrice}, OPT_HIGH_PRICE=#{optHighPrice}, OPT_LOW_PRICE=#{optLowPrice}, OPT_TRD_PRICE=#{optTrdPrice},
+        LEAVES_QTY=#{leavesQty}, OPT_AUCT_PRICE=#{optAuctPrice}, OPT_AUCT_QTY=#{optAuctQty}, OPT_SETT_PRICE=#{optSettPrice}, BUY_PRICE1=#{buyPrice1},
+        BUY_VOLUME1=#{buyVolume1}, SELL_PRICE1=#{sellPrice1}, SELL_VOLUME1=#{sellVolume1}, BUY_PRICE2=#{buyPrice2}, BUY_VOLUME2=#{buyVolume2},
+        SELL_PRICE2=#{sellPrice2}, SELL_VOLUME2=#{sellVolume2}, BUY_PRICE3=#{buyPrice3}, BUY_VOLUME3=#{buyVolume3}, SELL_PRICE3=#{sellPrice3},
+        SELL_VOLUME3=#{sellVolume3}, BUY_PRICE4=#{buyPrice4}, BUY_VOLUME4=#{buyVolume4}, SELL_PRICE4=#{sellPrice4}, SELL_VOLUME4=#{sellVolume4},
+        BUY_PRICE5=#{buyPrice5}, BUY_VOLUME5=#{buyVolume5}, SELL_PRICE5=#{sellPrice5}, SELL_VOLUME5=#{sellVolume5}, RLT_PHASE=#{rltPhase},
+        RLT_FLAG=#{rltFlag}, RLT_OPEN_FLAG=#{rltOpenFlag}, LATEST_ENQRY_TIME=#{latestEnqryTime}
+        where OPT_NUM = #{optNum}
+        and STKBD = #{stkbd}
+    </update>
+
+    <insert id="OPT_MKTINFO_INSERT" parameterType="com.szkingdom.data.DataOptMktinfo">
+        insert into OPT_MKTINFO(
+        STKEX,STKBD,OPT_NUM,OPT_CODE,TRD_DATE,TOTAL_AMT,TOTAL_VOLUME,PRE_CLOSE_PX,
+        PRE_SETT_PRICE,OPT_OPEN_PRICE,OPT_CURR_PRICE,OPT_HIGH_PRICE,OPT_LOW_PRICE,OPT_TRD_PRICE,LEAVES_QTY,OPT_AUCT_PRICE,
+        OPT_AUCT_QTY,OPT_SETT_PRICE,BUY_PRICE1,BUY_VOLUME1,SELL_PRICE1,SELL_VOLUME1,BUY_PRICE2,BUY_VOLUME2,
+        SELL_PRICE2,SELL_VOLUME2,BUY_PRICE3,BUY_VOLUME3,SELL_PRICE3,SELL_VOLUME3,BUY_PRICE4,BUY_VOLUME4,
+        SELL_PRICE4,SELL_VOLUME4,BUY_PRICE5,BUY_VOLUME5,SELL_PRICE5,SELL_VOLUME5,RLT_PHASE,RLT_FLAG,
+        RLT_OPEN_FLAG,LATEST_ENQRY_TIME)
+        values ( 
+        #{stkex},#{stkbd},#{optNum},#{optCode},#{trdDate},#{totalAmt},#{totalVolume},#{preClosePx},
+        #{preSettPrice},#{optOpenPrice},#{optCurrPrice},#{optHighPrice},#{optLowPrice},#{optTrdPrice},#{leavesQty},#{optAuctPrice},
+        #{optAuctQty},#{optSettPrice},#{buyPrice1},#{buyVolume1},#{sellPrice1},#{sellVolume1},#{buyPrice2},#{buyVolume2},
+        #{sellPrice2},#{sellVolume2},#{buyPrice3},#{buyVolume3},#{sellPrice3},#{sellVolume3},#{buyPrice4},#{buyVolume4},
+        #{sellPrice4},#{sellVolume4},#{buyPrice5},#{buyVolume5},#{sellPrice5},#{sellVolume5},#{rltPhase},#{rltFlag},
+        #{rltOpenFlag},#{latestEnqryTime})
+    </insert>
+
+</mapper>

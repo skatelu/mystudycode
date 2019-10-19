@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <service service_code="P0000075" service_name="服务集群查询">
+        <businesses>
+            <service_business business_code="kjdp_clusterSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000076" service_name="服务集群新增">
+        <businesses>
+            <service_business business_code="kjdp_clusterInsertBex" business_type="1"/>
+            <service_business business_code="kjdp_registerClusterAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000077" service_name="服务集群修改">
+        <businesses>
+            <service_business business_code="kjdp_clusterUpdateBex" business_type="1"/>
+            <service_business business_code="kjdp_unregisterClusterAtom" business_type="3"/>
+            <service_business business_code="kjdp_registerClusterAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000078" service_name="服务集群删除">
+        <businesses>
+            <service_business business_code="kjdp_clusterDeleteBex" business_type="1"/>
+            <service_business business_code="kjdp_unregisterClusterAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000079" service_name="服务协议查询">
+        <businesses>
+            <service_business business_code="kjdp_protocolSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+    <service service_code="P0000080" service_name="服务协议新增">
+        <businesses>
+            <service_business business_code="kjdp_protocolInsertBex" business_type="1"/>
+            <service_business business_code="kjdp_registerProtocolAtom" business_type="3"/>
+        </businesses>
+    </service>
+    <service service_code="P0000081" service_name="服务协议修改">
+        <businesses>
+            <service_business business_code="kjdp_protocolUpdateBex" business_type="1"/>
+            <service_business business_code="kjdp_unregisterProtocolAtom" business_type="3"/>
+            <service_business business_code="kjdp_registerProtocolAtom" business_type="3"/>
+        </businesses>
+    </service>
+    <service service_code="P0000082" service_name="服务协议删除">
+        <businesses>
+            <service_business business_code="kjdp_protocolDeleteBex" business_type="1"/>
+            <service_business business_code="kjdp_unregisterProtocolAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000083" service_name="服务配置查询">
+        <businesses>
+            <service_business business_code="kjdp_upmServiceConfSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000084" service_name="服务配置新增">
+        <businesses>
+            <service_business business_code="kjdp_upmServiceConfInsertBex" business_type="1"/>
+            <service_business business_code="kjdp_registerServiceConfAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000085" service_name="服务配置更新">
+        <businesses>
+            <service_business business_code="kjdp_upmServiceConfUpdateBex" business_type="1"/>
+            <service_business business_code="kjdp_unregisterServiceConfAtom" business_type="3"/>
+            <service_business business_code="kjdp_registerServiceConfAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000086" service_name="服务配置删除">
+        <businesses>
+            <service_business business_code="kjdp_upmServiceConfDeleteBex" business_type="1"/>
+            <service_business business_code="kjdp_unregisterServiceConfAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000087" service_name="服务节点查询">
+        <businesses>
+            <service_business business_code="kjdp_applicationQueryAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000089" service_name="服务节点删除">
+        <businesses>
+            <service_business business_code="kjdp_unregisterApplicationnAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000109" service_name="编排服务查询">
+        <businesses>
+            <service_business business_code="kjdp_serviceScriptSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000110" service_name="编排服务新增">
+        <businesses>
+            <service_business business_code="kjdp_saveServiceScriptAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000111" service_name="编排服务修改">
+        <businesses>
+            <service_business business_code="kjdp_serviceScriptUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000112" service_name="编排服务删除">
+        <businesses>
+            <service_business business_code="kjdp_serviceScriptDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000113" service_name="编排服务脚本查询">
+        <businesses>
+            <service_business business_code="kjdp_serviceScriptDetailSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000114" service_name="服务日志查询">
+        <businesses>
+            <service_business business_code="kjdp_edgeServiceLogSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+</services>

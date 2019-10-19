@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+
+	<!--risk_indicator_overview风险指标监控总览-->
+    <service service_code="P6000000" service_name="风险指标监控总览查询" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryIndicatorOverview" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P6000001" service_name="风险指标监控总览菜单树状查询" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryBizAtrrMenu" business_type="1"/>
+        </businesses>
+    </service>
+    
+    <service service_code="P6000002" service_name="风险指标监控总览菜单树状查询" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryIndicatorClsMenu" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P6000003" service_name="风险指标监控总览菜单树状查询" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryIndicatorOverviewMenu" business_type="1"/>
+        </businesses>
+    </service>
+
+    <!--持仓类风险信息  RISK_INFO_ASSET-->
+    <service service_code="R60003000" service_name="持仓类风险信息查询" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryRiskInfoAsset" business_type="1"/>
+        </businesses>
+    </service>
+    
+    <service service_code="RMDS00001" service_name="盯市监控详细屏右边表格数据" ticket_check="0">
+        <businesses>
+            <service_business business_code="atom_RiskMarkDetailScreen" business_type="3"/>
+        </businesses>
+    </service>
+
+</services>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="example-terminalsvc-ear:ear">
+    <output-path>$PROJECT_DIR$/examples/terminalsvc/terminalsvc-ear/target</output-path>
+    <root id="archive" name="example-terminalsvc-ear-7.1.0.ear">
+      <element id="artifact" artifact-name="example-terminalsvc-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>

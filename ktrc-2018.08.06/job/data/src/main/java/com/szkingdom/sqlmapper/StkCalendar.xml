@@ -1,0 +1,58 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkCalendar">
+    <resultMap id="StkCalendarMap" type="com.szkingdom.data.DataStkCalendar">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="PHYSICAL_DATE"  property="physicalDate"  />
+        <result column="TRD_DATE_FLAG"  property="trdDateFlag"  />
+        <result column="SETT_DATE_FLAG"  property="settDateFlag"  />
+    </resultMap>
+
+
+    <select id="STK_CALENDAR_SELECT" resultMap="StkCalendarMap" parameterType="com.szkingdom.data.DataStkCalendar">
+        select
+        STKEX,STKBD,PHYSICAL_DATE,TRD_DATE_FLAG,SETT_DATE_FLAG
+        from STK_CALENDAR
+    </select>
+
+    <select id="STK_CALENDAR_NEXT_SELECT" resultMap="StkCalendarMap" parameterType="com.szkingdom.data.DataStkCalendar">
+        select
+        STKEX,STKBD,PHYSICAL_DATE,TRD_DATE_FLAG,SETT_DATE_FLAG
+        from STK_CALENDAR
+        where TRD_DATE_FLAG = '1'
+        <if test="physicalDate > 0">
+            and PHYSICAL_DATE >= #{physicalDate}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+        ORDER BY PHYSICAL_DATE ASC LIMIT #{diffDays}
+    </select>
+
+    <select id="STK_CALENDAR_PRE_SELECT" resultMap="StkCalendarMap" parameterType="com.szkingdom.data.DataStkCalendar">
+        select
+        STKEX,STKBD,PHYSICAL_DATE,TRD_DATE_FLAG,SETT_DATE_FLAG
+        from STK_CALENDAR
+        where TRD_DATE_FLAG = '1'
+        <if test="physicalDate > 0">
+            and #{physicalDate} >= PHYSICAL_DATE
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+        ORDER BY PHYSICAL_DATE DESC LIMIT #{diffDays}
+    </select>
+
+
+    <insert id="STK_CALENDAR_INSERT" parameterType="com.szkingdom.data.DataStkCalendar">
+        insert into STK_CALENDAR(
+        STKEX,STKBD,PHYSICAL_DATE,TRD_DATE_FLAG,SETT_DATE_FLAG)
+        values ( 
+        #{stkex},#{stkbd},#{physicalDate},#{trdDateFlag},#{settDateFlag})
+    </insert>
+
+
+</mapper>

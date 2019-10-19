@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="esper" />
+        <module name="esper-avro" />
+        <module name="esper-example-autoid" />
+        <module name="esper-example-cycledetect" />
+        <module name="esper-example-marketdatafeed" />
+        <module name="esper-example-matchmaker" />
+        <module name="esper-example-namedwinquery" />
+        <module name="esper-example-ohlcpluginview" />
+        <module name="esper-example-qossla" />
+        <module name="esper-example-rfidassetzone" />
+        <module name="esper-example-runtimeconfig" />
+        <module name="esper-example-servershell" />
+        <module name="esper-example-stockticker" />
+        <module name="esper-example-transaction" />
+        <module name="esper-example-trivia" />
+        <module name="esper-example-virtualdw" />
+        <module name="esper-regression" />
+        <module name="esper_examples_benchmark" />
+        <module name="esper_examples_terminalservicejse" />
+        <module name="esperio-amqp" />
+        <module name="esperio-csv" />
+        <module name="esperio-db" />
+        <module name="esperio-http" />
+        <module name="esperio-kafka" />
+        <module name="esperio-socket" />
+        <module name="esperio-springjms" />
+        <module name="esperio-stax" />
+        <module name="example-terminalsvc-common" />
+        <module name="example-terminalsvc-ear" />
+        <module name="example-terminalsvc-mdb" />
+        <module name="example-terminalsvc-receiver" />
+        <module name="example-terminalsvc-sender" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="esper" target="1.8" />
+      <module name="esper-avro" target="1.8" />
+      <module name="esper-example-autoid" target="1.8" />
+      <module name="esper-example-cycledetect" target="1.8" />
+      <module name="esper-example-marketdatafeed" target="1.8" />
+      <module name="esper-example-matchmaker" target="1.8" />
+      <module name="esper-example-namedwinquery" target="1.8" />
+      <module name="esper-example-ohlcpluginview" target="1.8" />
+      <module name="esper-example-qossla" target="1.8" />
+      <module name="esper-example-rfidassetzone" target="1.8" />
+      <module name="esper-example-runtimeconfig" target="1.8" />
+      <module name="esper-example-servershell" target="1.8" />
+      <module name="esper-example-stockticker" target="1.8" />
+      <module name="esper-example-transaction" target="1.8" />
+      <module name="esper-example-trivia" target="1.8" />
+      <module name="esper-example-virtualdw" target="1.8" />
+      <module name="esper-examples-parent" target="1.5" />
+      <module name="esper-examples-terminalsvc-parent" target="1.5" />
+      <module name="esper-parent" target="1.5" />
+      <module name="esper-regression" target="1.8" />
+      <module name="esper_examples_benchmark" target="1.8" />
+      <module name="esper_examples_terminalservicejse" target="1.8" />
+      <module name="esperio-amqp" target="1.8" />
+      <module name="esperio-csv" target="1.8" />
+      <module name="esperio-db" target="1.8" />
+      <module name="esperio-http" target="1.8" />
+      <module name="esperio-kafka" target="1.8" />
+      <module name="esperio-socket" target="1.8" />
+      <module name="esperio-springjms" target="1.8" />
+      <module name="esperio-stax" target="1.8" />
+      <module name="example-terminalsvc-common" target="1.8" />
+      <module name="example-terminalsvc-ear" target="1.8" />
+      <module name="example-terminalsvc-mdb" target="1.8" />
+      <module name="example-terminalsvc-receiver" target="1.8" />
+      <module name="example-terminalsvc-sender" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="esper" options="-XDignore.symbol.file" />
+      <module name="esper-avro" options="-XDignore.symbol.file" />
+    </option>
+  </component>
+</project>

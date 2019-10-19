@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="example-terminalsvc-ear:ear exploded">
+    <output-path>$PROJECT_DIR$/examples/terminalsvc/terminalsvc-ear/target/example-terminalsvc-ear-7.1.0</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="example-terminalsvc-ear/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/examples/terminalsvc/terminalsvc-ear/target/example-terminalsvc-ear-7.1.0/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="archive" name="example-terminalsvc-mdb-7.1.0.war">
+        <element id="artifact" artifact-name="example-terminalsvc-mdb:war exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>

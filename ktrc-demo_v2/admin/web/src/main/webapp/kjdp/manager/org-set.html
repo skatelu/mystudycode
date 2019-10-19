@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机构设置</title>
+    <script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/org-set" data-iskui="true"></script>
+    <script id="orgTypeTabsTemplate" type="text/html">
+        <div id="orgTypeTabs" class="kui-tabs" kui-options="fit:true,onSelect:'orgTypeSelect',border:false">
+            {{each ORG_TYPE}}
+            <div title="{{$value.DICT_ITEM_NAME}}" >
+                <table id="KJDP_UPM_ORG_INFO_TYPE_{{$value.DICT_ITEM}}"></table>
+            </div>
+            {{/each}}
+        </div>
+    </script>
+</head>
+<body>
+</body>
+</html>

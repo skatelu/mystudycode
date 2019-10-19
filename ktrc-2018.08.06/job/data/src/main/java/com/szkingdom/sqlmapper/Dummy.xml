@@ -1,0 +1,26 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.Dummy">
+    <resultMap id="DummyMap" type="com.szkingdom.data.DataDummy">
+        <result column="DUMMY"  property="dummy"  />
+    </resultMap>
+
+
+    <select id="DUMMY_SELECT" resultMap="DummyMap" parameterType="com.szkingdom.data.DataDummy">
+        select
+        DUMMY
+        from DUMMY
+    </select>
+
+
+    <insert id="DUMMY_INSERT" parameterType="com.szkingdom.data.DataDummy">
+        insert into DUMMY(
+        DUMMY)
+        values ( 
+        #{dummy})
+    </insert>
+
+
+</mapper>

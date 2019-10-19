@@ -1,0 +1,48 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.Registry">
+    <resultMap id="RegistryMap" type="com.szkingdom.data.DataRegistry">
+        <result column="REGKEY_ID"  property="regkeyId"  />
+        <result column="REGKEY_TYPE"  property="regkeyType"  />
+        <result column="REGKEY_NAME"  property="regkeyName"  />
+        <result column="REGKEY_STATUS"  property="regkeyStatus"  />
+        <result column="REGKEY_PARENT"  property="regkeyParent"  />
+        <result column="REGKEY_VAL"  property="regkeyVal"  />
+        <result column="DATA_TYPE"  property="dataType"  />
+        <result column="VALID_LEN"  property="validLen"  />
+        <result column="VALID_DEC"  property="validDec"  />
+        <result column="MAX_VAL"  property="maxVal"  />
+        <result column="MIN_VAL"  property="minVal"  />
+        <result column="DFT_VAL"  property="dftVal"  />
+        <result column="VALID_CHAR"  property="validChar"  />
+        <result column="CTRL_ID"  property="ctrlId"  />
+        <result column="CTRL_DATA"  property="ctrlData"  />
+        <result column="SUBSYS"  property="subsys"  />
+    </resultMap>
+
+
+    <select id="REGISTRY_SELECT" resultMap="RegistryMap" parameterType="com.szkingdom.data.DataRegistry">
+        select
+        REGKEY_ID,REGKEY_TYPE,REGKEY_NAME,REGKEY_STATUS,REGKEY_PARENT,REGKEY_VAL,DATA_TYPE,VALID_LEN,
+        VALID_DEC,MAX_VAL,MIN_VAL,DFT_VAL,VALID_CHAR,CTRL_ID,CTRL_DATA,SUBSYS
+        from REGISTRY
+        where 1=1
+        <if test="regkeyId != null and regkeyId != '' ">
+            and REGKEY_ID = #{regkeyId}
+        </if>
+    </select>
+
+
+    <insert id="REGISTRY_INSERT" parameterType="com.szkingdom.data.DataRegistry">
+        insert into REGISTRY(
+        REGKEY_ID,REGKEY_TYPE,REGKEY_NAME,REGKEY_STATUS,REGKEY_PARENT,REGKEY_VAL,DATA_TYPE,VALID_LEN,
+        VALID_DEC,MAX_VAL,MIN_VAL,DFT_VAL,VALID_CHAR,CTRL_ID,CTRL_DATA,SUBSYS)
+        values ( 
+        #{regkeyId},#{regkeyType},#{regkeyName},#{regkeyStatus},#{regkeyParent},#{regkeyVal},#{dataType},#{validLen},
+        #{validDec},#{maxVal},#{minVal},#{dftVal},#{validChar},#{ctrlId},#{ctrlData},#{subsys})
+    </insert>
+
+
+</mapper>

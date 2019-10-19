@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KJDP4.0管理平台</title>
+    <link rel="Shortcut Icon" href="pages/images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="pages/css/login.css"/>
+    <script id="seajsnode" type="text/javascript" src="../loader.js" data-main="./pages/src/login" data-iskui="true" data-autoparse="false"></script>
+</head>
+<body>
+    <script id="loginTpl" type="text/html">
+        <div class="login-top-box container clearfix">
+            <div class="login-logo pull-left"></div>
+        </div>
+
+        <div class="login-wrap-box clearfix standard">
+            <div class="login-content-wrap clearfix" style="width:100%; height:{{winHeight}}px;">
+                <div class="login-ad-text">
+                    Hi,<br/>让您的用户管理更轻松！
+                </div>
+                <div class="login-panel clearfix">
+                    <div class="login-head-text">用户登录</div>
+                    <div class="login-item">
+                        <label for="USER_CODE" class="label-user-code"></label>
+                        <input id="USER_CODE" type="input" class="large" placeholder="用户名" maxlength="15" autocomplete="off">
+                    </div>
+                    <div class="login-item">
+                        <label for="TRD_PWD" class="label-user-pwd"></label>
+                        <input id="TRD_PWD" type="password" class="large" placeholder="密码" maxlength="15" autocomplete="off">
+                        <span id="capslockTip" class="capslock">大小写锁定键已打开</span>
+                    </div>
+                    <div class="login-item hide">
+                        <label for="validateCode" class="label-user-valid"></label>
+                        <input id="validateCode" type="input" class="small" placeholder="验证码" maxlength="4" autocomplete="off">
+                        <img id="validImg" class="valid-img" title="点击刷新" alt="验证码">
+                    </div>
+                    <div class="login-item">
+                        <button id="loginBtn" class="login-btn">登&nbsp;&nbsp;录</button>
+                    </div>
+
+                    <div class="login-item login-item-no-bg login-msg-item">
+                        <div id="loginMsg" class="login-msg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='footer-wrap clearfix {{if !showBorder}}footer-wrap-no-border{{/if}}'>
+            <div class="footer text-center">
+                Copyright &copy; 1998-2018 深圳市金证科技股份有限公司版权所有
+            </div>
+        </div>
+    </script>
+</body>
+</html>

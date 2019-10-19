@@ -1,0 +1,47 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkPlgLenderQuota">
+    <resultMap id="StkPlgLenderQuotaMap" type="com.szkingdom.data.DataStkPlgLenderQuota">
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="LENDER_CLS"  property="lenderCls"  />
+        <result column="PAWNEE_CLS"  property="pawneeCls"  />
+        <result column="PAWNEE_NAME"  property="pawneeName"  />
+        <result column="MAX_BOND_AMT"  property="maxBondAmt"  />
+        <result column="LAST_CONT_AMT"  property="lastContAmt"  />
+        <result column="LAST_BUY_AMT"  property="lastBuyAmt"  />
+        <result column="DAY_BUY_AMT"  property="dayBuyAmt"  />
+        <result column="DAY_BUYBK_AMT"  property="dayBuybkAmt"  />
+        <result column="NET_CPTL"  property="netCptl"  />
+        <result column="NET_CPTL_RATE"  property="netCptlRate"  />
+    </resultMap>
+
+
+    <select id="STK_PLG_LENDER_QUOTA_SELECT" resultMap="StkPlgLenderQuotaMap" parameterType="com.szkingdom.data.DataStkPlgLenderQuota">
+        select
+        STKBD,TRDACCT,STKPBU,CUST_CODE,CUACCT_CODE,CURRENCY,LENDER_CLS,PAWNEE_CLS,
+        PAWNEE_NAME,MAX_BOND_AMT,LAST_CONT_AMT,LAST_BUY_AMT,DAY_BUY_AMT,DAY_BUYBK_AMT,NET_CPTL,NET_CPTL_RATE
+        from STK_PLG_LENDER_QUOTA
+        where 1=1
+        <if test="stkbd !=null and stkbd != ''">and STKBD = #{stkbd}</if>
+        <if test="trdacct != null and trdacct != ''">and TRDACCT = #{trdacct}</if>
+    </select>
+
+
+    <insert id="STK_PLG_LENDER_QUOTA_INSERT" parameterType="com.szkingdom.data.DataStkPlgLenderQuota">
+        insert into STK_PLG_LENDER_QUOTA(
+        STKBD,TRDACCT,STKPBU,CUST_CODE,CUACCT_CODE,CURRENCY,LENDER_CLS,PAWNEE_CLS,
+        PAWNEE_NAME,MAX_BOND_AMT,LAST_CONT_AMT,LAST_BUY_AMT,DAY_BUY_AMT,DAY_BUYBK_AMT,NET_CPTL,NET_CPTL_RATE)
+        values ( 
+        #{stkbd},#{trdacct},#{stkpbu},#{custCode},#{cuacctCode},#{currency},#{lenderCls},#{pawneeCls},
+        #{pawneeName},#{maxBondAmt},#{lastContAmt},#{lastBuyAmt},#{dayBuyAmt},#{dayBuybkAmt},#{netCptl},#{netCptlRate})
+    </insert>
+
+
+</mapper>

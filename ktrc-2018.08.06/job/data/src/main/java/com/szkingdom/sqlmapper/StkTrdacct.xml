@@ -1,0 +1,52 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkTrdacct">
+    <resultMap id="StkTrdacctMap" type="com.szkingdom.data.DataStkTrdacct">
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="TRDACCT_SN"  property="trdacctSn"  />
+        <result column="TRDACCT_EXID"  property="trdacctExid"  />
+        <result column="TRDACCT_TYPE"  property="trdacctType"  />
+        <result column="TRDACCT_EXCLS"  property="trdacctExcls"  />
+        <result column="TRDACCT_NAME"  property="trdacctName"  />
+        <result column="TRDACCT_STATUS"  property="trdacctStatus"  />
+        <result column="TREG_STATUS"  property="tregStatus"  />
+        <result column="BREG_STATUS"  property="bregStatus"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="FIRMID"  property="firmid"  />
+        <result column="ID_TYPE"  property="idType"  />
+        <result column="ID_CODE"  property="idCode"  />
+        <result column="ID_ISS_AGCY"  property="idIssAgcy"  />
+        <result column="ID_EXP_DATE"  property="idExpDate"  />
+        <result column="OPEN_DATE"  property="openDate"  />
+    </resultMap>
+
+
+    <select id="STK_TRDACCT_SELECT" resultMap="StkTrdacctMap" parameterType="com.szkingdom.data.DataStkTrdacct">
+        select
+        CUST_CODE,CUACCT_CODE,INT_ORG,STKEX,STKBD,TRDACCT,TRDACCT_SN,TRDACCT_EXID,
+        TRDACCT_TYPE,TRDACCT_EXCLS,TRDACCT_NAME,TRDACCT_STATUS,TREG_STATUS,BREG_STATUS,STKPBU,FIRMID,
+        ID_TYPE,ID_CODE,ID_ISS_AGCY,ID_EXP_DATE,OPEN_DATE
+        from STK_TRDACCT
+    </select>
+
+
+    <insert id="STK_TRDACCT_INSERT" parameterType="com.szkingdom.data.DataStkTrdacct">
+        insert into STK_TRDACCT(
+        CUST_CODE,CUACCT_CODE,INT_ORG,STKEX,STKBD,TRDACCT,TRDACCT_SN,TRDACCT_EXID,
+        TRDACCT_TYPE,TRDACCT_EXCLS,TRDACCT_NAME,TRDACCT_STATUS,TREG_STATUS,BREG_STATUS,STKPBU,FIRMID,
+        ID_TYPE,ID_CODE,ID_ISS_AGCY,ID_EXP_DATE,OPEN_DATE)
+        values ( 
+        #{custCode},#{cuacctCode},#{intOrg},#{stkex},#{stkbd},#{trdacct},#{trdacctSn},#{trdacctExid},
+        #{trdacctType},#{trdacctExcls},#{trdacctName},#{trdacctStatus},#{tregStatus},#{bregStatus},#{stkpbu},#{firmid},
+        #{idType},#{idCode},#{idIssAgcy},#{idExpDate},#{openDate})
+    </insert>
+
+
+</mapper>

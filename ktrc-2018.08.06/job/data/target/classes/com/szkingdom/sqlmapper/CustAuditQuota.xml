@@ -1,0 +1,40 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.CustAuditQuota">
+    <resultMap id="CustAuditQuotaMap" type="com.szkingdom.data.DataCustAuditQuota">
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="AGM_TYPE"  property="agmType"  />
+        <result column="AUDIT_QUOTA"  property="auditQuota"  />
+        <result column="AUDIT_LVL"  property="auditLvl"  />
+        <result column="PENALTY_RATE"  property="penaltyRate"  />
+        <result column="QUOTA_USED"  property="quotaUsed"  />
+        <result column="APP_AMT"  property="appAmt"  />
+        <result column="CALL_AMT"  property="callAmt"  />
+        <result column="CRD_RATE"  property="crdRate"  />
+    </resultMap>
+
+
+    <select id="CUST_AUDIT_QUOTA_SELECT" resultMap="CustAuditQuotaMap" parameterType="com.szkingdom.data.DataCustAuditQuota">
+        select
+        CUST_CODE,AGM_TYPE,AUDIT_QUOTA,AUDIT_LVL,PENALTY_RATE,QUOTA_USED,APP_AMT,CALL_AMT,
+        CRD_RATE
+        from CUST_AUDIT_QUOTA
+        where 1=1
+        <if test="custCode > 0"> and CUST_CODE = #{custCode}</if>
+        <if test="agmType != null and agmType != ''"> and AGM_TYPE = #{agmType}</if>
+    </select>
+
+
+    <insert id="CUST_AUDIT_QUOTA_INSERT" parameterType="com.szkingdom.data.DataCustAuditQuota">
+        insert into CUST_AUDIT_QUOTA(
+        CUST_CODE,AGM_TYPE,AUDIT_QUOTA,AUDIT_LVL,PENALTY_RATE,QUOTA_USED,APP_AMT,CALL_AMT,
+        CRD_RATE)
+        values ( 
+        #{custCode},#{agmType},#{auditQuota},#{auditLvl},#{penaltyRate},#{quotaUsed},#{appAmt},#{callAmt},
+        #{crdRate})
+    </insert>
+
+
+</mapper>

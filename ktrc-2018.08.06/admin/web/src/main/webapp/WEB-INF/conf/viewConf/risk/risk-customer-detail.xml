@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="HEAD_VIEW" render="form" title="" data-main="">
+        <conf  onSelect="btnControlCommonDict" border="false" fit="true" showTime="false"/>
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_treeExpand="true" wrap="true"/>
+    </view>
+
+    <view id="R60003000_VIEW" render="datagrid" title="单标的比例">
+        <conf fit="true" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[5000,10000]"/>
+
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_autoFill="true" edt_defaultValue="0000" edt_treeExpand="true" wrap="true"/>
+
+        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />
+
+       <!--  <qry_item field="dataType" title="显示类型" type="combobox"  edt_width="130" edt_required="true" edtt_autoFill="true" edt_data="[{'dict_des':'0-全部','dict_val':'0'},{'dict_des':'1-正常','dict_val':'1'},{'dict_des':'2-大于已通知最高等级','dict_val':'2'},{'dict_des':'3-小于已通知最高等级','dict_val':'3'}]" />
+
+        <btn_item text="数据更新"  title="数据更新" handler="refreshData"  iconCls="icon-reload"   panelWidth="600" panelHeight="300"  />
+        <btn_item text="追保通知"  title="追保通知" handler="afterConfirm"  iconCls="icon-edit"   panelWidth="600" panelHeight="300"  />
+        <btn_item text="强平通知"  title="强平通知" handler="StrongConfirm"  iconCls="icon-edit"   panelWidth="600" panelHeight="300"  /> -->
+
+        <col_item field="check" title="多选" type="checkbox"/>
+        
+        <col_item field="CUST_NAME" title="客户姓名" width="100" type="input" sortable="false"/>
+        <col_item field="RISK_VALUE" title="风险率" width="100" type="input"   sortable="false"/>
+        <col_item field="POSI_QTY" title="持仓数量" width="100" type="input" sortable="false"/>
+        <col_item field="POSI_LQTY" title="持仓限额" width="100" type="input" sortable="false"/>
+        <col_item field="THRESHOLD" title="阀值" width="100" type="input" sortable="false"/>
+        <col_item field="RISK_VALID_FLAG" title="风险有效标志" width="100" type="combobox" edt_dict="RISK_VALID_FLAG"  edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM,DICT_ITEM_NAME" formatter="changeColor" sortable="false"/>
+
+        <col_item field="OPT_UNDL_CODE" title="标的证券代码" width="100" type="input" sortable="false"/>
+        <col_item field="OPT_UNDL_NAME" title="标的证券名称" width="100" type="input" sortable="false"/>
+        <col_item field="OPT_UNDL_CLS" title="标的证券类别" width="100" type="input" sortable="false"/>
+        <col_item field="LS_FLAG" title="多空方向" width="100" type="input" sortable="false"/>
+
+        <col_item field="THRES_NO" title="阀值编号" width="100" type="input" sortable="false"/>
+        <col_item field="THRES_NAME" title="阀值名称" width="100" type="input" sortable="false"/>
+        <col_item field="THRES_COLOR" title="阀值显示颜色" width="100" type="input" sortable="false"/>
+
+        <col_item field="NOTICE_SENT_LEVEL" title="已发通知最高级别" width="100" type="input" sortable="false"/>
+        <col_item field="NOTICE_SENT_LEVEL_NAME" title="已发通知最高级别名称" width="100" type="input" sortable="false"/>
+        <col_item field="CUST_CODE" title="客户代码" width="100" type="input" sortable="false"/>
+        <col_item field="INDICATOR_ID" title="指标标识" width="100" type="input" sortable="false"/>
+        <col_item field="INDICATOR_NAME" title="指标名称" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_DATE" title="发生日期" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="发生时间" width="100" type="input" sortable="false"/>
+        <col_item field="PRE_THRESHOLD" title="昨日阀值" width="100" type="input" sortable="false"/>
+        <col_item field="PRE_THRES_NO" title="昨日阀值编号" width="100" type="input" sortable="false"/>
+        <col_item field="PRE_THRES_NAME" title="昨日阀值名称" width="100" type="input" sortable="false"/>
+        <col_item field="PRE_THRES_COLOR" title="昨日阀值显示颜色" width="100" type="input" sortable="false"/>
+        <col_item field="PRE_RISK_VALUE" title="昨日风险率" width="100" type="input" sortable="false"/>
+        
+        
+        <col_item field="QUOTA_VAL_USED" title="占用买入额度" width="100" type="input" sortable="false"/>
+        <col_item field="QUOTA_VAL" title="买入额度" width="100" type="input" sortable="false"/>
+        <col_item field="CVD_SHORT_TYPE" title="备兑不足类型" width="100" type="input" sortable="false"/>
+        <col_item field="STK_QTY_NEED" title="所需标的券数量" width="100" type="input" sortable="false"/>
+        <col_item field="STK_QTY_LOCKED" title="已锁标的券数量" width="100" type="input" sortable="false"/>
+        <col_item field="STK_QTY_ACT" title="持有标的券数量" width="100" type="input" sortable="false"/>
+        <col_item field="CVT_QTY_LACK" title="备兑不足缺口" width="100" type="input" sortable="false"/>
+        <col_item field="INT_ORG" title="内部机构" width="100" type="input" sortable="false"/>
+        
+        <col_item field="CUST_TYPE" title="客户类型" width="100" type="input" sortable="false"/>
+        <col_item field="CUST_CLS" title="客户类别" width="100" type="input" sortable="false"/>
+        <col_item field="CUACCT_CODE" title="资产账户" width="100" type="input" sortable="false"/>
+        <col_item field="CURRENCY" title="货币代码" width="100" type="input" sortable="false"/>
+        <col_item field="STKBD" title="交易板块" width="100" type="input" sortable="false"/>
+        <col_item field="TRDACCT" title="交易账户" width="100" type="input" sortable="false"/>
+        <col_item field="SUBACCT_CODE" title="交易账户子编码" width="100" type="input" sortable="false"/>
+        <col_item field="TRDACCT_EXCLS" title="交易账户类别" width="100" type="input" sortable="false"/>
+        
+       
+    </view>
+
+
+
+</views>

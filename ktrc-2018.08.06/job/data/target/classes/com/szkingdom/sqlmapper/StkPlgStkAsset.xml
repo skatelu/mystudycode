@@ -1,0 +1,60 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkPlgStkAsset">
+    <resultMap id="StkPlgStkAssetMap" type="com.szkingdom.data.DataStkPlgStkAsset">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="CUST_CODE_IN"  property="custCodeIn"  />
+        <result column="TRDACCT_IN"  property="trdacctIn"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="CONSTR_SN"  property="constrSn"  />
+        <result column="STK_NATURE"  property="stkNature"  />
+        <result column="STK_BLN"  property="stkBln"  />
+        <result column="STK_AVL"  property="stkAvl"  />
+        <result column="STK_TRD_FRZ"  property="stkTrdFrz"  />
+        <result column="ORG_TRD_DATE"  property="orgTrdDate"  />
+        <result column="ORG_CONSTR_SN"  property="orgConstrSn"  />
+        <result column="BONUS_AMT"  property="bonusAmt"  />
+        <result column="INT_QTY"  property="intQty"  />
+        <result column="PLG_STATUS"  property="plgStatus"  />
+        <result column="FLOW_TYPE"  property="flowType"  />
+        <result column="RIGHTS_CLS"  property="rightsCls"  />
+        <result column="LISTING_YEAR"  property="listingYear"  />
+        <result column="MER_TRD_DATE"  property="merTrdDate"  />
+        <result column="MER_CONSTR_SN"  property="merConstrSn"  />
+    </resultMap>
+
+
+    <select id="STK_PLG_STK_ASSET_SELECT" resultMap="StkPlgStkAssetMap" parameterType="com.szkingdom.data.DataStkPlgStkAsset">
+        select
+        TRD_DATE,STKBD,CUST_CODE_IN,TRDACCT_IN,STKPBU,STK_CODE,CONSTR_SN,STK_NATURE,
+        STK_BLN,STK_AVL,STK_TRD_FRZ,ORG_TRD_DATE,ORG_CONSTR_SN,BONUS_AMT,INT_QTY,PLG_STATUS,
+        FLOW_TYPE,RIGHTS_CLS,LISTING_YEAR,MER_TRD_DATE,MER_CONSTR_SN
+        from STK_PLG_STK_ASSET
+        where 1=1
+        <if test="trdDate > 0">and TRD_DATE = #{trdDate}</if>
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+        <if test="stkCode != null and stkCode != ''">and STK_CODE = #{stkCode}</if>
+        <if test="constrSn != null and constrSn != ''">and CONSTR_SN = #{constrSn}</if>
+
+        <if test="orgTrdDate > 0">and ORG_TRD_DATE = #{orgTrdDate}</if>
+        <if test="orgConstrSn != null and orgConstrSn != ''">and ORG_CONSTR_SN = #{orgConstrSn}</if>
+    </select>
+
+
+    <insert id="STK_PLG_STK_ASSET_INSERT" parameterType="com.szkingdom.data.DataStkPlgStkAsset">
+        insert into STK_PLG_STK_ASSET(
+        TRD_DATE,STKBD,CUST_CODE_IN,TRDACCT_IN,STKPBU,STK_CODE,CONSTR_SN,STK_NATURE,
+        STK_BLN,STK_AVL,STK_TRD_FRZ,ORG_TRD_DATE,ORG_CONSTR_SN,BONUS_AMT,INT_QTY,PLG_STATUS,
+        FLOW_TYPE,RIGHTS_CLS,LISTING_YEAR,MER_TRD_DATE,MER_CONSTR_SN)
+        values ( 
+        #{trdDate},#{stkbd},#{custCodeIn},#{trdacctIn},#{stkpbu},#{stkCode},#{constrSn},#{stkNature},
+        #{stkBln},#{stkAvl},#{stkTrdFrz},#{orgTrdDate},#{orgConstrSn},#{bonusAmt},#{intQty},#{plgStatus},
+        #{flowType},#{rightsCls},#{listingYear},#{merTrdDate},#{merConstrSn})
+    </insert>
+
+
+</mapper>

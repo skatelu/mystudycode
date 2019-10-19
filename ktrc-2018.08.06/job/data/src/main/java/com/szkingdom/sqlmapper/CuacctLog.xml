@@ -1,0 +1,60 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.CuacctLog">
+    <resultMap id="CuacctLogMap" type="com.szkingdom.data.DataCuacctLog">
+        <result column="SERIAL_NO"  property="serialNo"  />
+        <result column="OCCUR_DATE"  property="occurDate"  />
+        <result column="OCCUR_TIME"  property="occurTime"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="USER_CODE"  property="userCode"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="EXT_ORG"  property="extOrg"  />
+        <result column="EXT_ORG_TYPE"  property="extOrgType"  />
+        <result column="BIZ_CODE"  property="bizCode"  />
+        <result column="BIZ_AMT"  property="bizAmt"  />
+        <result column="FUND_BLN"  property="fundBln"  />
+        <result column="OP_USER"  property="opUser"  />
+        <result column="OP_ROLE"  property="opRole"  />
+        <result column="OP_NAME"  property="opName"  />
+        <result column="OP_ORG"  property="opOrg"  />
+        <result column="OP_SITE"  property="opSite"  />
+        <result column="CHANNEL"  property="channel"  />
+        <result column="CANCEL_FLAG"  property="cancelFlag"  />
+        <result column="ORIGINAL_SN"  property="originalSn"  />
+        <result column="EXT_SERIAL_NO"  property="extSerialNo"  />
+        <result column="SUBSYS_SN"  property="subsysSn"  />
+    </resultMap>
+
+
+    <select id="CUACCT_LOG_SELECT" resultMap="CuacctLogMap" parameterType="com.szkingdom.data.DataCuacctLog">
+        select
+        SERIAL_NO,OCCUR_DATE,OCCUR_TIME,INT_ORG,USER_CODE,CUACCT_CODE,
+        CURRENCY,EXT_ORG,EXT_ORG_TYPE,BIZ_CODE,BIZ_AMT,FUND_BLN,
+        OP_USER,OP_ROLE,OP_NAME,OP_ORG,OP_SITE,CHANNEL,CANCEL_FLAG,ORIGINAL_SN,
+        EXT_SERIAL_NO,SUBSYS_SN
+        from CUACCT_LOG
+        where 1=1
+        <if test="serialNo > 0">
+            and SERIAL_NO = #{serialNo}
+        </if>
+    </select>
+
+
+    <insert id="CUACCT_LOG_INSERT" parameterType="com.szkingdom.data.DataCuacctLog">
+        insert into CUACCT_LOG(
+        SERIAL_NO,OCCUR_DATE,OCCUR_TIME,INT_ORG,USER_CODE,CUACCT_CODE,
+        CURRENCY,EXT_ORG,EXT_ORG_TYPE,BIZ_CODE,BIZ_AMT,FUND_BLN,
+        OP_USER,OP_ROLE,OP_NAME,OP_ORG,OP_SITE,CHANNEL,CANCEL_FLAG,ORIGINAL_SN,
+        EXT_SERIAL_NO,SUBSYS_SN)
+        values ( 
+        #{serialNo},#{occurDate},#{occurTime},#{intOrg},#{userCode},
+        #{cuacctCode},#{currency},#{extOrg},#{extOrgType},#{bizCode},#{bizAmt},#{fundBln},
+        #{opUser},#{opRole},#{opName},#{opOrg},#{opSite},#{channel},#{cancelFlag},#{originalSn},
+        #{extSerialNo},#{subsysSn})
+    </insert>
+
+
+</mapper>

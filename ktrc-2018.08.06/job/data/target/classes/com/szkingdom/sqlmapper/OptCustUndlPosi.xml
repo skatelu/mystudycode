@@ -1,0 +1,64 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptCustUndlPosi">
+    <resultMap id="OptCustUndlPosiMap" type="com.szkingdom.data.DataOptCustUndlPosi">
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_UNDL_NAME"  property="optUndlName"  />
+        <result column="TOTAL_POSI"  property="totalPosi"  />
+        <result column="LONG_POSI"  property="longPosi"  />
+        <result column="DAILY_OPEN_POSI"  property="dailyOpenPosi"  />
+    </resultMap>
+
+    <select id="OPT_CUST_UNDL_POSI_SELECT" resultMap="OptCustUndlPosiMap" parameterType="com.szkingdom.data.DataOptCustUndlPosi">
+        select
+        CUST_CODE,STKBD,TRDACCT,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_UNDL_NAME,TOTAL_POSI,LONG_POSI,
+        DAILY_OPEN_POSI
+        from OPT_CUST_UNDL_POSI
+        where 1=1
+        <if test="stkbd != null and stkbd !=''">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="optUndlCode != null and optUndlCode !=''">
+            and OPT_UNDL_CODE = #{optUndlCode}
+        </if>
+    </select>
+
+    <select id="OPT_CUST_UNDL_POSI_SELECT_LOCK" resultMap="OptCustUndlPosiMap" parameterType="com.szkingdom.data.DataOptCustUndlPosi">
+        select
+        CUST_CODE,STKBD,TRDACCT,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_UNDL_NAME,TOTAL_POSI,LONG_POSI,
+        DAILY_OPEN_POSI
+        from OPT_CUST_UNDL_POSI
+        where CUST_CODE = #{custCode}
+        and STKBD = #{stkbd}
+        and TRDACCT = #{trdacct}
+        and OPT_UNDL_CODE = #{optUndlCode}
+        for update
+    </select>
+
+    <insert id="OPT_CUST_UNDL_POSI_INSERT" parameterType="com.szkingdom.data.DataOptCustUndlPosi">
+        insert into OPT_CUST_UNDL_POSI(
+        CUST_CODE,STKBD,TRDACCT,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_UNDL_NAME,TOTAL_POSI,LONG_POSI,
+        DAILY_OPEN_POSI)
+        values ( 
+        #{custCode},#{stkbd},#{trdacct},#{optUndlCls},#{optUndlCode},#{optUndlName},#{totalPosi},#{longPosi},
+        #{dailyOpenPosi})
+    </insert>
+
+    <update id="OPT_CUST_UNDL_POSI_UPDATE" parameterType="com.szkingdom.data.DataOptCustUndlPosi">
+        update OPT_CUST_UNDL_POSI set
+        CUST_CODE = #{custCode},STKBD = #{stkbd},TRDACCT = #{trdacct},
+        OPT_UNDL_CLS = #{optUndlCls},OPT_UNDL_CODE = #{optUndlCode},OPT_UNDL_NAME = #{optUndlName},
+        TOTAL_POSI = #{totalPosi},LONG_POSI = #{longPosi},DAILY_OPEN_POSI = #{dailyOpenPosi}
+        where CUST_CODE = #{custCode}
+        and STKBD = #{stkbd}
+        and TRDACCT = #{trdacct}
+        and OPT_UNDL_CODE = #{optUndlCode}
+    </update>
+
+</mapper>

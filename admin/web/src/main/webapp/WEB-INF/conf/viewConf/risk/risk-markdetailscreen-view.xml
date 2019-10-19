@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="HEAD_VIEW" render="form" title="" data-main="">
+        <conf  onSelect="btnControlCommonDict" border="false" fit="true" showTime="false"/>
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_treeExpand="true" wrap="true"/>
+    </view>
+
+    <view id="MarkDetailScreen_RISK_INFO_ACCT_VIEW" render="datagrid"  title="账户类风险信息">
+        <conf service="RMDS00001" fit="true" onDblClickRow = "onDblClickRow" remotePagination = "true" onInitSuccess="onInitSuccess" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[20,50,100,200,500]"/>
+
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_autoFill="true" edt_defaultValue="1000" edt_treeExpand="true" wrap="true"/>
+
+        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />
+
+       <!--  <qry_item field="dataType" title="显示类型" type="combobox"  edt_width="130" edt_required="true" edtt_autoFill="true" edt_data="[{'dict_des':'0-全部','dict_val':'0'},{'dict_des':'1-正常','dict_val':'1'},{'dict_des':'2-大于已通知最高等级','dict_val':'2'},{'dict_des':'3-小于已通知最高等级','dict_val':'3'}]" />
+
+        <btn_item text="数据更新"  title="数据更新" handler="refreshData"  iconCls="icon-reload"   panelWidth="600" panelHeight="300"  />
+        <btn_item text="追保通知"  title="追保通知" handler="afterConfirm"  iconCls="icon-edit"   panelWidth="600" panelHeight="300"  />
+        <btn_item text="强平通知"  title="强平通知" handler="StrongConfirm"  iconCls="icon-edit"   panelWidth="600" panelHeight="300"  /> -->
+
+		<col_item type="checkbox"/>
+        <col_item field="CUST_NAME" title="客户姓名" width="100" type="input" sortable="false"/>
+        <col_item field="RISK_VALUE0" title="风险率(%)" width="100" type="input"   sortable="false"/>
+        <col_item field="POSI_QTY" title="持仓数量" width="100" type="input" sortable="false"/>
+        <col_item field="POSI_LQTY" title="持仓限额" width="100" type="input" sortable="false"/>
+        <col_item field="THRESHOLD" title="阀值" width="100" type="input" sortable="false"/>
+        <col_item field="RISK_VALID_FLAG"  title="风险有效标志" width="100" type="combobox" edt_dict="RISK_VALID_FLAG"  edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM,DICT_ITEM_NAME" formatter="changeColor" sortable="false"/>
+        <col_item field="OPT_UNDL_CODE" title="标的证券代码" width="100" type="input" sortable="false"/>
+        <col_item field="OPT_UNDL_NAME" title="标的证券名称" width="100" type="input" sortable="false"/>
+        <col_item field="STK_CLS" title="标的证券类别" edt_dict="STK_CLS" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+        <col_item field="LS_FLAG" title="多空方向" width="100" type="input" sortable="false"/>
+       <!--  <col_item field="THRES_NO" title="阀值编号" width="100" type="input" sortable="false"/>--> 
+        <col_item field="THRES_NAME" title="阀值名称" width="100" type="input" sortable="false"/>
+       <!--  <col_item field="THRES_COLOR" title="阀值显示颜色" width="100" type="input" sortable="false"/> -->
+        <col_item field="NOTICE_SENT_LEVEL" title="已发通知最高级别" width="100" type="input" sortable="false"/>
+        <col_item field="NOTICE_SENT_LEVEL_NAME" title="已发通知最高级别名称" width="100" type="input" sortable="false"/>
+        <col_item field="CUST_CODE" title="客户代码" width="100" type="input" sortable="false"/>
+        <col_item field="INDICATOR_ID" title="指标标识" width="100" type="input" sortable="false"/>
+        <col_item field="INDICATOR_NAME" title="指标名称" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_DATE" title="发生日期" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="发生时间" width="100" type="input" sortable="false"/>
+        <col_item field="PRE_THRESHOLD" title="昨日阀值" width="100" type="input" sortable="false"/>
+        <!--  <col_item field="PRE_THRES_NO" title="昨日阀值编号" width="100" type="input" sortable="false"/> -->
+        <col_item field="PRE_THRES_NAME" title="昨日阀值名称" width="100" type="input" sortable="false"/>
+   		<!--  <col_item field="PRE_THRES_COLOR" title="昨日阀值显示颜色" width="100" type="input" sortable="false"/> -->
+        <col_item field="PRE_RISK_VALUE" title="昨日风险率(%)" width="100" type="input" sortable="false"/>
+        <col_item field="QUOTA_VAL_USED" title="占用买入额度" width="100" type="input" sortable="false"/>
+        <col_item field="QUOTA_VAL" title="买入额度" width="100" type="input" sortable="false"/>
+        <!-- <col_item field="CVD_SHORT_TYPE" title="备兑不足类型" width="100" type="input" sortable="false"/> -->
+        <col_item field="STK_QTY_NEED" title="所需标的券数量" width="100" type="input" sortable="false"/>
+        <col_item field="STK_QTY_LOCKED" title="已锁标的券数量" width="100" type="input" sortable="false"/>
+        <col_item field="STK_QTY_ACT" title="持有标的券数量" width="100" type="input" sortable="false"/>
+        <col_item field="CVT_QTY_LACK" title="备兑不足缺口" width="100" type="input" sortable="false"/>
+        <col_item field="INT_ORG" title="内部机构" width="100" type="input" sortable="false"/>
+        <!-- <col_item field="CUST_TYPE" title="客户类型" width="100" type="input" sortable="false"/>
+        <col_item field="CUST_CLS" title="客户类别" width="100" type="input" sortable="false"/> -->
+        <col_item field="CUACCT_CODE" title="资产账户" width="100" type="input" sortable="false"/>
+        <col_item field="CURRENCY" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" title="货币代码" width="100" type="input" sortable="false"/>
+        <col_item field="STKBD" edt_dict="STKBD" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" title="交易板块" width="100" type="input" sortable="false"/>
+        <col_item field="TRDACCT" title="交易账户" width="100" type="input" sortable="false"/>
+        <col_item field="SUBACCT_CODE" title="交易账户子编码" width="100" type="input" sortable="false"/>
+        <!-- <col_item field="TRDACCT_EXCLS" title="交易账户类别" width="100" type="input" sortable="false"/> -->
+        
+       
+    </view>
+
+
+    <view id="MarkDetailScreen_RISK_INFO_FUND_VIEW" render="datagrid"  title="资金类风险信息">
+        <conf service="RMDS00001" fit="true" onDblClickRow = "onDblClickRow" remotePagination = "true" onInitSuccess="onInitSuccess" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[20,50,100,200,500]"/>
+
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_autoFill="true" edt_defaultValue="1000" edt_treeExpand="true" wrap="true"/>
+        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />
+		<col_item type="checkbox"/>
+        <col_item field="CUST_CODE" title="客户代码" width="100" type="input" sortable="false"/>
+        <col_item field="CUST_NAME" title="客户姓名" width="100" type="input" sortable="false"/>
+        <!-- <col_item field="CUST_TYPE" title="客户类型" width="100" type="input" sortable="false"/>
+        <col_item field="CUST_CLS" title="客户类别" width="100" type="input" sortable="false"/> -->
+        <col_item field="CUACCT_CODE" title="资产账户" width="100" type="input" sortable="false"/>
+        <col_item field="CURRENCY" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" title="货币代码" width="100" type="input" sortable="false"/>
+        <col_item field="INT_ORG" title="内部机构" width="100" type="input" sortable="false"/>
+        <col_item field="RISK_VALUE0" title="风险率(%)" width="100" type="input" sortable="false"/>
+        <col_item field="RISK_VALUE_RLT" title="风险率(实时%)" width="100" type="input" sortable="false"/>
+        <col_item field="STKEX_RISK_VALUE" title="风险率(交易所%)" width="100" type="input" sortable="false"/>
+        <col_item field="STKEX_RISK_VALUE_RLT" title="风险率(交易所实时%)" width="100" type="input" sortable="false"/>
+        <col_item field="CLOSE_FUND_RISK_VALUE" title="平仓资金不足风险率(%)" width="100" type="input" sortable="false"/>
+        <col_item field="THRESHOLD" title="阈值" width="100" type="input" sortable="false"/>
+        <!-- <col_item field="THRES_NO" title="阀值编号" width="100" type="input" sortable="false"/> -->
+        <col_item field="THRES_NAME" title="阀值名称" width="100" type="input" sortable="false"/>
+        <!-- <col_item field="THRES_COLOR" title="阀值显示颜色" width="100" type="input" sortable="false"/> -->
+        <col_item field="MARGIN_USED" title="占用保证金" width="100" type="input" sortable="false"/>
+        <col_item field="MARGIN_USED_RLT" title="占用保证金(实时)" width="100" type="input" sortable="false"/>
+        <col_item field="STKEX_MAG_USED" title="占用保证金(交易所)" width="100" type="input" sortable="false"/>
+        <col_item field="STKEX_MAG_USED_RLT" title="占用保证金(交易所实时)" width="100" type="input" sortable="false"/>
+        <col_item field="FUND_BLN" title="资金当前余额" width="100" type="input" sortable="false"/>
+        <col_item field="FUND_AVL" title="资金可用金额" width="100" type="input" sortable="false"/>
+        <col_item field="FUND_RET" title="资金回转金额" width="100" type="input" sortable="false"/>
+        <col_item field="EQUITY" title="权益" width="100" type="input" sortable="false"/>
+        <col_item field="DUE_ADD_AMT" title="应追加保证金" width="100" type="input" sortable="false"/>
+        <col_item field="DAILY_IN_AMT" title="当日入金" width="100" type="input" sortable="false"/>
+        <col_item field="DAILY_OUT_AMT" title="当日出金" width="100" type="input" sortable="false"/>
+        <col_item field="PRE_THRESHOLD" title="昨日阈值" width="100" type="input" sortable="false"/>
+        <!-- <col_item field="PRE_THRES_NO" title="昨日阈值编号" width="100" type="input" sortable="false"/> -->
+        <col_item field="PRE_THRES_NAME" title="昨日阈值名称" width="100" type="input" sortable="false"/>
+        <!--  <col_item field="PRE_THRES_COLOR" title="昨日阈值显示颜色" width="100" type="input" sortable="false"/> -->
+        <col_item field="PRE_RISK_VALUE" title="昨日风险率(%)" width="100" type="input" sortable="false"/>
+        <col_item field="RISK_VALID_FLAG" edt_dict="RISK_VALID_FLAG" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" title="风险有效标志" width="100" type="input" sortable="false"/>
+        <col_item field="NOTICE_SENT_LEVEL" title="已发通知最高级别" width="100" type="input" sortable="false"/>
+        <col_item field="NOTICE_SENT_LEVEL_NAME" title="已发通知最高级别名称" width="100" type="input" sortable="false"/>
+        <col_item field="INDICATOR_ID" title="指标标识" width="100" type="input" sortable="false"/>
+        <col_item field="INDICATOR_NAME" title="指标名称" width="100" type="input"   sortable="false"/>
+        <col_item field="OCC_DATE" title="发生日期" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="发生时间" width="100" type="input" sortable="false"/>
+        <!-- <col_item field="MARGIN_CLS" title="保证金类别" width="100" type="input" sortable="false"/> -->
+    </view>
+
+    <view id="MarkDetailScreen_RISK_INFO_ASSET_VIEW" render="datagrid"  title="持仓类风险信息">
+        <conf service="RMDS00001" fit="true" onDblClickRow = "onDblClickRow" remotePagination = "true" onInitSuccess="onInitSuccess" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[20,50,100,200,500]"/>
+
+        <qry_item  title="机构代码" field="ORG_CODE" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_autoFill="true" edt_defaultValue="1000" edt_treeExpand="true" wrap="true"/>
+        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />
+        <col_item type="checkbox"/>
+        <col_item title="客户代码" field="CUST_CODE" width="100" type="input" sortable="false"/>
+		<col_item title="客户姓名" field="CUST_NAME" width="100" type="input" sortable="false"/>
+	    <col_item title="交易板块" field="STKBD" edt_dict="STKBD" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="交易账户" field="TRDACCT" width="100" type="input" sortable="false"/>
+		<col_item title="占用买入额度" field="QUOTA_VAL_USED" width="100" type="input" sortable="false"/>
+		<col_item title="买入额度" field="QUOTA_VAL" width="100" type="input" sortable="false"/>
+	    <col_item title="风险率(%)" field="RISK_VALUE0" width="100" type="input" sortable="false"/>
+        <col_item title="风险有效标志" field="RISK_VALID_FLAG" edt_dict="RISK_VALID_FLAG" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+	    <col_item title="阈值" field="THRESHOLD" width="100" type="input" sortable="false"/>
+		<!-- <col_item title="阈值编号" field="THRES_NO" width="100" type="input" sortable="false"/> -->
+		<col_item title="阈值名称" field="THRES_NAME" width="100" type="input" sortable="false"/>
+		<!-- <col_item title="阈值显示颜色" field="THRES_COLOR" width="100" type="input" sortable="false"/> -->
+		<col_item title="标的证券代码" field="OPT_UNDL_CODE" width="100" type="input" sortable="false"/>
+		<col_item title="标的证券名称" field="OPT_UNDL_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="标的证券类别" field="STK_CLS" edt_dict="STK_CLS" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<!-- <col_item title="备兑不足类型" field="CVD_SHORT_TYPE" width="100" type="input" sortable="false"/> -->
+		<col_item title="所需标的券数量" field="STK_QTY_NEED" width="100" type="input" sortable="false"/>
+        <col_item title="持有标的券数量" field="STK_QTY_ACT" width="100" type="input" sortable="false"/>
+		<col_item title="备兑不足缺口" field="CVT_QTY_LACK" width="100" type="input" sortable="false"/>
+		<col_item title="已锁标的券数量" field="STK_QTY_LOCKED" width="100" type="input" sortable="false"/>
+		<col_item title="持仓数量" field="POSI_QTY" width="100" type="input" sortable="false"/>
+		<col_item title="持仓限额" field="POSI_LQTY" width="100" type="input" sortable="false"/>
+		<col_item title="交易账户子编码" field="SUBACCT_CODE" width="100" type="input" sortable="false"/>
+		<!--<col_item title="交易账户类别" field="TRDACCT_EXCLS" width="100" type="input" sortable="false"/>  -->
+		<!-- <col_item title="客户类型" field="CUST_TYPE" width="100" type="input" sortable="false"/>
+		<col_item title="客户类别" field="CUST_CLS" width="100" type="input" sortable="false"/> -->
+		<col_item title="资产账户" field="CUACCT_CODE" width="100" type="input" sortable="false"/>
+        <col_item title="内部机构" field="INT_ORG" width="100" type="input" sortable="false"/>
+		<col_item title="货币代码" field="CURRENCY" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="昨日风险率(%)" field="PRE_RISK_VALUE" width="100" type="input" sortable="false"/>
+		<col_item title="昨日阈值" field="PRE_THRESHOLD" width="100" type="input" sortable="false"/>
+		<!-- <col_item title="昨日阈值编号" field="PRE_THRES_NO" width="100" type="input" sortable="false"/> -->
+		<col_item title="昨日阈值名称" field="PRE_THRES_NAME" width="100" type="input" sortable="false"/>
+		<!-- <col_item title="昨日阈值显示颜色" field="PRE_THRES_COLOR" width="100" type="input" sortable="false"/> -->
+		<col_item title="已发通知最高级别" field="NOTICE_SENT_LEVEL" width="100" type="input" sortable="false"/>
+		<col_item title="已发通知最高级别名称" field="NOTICE_SENT_LEVEL_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="多空方向" field="LS_FLAG" width="100" type="input" sortable="false"/>
+        <col_item title="指标标识" field="INDICATOR_ID" width="100" type="input" sortable="false"/>
+		<col_item title="指标名称" field="INDICATOR_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="发生日期" field="OCC_DATE" width="100" type="input" sortable="false"/>
+		<col_item title="发生时间" field="OCC_TIME" width="100" type="input" sortable="false"/>  
+    </view>
+    
+    <view id="MarkDetailScreen_RISK_INFO_EXE_FUND_VIEW" render="datagrid"  title="行权资金类风险信息">
+        <conf service="RMDS00001" fit="true" onDblClickRow = "onDblClickRow" remotePagination = "true" onInitSuccess="onInitSuccess" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[20,50,100,200,500]"/>
+
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_autoFill="true" edt_defaultValue="1000" edt_treeExpand="true" wrap="true"/>
+        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />
+		<col_item type="checkbox"/>
+        <col_item title="客户代码" field="CUST_CODE" width="100" type="input" sortable="false"/>
+		<col_item title="客户姓名" field="CUST_NAME" width="100" type="input" sortable="false"/>
+		<!-- <col_item title="客户类型" field="CUST_TYPE" width="100" type="input" sortable="false"/>
+		<col_item title="客户类别" field="CUST_CLS" width="100" type="input" sortable="false"/> -->
+		<col_item title="资产账户" field="CUACCT_CODE" width="100" type="input" sortable="false"/>
+		<col_item title="内部机构" field="INT_ORG" width="100" type="input" sortable="false"/>
+		<col_item title="货币代码" field="CURRENCY" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="风险率(%)" field="RISK_VALUE0" width="100" type="input" sortable="false"/>
+		<col_item title="资金当前余额" field="FUND_BLN" width="100" type="input" sortable="false"/>
+		<col_item title="资金可用金额" field="FUND_AVL" width="100" type="input" sortable="false"/>
+		<col_item title="资金回转金额" field="FUND_RET" width="100" type="input" sortable="false"/>
+		<col_item title="被指派所需资金" field="APPOINTED_NEED_AMT" width="100" type="input" sortable="false"/>
+		<col_item title="行权资金缺口" field="APPOINTED_LACK_AMT" width="100" type="input" sortable="false"/>
+		<col_item title="行权净收付资金" field="FUND_NET_DLVY" width="100" type="input" sortable="false"/>
+		<col_item title="现金结算金额" field="CASH_SETT_AMT" width="100" type="input" sortable="false"/>
+		<col_item title="已冻结维持保证金" field="DLVY_EXE_MARGIN" width="100" type="input" sortable="false"/>
+		<col_item title="行权锁定保证金" field="FUND_EXE_MARGIN" width="100" type="input" sortable="false"/>
+		<col_item title="行权资金冻结金额" field="FUND_EXE_FRZ" width="100" type="input" sortable="false"/>
+		<col_item title="资金费用冻结金额" field="FUND_FEE_FRZ" width="100" type="input" sortable="false"/>
+		<col_item title="交收日期" field="DLVY_DATE" width="100" type="input" sortable="false"/>
+        <col_item title="风险有效标志" field="RISK_VALID_FLAG" edt_dict="RISK_VALID_FLAG" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="已发通知最高级别" field="NOTICE_SENT_LEVEL" width="100" type="input" sortable="false"/>
+		<col_item title="已发通知最高级别名称" field="NOTICE_SENT_LEVEL_NAME" width="100" type="input" sortable="false"/>
+        <col_item title="指标标识" field="INDICATOR_ID" width="100" type="input" sortable="false"/>
+		<col_item title="指标名称" field="INDICATOR_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="发生日期" field="OCC_DATE" width="100" type="input" sortable="false"/>
+		<col_item title="发生时间" field="OCC_TIME" width="100" type="input" sortable="false"/>
+		</view>
+    
+    <view id="MarkDetailScreen_RISK_INFO_EXE_STK_VIEW" render="datagrid"  title="行权证券类风险信息">
+        <conf service="RMDS00001" fit="true" onDblClickRow = "onDblClickRow" remotePagination = "true" onInitSuccess="onInitSuccess" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[20,50,100,200,500]"/>
+
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_autoFill="true" edt_defaultValue="1000" edt_treeExpand="true" wrap="true"/>
+        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />
+		<col_item type="checkbox"/>
+        <col_item title="客户代码" field="CUST_CODE" width="100" type="input" sortable="false"/>
+		<col_item title="客户姓名" field="CUST_NAME" width="100" type="input" sortable="false"/>
+		<!-- <col_item title="客户类型" field="CUST_TYPE" width="100" type="input" sortable="false"/>
+		<col_item title="客户类别" field="CUST_CLS" width="100" type="input" sortable="false"/> -->
+		<col_item title="内部机构" field="INT_ORG" width="100" type="input" sortable="false"/>
+		<col_item title="资产账户" field="CUACCT_CODE" width="100" type="input" sortable="false"/>
+		<col_item title="货币代码" field="CURRENCY" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="交易板块" field="STKBD" edt_dict="STKBD" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="交易账户" field="TRDACCT" width="100" type="input" sortable="false"/>
+		<col_item title="交易账户子编码" field="SUBACCT_CODE" width="100" type="input" sortable="false"/>
+		<!-- <col_item title="交易账户类别" field="TRDACCT_EXCLS" width="100" type="input" sortable="false"/> -->
+		<col_item title="标的证券代码" field="OPT_UNDL_CODE" width="100" type="input" sortable="false"/>
+		<col_item title="标的证券名称" field="OPT_UNDL_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="标的证券类别" field="STK_CLS" edt_dict="STK_CLS" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="持有标的券数量" field="STK_QTY_ACT" width="100" type="input" sortable="false"/>
+		<col_item title="行权净收付数量" field="STK_NET_DLVY_QTY" width="100" type="input" sortable="false"/>
+		<col_item title="远期合约占用数量" field="STK_QTY_FAR" width="100" type="input" sortable="false"/>
+		<col_item title="现金结算金额" field="CASH_SETT_AMT" width="100" type="input" sortable="false"/>
+		<col_item title="缺口数量1(含远期合约)" field="STK_QTY_EXELACK1" width="100" type="input" sortable="false"/>
+		<col_item title="缺口数量2(不含远期合约)" field="STK_QTY_EXELACK2" width="100" type="input" sortable="false"/>
+		<col_item title="风险率(%)" field="RISK_VALUE0" width="100" type="input" sortable="false"/>
+		<col_item title="违约风险率1(%)" field="DEFAULT_RISK_VALUE1" width="100" type="input" sortable="false"/>
+		<col_item title="违约风险率2(%)" field="DEFAULT_RISK_VALUE2" width="100" type="input" sortable="false"/>
+		<col_item title="交收日期" field="DLVY_DATE" width="100" type="input" sortable="false"/>
+	    <col_item title="风险有效标志" field="RISK_VALID_FLAG" edt_dict="RISK_VALID_FLAG" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="已发通知最高级别" field="NOTICE_SENT_LEVEL" width="100" type="input" sortable="false"/>
+		<col_item title="已发通知最高级别名称" field="NOTICE_SENT_LEVEL_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="指标标识" field="INDICATOR_ID" width="100" type="input" sortable="false"/>
+		<col_item title="指标名称" field="INDICATOR_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="发生日期" field="OCC_DATE" width="100" type="input" sortable="false"/>
+		<col_item title="发生时间" field="OCC_TIME" width="100" type="input" sortable="false"/>
+		</view>
+    
+    <view id="MarkDetailScreen_RISK_INFO_CORP_FUND_VIEW" render="datagrid"  title="经济业务类资金风险信息">
+        <conf service="RMDS00001" fit="true" onDblClickRow = "onDblClickRow" remotePagination = "true" onInitSuccess="onInitSuccess" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[20,50,100,200,500]"/>
+
+        <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_autoFill="true" edt_defaultValue="1000" edt_treeExpand="true" wrap="true"/>
+        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />
+		<col_item type="checkbox"/>
+        <col_item title="交易板块" field="STKBD" edt_dict="STKBD" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="公司保证金账户" field="MARGIN_CORP_ACCT" width="100" type="input" sortable="false"/>
+		<col_item title="货币代码" field="CURRENCY" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+		<col_item title="账户类别" field="ACCT_TYPE" width="100" type="input" sortable="false"/>
+		<col_item title="已占用保证金" field="MARGIN_USED" width="100" type="input" sortable="false"/>
+		<col_item title="保证金可用" field="MARGIN_AVL" width="100" type="input" sortable="false"/>
+		<col_item title="保证金总金额" field="MARGIN_TOTAL_AMT" width="100" type="input" sortable="false"/>
+		<col_item title="盘中资金占用比例(%)" field="OPEN_AMT_USEED_RATE" width="100" type="input" sortable="false"/>
+		<col_item title="发生日期" field="OCC_DATE" width="100" type="input" sortable="false"/>
+		<col_item title="发生时间" field="OCC_TIME" width="100" type="input" sortable="false"/>
+    </view>
+    
+    
+</views>

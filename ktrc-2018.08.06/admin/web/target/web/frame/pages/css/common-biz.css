@@ -1,0 +1,2248 @@
+@charset "UTF-8";
+.container-menu{
+    width: 99.8%;
+}
+.container-menu .layout-panel{
+	width: 100%;
+	position: relative;
+	border: 0px solid #CFD1D3;
+	border-radius: 3px;
+}
+.container-menu .layout-panel.north{
+	margin: 0px 0 2px 0;
+	height: 292px;
+    overflow: auto;
+}
+.container-menu .layout-panel.south{
+	min-height: 253px;
+}
+.container-menu .l-panel-header{
+	height: 30px;
+}
+.container-menu .l-panel-header>span{
+	line-height: 20px;
+	height: 20px;
+	min-width: 150px;
+	display: inline-block;
+	padding: 4px 0 4px 13px;
+  	border-left: 4px solid #3E72BF;
+  	margin: 0 0 5px 0;
+  	font-weight: 700;
+	background-color: #f4f4f4;
+    width: 98%;
+    border-radius: 2px;
+    border: 1px #f1f1f1 solid;
+	z-index: 9988;
+}
+.container-menu .l-panel-body{
+	  padding: 0 94px 0 0;
+}
+.container-menu .clear-btn{
+	background: url(../images/icon-delall.png) no-repeat left;
+  	height: 20px;
+  	line-height: 20px;
+  	width: 50px;
+  	display: inline-block;
+  	padding-left: 25px;
+  	cursor: pointer;
+  	margin: 5px 0;
+}
+.container-menu+.kui-menu{
+	padding: 0;
+	height: 30px;
+	border-width: 1px;
+	border-radius: 5px;
+	border-color: #dcdcdc;
+	background-color: #FFFFFF;
+}
+.container-menu+.kui-menu:hover,
+.container-menu+.kui-menu .menu-item.menu-active{
+	background-color: #44B4EF;
+	border-width: 0;
+	color: #FFFFFF;
+}
+.container-menu+.kui-menu .menu-line{
+	display: none;
+}
+.container-menu+.kui-menu .menu-text{
+	line-height: 16px;
+	height:16px;
+	padding: 6px 0 0 33px;
+}
+.container-menu+.kui-menu .menu-icon{
+	left: 6px;
+	margin-top: -9px;
+}
+
+.container-menu .menu-tool{
+	width: 95px;
+	height: 121px;
+	right: 0;
+	position: absolute;
+	top: 38px;	
+}
+.container-menu .menu-tool .menu-wrap>.menu-add{
+	background: url(../images/icon-addmore.png) no-repeat 0 -3px;
+    cursor: pointer;
+}
+.container-menu .menu-tool .menu-wrap>.menu-add:hover{
+	background: url(../images/icon-addmore.png) no-repeat -80px -3px;
+}
+.container-menu .uniform-param-panel .menu-icon-leaf{
+	height: 67px;
+}
+.container-menu .uniform-param-panel .menu-panel .menu-wrap{
+	padding: 0px 0px;
+	border: 1px #f7f7f7 solid;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 0 2px 0 0;
+}
+
+.uniform-param-panel .search-panel{
+	height: 39px;
+	text-align: right;
+	border-bottom: 1px solid #EFEFEF;
+	margin-bottom: 0px;
+}
+.uniform-param-panel .search-wrap{
+	line-height: 20px;
+	right: 40px;
+	top:10px;
+	position: absolute;
+}
+.uniform-param-panel .search-panel .tree-folder{
+	background: url(../../../frame/pages/images/icon-folder.png) no-repeat;
+	height: 19px;
+	width: 20px;
+	margin: 10px 0;
+}
+.uniform-param-panel .search-panel .tree-folder.arrow{
+	width: 20px;
+	background-position: -17px 0;
+}
+
+.uniform-param-panel .search-wrap>input:-ms-input-placeholder{
+	font-family: "微软雅黑", sans-serif;
+	font-size: 13px;
+	color: #888888;
+}
+.uniform-param-panel .nav-bar{
+	height: 40px;
+	width: 480px;
+	line-height: 40px;
+	position: absolute;
+	left: 0;
+	display: inline-block;
+	text-align: left;
+	padding-left: 12px;
+	color: #888888;
+}
+.uniform-param-panel .nav-bar>a{
+	height: 20px;
+	line-height: 20px;
+	padding: 2px 2px;
+	color: #888888;
+	box-shadow: 0 0 1px 1px #FFFFFF;
+}
+.uniform-param-panel .nav-bar>a:hover{
+	box-shadow: 0 0 1px 1px #EAEAEA;
+	color: #888FFF;
+}
+.uniform-param-panel .search-wrap>label{
+	font-weight: 700;
+}
+.uniform-param-panel .search-wrap .search-result{
+	min-height: 100px;
+	width: 168px;
+	position: relative;
+	margin: 0 0 0 70px;
+	/*top: -12px;*/
+	z-index: 9100;
+	background-color: #FFFFFF;
+	display: none;
+	border: 1px solid #EFE9E9;
+	border-top: 0;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+.uniform-param-panel .search-wrap ul{
+	margin:0;
+	padding:0;
+}
+.uniform-param-panel .search-wrap li{
+	margin: 0;
+	padding: 0;
+	line-height: 25px;
+	height: 25px;
+	text-align: left;
+	padding-left: 13px;
+}
+.uniform-param-panel .search-wrap li:nth-child(even){
+	background-color: #FAFAFA;
+	color: #888888;
+	cursor: pointer;
+}
+.uniform-param-panel .search-wrap li:hover,
+.uniform-param-panel .search-wrap li.selected{
+	background-color: #F5BC7F;
+	color: #FFFFFF;
+}
+.uniform-param-panel .menu-panel{
+	margin: 7px 0 0 5px;
+	padding: 0px 0 0 5px;
+}
+.uniform-param-panel .menu-panel .menu-wrap{
+	padding: 3px 4px;
+	display: inline-block;
+	cursor: pointer;
+}
+.uniform-param-panel .menu-panel .menu-wrap.selected{
+	box-shadow: 0 0 2px 1px #97BCFF;
+}
+.uniform-param-panel .menu-panel .menu-wrap:hover{
+	box-shadow: 0 0 0px 0px #EAEAEA;
+	border-radius: 2px;
+	border: 1px #a9cfff solid !important;
+	background-color: #edf5ff;
+}
+.uniform-param-panel .menu-panel .menu-wrap>.menu-icon{
+	height: 78px;
+	width: 78px;
+	position: relative;
+	top:0;
+	left:0;
+	margin-top: 0;
+	background-image: url(../../../frame/pages/images/icon-uniform.png);
+}
+.uniform-param-panel .menu-panel .menu-wrap>.menu-title{
+	height: 33px;
+	width: 82px;
+	padding: 2px 4px;
+	text-overflow: ellipsis;
+	word-wrap: normal;
+	overflow: hidden;
+	text-align: center;
+	border-width: 1px 0 0 0;
+	border-color: #f4f4f4;
+	border-style: solid;
+	background-color: #f3f8ff;
+	color: #555;
+}
+
+/*图标：文件夹1*/
+.uniform-param-panel .menu-icon.leaf{
+	background-position: -480px -160px;
+}
+.uniform-param-panel .menu-icon.back{
+	background-position: 0 -240px;
+}
+.uniform-param-panel .menu-icon.m01{
+	background-position: 0px 0px;
+}
+.uniform-param-panel .menu-icon.m02{
+	background-position: -80px 0px;
+}
+.uniform-param-panel .menu-icon.m03{
+	background-position: -160px 0px;
+}
+.uniform-param-panel .menu-icon.m04{
+	background-position: -240px 0px;
+}
+.uniform-param-panel .menu-icon.m05{
+	background-position: -320px 0px;
+}
+.uniform-param-panel .menu-icon.m06{
+	background-position: -400px 0px;
+}
+.uniform-param-panel .menu-icon.m07{
+	background-position: -480px 0px;
+}
+.uniform-param-panel .menu-icon.m08{
+	background-position: 0px -80px;
+}
+.uniform-param-panel .menu-icon.m09{
+	background-position: -80px -80px;
+}
+.uniform-param-panel .menu-icon.m10{
+	background-position: -160px -80px;
+}
+.uniform-param-panel .menu-icon.m11{
+	background-position: -240px -80px;
+}
+.uniform-param-panel .menu-icon.m12{
+	background-position: -320px -80px;
+}
+.uniform-param-panel .menu-icon.m13{
+	background-position: -400px -80px;
+}
+.uniform-param-panel .menu-icon.m14{
+	background-position: -480px -80px;
+}
+.uniform-param-panel .menu-icon.m15{
+	background-position: 0px -160px;
+}
+.uniform-param-panel .menu-icon.m16{
+	background-position: -80px -160px;
+}
+.uniform-param-panel .menu-icon.m17{
+	background-position: -160px -160px;
+}
+.uniform-param-panel .menu-icon.m18{
+	background-position: -240px -160px;
+}
+.uniform-param-panel .menu-icon.m19{
+	background-position: -320px -160px;
+}
+.uniform-param-panel .menu-icon.m20{
+	background-position: -400px -160px;
+}
+.uniform-param-panel .menu-icon.m21{
+	background-position: -480px -160px;
+}
+
+/*图标：文件夹2*/
+.uniform-param-panel .menu-icon.m22{
+	background-position: 0px -320px;
+}
+.uniform-param-panel .menu-icon.m23{
+	background-position: -80px -320px;
+}
+.uniform-param-panel .menu-icon.m24{
+	background-position: -160px -320px;
+}
+.uniform-param-panel .menu-icon.m25{
+	background-position: -240px -320px;
+}
+.uniform-param-panel .menu-icon.m26{
+	background-position: -320px -320px;
+}
+.uniform-param-panel .menu-icon.m27{
+	background-position: -400px -320px;
+}
+.uniform-param-panel .menu-icon.m28{
+	background-position: -480px -320px;
+}
+.uniform-param-panel .menu-icon.m29{
+	background-position: 0px -400px;
+}
+.uniform-param-panel .menu-icon.m30{
+	background-position: -80px -400px;
+}
+.uniform-param-panel .menu-icon.m31{
+	background-position: -160px -400px;
+}
+.uniform-param-panel .menu-icon.m32{
+	background-position: -240px -400px;
+}
+.uniform-param-panel .menu-icon.m33{
+	background-position: -320px -400px;
+}
+.uniform-param-panel .menu-icon.m34{
+	background-position: -400px -400px;
+}
+.uniform-param-panel .menu-icon.m35{
+	background-position: -480px -400px;
+}
+.uniform-param-panel .menu-icon.m36{
+	background-position: 0px -480px;
+}
+.uniform-param-panel .menu-icon.m37{
+	background-position: -80px -480px;
+}
+.uniform-param-panel .menu-icon.m38{
+	background-position: -160px -480px;
+}
+.uniform-param-panel .menu-icon.m39{
+	background-position: -240px -480px;
+}
+.uniform-param-panel .menu-icon.m40{
+	background-position: -320px -480px;
+}
+.uniform-param-panel .menu-icon.m41{
+	background-position: -400px -480px;
+}
+.uniform-param-panel .menu-icon.m42{
+	background-position: -480px -480px;
+}
+.uniform-param-panel .menu-icon.m43{
+	background-position: 0px -560px;
+}
+.uniform-param-panel .menu-icon.m44{
+	background-position: -80px -560px;
+}
+.uniform-param-panel .menu-icon.m45{
+	background-position: -160px -560px;
+}
+.uniform-param-panel .menu-icon.m46{
+	background-position: -240px -560px;
+}
+.uniform-param-panel .menu-icon.m47{
+	background-position: -320px -560px;
+}
+.uniform-param-panel .menu-icon.m48{
+	background-position: -400px -560px;
+}
+.uniform-param-panel .menu-icon.m49{
+	background-position: -480px -560px;
+}
+.uniform-param-panel .menu-icon.m50{
+	background-position: 0px -640px;
+}
+.uniform-param-panel .menu-icon.m51{
+	background-position: -80px -640px;
+}
+.uniform-param-panel .menu-icon.m52{
+	background-position: -160px -640px;
+}
+
+.uniform-param-panel .menu-icon-leaf{
+	height: 80px;
+	width: 88px;
+	position: relative;
+	top: -6px;
+	left: 7px;
+	margin-top: 0;
+	background: url(../../../frame/pages/images/icon-tycs.png);
+}
+
+/*图标：系统参数*/
+.uniform-param-panel .menu-icon-leaf.xtcs-002{
+	background-position: 0px 0px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-003{
+	background-position: -80px 0px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-004{
+	background-position: -160px 0px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-005{
+	background-position: -240px 0px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-006{
+	background-position: -320px 0px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-007{
+	background-position: -400px 0px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-008{
+	background-position: -480px 0px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-009{
+	background-position: -560px 0px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-010{
+	background-position: 0px -80px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-011{
+	background-position: -80px -80px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-012{
+	background-position: -160px -80px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-013{
+	background-position: -240px -80px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-014{
+	background-position: -320px -80px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-015{
+	background-position: -400px -80px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-016{
+	background-position: -480px -80px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-017{
+	background-position: -560px -80px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-018{
+	background-position: 0px -160px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-019{
+	background-position: -80px -160px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-020{
+	background-position: -160px -160px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-021{
+	background-position: -240px -160px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-022{
+	background-position: -320px -160px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-023{
+	background-position: -400px -160px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-024{
+	background-position: -480px -160px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-025{
+	background-position: -560px -160px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-026{
+	background-position: 0px -240px;
+}
+.uniform-param-panel .menu-icon-leaf.xtcs-027{
+	background-position: -80px -240px;
+}
+
+/*图标：交易参数*/
+.uniform-param-panel .menu-icon-leaf.jycs-002{
+	background-position: 0px -320px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-003{
+	background-position: -80px -320px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-004{
+	background-position: -160px -320px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-005{
+	background-position: -240px -320px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-006{
+	background-position: -320px -320px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-007{
+	background-position: -400px -320px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-008{
+	background-position: -480px -320px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-009{
+	background-position: -560px -320px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-010{
+	background-position: 0px -400px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-011{
+	background-position: -80px -400px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-012{
+	background-position: -160px -400px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-013{
+	background-position: -240px -400px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-014{
+	background-position: -320px -400px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-015{
+	background-position: -400px -400px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-016{
+	background-position: -480px -400px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-017{
+	background-position: -560px -400px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-018{
+	background-position: 0px -480px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-019{
+	background-position: -80px -480px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-020{
+	background-position: -160px -480px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-021{
+	background-position: -240px -480px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-022{
+	background-position: -320px -480px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-023{
+	background-position: -400px -480px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-024{
+	background-position: -480px -480px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-025{
+	background-position: -560px -480px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-026{
+	background-position: 0px -560px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-027{
+	background-position: -80px -560px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-028{
+	background-position: -160px -560px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-029{
+	background-position: -240px -560px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-030{
+	background-position: -320px -560px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-031{
+	background-position: -400px -560px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-032{
+	background-position: -480px -560px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-033{
+	background-position: -560px -560px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-034{
+	background-position: 0px -640px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-035{
+	background-position: -80px -640px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-036{
+	background-position: -160px -640px;
+}
+.uniform-param-panel .menu-icon-leaf.jycs-037{
+	background-position: -240px -640px;
+}
+
+
+/*图标：证券参数*/
+.uniform-param-panel .menu-icon-leaf.zqcs-002{
+	background-position: 0px -720px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-003{
+	background-position: -80px -720px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-004{
+	background-position: -160px -720px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-005{
+	background-position: -240px -720px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-006{
+	background-position: -320px -720px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-007{
+	background-position: -400px -720px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-008{
+	background-position: -480px -720px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-009{
+	background-position: -560px -720px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-010{
+	background-position: 0px -800px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-011{
+	background-position: -80px -800px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-012{
+	background-position: -160px -800px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-013{
+	background-position: -240px -800px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-014{
+	background-position: -320px -800px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-015{
+	background-position: -400px -800px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-016{
+	background-position: -480px -800px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-017{
+	background-position: -560px -800px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-018{
+	background-position: 0px -880px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-019{
+	background-position: -80px -880px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-020{
+	background-position: -160px -880px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-021{
+	background-position: -240px -880px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-022{
+	background-position: -320px -880px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-023{
+	background-position: -400px -880px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-024{
+	background-position: -480px -880px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-025{
+	background-position: -560px -880px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-026{
+	background-position: 0px -960px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-027{
+	background-position: -80px -960px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-028{
+	background-position: -160px -960px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-029{
+	background-position: -240px -960px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-030{
+	background-position: -320px -960px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-031{
+	background-position: -400px -960px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-032{
+	background-position: -480px -960px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-033{
+	background-position: -560px -960px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-034{
+	background-position: 0px -1040px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-035{
+	background-position: -80px -1040px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-036{
+	background-position: -160px -1040px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-037{
+	background-position: -240px -1040px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-038{
+	background-position: -320px -1040px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-039{
+	background-position: -400px -1040px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-040{
+	background-position: -480px -1040px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-041{
+	background-position: -560px -1040px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-042{
+	background-position: 0px -1120px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-043{
+	background-position: -80px -1120px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-044{
+	background-position: -160px -1120px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-045{
+	background-position: -240px -1120px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-046{
+	background-position: -320px -1120px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-047{
+	background-position: -400px -1120px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-048{
+	background-position: -480px -1120px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-049{
+	background-position: -560px -1120px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-050{
+	background-position: 0px -1200px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-051{
+	background-position: -80px -1200px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-052{
+	background-position: -160px -1200px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-053{
+	background-position: -240px -1200px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-054{
+	background-position: -320px -1200px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-055{
+	background-position: -400px -1200px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-056{
+	background-position: -480px -1200px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-057{
+	background-position: -560px -1200px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-058{
+	background-position: 0px -1280px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-059{
+	background-position: -80px -1280px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-060{
+	background-position: -160px -1280px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-061{
+	background-position: -240px -1280px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-062{
+	background-position: -320px -1280px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-063{
+	background-position: -400px -1280px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-064{
+	background-position: -480px -1280px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-065{
+	background-position: -560px -1280px;
+}
+.uniform-param-panel .menu-icon-leaf.zqcs-066{
+	background-position: 0px -1360px;
+}
+
+
+/*图标：银行参数*/
+.uniform-param-panel .menu-icon-leaf.yhcs-002{
+	background-position: 0px -1440px;
+}
+.uniform-param-panel .menu-icon-leaf.yhcs-003{
+	background-position: -80px -1440px;
+}
+
+
+/*图标：货币参数*/
+.uniform-param-panel .menu-icon-leaf.hbcs-002{
+	background-position: 0px -1520px;
+}
+.uniform-param-panel .menu-icon-leaf.hbcs-003{
+	background-position: -80px -1520px;
+}
+.uniform-param-panel .menu-icon-leaf.hbcs-004{
+	background-position: -160px -1520px;
+}
+
+
+/*图标：费用参数*/
+.uniform-param-panel .menu-icon-leaf.fycs-002{
+	background-position: 0px -1600px;
+}
+.uniform-param-panel .menu-icon-leaf.fycs-003{
+	background-position: -80px -1600px;
+}
+.uniform-param-panel .menu-icon-leaf.fycs-004{
+	background-position: -160px -1600px;
+}
+.uniform-param-panel .menu-icon-leaf.fycs-005{
+	background-position: -240px -1600px;
+}
+.uniform-param-panel .menu-icon-leaf.fycs-006{
+	background-position: -320px -1600px;
+}
+.uniform-param-panel .menu-icon-leaf.fycs-007{
+	background-position: -400px -1600px;
+}
+.uniform-param-panel .menu-icon-leaf.fycs-008{
+	background-position: -480px -1600px;
+}
+
+
+/*图标：机构参数*/
+.uniform-param-panel .menu-icon-leaf.jgcs-002{
+	background-position: 0px -1680px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-003{
+	background-position: -80px -1680px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-004{
+	background-position: -160px -1680px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-005{
+	background-position: -240px -1680px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-006{
+	background-position: -320px -1680px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-007{
+	background-position: -400px -1680px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-008{
+	background-position: -480px -1680px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-009{
+	background-position: -560px -1680px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-010{
+	background-position: 0px -1760px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-011{
+	background-position: -80px -1760px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-012{
+	background-position: -160px -1760px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-013{
+	background-position: -240px -1760px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-014{
+	background-position: -320px -1760px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-015{
+	background-position: -400px -1760px;
+}
+.uniform-param-panel .menu-icon-leaf.jgcs-016{
+	background-position: -480px -1760px;
+}
+
+
+/*图标：基金参数*/
+.uniform-param-panel .menu-icon-leaf.jjcs-002{
+	background-position: 0px -1840px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-003{
+	background-position: -80px -1840px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-004{
+	background-position: -160px -1840px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-005{
+	background-position: -240px -1840px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-006{
+	background-position: -320px -1840px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-007{
+	background-position: -400px -1840px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-008{
+	background-position: -480px -1840px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-009{
+	background-position: -560px -1840px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-010{
+	background-position: 0px -1920px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-011{
+	background-position: -80px -1920px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-012{
+	background-position: -160px -1920px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-013{
+	background-position: -240px -1920px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-014{
+	background-position: -320px -1920px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-015{
+	background-position: -400px -1920px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-016{
+	background-position: -480px -1920px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-017{
+	background-position: -560px -1920px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-018{
+	background-position: 0px -2000px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-019{
+	background-position: -80px -2000px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-020{
+	background-position: -160px -2000px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-021{
+	background-position: -240px -2000px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-022{
+	background-position: -320px -2000px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-023{
+	background-position: -400px -2000px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-024{
+	background-position: -480px -2000px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-025{
+	background-position: -560px -2000px;
+}
+.uniform-param-panel .menu-icon-leaf.jjcs-026{
+	background-position: 0px -2080px;
+}
+
+
+/*图标：代理登记参数*/
+.uniform-param-panel .menu-icon-leaf.dldjcs-002{
+	background-position: 0px -2160px;
+}
+.uniform-param-panel .menu-icon-leaf.dldjcs-003{
+	background-position: -80px -2160px;
+}
+.uniform-param-panel .menu-icon-leaf.dldjcs-004{
+	background-position: -160px -2160px;
+}
+.uniform-param-panel .menu-icon-leaf.dldjcs-005{
+	background-position: -240px -2160px;
+}
+.uniform-param-panel .menu-icon-leaf.dldjcs-006{
+	background-position: -320px -2160px;
+}
+.uniform-param-panel .menu-icon-leaf.dldjcs-007{
+	background-position: -400px -2160px;
+}
+.uniform-param-panel .menu-icon-leaf.dldjcs-008{
+	background-position: -480px -2160px;
+}
+
+
+/*图标：中登参数*/
+.uniform-param-panel .menu-icon-leaf.zdcs-002{
+	background-position: 0px -2240px;
+}
+.uniform-param-panel .menu-icon-leaf.zdcs-003{
+	background-position: -80px -2240px;
+}
+.uniform-param-panel .menu-icon-leaf.zdcs-004{
+	background-position: -160px -2240px;
+}
+.uniform-param-panel .menu-icon-leaf.zdcs-005{
+	background-position: -240px -2240px;
+}
+.uniform-param-panel .menu-icon-leaf.zdcs-006{
+	background-position: -320px -2240px;
+}
+.uniform-param-panel .menu-icon-leaf.zdcs-007{
+	background-position: -400px -2240px;
+}
+.uniform-param-panel .menu-icon-leaf.zdcs-008{
+	background-position: -480px -2240px;
+}
+.uniform-param-panel .menu-icon-leaf.zdcs-009{
+	background-position: -560px -2240px;
+}
+
+
+/*图标：影像参数*/
+.uniform-param-panel .menu-icon-leaf.yxcs-002{
+	background-position: 0px -2320px;
+}
+.uniform-param-panel .menu-icon-leaf.yxcs-003{
+	background-position: -80px -2320px;
+}
+.uniform-param-panel .menu-icon-leaf.yxcs-004{
+	background-position: -160px -2320px;
+}
+.uniform-param-panel .menu-icon-leaf.yxcs-005{
+	background-position: -240px -2320px;
+}
+.uniform-param-panel .menu-icon-leaf.yxcs-006{
+	background-position: -320px -2320px;
+}
+.uniform-param-panel .menu-icon-leaf.yxcs-007{
+	background-position: -400px -2320px;
+}
+.uniform-param-panel .menu-icon-leaf.yxcs-008{
+	background-position: -480px -2320px;
+}
+.uniform-param-panel .menu-icon-leaf.yxcs-009{
+	background-position: -560px -2320px;
+}
+.uniform-param-panel .menu-icon-leaf.yxcs-010{
+	background-position: 0px -2400px;
+}
+
+
+/*图标：风险调查参数*/
+.uniform-param-panel .menu-icon-leaf.fxdccs-002{
+	background-position: 0px -2480px;
+}
+.uniform-param-panel .menu-icon-leaf.fxdccs-003{
+	background-position: -80px -2480px;
+}
+.uniform-param-panel .menu-icon-leaf.fxdccs-004{
+	background-position: -160px -2480px;
+}
+.uniform-param-panel .menu-icon-leaf.fxdccs-005{
+	background-position: -240px -2480px;
+}
+.uniform-param-panel .menu-icon-leaf.fxdccs-006{
+	background-position: -320px -2480px;
+}
+.uniform-param-panel .menu-icon-leaf.fxdccs-007{
+	background-position: -400px -2480px;
+}
+.uniform-param-panel .menu-icon-leaf.fxdccs-008{
+	background-position: -4860px -2480px;
+}
+.uniform-param-panel .menu-icon-leaf.fxdccs-009{
+	background-position: -560px -2480px;
+}
+
+
+/*图标：VIP参数*/
+.uniform-param-panel .menu-icon-leaf.vipcs-002{
+	background-position: 0px -2560px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-003{
+	background-position: -80px -2560px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-004{
+	background-position: -160px -2560px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-005{
+	background-position: -240px -2560px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-006{
+	background-position: -320px -2560px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-007{
+	background-position: -400px -2560px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-008{
+	background-position: -480px -2560px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-009{
+	background-position: -560px -2560px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-010{
+	background-position: 0px -2640px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-011{
+	background-position: -80px -2640px;
+}
+.uniform-param-panel .menu-icon-leaf.vipcs-012{
+	background-position: -160px -2640px;
+}
+
+
+/*图标：序号参数*/
+.uniform-param-panel .menu-icon-leaf.xhcs-002{
+	background-position: 0px -2720px;
+}
+.uniform-param-panel .menu-icon-leaf.xhcs-003{
+	background-position: -80px -2720px;
+}
+.uniform-param-panel .menu-icon-leaf.xhcs-004{
+	background-position: -160px -2720px;
+}
+.uniform-param-panel .menu-icon-leaf.xhcs-005{
+	background-position: -240px -2720px;
+}
+.uniform-param-panel .menu-icon-leaf.xhcs-006{
+	background-position: -320px -2720px;
+}
+.uniform-param-panel .menu-icon-leaf.xhcs-007{
+	background-position: -400px -2720px;
+}
+.uniform-param-panel .menu-icon-leaf.xhcs-008{
+	background-position: -480px -2720px;
+}
+
+/*图标：协议参数*/
+.uniform-param-panel .menu-icon-leaf.xycs-002{
+	background-position: 0px -2800px;
+}
+.uniform-param-panel .menu-icon-leaf.xycs-003{
+	background-position: -80px -2800px;
+}
+.uniform-param-panel .menu-icon-leaf.xycs-004{
+	background-position: -160px -2800px;
+}
+
+
+/*图标：密码参数*/
+.uniform-param-panel .menu-icon-leaf.mmcs-002{
+	background-position: 0px -2880px;
+}
+.uniform-param-panel .menu-icon-leaf.mmcs-003{
+	background-position: -80px -2880px;
+}
+.uniform-param-panel .menu-icon-leaf.mmcs-004{
+	background-position: -160px -2880px;
+}
+
+
+/*图标：复核参数*/
+.uniform-param-panel .menu-icon-leaf.fhcs-002{
+	background-position: 0px -2960px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-003{
+	background-position: -80px -2960px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-004{
+	background-position: -160px -2960px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-005{
+	background-position: -240px -2960px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-006{
+	background-position: -320px -2960px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-007{
+	background-position: -400px -2960px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-008{
+	background-position: -480px -2960px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-009{
+	background-position: -560px -2960px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-010{
+	background-position: 0px -3040px;
+}
+.uniform-param-panel .menu-icon-leaf.fhcs-011{
+	background-position: -80px -3040px;
+}
+
+
+/*图标：股转非交易参数*/
+.uniform-param-panel .menu-icon-leaf.gzfjycs-002{
+	background-position: 0px -3120px;
+}
+.uniform-param-panel .menu-icon-leaf.gzfjycs-003{
+	background-position: -80px -3120px;
+}
+
+
+/*图标：快速交易参数*/
+.uniform-param-panel .menu-icon-leaf.ksjycs-002{
+	background-position: 0px -3200px;
+}
+.uniform-param-panel .menu-icon-leaf.ksjycs-003{
+	background-position: -80px -3200px;
+}
+.uniform-param-panel .menu-icon-leaf.ksjycs-004{
+	background-position: -160px -3200px;
+}
+.uniform-param-panel .menu-icon-leaf.ksjycs-005{
+	background-position: -240px -3200px;
+}
+.uniform-param-panel .menu-icon-leaf.ksjycs-006{
+	background-position: -320px -3200px;
+}
+
+
+/*图标：外部系统参数*/
+.uniform-param-panel .menu-icon-leaf.wbxtcs-002{
+	background-position: 0px -3280px;
+}
+.uniform-param-panel .menu-icon-leaf.wbxtcs-003{
+	background-position: -80px -3280px;
+}
+.uniform-param-panel .menu-icon-leaf.wbxtcs-004{
+	background-position: -160px -3280px;
+}
+
+
+/*图标：营业部通用设置*/
+.uniform-param-panel .menu-icon-leaf.yybtysz-002{
+	background-position: 0px -3360px;
+}
+.uniform-param-panel .menu-icon-leaf.yybtysz-003{
+	background-position: -80px -3360px;
+}
+.uniform-param-panel .menu-icon-leaf.yybtysz-004{
+	background-position: -160px -3360px;
+}
+.uniform-param-panel .menu-icon-leaf.yybtysz-005{
+	background-position: -240px -3360px;
+}
+.uniform-param-panel .menu-icon-leaf.yybtysz-006{
+	background-position: -320px -3360px;
+}
+.uniform-param-panel .menu-icon-leaf.yybtysz-007{
+	background-position: -400px -3360px;
+}
+.uniform-param-panel .menu-icon-leaf.yybtysz-008{
+	background-position: -480px -3360px;
+}
+
+
+/*图标：营业部银行设置*/
+.uniform-param-panel .menu-icon-leaf.yybyhsz-002{
+	background-position: 0px -3440px;
+}
+.uniform-param-panel .menu-icon-leaf.yybyhsz-003{
+	background-position: -80px -3440px;
+}
+.uniform-param-panel .menu-icon-leaf.yybyhsz-004{
+	background-position: -160px -3440px;
+}
+.uniform-param-panel .menu-icon-leaf.yybyhsz-005{
+	background-position: -240px -3440px;
+}
+
+
+/*图标：营业部费用设置*/
+.uniform-param-panel .menu-icon-leaf.yybfysz-002{
+	background-position: 0px -3520px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-003{
+	background-position: -80px -3520px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-004{
+	background-position: -160px -3520px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-005{
+	background-position: -240px -3520px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-006{
+	background-position: -320px -3520px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-007{
+	background-position: -400px -3520px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-008{
+	background-position: -480px -3520px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-009{
+	background-position: -560px -3520px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-010{
+	background-position: 0px -3600px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-011{
+	background-position: -80px -3600px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-012{
+	background-position: -160px -3600px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-013{
+	background-position: -240px -3600px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-014{
+	background-position: -320px -3600px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-015{
+	background-position: -400px -3600px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-016{
+	background-position: -480px -3600px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-017{
+	background-position: -560px -3600px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-018{
+	background-position: 0px -3680px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-019{
+	background-position: -80px -3680px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-020{
+	background-position: -160px -3680px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-021{
+	background-position: -240px -3680px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-022{
+	background-position: -320px -3680px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-023{
+	background-position: -400px -3680px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-024{
+	background-position: -480px -3680px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-025{
+	background-position: -560px -3680px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-026{
+	background-position: 0px -3760px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-027{
+	background-position: -80px -3760px;
+}
+.uniform-param-panel .menu-icon-leaf.yybfysz-028{
+	background-position: -160px -3760px;
+}
+
+/*图标：营业部开户模板*/
+.uniform-param-panel .menu-icon-leaf.yybkhmb-002{
+	background-position: 0px -3840px;
+}
+.uniform-param-panel .menu-icon-leaf.yybkhmb-003{
+	background-position: -80px -3840px;
+}
+
+/*图标：开放式基金折扣设置*/
+.uniform-param-panel .menu-icon-leaf.kfsjjzksz-002{
+	background-position: 0px -3920px;
+}
+.uniform-param-panel .menu-icon-leaf.kfsjjzksz-003{
+	background-position: -80px -3920px;
+}
+
+
+/*图标：营业部指纹设置*/
+.uniform-param-panel .menu-icon-leaf.yybzwsz-002{
+	background-position: 0px -4000px;
+}
+
+/*图标：营业通用功能*/
+.uniform-param-panel .menu-icon-leaf.yybtygn-002{
+	background-position: 0px -4080px;
+}
+
+
+/*图标：员工与权限*/
+.uniform-param-panel .menu-icon-leaf.ygyqx-002{
+	background-position: 0px -4160px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-003{
+	background-position: -80px -4160px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-004{
+	background-position: -160px -4160px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-005{
+	background-position: -240px -4160px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-006{
+	background-position: -320px -4160px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-007{
+	background-position: -400px -4160px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-008{
+	background-position: -480px -4160px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-009{
+	background-position: -560px -4160px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-010{
+	background-position: 0px -4240px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-011{
+	background-position: -80px -4240px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-012{
+	background-position: -160px -4240px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-013{
+	background-position: -240px -4240px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-014{
+	background-position: -320px -4240px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-015{
+	background-position: -400px -4240px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-016{
+	background-position: -480px -4240px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-017{
+	background-position: -560px -4240px;
+}
+
+/*图标：报表打印-资金清算报表*/
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-002{
+	background-position: 0px -4320px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-003{
+	background-position: -80px -4320px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-004{
+	background-position: -160px -4320px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-005{
+	background-position: -240px -4320px;
+}
+
+/*图标：报表打印-证券交易报表打印*/
+.uniform-param-panel .menu-icon-leaf.bbdy-zqjy-002{
+	background-position: 0px -4400px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-003{
+	background-position: -80px -4400px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-004{
+	background-position: -160px -4400px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-005{
+	background-position: -240px -4400px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-006{
+	background-position: -320px -4400px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-007{
+	background-position: -400px -4400px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-008{
+	background-position: -480px -4400px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-zjqs-009{
+	background-position: -560px -4400px;
+}
+
+/*图标：报表打印-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.bbdy-002{
+	background-position: 0px -4480px;
+}
+
+/*图标：股份管理-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.gfgl-002{
+	background-position: 0px -4560px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-003{
+	background-position: -80px -4560px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-004{
+	background-position: -160px -4560px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-005{
+	background-position: -240px -4560px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-006{
+	background-position: -320px -4560px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-007{
+	background-position: -400px -4560px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-008{
+	background-position: -480px -4560px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-009{
+	background-position: -560px -4560px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-010{
+	background-position: 0px -4640px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-011{
+	background-position: -80px -4640px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-012{
+	background-position: -160px -4640px;
+}
+
+/*图标：股份管理-自主行权*/
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-002{
+	background-position: 0px -4720px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-003{
+	background-position: -80px -4720px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-004{
+	background-position: -160px -4720px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-005{
+	background-position: -240px -4720px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-006{
+	background-position: -320px -4720px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-007{
+	background-position: -400px -4720px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-008{
+	background-position: -480px -4720px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-009{
+	background-position: -560px -4720px;
+}
+.uniform-param-panel .menu-icon-leaf.gfgl-zzxq-010{
+	background-position: 0px -4800px;
+}
+
+/*图标：综合查询-日间备付金查询*/
+.uniform-param-panel .menu-icon-leaf.zhcx-rjbfj-002{
+	background-position: 0px -4880px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-rjbfj-003{
+	background-position: -80px -4880px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-rjbfj-004{
+	background-position: -160px -4880px;
+}
+
+/*图标：综合查询-操作日志查询*/
+.uniform-param-panel .menu-icon-leaf.zhcx-czrz-002{
+	background-position: 0px -4960px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-czrz-003{
+	background-position: -80px -4960px;
+}
+
+/*图标：综合查询-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.zhcx-002{
+	background-position: 0px -5040px;
+}
+
+/*图标：综合查询-资金综合查询*/
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-002{
+	background-position: 0px -5120px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-003{
+	background-position: -80px -5120px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-004{
+	background-position: -160px -5120px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-005{
+	background-position: -240px -5120px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-006{
+	background-position: -320px -5120px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-007{
+	background-position: -400px -5120px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-008{
+	background-position: -480px -5120px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-009{
+	background-position: -560px -5120px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-010{
+	background-position: 0px -5200px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-011{
+	background-position: -80px -5200px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-012{
+	background-position: -160px -5200px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-zjzh-013{
+	background-position: -240px -5200px;
+}
+
+/*图标：资金管理-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.zjgl-002{
+	background-position: 0px -5280px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-003{
+	background-position: -80px -5280px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-004{
+	background-position: -160px -5280px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-005{
+	background-position: -240px -5280px;
+}
+
+/*图标：资金管理-红利所得税扣调*/
+.uniform-param-panel .menu-icon-leaf.zjgl-hlsds-002{
+	background-position: 0px -5360px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-hlsds-003{
+	background-position: -80px -5360px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-hlsds-004{
+	background-position: -160px -5360px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-hlsds-005{
+	background-position: -240px -5360px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-hlsds-006{
+	background-position: -320px -5360px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-hlsds-007{
+	background-position: -400px -5360px;
+}
+.uniform-param-panel .menu-icon-leaf.zjgl-hlsds-008{
+	background-position: -480px -5360px;
+}
+
+/*图标：股东管理-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.gdgl-002{
+	background-position: 0px -5440px;
+}
+.uniform-param-panel .menu-icon-leaf.gdgl-003{
+	background-position: -80px -5440px;
+}
+.uniform-param-panel .menu-icon-leaf.gdgl-004{
+	background-position: -160px -5440px;
+}
+.uniform-param-panel .menu-icon-leaf.gdgl-005{
+	background-position: -240px -5440px;
+}
+.uniform-param-panel .menu-icon-leaf.gdgl-006{
+	background-position: -320px -5440px;
+}
+.uniform-param-panel .menu-icon-leaf.gdgl-007{
+	background-position: -400px -5440px;
+}
+
+/*图标：员工权限-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.ygyqx-018{
+	background-position: 0px -5520px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-019{
+	background-position: -80px -5520px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-020{
+	background-position: -160px -5520px;
+}
+.uniform-param-panel .menu-icon-leaf.ygyqx-021{
+	background-position: -240px -5520px;
+}
+
+/*图标：流程管理-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.lcgl-002{
+	background-position: 0px -5600px;
+}
+.uniform-param-panel .menu-icon-leaf.lcgl-003{
+	background-position: -80px -5600px;
+}
+
+/*图标：影像管理-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.yxgl-002{
+	background-position: 0px -5680px;
+}
+.uniform-param-panel .menu-icon-leaf.yxgl-003{
+	background-position: -80px -5680px;
+}
+.uniform-param-panel .menu-icon-leaf.yxgl-004{
+	background-position: -160px -5680px;
+}
+
+/*图标：业务管理-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.ywgl-002{
+	background-position: 0px -5760px;
+}
+.uniform-param-panel .menu-icon-leaf.ywgl-003{
+	background-position: -80px -5760px;
+}
+.uniform-param-panel .menu-icon-leaf.ywgl-004{
+	background-position: -160px -5760px;
+}
+.uniform-param-panel .menu-icon-leaf.ywgl-005{
+	background-position: -240px -5760px;
+}
+.uniform-param-panel .menu-icon-leaf.ywgl-006{
+	background-position: -320px -5760px;
+}
+.uniform-param-panel .menu-icon-leaf.ywgl-007{
+	background-position: -400px -5760px;
+}
+
+/*图标：统一参数-证券参数-约定购回参数设置*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ydgh-002{
+	background-position: 0px -5840px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ydgh-003{
+	background-position: -80px -5840px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ydgh-004{
+	background-position: -160px -5840px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ydgh-005{
+	background-position: -240px -5840px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ydgh-006{
+	background-position: -320px -5840px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ydgh-007{
+	background-position: -400px -5840px;
+}
+
+/*图标：统一参数-证券参数-质押协议回购参数维护*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zyxyhg-002{
+	background-position: 0px -5920px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zyxyhg-003{
+	background-position: -80px -5920px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zyxyhg-004{
+	background-position: -160px -5920px;
+}
+
+/*图标：统一参数-证券参数-港股通参数维护*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ggtcs-002{
+	background-position: 0px -6000px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ggtcs-003{
+	background-position: -80px -6000px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ggtcs-004{
+	background-position: -160px -6000px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-ggtcs-005{
+	background-position: -240px -6000px;
+}
+
+/*图标：统一参数-证券参数-交易参数维护*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-002{
+	background-position: 0px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-003{
+	background-position: -80px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-004{
+	background-position: -160px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-005{
+	background-position: -240px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-006{
+	background-position: -320px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-007{
+	background-position: -400px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-008{
+	background-position: -480px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-009{
+	background-position: -560px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-010{
+	background-position: 0px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-011{
+	background-position: -80px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-012{
+	background-position: -160px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-013{
+	background-position: -240px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-014{
+	background-position: -320px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-015{
+	background-position: -400px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-016{
+	background-position: -480px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-017{
+	background-position: -560px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-018{
+	background-position: 0px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-019{
+	background-position: -80px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-020{
+	background-position: -160px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-021{
+	background-position: -240px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-022{
+	background-position: -320px -6080px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jycs-023{
+	background-position: -400px -6080px;
+}
+
+/*图标：统一参数-证券参数-交易接口设置*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jyjk-002{
+	background-position: 0px -6160px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jyjk-003{
+	background-position: -80px -6160px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-jyjk-004{
+	background-position: -160px -6160px;
+}
+
+/*图标：统一参数-证券参数-证券交易费用维护*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-002{
+	background-position: 0px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-003{
+	background-position: -80px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-004{
+	background-position: -160px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-005{
+	background-position: -240px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-006{
+	background-position: -320px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-007{
+	background-position: -400px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-008{
+	background-position: -480px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-009{
+	background-position: -560px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-010{
+	background-position: 0px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-011{
+	background-position: -80px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-012{
+	background-position: -160px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-013{
+	background-position: -240px -6240px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-zqjyfy-014{
+	background-position: -320px -6240px;
+}
+
+/*图标：统一参数-证券参数-报价回购参数设置*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-bjhgcs-002{
+	background-position: 0px -6320px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-bjhgcs-003{
+	background-position: -80px -6320px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-bjhgcs-004{
+	background-position: -160px -6320px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-bjhgcs-005{
+	background-position: -240px -6320px;
+}
+
+/*图标：统一参数-证券参数-股票质押式回购参数设置（图标未做）*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gpzyshg-002{
+	background-position: 0px -6400px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gpzyshg-003{
+	background-position: -80px -6400px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gpzyshg-004{
+	background-position: -160px -6400px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gpzyshg-005{
+	background-position: -240px -6400px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gpzyshg-006{
+	background-position: -320px -6400px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gpzyshg-007{
+	background-position: -400px -6400px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gpzyshg-008{
+	background-position: -480px -6400px;
+}
+
+/*图标：统一参数-证券参数-国债预发行参数维护（图标未做）*/
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gzyfx-002{
+	background-position: 0px -6480px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gzyfx-003{
+	background-position: -80px -6480px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gzyfx-004{
+	background-position: -160px -6480px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-zqcs-gzyfx-005{
+	background-position: -240px -6480px;
+}
+
+/*图标：统一参数-银证参数-参数设置*/
+.uniform-param-panel .menu-icon-leaf.tycs-yzcs-cssz-002{
+	background-position: 0px -6560px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-yzcs-cssz-003{
+	background-position: -80px -6560px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-yzcs-cssz-004{
+	background-position: -160px -6560px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-yzcs-cssz-005{
+	background-position: -240px -6560px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-yzcs-cssz-006{
+	background-position: -320px -6560px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-yzcs-cssz-007{
+	background-position: -400px -6560px;
+}
+
+/*图标：统一参数-货币参数-无文件夹*/
+.uniform-param-panel .menu-icon-leaf.tycs-hbcs-002{
+	background-position: 0px -6640px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-hbcs-003{
+	background-position: -80px -6640px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-hbcs-004{
+	background-position: -160px -6640px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-hbcs-005{
+	background-position: -240px -6640px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-hbcs-006{
+	background-position: -320px -6640px;
+}
+
+/*图标：统一参数-系统维护-财务核算设置*/
+.uniform-param-panel .menu-icon-leaf.tycs-xtwh-cwhs-002{
+	background-position: 0px -6720px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-xtwh-cwhs-003{
+	background-position: -80px -6720px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-xtwh-cwhs-004{
+	background-position: -160px -6720px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-xtwh-cwhs-005{
+	background-position: -240px -6720px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-xtwh-cwhs-006{
+	background-position: -320px -6720px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-xtwh-cwhs-007{
+	background-position: -400px -6720px;
+}
+.uniform-param-panel .menu-icon-leaf.tycs-xtwh-cwhs-008{
+	background-position: -480px -6720px;
+}
+
+/*图标：报表打印-财务报表与接口*/
+.uniform-param-panel .menu-icon-leaf.bbdy-cwbb-002{
+	background-position: 0px -6800px;
+}
+
+/*图标：报表打印-查询汇总数据*/
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-002{
+	background-position: 0px -6880px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-003{
+	background-position: -80px -6880px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-004{
+	background-position: -160px -6880px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-005{
+	background-position: -240px -6880px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-006{
+	background-position: -320px -6880px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-007{
+	background-position: -400px -6880px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-008{
+	background-position: -480px -6880px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-009{
+	background-position: -560px -6880px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-cxhz-010{
+	background-position: 0px -6960px;
+}
+
+/*图标：报表打印-凭证生成*/
+.uniform-param-panel .menu-icon-leaf.bbdy-pzsc-002{
+	background-position: 0px -7040px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-pzsc-003{
+	background-position: -80px -7040px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-pzsc-004{
+	background-position: -160px -7040px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-pzsc-005{
+	background-position: -240px -7040px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-pzsc-006{
+	background-position: -320px -7040px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-pzsc-007{
+	background-position: -400px -7040px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-pzsc-008{
+	background-position: -480px -7040px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-pzsc-009{
+	background-position: -560px -7040px;
+}
+
+/*图标：报表打印-报价回购报表查询*/
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-002{
+	background-position: 0px -7120px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-003{
+	background-position: -80px -7120px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-004{
+	background-position: -160px -7120px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-005{
+	background-position: -240px -7120px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-006{
+	background-position: -320px -7120px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-007{
+	background-position: -400px -7120px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-008{
+	background-position: -480px -7120px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-009{
+	background-position: -560px -7120px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-010{
+	background-position: 0px -7200px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-011{
+	background-position: -80px -7200px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-012{
+	background-position: -160px -7200px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-013{
+	background-position: -240px -7200px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-014{
+	background-position: -320px -7200px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-015{
+	background-position: -400px -7200px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-016{
+	background-position: -480px -7200px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-017{
+	background-position: -560px -7200px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-018{
+	background-position: 0px -7280px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-bjhg-019{
+	background-position: -80px -7280px;
+}
+
+/*图标：报表打印-约定购回报表查询*/
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-002{
+	background-position: 0px -7360px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-003{
+	background-position: -80px -7360px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-004{
+	background-position: -160px -7360px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-005{
+	background-position: -240px -7360px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-006{
+	background-position: -320px -7360px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-007{
+	background-position: -400px -7360px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-008{
+	background-position: -480px -7360px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-009{
+	background-position: -560px -7360px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-010{
+	background-position: 0px -7440px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-011{
+	background-position: -80px -7440px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-ydgh-012{
+	background-position: -160px -7440px;
+}
+
+/*图标：报表打印-股票质押回购报表查询*/
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-002{
+	background-position: 0px -7520px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-003{
+	background-position: -80px -7520px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-004{
+	background-position: -160px -7520px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-005{
+	background-position: -240px -7520px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-006{
+	background-position: -320px -7520px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-007{
+	background-position: -400px -7520px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-008{
+	background-position: -480px -7520px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-009{
+	background-position: -560px -7520px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-010{
+	background-position: 0px -7600px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-011{
+	background-position: -80px -7600px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gpzyhg-012{
+	background-position: -160px -7600px;
+}
+
+/*图标：报表打印-国债预发行报表查询*/
+.uniform-param-panel .menu-icon-leaf.bbdy-gzyfx-002{
+	background-position: 0px -7680px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gzyfx-003{
+	background-position: -80px -7680px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gzyfx-004{
+	background-position: -160px -7680px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gzyfx-005{
+	background-position: -240px -7680px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gzyfx-006{
+	background-position: -320px -7680px;
+}
+.uniform-param-panel .menu-icon-leaf.bbdy-gzyfx-007{
+	background-position: -400px -7680px;
+}
+
+/*图标：综合查询-非交易业务查询*/
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-002{
+	background-position: 0px -7760px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-003{
+	background-position: -80px -7760px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-004{
+	background-position: -160px -7760px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-005{
+	background-position: -240px -7760px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-006{
+	background-position: -320px -7760px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-007{
+	background-position: -400px -7760px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-008{
+	background-position: -480px -7760px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-009{
+	background-position: -560px -7760px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-010{
+	background-position: 0px -7840px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-fjyyw-011{
+	background-position: -80px -7840px;
+}
+
+/*图标：综合查询-股份查询*/
+.uniform-param-panel .menu-icon-leaf.zhcx-gfcx-002{
+	background-position: 0px -7920px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-gfcx-003{
+	background-position: -80px -7920px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-gfcx-004{
+	background-position: -160px -7920px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-gfcx-005{
+	background-position: -240px -7920px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-gfcx-006{
+	background-position: -320px -7920px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-gfcx-007{
+	background-position: -400px -7920px;
+}
+.uniform-param-panel .menu-icon-leaf.zhcx-gfcx-008{
+	background-position: -480px -7920px;
+}

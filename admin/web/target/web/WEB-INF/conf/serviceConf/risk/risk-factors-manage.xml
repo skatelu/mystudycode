@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+<!--因子列表查询 -->
+	<service service_code="FACT00001" service_name="因子列表查询"
+		ticket_check="0">
+		<businesses>
+			<service_business
+				business_code="QueryRiskFactorsManage" business_type="1" />
+		</businesses>
+	</service>
+	<!--因子列表修改 -->
+	<service service_code="FACT00002" service_name="因子列表修改"
+		ticket_check="0">
+		<businesses>
+			<service_business
+				business_code="UpdateRiskFactors" business_type="1" />
+		</businesses>
+	</service>
+<!-- 因子分类管理左侧树 -->
+	<!-- <service service_code="FAC0001" service_name="因子分类管理左侧树"
+		ticket_check="0">
+		<businesses>
+			<service_business
+				business_code="RiskFactorsManageLeftTree1" business_type="1" />
+		</businesses>
+	</service>
+	<service service_code="FAC0002" service_name="因子分类管理左侧树"
+		ticket_check="0">
+		<businesses>
+			<service_business
+				business_code="RiskFactorsManageLeftTree2" business_type="1" />
+		</businesses>
+	</service>
+	<service service_code="FAC0003" service_name="因子分类管理左侧树"
+		ticket_check="0">
+		<businesses>
+			<service_business
+				business_code="RiskFactorsManageLeftTree3" business_type="1" />
+		</businesses>
+	</service> -->
+</services>

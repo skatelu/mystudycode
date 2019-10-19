@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="KJDP_UPM_DICTIONARY" render="datagrid" title="系统数据字典" data-main="kjdp/manager/src/sys-manage">
+        <conf req="[{'service':'P0000025'}]" onSelect="btnControlCommonDict" border="false" fit="true" showTime="false"/>
+        <qry_item field="DICT_CODE" title="字典代码" type="input" edt_validType="val[1,32]"/>
+        <qry_item field="DICT_NAME" title="字典名称" type="input" edt_validType="val[1,64]"/>
+        <qry_item field="DICT_ITEM_NAME" title="字典项名称" type="input" edt_validType="val[1,64]"/>
+        <btn_item text="新增" service="P0000014" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000015" iconCls="icon-edit" handler="commonModify"/>
+        <btn_item text="删除" service="P0000016" iconCls="icon-remove" handler="commonDelete"/>
+        <btn_item text="刷新缓存" title="刷新字典缓存" handler="refreshDictCache" iconCls="icon-reload" />
+
+        <col_item field="DICT_CODE" title="字典代码" width="120" type="input" primary_key="1" edit_flag="1" edt_required="true" edt_validType="val[1,32]"/>
+        <col_item field="DICT_NAME" title="字典名称" width="170" type="input" edt_required="true" edt_validType="val[1,64]"/>
+        <col_item field="MAINTAIN_FLAG" title="维护标志" width="100" type="combobox" edit_flag="1" edt_dict="MAINTAIN_FLAG" edt_required="true" edt_autoFill="false" edt_multiple="true" edt_loadFilter="!@" edt_atIsAll="true"/>
+        <col_item field="DICT_TYPE" title="字典类型" width="100" type="combobox" edt_required="true" edt_dict="DICT_TYPE" edt_autoFill="false" edt_textField="dict_val,dict_des"/>
+    </view>
+
+    <view id="KJDP_UPM_DICTITEMS" title="字典项管理" render="datagrid">
+        <conf service="P0000017" colNumbers="2" required="true" fit="true" showTime="false"/>
+        <btn_item text="新增" service="P0000018" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000019" iconCls="icon-edit" handler="commonModify"/>
+        <btn_item text="删除" service="P0000020" iconCls="icon-remove" handler="commonDelete"/>     
+        <col_item field="ORG_CODE" title="机构代码" type="input" hidden="true" edt_defaultValue="0000" />
+        <col_item field="DICT_CODE" title="字典代码" width="120" type="input" listHidden="true" edit_flag="2" edt_required="true" edt_validType="val[1,32]"/>
+        <col_item field="DICT_ITEM" title="字典项" width="100" type="input" edt_required="true" edit_flag="1" edt_validType="length[1,32]"/>
+        <col_item field="DICT_ITEM_NAME" title="字典项名称" width="200" type="input" edt_validType="length[1,100]" edt_required="true"/>
+        <col_item field="DICT_ORD" title="取值顺序" width="120" sortType="number" type="input" edt_validType="num[0,4]"/>
+    </view>
+
+    <view id="KJDP_UPM_SYSPARAM" render="datagrid" title="公共参数设置" data-main="kjdp/manager/src/sys-manage">
+        <conf service="P0000021" colNumbers="4"  fit="true" showRowDetail="true" gridMenu="restoreDefault,freezeColumns,hideColumns,hideCols,fileExport,printReport" exportTypes="['xls', 'dbf', 'pdf', 'csv','txt']" />
+        <qry_item field="PAR_CODE" title="参数代码" type="input" edt_validType="length[1,32]"/>
+        <qry_item field="PAR_NAME" title="参数名称" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="DATA_TYPE" title="参数类型" type="combobox" edt_dict="DATA_TYPE"/>
+        <btn_item text="新增" service="P0000022" title="系统参数新增" handler="commonAdd" iconCls="icon-add" panelHeight="400"/>
+        <btn_item text="修改" service="P0000023" title="系统参数修改" handler="commonModify" iconCls="icon-edit" panelHeight="400"/>
+        <btn_item text="删除" service="P0000024" title="系统参数删除" handler="commonDelete" iconCls="icon-remove"/>
+        <btn_item text="刷新缓存" title="刷新缓存" handler="refreshSysParamCache" iconCls="icon-reload" />
+        <col_item field="PAR_CODE"       title="参数代码"   width="150" type="input" edit_flag="1" edt_required="true"  edt_width="350" colspan="4"/>
+        <col_item field="PAR_NAME"       title="参数名称"   width="180" type="input" edt_required="true"  edt_width="350" colspan="4"/>
+        <col_item field="PAR_VAL"        title="参数值"     width="100"  type="input" edt_required="true" edt_validType="length[1,128]" edt_width="350" colspan="4"/>
+        <col_item field="DATA_TYPE"      title="数据类型"   width="100"  type="combobox" edit_flag="1" edt_dict="DATA_TYPE" edt_required="true"/>
+        <col_item field="MAINTAIN_FLAG"  title="参数状态"   width="100"  type="combobox" edit_flag="1" edt_dict="MAINTAIN_FLAG" edt_textField="dict_val,dict_des" edt_required="true"/>
+        <col_item field="REMARK"         title="参数说明"   width="120" type="textarea" edt_width="350" edt_height="100"  colspan="4"/>
+    </view>
+
+    <view id="KJDP_SYS_MENU" render="form" title="系统菜单信息">
+        <conf colNumbers="2"/>
+        <col_item field="MENU_ID" title="菜单编号" type="input" width="150" edt_required="true" edt_validType="val[8,8]" edt_maxLength="8"/>
+        <col_item field="MENU_NAME" title="菜单名称" type="input" width="150" edt_required="true"  />
+        <col_item field="PAR_MENU" title="父菜单编号" type="input" width="150" edit_flag="3"/>
+        <col_item field="MENU_LVL" title="菜单级别" width="150" type="input" edit_flag="3"/>
+        <col_item field="MENU_ICON" title="菜单图标" type="input" width="150" edt_validType="val[1,128]"/>
+        <col_item field="MENU_STA" title="是否启用" type="combobox" width="150" edt_dict="YES_NO" edt_required="true" edt_autoFill="false" edt_defaultValue="1"/>
+        <col_item field="MENU_LINK" title="菜单链接" type="input" edt_width="343" edt_validType="length[1,1024]" colspan="4"/>
+    </view>
+
+    <view id="KJDP_UPM_SYSTEM" title="系统设置" render="datagrid" data-main="kjdp/manager/src/sys-manage">
+        <conf service="P0000009" pageSize="20" colNumbers="5" pagination="false" fit="true" panelWidth="400"/>
+
+        <qry_item field="SYS_CODE" title="系统代码"  type="input"  width="150" edt_validType='val[1,16]'/>
+        <qry_item field="SYS_NAME" title="系统名称"  type="input" width="150" edt_validType="val[1,64]"/>
+        <qry_item field="SYS_STATUS" title="系统状态" type="combobox" width="80" edt_dict="SYS_STATUS" edt_textField="dict_val,dict_des" edt_defaultValue="0"/>
+
+        <btn_item text="新增" service="P0000010" iconCls="icon-add" handler="commonAdd" panelHeight="220"/>
+        <btn_item text="修改" service="P0000011" iconCls="icon-edit" handler="commonModify" panelHeight="220"/>
+        <btn_item text="删除" service="P0000012" iconCls="icon-remove" handler="commonDelete"/>
+        <btn_item text="刷新缓存" handler="refreshSysNodeCache" iconCls="icon-reload" />
+
+        <col_item field="SYS_CODE" title="系统代码" type="input" width="100" sortType="number" edt_required="true"  edt_validType="val[1,16]" edit_flag="1"/>
+        <col_item field="SYS_NAME" title="系统名称" type="input" width="120" edt_required="true" edt_validType="val[1,64]"/>
+        <col_item field="SYS_STATUS" title="系统状态" type="combobox" width="100" edt_required="true" edt_dict="SYS_STATUS" edt_textField="dict_val,dict_des"/>
+        <col_item field="REMARK" title="备注"   width="150" type="textarea" edt_width="350" edt_height="50"  colspan="4"/>
+    </view>
+
+    <view id="KJDP_UPM_SYSTEM_NODE" title="子系统节点设置" render="datagrid" data-main="kjdp/manager/src/sys-manage">
+        <conf service="P0000062" pageSize="10" colNumbers="5" pagination="false" fit="true"/>
+
+        <btn_item text="新增" service="P0000063" title="新增" iconCls="icon-add" handler="commonAdd" panelHeight="220"/>
+        <btn_item text="修改" service="P0000064" title="修改" iconCls="icon-edit" handler="commonModify" panelHeight="220"/>
+        <btn_item text="删除" service="P0000065" title="删除" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="SYS_CODE" title="系统代码" type="input" width="80" edt_required="true" listHidden="true" edt_validType="val[1,16]" edit_flag="1" edt_disabled="true"/>
+        <col_item field="NODE_ID" title="节点编号" type="input" width="80" edt_required="true" edt_validType="val[1,4]" edit_flag="1"/>
+        <col_item field="NODE_NAME" title="节点名称" type="input" width="100" edt_required="true" />
+        <col_item field="ORG_CODES" title="机构代码" type="combotree" width="150" edt_multiple="true" edt_req="[{service:'P0000037',ORG_TYPE:'0',ORGID:'0000'}]" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName:'ORG_CODE,ORG_FULL_NAME',parNode:'PAR_ORG'}" edt_treeExpand="all" edt_cascadeCheck="false" edt_nodeId="ORG_CODE" edt_nodeName="ORG_CODE" edt_panelWidth="280" edt_panelHeight="220"/>
+    </view>
+
+    <view id="KJDP_UPM_SERVICE" title="系统服务设置" render="datagrid" data-main="kjdp/manager/src/sys-manage">
+        <conf service="P0000026" fit="true"/>
+        <qry_item field="SERVICE_CODE" title="服务编号" type="input" edt_validType="length[1,32]"/>
+        <qry_item field="SERVICE_NAME" title="服务名称" type="input" edt_validType="length[1,128]"/>
+        <qry_item field="STATUS" title="是否启用" width="200" type="combobox" edt_dict="YES_NO"/>
+        <qry_item field="LOG_FLAG" title="是否记录日志" width="120" type="combobox" edt_dict="YES_NO"/>
+
+        <btn_item text="新增" service="P0000027" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000028" iconCls="icon-edit" handler="commonModify"/>
+        <btn_item text="刷新缓存" handler="refreshServiceCache" iconCls="icon-reload" />
+        <btn_item text="导出" iconCls="icon-export" handler="sysServiceExport"/>
+
+        <col_item field="SERVICE_CODE" title="服务编号" width="120" type="input" edit_flag="1" edt_required="true" edt_validType="length[1,32]"/>
+        <col_item field="SERVICE_NAME" title="服务名称" width="150" type="input" edt_required="true" edt_validType="length[1,128]"/>
+        <col_item field="STATUS" title="是否启用" width="100" type="combobox" edt_required="true" edt_dict="YES_NO"/>
+        <col_item field="LOG_FLAG" title="是否记录日志" width="100" type="combobox" edt_required="true" edt_dict="YES_NO"/>
+        <col_item field="DESCRIPTION" title="服务描述" width="300" type="input" edt_validType="length[0,256]" colspan="4" edt_width="345"/>
+    </view>
+
+    <view id="KJDP_UPM_MENU_SERVICE" title="菜单服务管理" render="datagrid">
+        <conf service="P0000058" fit="true" required="true"/>
+
+        <btn_item text="新增" service="P0000059" iconCls="icon-add" handler="menuServiceAdd"/>
+        <btn_item text="删除" service="P0000060" iconCls="icon-remove" handler="menuServiceDelete"/>
+
+        <col_item field="MENU_ID" title="菜单名称" width="120" type="combotree" edt_req="[{service:'P0000008', PERM_FLAG:'0'}]" edt_conf="{treeType: '1',nodeId:'MENU_ID',nodeName:'MENU_ID,MENU_NAME',parNode:'PAR_MENU'}" edt_panelWidth="280" edt_panelHeight="300"/>
+        <col_item field="SERVICE_CODE" title="服务编号" width="200" type="combobox" edt_req="[{service:'P0000026'}]" edt_valueField="SERVICE_CODE" edt_textField="SERVICE_CODE,SERVICE_NAME" edt_panelWidth="200"/>
+    </view>
+
+    <view id="KJDP_UPM_SERVICE_LOG" title="服务日志查询" render="datagrid" data-main="kjdp/manager/src/sys-manage">
+        <conf service="P0000047" fit="true" pageSize="50" remotePagination="true"/>
+        <qry_item field="SERVICE_CODE" title="服务编号" type="input" edt_validType="length[1,32]"/>
+        <qry_item field="CHANNEL" title="调用渠道" type="combobox" edt_dict="CHANNEL" edt_validType="length[1,8]"/>
+        <qry_item field="IDENTITY" title="身份标识" type="input" edt_validType="length[1,32]"/>
+        <qry_item field="REQ_ID" title="请求编号" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="ERROR_CODE" title="结果代码" type="input" edt_validType="length[1,12]"/>
+        <qry_item field="LOG_DATE_BEG" title="开始日期" type="datebox" edt_defaultValue=":curr_date" edt_validType="begDate['LOG_DATE_END']"/>
+        <qry_item field="LOG_DATE_END" title="结束日期" type="datebox" edt_validType="endDate['LOG_DATE_BEG']"/>
+        <qry_item field="RUN_TIMES_BEG" title="最短运行时长" type="input" edt_validType="int['8']"/>
+        <qry_item field="RUN_TIMES_END" title="最长运行时长" type="input" edt_validType="int['8']"/>
+
+        <btn_item text="参数详情" iconCls="icon-help" handler="viewServiceLogParamDetail"/>
+        <btn_item text="结果详情" iconCls="icon-help" handler="viewServiceLogMsgDetail"/>
+
+        <col_item field="LOG_ID" title="日志编号" width="100" type="input"/>
+        <col_item field="SERVICE_CODE" title="服务编号" width="100" type="input"/>
+        <col_item field="SERVICE_NAME" title="服务名称" width="100" type="input"/>
+        <col_item field="CHANNEL" title="调用渠道" width="60"  type="combobox" edt_dict="CHANNEL"/>
+        <col_item field="IDENTITY" title="身份标识" width="80" type="input"/>
+        <col_item field="REQ_ID" title="请求编号" width="100" type="input"/>
+        <col_item field="PARAM_DATA" title="参数信息" width="400" type="input"/>
+        <col_item field="ERROR_CODE" title="结果代码" width="60" type="input"/>
+        <col_item field="ERROR_MSG" title="结果信息" width="150" type="input"/>
+        <col_item field="LOG_DATE" title="记录时间" width="150" type="input"/>
+        <col_item field="RUN_TIMES" title="运行时长(ms)" width="60" type="input"/>
+    </view>
+
+    <view id="KJDP_UPM_CLIENT_LOG" title="客户端日志查询" render="datagrid" data-main="kjdp/manager/src/sys-manage">
+        <conf service="P0000048" fit="true" pageSize="50" remotePagination="true"/>
+        <qry_item field="URL" title="文件URL" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="CHANNEL" title="调用渠道" type="combobox" edt_dict="CHANNEL"/>
+        <qry_item field="MESSAGE" title="错误信息" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="LOG_DATE_BEG" title="开始日期" type="datebox" edt_defaultValue=":curr_date" edt_validType="begDate['LOG_DATE_END']"/>
+        <qry_item field="LOG_DATE_END" title="结束日期" type="datebox" edt_validType="endDate['LOG_DATE_BEG']"/>
+
+        <btn_item text="错误详情" iconCls="icon-help" handler="viewClientLogDetail"/>
+
+        <col_item field="LOG_ID" title="日志编号" width="80" type="input"/>
+        <col_item field="CHANNEL" title="调用渠道" width="80" type="combobox" edt_dict="CHANNEL"/>
+        <col_item field="IDENTITY" title="身份信息" width="80" type="input"/>
+        <col_item field="USER_AGENT" title="调用客户端" width="120" type="input"/>
+        <col_item field="URL" title="文件URL" width="400" type="input"/>
+        <col_item field="LINE" title="错误行号" width="80" type="input"/>
+        <col_item field="COL" title="错误列号" width="80" type="input"/>
+        <col_item field="MESSAGE" title="错误信息" width="400" type="input"/>
+        <col_item field="STACK" title="错误堆栈" width="300" type="input" listHidden="true"/>
+        <col_item field="LOG_DATE" title="记录时间" width="130" type="input"/>
+    </view>
+
+    <view id="KJDP_UUM_POST" title="岗位设置" render="datagrid">
+        <conf service="P0000033" fit="true" pageSize="20" remotePagination="true"/>
+
+        <qry_item field="POST_ID" title="岗位编号" type="input" edt_validType='num[0,4]'/>
+        <qry_item field="POST_NAME" title="岗位名称" type="input" edt_validType='en_ch[0,64]'/>
+
+        <btn_item text="新增" service="P0000034" title="新增" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000035" title="修改" iconCls="icon-edit" handler="commonModify"/>
+        <btn_item text="删除" service="P0000036" title="删除" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="POST_ID" title="岗位编号" sortType="number" width="100" type="input" edt_required="true" edit_flag="1" edt_validType='num[1,4]'/>
+        <col_item field="POST_NAME" title="岗位名称" width="120" type="input" edt_required="true" edt_validType='val[1,64]'/>
+        <col_item field="MAINTAIN_FLAG" title="维护标识" width="120" type="combobox" edt_dict="MAINTAIN_FLAG" edt_required="true" edt_loadFilter="!2"  edt_textField="dict_val,dict_des" edt_autoFill="false"/>
+        <col_item field="POST_TYPE" title="岗位类型" width="120" type="combobox" edt_dict="POST_TYPE" edt_required="true" edt_textField="dict_val,dict_des" edt_autoFill="false"/>
+        <col_item field="REMARK" title="备注信息" width="300" type="input" edt_validType="length[0,256]"/>
+    </view>
+
+    <view id="KJDP_UPM_ORG_INFO_TYPE_0" render="datagrid" title="内部机构管理">
+        <conf  req="[{'service':'P0000037','ORG_TYPE':'0'}]" border="false" fit="true" pagination="false" collapseAll="false" idField="ORG_CODE"
+               treeField="ORG_CODE" loadFilter="loadFilterOrg" onDblClickRow="commonModify" onLoadSuccess="commonLoadSuccess"/>
+
+        <btn_item text="新增" service="P0000038" title="新增" iconCls="icon-add" handler="commonAdd" panelHeight="330"/>
+        <btn_item text="修改" service="P0000039" title="修改" iconCls="icon-edit" handler="commonModify" panelHeight="330"/>
+        <btn_item text="注销" service="P0000040" title="注销" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="ORG_CODE" title="机构代码" type="input" width="100" edt_required="true"  edt_validType="number[4]" edit_flag="1" grid_header_filter="false" sortable="false"/>
+        <col_item field="ORG_CLS" title="机构类别" type="combobox" width="80" edt_required="true" edt_dict="ORG_CLS" edt_textField="dict_val,dict_des" edt_loadFilter="0,1,2" grid_header_filter="false" sortable="false"/>
+        <col_item field="ORG_TYPE" title="机构类型" type="input" hidden="true" edt_value="0"/>
+        <col_item field="ORG_NAME" title="机构名称" type="input" width="120" edt_required="true"  edt_validType="val[1,32]" grid_header_filter="false" sortable="false"/>
+        <col_item field="ORG_FULL_NAME" title="机构全称" type="input" width="150" edt_required="true"  edt_validType="val[1,256]" grid_header_filter="false" sortable="false"/>
+        <col_item field="ORG_STATUS" title="机构状态" type="combobox" width="70" edt_dict="ORG_STATUS" edt_textField="dict_val,dict_des" edit_flag="3" edt_value="0" grid_header_filter="false" sortable="false"/>
+        <col_item field="PAR_ORG" title="父机构代码" type="combotree" width="90" edt_required="true" edt_req="[{service:'P0000037',ORG_TYPE:'0',ORG_STATUS:'0'}]" edt_editable="true" edt_conf="{treeType:'1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_FULL_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="260" edt_panelHeight="300"  edt_treeExpand="true" grid_header_filter="false" sortable="false"/>
+        <col_item field="ORG_LVL" title="机构级别" type="input" hidden="true"/>
+        <col_item field="ZIP_CODE" title="邮政编码" type="input" width="80" edt_required="true" edt_validType="num[6]" grid_header_filter="false" sortable="false" edt_maxLength="6"/>
+        <col_item field="ADDRESS" title="机构地址" type="input" width="100" edt_validType="val[1,128]" grid_header_filter="false" sortable="false"/>
+        <col_item field="ORG_TEL" title="机构电话" type="input" width="100" edt_validType="tel" grid_header_filter="false" sortable="false" />
+        <col_item field="EMAIL" title="邮箱" type="input" width="150" edt_validType="val[1,32]" grid_header_filter="false" sortable="false"/>
+        <col_item field="FAX" title="传真" type="input" width="150" edt_validType="val[1,32]" grid_header_filter="false" sortable="false"/>
+        <col_item field="LINKMAN" title="联系人" type="input" width="150" edt_validType="val[1,32]" grid_header_filter="false" sortable="false"/>
+        <col_item field="REMARK" title="备注信息" width="300" type="input" edt_validType="length[0,256]"/>
+    </view>
+
+    <view id="KJDP_UPM_OEM_PRODUCT" title="OEM信息设置" render="datagrid" data-main="kjdp/manager/src/sys-manage">
+        <conf service="P0000070" fit="true" pageSize="50"/>
+
+        <btn_item text="新增" service="P0000071" title="新增" iconCls="icon-add" handler="commonAdd" panelHeight="330"/>
+        <btn_item text="修改" service="P0000072" title="修改" iconCls="icon-edit" handler="commonModify" panelHeight="330"/>
+        <btn_item text="删除" service="P0000073" title="删除" iconCls="icon-remove" handler="commonDelete"/>
+        <btn_item text="刷新缓存" title="刷新缓存" handler="refreshOEMInfoCache" iconCls="icon-reload" />
+
+        <qry_item field="PRODUCT_NAME" title="产品名称" type="input" edt_validType="length[0,256]"/>
+        <qry_item field="DUE_DATE_BEG" title="起始到期日期" type="datebox" edt_defaultValue=":month_first" edt_validType="begDate['DUE_DATE_END']"/>
+        <qry_item field="DUE_DATE_END" title="结束到期日期" type="datebox" edt_validType="endDate['DUE_DATE_BEG']"/>
+
+        <col_item field="PRODUCT_NAME" title="产品名称" width="150" type="input" edt_required="true" edit_flag="1" edt_validType='val[1,256]'/>
+        <col_item field="OEM_CODE" title="产品代码" width="120" type="input" edt_required="true" edt_validType='val[1,512]'/>
+        <col_item field="AUTH_CODE" title="授权代码" width="150" type="input" edt_required="true" edt_validType='val[1,512]'/>
+        <col_item field="DUE_DATE" title="到期日期" width="100" type="datebox" edt_required="true" edt_defaultValue=":curr_date"/>
+        <col_item field="REMARK" title="备注信息" width="300" type="textarea" edt_width="350" edt_height="50"  colspan="4" edt_validType='val[1,256]'/>
+    </view>
+
+    <view id="KJDP_ADMIN_SERVICE" title="注册服务管理" render="treegrid" data-main="kjdp/manager/src/distribute-manage">
+        <conf service="P0000074" fit="true" idField="ID" treeField="ID" group="SERVICE_CODE,SERVICE_NAME,SERVICE_DESCRPTION,SERVICE_TYPE,PROTOCOL,CLUSTER"/>
+        <qry_item field="SERVICE_CODE" title="服务编号" type="input" edt_validType="length[1,32]"/>
+        <qry_item field="SERVICE_NAME" title="服务名称" type="input" edt_validType="length[1,32]"/>
+        <qry_item field="SERVICE_TYPE" title="服务类型" type="combobox" edt_dict="SERVICE_TYPE"/>
+        <qry_item field="VERSION" title="服务版本" type="input" edt_validType="length[1,32]"/>
+
+        <btn_item text="删除" id="deleteButton" iconCls="icon-remove" handler="deleteService"/>
+
+        <col_item field="ID" title="服务编号" width="200" type="input" textField="SERVICE_CODE,SERVICE_NAME"/>
+        <col_item field="SERVICE_DESCRPTION" title="服务说明" width="100" type="input"/>
+        <col_item field="SERVICE_TYPE" title="服务类型" width="60"  type="combobox" edt_dict="SERVICE_TYPE"/>
+        <col_item field="PROTOCOL" title="协议标识" width="60" />
+        <col_item field="VERSION" title="服务版本" width="100" type="input"/>
+        <col_item field="CLUSTER" title="集群名称" width="100" type="input"/>
+        <col_item field="IP" title="IP地址" width="100" type="input"/>
+        <col_item field="PORT" title="端口" width="100" type="input"/>
+    </view>
+
+    <view id="KJDP_ADMIN_CLUSTER_MANAGE" title="服务集群管理" render="datagrid">
+        <conf service="P0000075" fit="true"/>
+        <qry_item field="CLUSTER_ID" title="集群标识" type="input" edt_validType="length[1,32]"/>
+
+        <btn_item text="新增" service="P0000076" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000077" iconCls="icon-edit" handler="commonModify"/>
+        <btn_item text="删除" service="P0000078" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="CLUSTER_ID" title="集群标识" width="100" type="input" edt_required="true" edt_validType="length[1,32]" edit_flag="1"/>
+        <col_item field="CLUSTER_NAME" title="集群名称" width="100" type="input" edt_required="true" edt_validType="length[1,128]"/>
+        <col_item field="PROTOCOL" title="协议标识" width="100" type="input" edt_required="true" edt_validType="length[1,32]"/>
+        <col_item field="CLIENT" title="客户端" width="300" edt_required="true" edt_validType="length[1,256]" colspan="4" edt_width="350"/>
+        <col_item field="RULE" title="路由规则" width="300" edt_required="true" edt_validType="length[1,256]" colspan="4" edt_width="350"/>
+        <!--
+        <col_item field="RULE_EXPR" title="路由表达式" width="300"/>
+        -->
+    </view>
+
+    <view id="KJDP_ADMIN_PROTOCOL_MANAGE" title="服务协议管理" render="datagrid">
+        <conf service="P0000079" fit="true"/>
+        <qry_item field="PROTOCOL" title="协议标识" type="input" edt_validType="length[1,32]"/>
+
+        <btn_item text="新增" service="P0000080" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000081" iconCls="icon-edit" handler="commonModify"/>
+        <btn_item text="删除" service="P0000082" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="PROTOCOL" title="协议标识" width="100" edt_required="true" edit_flag="1" edt_validType="length[1,32]"/>
+        <col_item field="PARSER" title="解析器" type="input" width="300" edt_required="true" edt_validType="length[1,256]"/>
+    </view>
+
+    <view id="KJDP_ADMIN_PROVIDER" title="服务节点管理" render="treegrid" data-main="kjdp/manager/src/distribute-manage">
+        <conf service="P0000087" fit="true" idField="ID" treeField="ID" collapseAll="false" group="CLUSTER_ID"/>
+        <qry_item field="CLUSTER_ID" title="集群名称" type="input" edt_validType="length[1,32]"/>
+        <qry_item field="STATUS" title="是否在线" type="combobox" edt_dict="YES_NO"/>
+
+        <btn_item text="删除" id="deleteButton" iconCls="icon-remove" handler="deleteCluster"/>
+
+        <col_item field="ID" title="集群名称" width="200" type="input" textField="CLUSTER_ID"/>
+        <col_item field="IP" title="IP地址" width="100" type="input"/>
+        <col_item field="PORT" title="端口" width="100" type="input"/>
+        <col_item field="PATH" title="资源路径" width="100" type="input"/>
+        <col_item field="STATUS" title="是否在线" width="100" type="combobox" edt_dict="YES_NO" styler="statusStyler"/>
+    </view>
+
+    <view id="KJDP_ADMIN_SERVICE_CONF_SET" title="服务配置设置" render="datagrid">
+        <conf service="P0000083" fit="true"/>
+        <qry_item field="SERVICE_CODE" title="服务编号" type="input" edt_validType="length[1,32]"/>
+
+        <btn_item text="新增" service="P0000084" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="修改" service="P0000085" iconCls="icon-edit" handler="commonModify"/>
+        <btn_item text="删除" service="P0000086" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="SERVICE_CODE" title="服务编号" width="100" type="input" edt_required="true" edit_flag="1"/>
+        <col_item field="MAX_CONCURRENCY" title="最大并发数量" width="100" type="input" edt_required="true"/>
+        <col_item field="TIMEOUT" title="超时时间" width="100" type="input" edt_required="true"/>
+        <col_item field="LOG_ENABLE" title="日志是否开启" width="100" type="combobox" edt_dict="YES_NO" edt_required="true"/>
+        <col_item field="TOKEN_LEVEL" title="会话级别" width="100" type="combobox" edt_dict="TOKEN_LEVEL" edt_required="true"/>
+    </view>
+
+    <view id="KJDP_SCHEDULER_JOBS" render="datagrid" title="自动任务设置" data-main="kjdp/manager/src/scheduler-manager.js" data-css="kjdp/manager/css/scheduler-manager.css">
+        <conf service="P0000092" colNumbers="4"  fit="true" onClickRow="onClickRow"/>
+        <qry_item field="JOB_NAME" title="任务标识" type="input" edt_width="120"/>
+        <qry_item field="JOB_GROUP" title="任务类型" type="combobox" edt_dict="JOB_GROUP" edt_width="120" edt_panelWidth="200"/>
+
+        <btn_item text="新增" service="P0000093" title="新增" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="删除" service="P0000094" title="删除" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="OPERATOR"  title="操作"   width="80" type="input" formatter="jobOperFormatter" edit_flag="3"/>
+        <col_item field="JOB_NAME"   title="任务标识"   width="100"  type="input" edt_required="true" edt_validType="length[1,32]"/>
+        <col_item field="JOB_GROUP"   title="任务类型"  width="100"  type="combobox" edt_dict="JOB_GROUP" edit_flag="0" edt_required="true" edt_panelWidth="200"/>
+        <col_item field="DESCRIPTION"   title="任务描述" width="100"  edt_width="340"  type="input" colspan="4" edit_flag="0" edt_required="true" edt_validType="length[1,128]"/>
+        <col_item field="JOB_CLASS_NAME"   title="任务处理类" width="300"   edt_width="340"  type="input" colspan="4" edit_flag="0" edt_required="true" edt_validType="length[1,128]"/>
+    </view>
+
+    <view id="KJDP_SCHEDULER_JOB_DATA" render="datagrid" title="自动任务参数设置" data-main="kjdp/manager/src/scheduler-manager.js" data-css="kjdp/manager/css/scheduler-manager.css">
+        <conf service="P0000096" colNumbers="4"  fit="true" onClickRow="onClickRow"/>
+
+        <btn_item text="新增" service="P0000097" title="新增" iconCls="icon-add" handler="commonAdd"/>
+        <btn_item text="删除" service="P0000098" title="删除" iconCls="icon-remove" handler="commonDelete"/>
+
+        <col_item field="JOB_NAME" title="任务标识" width="100" type="input" listHidden="true" edit_flag="2" edt_required="true" edt_validType="val[1,32]"/>
+        <col_item field="JOB_GROUP"   title="任务类型"  width="100"  type="combobox" edt_dict="JOB_GROUP" listHidden="true" edit_flag="2" edt_required="true" edt_panelWidth="200"/>
+        <col_item field="JOB_DATA_KEY"   title="参数名称"   width="150"  type="input" edt_required="true" edt_validType="length[1,32]"/>
+        <col_item field="JOB_DATA_VALUE"   title="参数值"  width="200" edt_required="true" edt_validType="length[1,32]"/>
+    </view>
+
+    <view id="KJDP_SCHEDULER_TRIGGERS" render="datagrid" title="触发器设置" data-main="kjdp/manager/src/scheduler-manager.js">
+        <conf service="P0000099"  colNumbers="2"  fit="true" rownumbers="true" onClickRow="onClickRow" remotePagination="true"/>
+
+        <qry_item field="TRIGGER_NAME" title="触发器标识" type="input" edt_width="120"/>
+        <qry_item field="TRIGGER_GROUP" title="触发器类型" type="combobox" edt_dict="TRIGGER_GROUP" edt_width="120" edt_panelWidth="200"/>
+
+        <btn_item text="新增" service="P0000100" title="新增" iconCls="icon-add" handler="commonAdd" onFormInitSuccess="onFormInitSuccess"/>
+        <btn_item text="删除" service="P0000101" title="删除" iconCls="icon-remove" handler="commonDelete" />
+
+        <col_item field="OPERATOR"  title="操作"   width="40"  type="input" formatter="triggerOperFormatter" edit_flag="3"/>
+        <col_item field="TRIGGER_NAME"   title="触发器标识"   width="80"  edt_width="140" type="input" edt_required="true" edit_flag="1"/>
+        <col_item field="TRIGGER_GROUP"   title="触发器类型"  width="100"   edt_width="140"  type="combobox" edt_dict="TRIGGER_GROUP" edt_required="true" edit_flag="1" edt_panelWidth="200"/>
+        <col_item field="DESCRIPTION"   title="触发器描述"  width="160" edt_width="380"  type="input" edt_required="true" colspan="4"/>
+        <col_item field="TRIGGER_STATE"   title="状态"  width="40" edt_dict="TRIGGER_STATE" edt_width="140"  type="combobox" edit_flag="3"/>
+        <col_item field="CRON_EXPRESSION"  title="时间表达式"  width="100" edt_width="295" colspan="4" type="input" edt_required="true"/>
+        <col_item field="JOB_NAME"   title="任务名称"  width="160" edt_width="140"  type="combobox" edt_required="true" edt_req="[{service:'P0000092'}]" edt_textField="DESCRIPTION" edt_valueField="JOB_NAME" edt_onSelect="jobSelect"  edit_flag="1" edt_panelWidth="200"/>
+        <col_item field="JOB_GROUP"   title="任务类型"  width="100"  edt_width="140" type="combobox" edt_dict="JOB_GROUP" edt_disabled="true"/>
+        <col_item field="PREV_FIRE_TIME"   title="上次触发时间"   width="130"  type="input" edit_flag="3"/>
+        <col_item field="NEXT_FIRE_TIME"   title="下次触发时间"   width="130"  type="input" edit_flag="3"/>
+        <col_item field="START_TIME"   title="开始时间"   width="150"  type="input" edit_flag="3"/>
+        <col_item field="END_TIME"   title="结束时间"   width="150"  type="input" edit_flag="3"/>
+    </view>
+
+    <view id="KJDP_SCHEDULER_LOG" render="datagrid" title="自动任务日志查询">
+        <conf service="P0000104"  colNumbers="2"  fit="true" remotePagination="true"/>
+
+        <qry_item field="JOB_NAME" title="任务标识"  type="input" edt_width="120" edt_panelWidth="200"/>
+        <qry_item field="JOB_GROUP" title="任务类型" type="combobox" edt_dict="JOB_GROUP" edt_width="120" edt_panelWidth="200"/>
+        <qry_item field="OCCUR_DATE_BEG" title="开始日期" type="datebox" edt_defaultValue=":month_first" edt_validType="begDate['OCCUR_DATE_END']"/>
+        <qry_item field="OCCUR_DATE_END" title="结束日期" type="datebox" edt_validType="endDate['OCCUR_DATE_BEG']"/>
+
+        <col_item field="LOG_ID"  title="日志编号" width="60"  type="input"/>
+        <col_item field="SERVER_IP"  title="服务器IP" width="100"  type="input"/>
+        <col_item field="SERVER_NAME"  title="服务器名称" width="80"  type="input"/>
+        <col_item field="JOB_NAME"  title="任务标识" width="80"  type="input"/>
+        <col_item field="JOB_GROUP"   title="任务类型"  width="100"  edt_width="140" type="combobox" edt_dict="JOB_GROUP"/>
+        <col_item field="DESCRIPTION"  title="任务描述" width="120"  type="input"/>
+        <col_item field="TRIGGER_NAME"  title="触发器标识" width="120"  type="input"/>
+        <col_item field="TRIGGER_GROUP"  title="触发器类型" width="100" edt_width="140" type="combobox" edt_dict="TRIGGER_GROUP"/>
+        <col_item field="OCCUR_TIME"  title="运行时间" width="120"  type="input"/>
+        <col_item field="RUN_TIMES"  title="运行时长(ms)" width="60"  type="input"/>
+        <col_item field="EXEC_STATE"  title="运行状态" width="60" edt_width="140" type="combobox" edt_dict="EXEC_STATE"/>
+        <col_item field="EXEC_MESSAGE"  title="运行信息" width="250"  type="input"/>
+    </view>
+
+    <view id="KJDP_PROCESS_MODEL_DEF" render="datagrid" title="流程定义管理">
+        <conf fit="true" req="[{'service':'P0000105'}]" onClickRow="checkBtn" onCheck="checkBtn" onSelect="checkBtn" onUnselect="checkBtn"  onUncheck="checkBtn"
+              remotePagination="true" gridMenu="'restoreDefault,freezeColumns,hideColumns,hideCols,fileExport,printReport'"/>
+        <qry_item field="MODEL_KEY" title="流程标识" type="input" edt_validType="val[1,10]"/>
+        <qry_item field="MODEL_NAME" title="名称" type="input" edt_validType="val[1,128]"/>
+        <btn_item text="创建" title="创建新流程" handler="newModel" iconCls="icon-add"/>
+        <btn_item text="部署" title="部署" handler="deployModel" iconCls="icon-dbf"  id="deployBtn"/>
+        <btn_item text="编辑" title="编辑" handler="editModel"   iconCls="icon-edit" id="editBtn"  />
+        <btn_item text="导入" title="导入" handler="importModel" iconCls="icon-redo"/>
+        <btn_item text="导出" title="导出" handler="exportModel" iconCls="icon-print"/>
+        <btn_item text="删除" title="删除" handler="removeModel" iconCls="icon-remove"/>
+        <col_item type="checkbox"/>
+        <col_item field="MODEL_ID" title="流程ID" hidden="true"/>
+        <col_item field="MODEL_KEY" title="流程标识" width="100" sortable="true"/>
+        <col_item field="MODEL_NAME" title="名称" width="150" sortable="true" edt_sorter="sorter"/>
+        <col_item field="MODEL_DESCRIPTION" title="说明" width="480" edt_validType="val[1,255]"/>
+        <col_item field="CREATE_TIME" title="创建时间" width="150"/>
+        <col_item field="UPDATE_TIME" title="最后修改时间" width="150"/>
+    </view>
+
+    <view id="KJDP_PROCESS_MODEL_ADD" render="form" title="创建流程" colNumbers="2">
+        <conf colNumbers="2"/>
+        <col_item field="MODEL_KEY" title="流程标识" type="input" edt_required="true" edt_validType="val[4,255]"/>
+        <col_item field="MODEL_NAME" title="名称" type="input" edt_required="true" edt_validType="val[4,255]"/>
+        <col_item field="MODEL_DESCRIPTION" title="描述" colspan="4" type="textarea" edt_height="50" edt_width="340" edt_validType="val[1,255]"/>
+    </view>
+
+    <view id="KJDP_SERVICE_SCRIPT" title="编排服务管理" render="treegrid" data-main="kjdp/manager/src/distribute-manage" data-css="kjdp/prettify/prettify.css">
+        <conf service="P0000109" fit="true" group="SERVICE_CODE" idField="ID" treeField="ID" collapseAll="false" onClickRow="clickScriptRow"/>
+
+        <qry_item field="SERVICE_CODE" title="服务编号" type="input" edt_validType="val[1,10]"/>
+
+        <btn_item text="新增" service="P0000110" title="新增" iconCls="icon-add" handler="addScript"/>
+        <btn_item text="修改" service="P0000111" title="修改" iconCls="icon-edit" handler="commonModify" onBeforeSave="onBeforeUpdateScript" onBeforeLoad="onBeforeLoadUpdateScript"/>
+        <btn_item text="删除" service="P0000112" title="删除" iconCls="icon-remove" handler="commonDelete" />
+        <btn_item text="查看脚本" title="查看脚本" iconCls="icon-search" handler="viewScript"/>
+
+        <col_item field="ID" title="服务编号" width="150" type="input" textField="SERVICE_CODE" edit_flag="1" edt_required="true"/>
+        <col_item field="SERVICE_VERSION" title="服务版本" width="60"  type="input" edit_flag="1" edt_required="true"/>
+        <col_item field="SERVICE_NAME" title="服务名称" width="60"  type="input" edt_required="true"/>
+        <col_item field="SERVICE_DESC" title="服务描述" width="100"  type="input" edt_required="true"/>
+        <col_item field="ACTIVE" title="是否开启" width="60"  type="combobox" edt_dict="YES_NO" edt_required="true"/>
+        <col_item field="CREATION_TIME" title="创建时间" width="120"  type="input" edit_flag="3"/>
+    </view>
+
+    <view id="KJDP_SERVICE_SCRIPT_FORM" render="form" title="编排脚本管理" colNumbers="2">
+        <conf colNumbers="2"/>
+        <col_item field="SERVICE_CODE" title="服务编号" type="input" edt_required="true"/>
+        <col_item field="SERVICE_VERSION" title="服务版本" width="60" edt_required="true" type="input"/>
+        <col_item field="SERVICE_NAME" title="服务名称" type="input" edt_required="true"/>
+        <col_item field="SERVICE_DESC" title="服务描述" type="input" edt_required="true"/>
+        <col_item field="ACTIVE" title="启用状态" type="combobox" edt_required="true" edt_dict="YES_NO"/>
+    </view>
+
+    <view id="KJDP_SERVICE_LOG" title="服务日志查询" render="datagrid" data-main="kjdp/manager/src/distribute-manage">
+        <conf service="P0000114"  colNumbers="2"  fit="true"/>
+
+        <qry_item field="SERVICE_CODE" title="服务编号"  type="input" edt_width="120"/>
+        <qry_item field="LOG_DATE_BEG" title="开始日期" type="datebox" edt_defaultValue=":month_first" edt_validType="begDate['LOG_DATE_END']"/>
+        <qry_item field="LOG_DATE_END" title="结束日期" type="datebox" edt_validType="endDate['LOG_DATE_BEG']"/>
+
+        <col_item field="SERVICE_CODE"  title="服务编号" width="60"  type="input"/>
+        <col_item field="SERVICE_VERSION"  title="服务版本" width="60"  type="input"/>
+        <col_item field="AUTH_ID"  title="身份标识" width="80"  type="input"/>
+        <col_item field="RETURN_CODE"  title="返回码" width="60"  type="input"/>
+        <col_item field="RETURN_MSG"  title="返回信息" width="120"  type="input"/>
+        <col_item field="TOKEN_ID"  title="会话标识" width="160"  type="input"/>
+        <col_item field="SERVICE_PARAMS"  title="服务参数" width="150"  type="input" formatter="jsonToStr"/>
+        <col_item field="CALL_CHAIN"  title="调用链" width="60"  type="input" formatter="jsonToStr"/>
+        <col_item field="CREATION_TIME"  title="创建时间" width="120"  type="input"/>
+    </view>
+
+    <view id="KJDP_DOCS_EXPORT_FORM" render="form" title="文档导出">
+        <conf colNumbers="2"/>
+        <col_item field="DOC_TITLE" title="文档标题" width="60" type="input" edt_required="true" edt_defaultValue="kjdp"/>
+        <col_item field="DOC_VERSION" title="文档版本" width="60" edt_required="true" type="input" edt_defaultValue="4.0.0"/>
+    </view>
+</views>

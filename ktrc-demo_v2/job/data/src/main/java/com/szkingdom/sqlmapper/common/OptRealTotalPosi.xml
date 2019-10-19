@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.OptRealTotalPosi">
+
+    <resultMap id="dataOptRealTotalPosiMap" type="com.szkingdom.data.DataOptRealTotalPosi">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD" property="stkbd" />
+        <result column="OPT_UNDL_CODE" property="optUndlCode" />
+        <result column="OPT_UNDL_NAME" property="optUndlName" />
+        <result column="LS_FLAG" property="lsFlag" />
+        <result column="CORP_LMT_ATTR" property="corpLmtAttr" />
+        <result column="ACT_TOTAL_POSI" property="actTotalPosi" />
+        <result column="REAL_TOTAL_POSI" property="realTotalPosi" />
+        <result column="CHECK_FLAG" property="checkFlag" />
+
+    </resultMap>
+
+    <select id="COMMON_OPT_REAL_TOTAL_POSI_SELECT" resultMap="dataOptRealTotalPosiMap" parameterType="com.szkingdom.data.DataOptRealTotalPosi">
+        select STKEX,STKBD,OPT_UNDL_CODE,OPT_UNDL_NAME,LS_FLAG,CORP_LMT_ATTR,ACT_TOTAL_POSI,REAL_TOTAL_POSI,CHECK_FLAG
+        from OPT_REAL_TOTAL_POSI where id=#{id}
+
+    </select>
+
+
+
+</mapper>

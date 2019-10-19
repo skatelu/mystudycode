@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+	<select id="RiskSpecialCrowdScreen_view" parameterType="jdbcMap"
+		resultType="jdbcMap">
+		SELECT
+		 d.*,u.TEL as TEL,u.MOBILE_TEL as MOBILE_TEL, (
+		  SELECT
+		   COUNT (*)
+		  FROM
+		   risk_info_fund rq
+		  WHERE 1=1
+		  
+		<if test="OCC_DATE!='' and OCC_DATE!=null">
+          AND  <![CDATA[rq.OCC_DATE <= #{OCC_DATE}]]>
+          AND  <![CDATA[rq.OCC_DATE >= (#{OCC_DATE} - 30)]]>
+        </if>
+		  AND rq.indicator_id = d.indicator_id
+		  AND rq.cust_code = d.cust_code
+		  AND rq.RISK_VALID_FLAG = '1'
+		  AND rq.thres_name = '强平线'
+		 ) AS forced_line,
+		 (
+		  SELECT
+		   COUNT (*)
+		  FROM
+		   risk_info_fund rq
+		  WHERE 1=1
+		 <if test="OCC_DATE!='' and OCC_DATE!=null">
+          AND  <![CDATA[rq.OCC_DATE <= #{OCC_DATE}]]>
+          AND  <![CDATA[rq.OCC_DATE >= (#{OCC_DATE} - 30)]]>
+        </if>
+		  AND rq.indicator_id = d.indicator_id
+		  AND rq.cust_code = d.cust_code
+		  AND rq.RISK_VALID_FLAG = '1'
+		  AND rq.thres_name = '追保线'
+		 ) AS follow_line,
+		 (
+		  SELECT
+		   T .thres_oper
+		  FROM
+		   (
+		    SELECT
+		     it.indicator_id,
+		     it.thres1_name AS thres_name,
+		     it.thres1_no AS thres_no,
+		     it.thres1_oper AS thres_oper
+		    FROM
+		     indicator_threshold it
+		    UNION ALL
+		     SELECT
+		      it.indicator_id,
+		      it.thres2_name AS thres_name,
+		      it.thres2_no AS thres_no,
+		      it.thres2_oper AS thres_oper
+		     FROM
+		      indicator_threshold it
+		     UNION ALL
+		      SELECT
+		       it.indicator_id,
+		       it.thres3_name AS thres_name,
+		       it.thres3_no AS thres_no,
+		       it.thres3_oper AS thres_oper
+		      FROM
+		       indicator_threshold it
+		      UNION ALL
+		       SELECT
+		        it.indicator_id,
+		        it.thres4_name AS thres_name,
+		        it.thres4_no AS thres_no,
+		        it.thres4_oper AS thres_oper
+		       FROM
+		        indicator_threshold it
+		   ) T
+		  WHERE
+		   T .indicator_id = d.indicator_id
+		  AND T .thres_name = '公司盘中追保线'
+		 ) AS comp_thres_oper
+		FROM
+		 risk_info_fund d left join USER_BASIC_INFO u on d.cust_code=u.user_code
+		
+	</select>
+	
+	<select id="RiskSpecialCrowdScreen_barChart" parameterType="jdbcMap" resultType="jdbcMap">
+	     SELECT
+		 f.INDICATOR_ID as INDICATOR_ID,
+		 f.CUST_CODE as CUST_CODE,
+		 f.INDICATOR_NAME as INDICATOR_NAME,
+		 COUNT (*) AS RISK_COUNT
+		FROM
+		 RISK_INFO_FUND f
+		WHERE 1=1
+		<if test="CUST_CODE!='' and CUST_CODE!=null">
+          AND  f.CUST_CODE=#{CUST_CODE}
+        </if>
+		GROUP BY
+		 f.INDICATOR_ID,
+		 f.CUST_CODE,
+		 f.INDICATOR_NAME
+	</select>
+	<select id="RiskSpecialCrowdScreen_history" parameterType="jdbcMap" resultType="jdbcMap">
+	     SELECT
+		 f.INDICATOR_ID as INDICATOR_ID,
+		 f.CUST_CODE as CUST_CODE,
+		 f.THRES_NO as THRES_NO,
+		 f.OCC_DATE as OCC_DATE,
+		 f.INDICATOR_NAME as INDICATOR_NAME,
+		 COUNT (*) AS RISK_COUNT
+		FROM
+		 RISK_LOG_FUND f
+		WHERE 1=1
+		<if test="CUST_CODE!='' and CUST_CODE!=null">
+		    AND f.CUST_CODE=#{CUST_CODE}
+		</if>
+		GROUP BY
+		 f.INDICATOR_ID,
+		 f.CUST_CODE,
+		 f.INDICATOR_NAME,
+		 f.THRES_NO,
+		 f.OCC_DATE
+	</select>
+</mapper>
+

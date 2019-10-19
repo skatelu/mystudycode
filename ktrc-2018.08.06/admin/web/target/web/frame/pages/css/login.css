@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+@import url("../themes/default.css");
+
+.login-top-box .login-logo{
+    margin: 8px 0;
+    height: 56px;
+    background: url(../images/kjdp-logo-top-1.png) no-repeat 0 center;
+    width:340px;
+    overflow: hidden;
+}
+.login-ad-text{
+    color: #fff;
+    font-size: 27px;
+    width: 310px;
+    position: absolute;
+    left: 90px;
+    top: 50%;
+    margin-top: -256px;
+}
+.login-content-wrap{
+    width: 1280px;
+    height: 780px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.login-panel {
+    width: 342px;
+    min-height: 420px;
+    position: absolute;
+    top: 50%;
+    margin-top: -206px;
+    padding-left: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.login-panel .sys-env{
+    margin:0 0 10px -30px;
+    width: 372px;
+    text-align: center;
+    font-size:14px;
+    height:30px;
+    line-height: 30px;
+}
+.login-panel .sys-env #sysEnvText{
+    display: inline-block;
+    color: #999999;
+}
+.login-panel .sys-env em{
+    display: inline-block;
+    width: 30px;
+    height:2px;
+    background: #ede9e9;
+    margin-bottom: 4px;
+}
+.login-panel .login-head-text {
+    color: #0068B6;
+    font-size: 26px;
+    text-align: center;
+    margin: 27px 59px 50px 0;
+}
+.login-panel .login-item {
+    width: 313px;
+    margin-bottom: 30px;
+    position: relative;
+    border-radius: 4em;
+    height: 34px;
+    background-color: #ECE9E9;
+    position: relative;
+}
+.bright .login-panel .login-item,
+.login-panel .login-item-no-bg {
+    background: none;
+}
+.login-panel .login-item label {
+    position: absolute;
+    left: 10px;
+    top: 2px;
+    width: 26px;
+    height: 26px;
+    background-image: url("../images/login_input_icon.png");
+    background-repeat: no-repeat;
+}
+.login-panel .login-item label.label-user-code {
+    background-position: 3px 3px;
+}
+.login-panel .login-item label.label-user-pwd {
+    background-position: 3px -24px;
+}
+.login-panel .login-item label.label-user-valid {
+    background-position: 3px -50px;
+}
+.login-panel .login-item .capslock {
+    font-size: 12px;
+    padding: 7px 5px 5px 5px;
+    position: absolute;
+    left: 50%;
+    margin-left: -59px;
+    top: 25px;
+    background: url("../images/capslock.png") no-repeat;
+    display: none;
+}
+.login-panel input[type='input'],
+.login-panel input[type='password'] {
+    border: none;
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 2px 5px 5px 55px;
+    font-family: '微软雅黑';
+    overflow: hidden;
+    outline: none;
+    background: none;
+    color: #535353;
+}
+.login-panel input:-moz-placeholder{
+    color: #535353;
+}
+.login-panel  input:-ms-input-placeholder{
+    color: #535353;
+}
+.login-panel input::-webkit-input-placeholder{
+    color: #535353;
+}
+.login-panel .login-item input.large {
+    width: 255px;
+}
+.login-panel .login-item input.small {
+    width: 170px;
+}
+.login-panel .login-item img.valid-img {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+.login-panel .login-item .login-msg {
+    height: 40px;
+    color: red;
+    cursor: default;
+    overflow: hidden;
+    width: 298px;
+    padding-left: 15px;
+}
+.login-panel .login-record-item {
+    display: none;
+}
+
+.login-panel.login-panel-small .login-head-text {
+
+    margin: 25px 0 40px 0;
+}
+
+.login-panel.login-panel-small .login-item {
+    margin-bottom: 25px;
+}
+
+
+.login-panel.login-panel-small .login-item.login-msg-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.login-top-box{
+    height: 72px;
+}
+.login-wrap-box{
+    background-color: #3E72BF;
+}
+
+.login-content-wrap {
+    background: url(../images/login_ad_pic.png) -12px center no-repeat;
+}
+.login-panel{
+    right: 101px;
+    box-shadow: -14px 14px 25px 1px #2c61ae;
+}
+
+.login-panel .login-item .login-btn {
+    text-align: center;
+    width: 100%;
+    height: 38px;
+    background-color: #0068B6;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: '微软雅黑';
+    border-radius: 4em;
+    outline: none;
+}
+
+.footer-wrap .footer {
+    color: #666;
+    height: 60px;
+    line-height: 60px;
+}

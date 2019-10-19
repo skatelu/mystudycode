@@ -1,0 +1,89 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkImpawn">
+    <resultMap id="StkImpawnMap" type="com.szkingdom.data.DataStkImpawn">
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_CLS"  property="stkCls"  />
+        <result column="STK_PREBLN"  property="stkPrebln"  />
+        <result column="STK_BLN"  property="stkBln"  />
+        <result column="STK_AVL"  property="stkAvl"  />
+        <result column="CUST_CLS"  property="custCls"  />
+        <result column="CUACCT_CLS"  property="cuacctCls"  />
+    </resultMap>
+
+
+    <select id="STK_IMPAWN_SELECT" resultMap="StkImpawnMap" parameterType="com.szkingdom.data.DataStkImpawn">
+        select
+        INT_ORG,CUST_CODE,CUACCT_CODE,TRDACCT,STKEX,STKBD,STKPBU,STK_CODE,
+        STK_CLS,STK_PREBLN,STK_BLN,STK_AVL,CUST_CLS,CUACCT_CLS
+        from STK_IMPAWN
+        where 1=1
+        <if test="cuacctCode > 0">
+            and CUACCT_CODE = #{cuacctCode}
+        </if>
+        <if test="trdacct != null and trdacct != ''">
+            and TRDACCT = #{trdacct}
+        </if>
+        <if test="stkbd != null and stkbd != ''">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="stkpbu != null and stkpbu != ''">
+            and STKPBU = #{stkpbu}
+        </if>
+        <if test="stkCode != null and stkCode != ''">
+            and STK_CODE = #{stkCode}
+        </if>
+        <if test="stkex != null">
+            and STKEX = #{stkex}
+        </if>
+        <if test="custCode > 0">
+            and CUST_CODE = #{custCode}
+        </if>
+
+    </select>
+
+    <select id="STK_IMPAWN_SELECT_LOCK" resultMap="StkImpawnMap" parameterType="com.szkingdom.data.DataStkImpawn">
+        select
+        INT_ORG,CUST_CODE,CUACCT_CODE,TRDACCT,STKEX,STKBD,STKPBU,STK_CODE,
+        STK_CLS,STK_PREBLN,STK_BLN,STK_AVL,CUST_CLS,CUACCT_CLS
+        from STK_IMPAWN
+        where  CUACCT_CODE = #{cuacctCode}
+            and TRDACCT = #{trdacct}
+            and STKBD = #{stkbd}
+            and STKPBU = #{stkpbu}
+            and STK_CODE = #{stkCode}
+        for update
+    </select>
+
+
+    <insert id="STK_IMPAWN_INSERT" parameterType="com.szkingdom.data.DataStkImpawn">
+        insert into STK_IMPAWN(
+        INT_ORG,CUST_CODE,CUACCT_CODE,TRDACCT,STKEX,STKBD,STKPBU,STK_CODE,
+        STK_CLS,STK_PREBLN,STK_BLN,STK_AVL,CUST_CLS,CUACCT_CLS)
+        values ( 
+        #{intOrg},#{custCode},#{cuacctCode},#{trdacct},#{stkex},#{stkbd},#{stkpbu},#{stkCode},
+        #{stkCls},#{stkPrebln},#{stkBln},#{stkAvl},#{custCls},#{cuacctCls})
+    </insert>
+
+
+
+    <update id="STK_IMPAWN_UPDATE" parameterType="com.szkingdom.data.DataStkImpawn">
+        update STK_IMPAWN set
+        INT_ORG = #{intOrg},CUST_CODE = #{custCode},CUACCT_CODE = #{cuacctCode},
+        TRDACCT = #{trdacct},STKEX = #{stkex},STKBD = #{stkbd},
+        STKPBU = #{stkpbu},STK_CODE = #{stkCode},STK_CLS = #{stkCls},
+        STK_PREBLN = #{stkPrebln},STK_BLN = #{stkBln},STK_AVL = #{stkAvl},
+        CUST_CLS = #{custCls},CUACCT_CLS = #{cuacctCls}
+    </update>
+
+
+</mapper>

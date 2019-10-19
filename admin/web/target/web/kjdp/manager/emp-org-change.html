@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>员工行政关系变更</title>
+    <link rel="stylesheet" href="./css/uem-emp.css"/>
+    <script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/emp-org-change"></script>
+</head>
+<body>
+<div id="empInfoPublic">
+    <fieldset class="kui-fieldset">
+        <legend>员工行政关系变更</legend>
+        <div class="form-box">
+            <div class="form-group-inline form-group-dl">
+                <span class="form-label">机构代码：</span>
+                <input id="ORG_CODE" name="ORG_CODE" class="kui-combotree"
+                       kui-options="req:[{service:'P0000037',ORG_TYPE:'0'}],
+                           editable:true,
+                           required:true,
+                           conf:{
+                                treeType: '1',
+                                nodeId:'ORG_CODE',
+                                nodeName: 'ORG_CODE,ORG_FULL_NAME',
+                                parNode: 'PAR_ORG'
+                            },panelWidth:240,panelHeight:280,width:'140'"/>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-buttons">
+            <a href="javascript:void(0)" class="kui-linkbutton" id="submit" kui-options="iconCls:'icon-ok',onClick:'empOrgChange'">提交</a>
+            <a href="javascript:void(0)" class="kui-linkbutton" id="reset" kui-options="iconCls:'icon-cancel',onClick:'empInfoReset'">清空</a>
+        </div>
+    </fieldset>
+</div>
+
+</body>
+</html>

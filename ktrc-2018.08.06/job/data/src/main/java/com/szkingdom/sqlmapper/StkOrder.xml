@@ -1,0 +1,92 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkOrder">
+    <resultMap id="StkOrderMap" type="com.szkingdom.data.DataStkOrder">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="ORDER_DATE"  property="orderDate"  />
+        <result column="ORDER_TIME"  property="orderTime"  />
+        <result column="ORDER_ID"  property="orderId"  />
+        <result column="ORDER_TYPE"  property="orderType"  />
+        <result column="ORDER_STATUS"  property="orderStatus"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="STK_BIZ"  property="stkBiz"  />
+        <result column="STK_BIZ_ACTION"  property="stkBizAction"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_NAME"  property="stkName"  />
+        <result column="STK_CLS"  property="stkCls"  />
+        <result column="ORDER_PRICE"  property="orderPrice"  />
+        <result column="ORDER_QTY"  property="orderQty"  />
+        <result column="ORDER_FRZ_AMT"  property="orderFrzAmt"  />
+        <result column="IS_WITHDRAW"  property="isWithdraw"  />
+        <result column="RAW_ORDER_ID"  property="rawOrderId"  />
+        <result column="GPZYSNO"  property="gpzysno"  />
+        <result column="ITEMNO"  property="itemno"  />
+    </resultMap>
+
+
+    <select id="STK_ORDER_SELECT" resultMap="StkOrderMap" parameterType="com.szkingdom.data.DataStkOrder">
+        select
+        TRD_DATE,ORDER_DATE,ORDER_TIME,ORDER_ID,ORDER_TYPE,ORDER_STATUS,INT_ORG,CUST_CODE,
+        CUST_NAME,CUST_TYPE,CUACCT_CODE,CURRENCY,STKBD,STKPBU,TRDACCT,STK_BIZ,
+        STK_BIZ_ACTION,STK_CODE,STK_NAME,STK_CLS,ORDER_PRICE,ORDER_QTY,ORDER_FRZ_AMT,IS_WITHDRAW,
+        RAW_ORDER_ID,GPZYSNO,ITEMNO
+        from STK_ORDER
+        where 1=1
+        <if test="orderId != null and orderId !='' ">
+            and ORDER_ID = #{orderId}
+        </if>
+        <if test="stkbd != null and stkbd != ''">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="stkpbu != null and stkpbu !='' ">
+            and STKPBU = #{stkpbu}
+        </if>
+        <if test="trdDate > 0">
+            and TRD_DATE = #{trdDate}
+        </if>
+        <if test="isWithdraw != null and isWithdraw != ' ' ">
+            and IS_WITHDRAW = #{isWithdraw}
+        </if>
+    </select>
+
+
+    <insert id="STK_ORDER_INSERT" parameterType="com.szkingdom.data.DataStkOrder">
+        insert into STK_ORDER(
+        TRD_DATE,ORDER_DATE,ORDER_TIME,ORDER_ID,ORDER_TYPE,ORDER_STATUS,INT_ORG,CUST_CODE,
+        CUST_NAME,CUST_TYPE,CUACCT_CODE,CURRENCY,STKBD,STKPBU,TRDACCT,STK_BIZ,
+        STK_BIZ_ACTION,STK_CODE,STK_NAME,STK_CLS,ORDER_PRICE,ORDER_QTY,ORDER_FRZ_AMT,IS_WITHDRAW,
+        RAW_ORDER_ID,GPZYSNO,ITEMNO)
+        values ( 
+        #{trdDate},#{orderDate},#{orderTime},#{orderId},#{orderType},#{orderStatus},#{intOrg},#{custCode},
+        #{custName},#{custType},#{cuacctCode},#{currency},#{stkbd},#{stkpbu},#{trdacct},#{stkBiz},
+        #{stkBizAction},#{stkCode},#{stkName},#{stkCls},#{orderPrice},#{orderQty},#{orderFrzAmt},#{isWithdraw},
+        #{rawOrderId},#{gpzysno},#{itemno})
+    </insert>
+
+
+
+    <update id="STK_ORDER_UPDATE" parameterType="com.szkingdom.data.DataStkOrder">
+        update STK_ORDER set
+        TRD_DATE = #{trdDate},ORDER_DATE = #{orderDate},ORDER_TIME = #{orderTime},
+        ORDER_ID = #{orderId},ORDER_TYPE = #{orderType},ORDER_STATUS = #{orderStatus},
+        INT_ORG = #{intOrg},CUST_CODE = #{custCode},CUST_NAME = #{custName},
+        CUST_TYPE = #{custType},CUACCT_CODE = #{cuacctCode},CURRENCY = #{currency},
+        STKBD = #{stkbd},STKPBU = #{stkpbu},TRDACCT = #{trdacct},
+        STK_BIZ = #{stkBiz},STK_BIZ_ACTION = #{stkBizAction},STK_CODE = #{stkCode},
+        STK_NAME = #{stkName},STK_CLS = #{stkCls},ORDER_PRICE = #{orderPrice},
+        ORDER_QTY = #{orderQty},ORDER_FRZ_AMT = #{orderFrzAmt},IS_WITHDRAW = #{isWithdraw},
+        RAW_ORDER_ID = #{rawOrderId},GPZYSNO = #{gpzysno},ITEMNO = #{itemno}
+    </update>
+
+
+</mapper>

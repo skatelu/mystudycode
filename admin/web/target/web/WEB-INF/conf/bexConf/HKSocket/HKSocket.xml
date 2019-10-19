@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+    <bex bex_code="QueryNonHKCommissionCustomerNow" bex_name="佣金非港币客户查询" bex_type="4" page_mode="0" attr1="QueryNonHKCommissionCustomerNow" />
+    <bex bex_code="QueryunRegistedCustomer" bex_name="持有港股但未登记客户详情查询" bex_type="4" page_mode="0" attr1="QueryunRegistedCustomer" />
+    <bex bex_code="QueryFundInfoSF" bex_name="证券组合金应收未收" bex_type="4" page_mode="0" attr1="QueryFundInfoSF"></bex>
+</bexs>

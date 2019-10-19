@@ -1,0 +1,45 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.EtfCashcomponent">
+    <resultMap id="StkEtfCashcomponentMap" type="com.szkingdom.data.DataEtfCashcomponent">
+        <result column="date"  property="date"  />
+        <result column="custid"  property="custId"  />
+        <result column="fundid"  property="fundId"  />
+        <result column="custname"  property="custName"  />
+        <result column="orgname"  property="orgName"  />
+        <result column="ykkje"  property="ykkje"  />
+        <result column="djje"  property="djje"  />
+        <result column="ydbzje"  property="ydbzje"  />
+        <result column="kyye"  property="kyye"  />
+        <result column="qsje"  property="qsje"  />
+        <result column="yled"  property="yled"  />
+        <result column="jzrq"  property="jzrq"  />
+    </resultMap>
+
+
+    <select id="ETF_ETFCASHCOMPONENT_SELECT" resultMap="StkEtfCashcomponentMap" parameterType="com.szkingdom.data.DataEtfCashcomponent">
+        select
+        FUNDID ,CUSTID ,CUSTNAME,ORGNAME ,YKKJE ,DJJE,YDBZJE ,KYYE,QSJE ,YLED ,JZRQ,DATE
+        from ETF_CASHCOMPONENT
+        where 1=1
+        <if test="fundId != null and fundId !=''">
+            and FUNDID = #{fundId}
+        </if>
+        <if test="custId != null and custId !=''">
+            and CUSTID = #{custId}
+        </if>
+        <if test="date != null and date !=''">
+            and DATE = #{date}
+        </if>
+    </select>
+    <update id="ETF_ETFCASHCOMPONENT_UPDATE" parameterType="com.szkingdom.data.DataEtfCashcomponent">
+        update ETF_CASHCOMPONENT set
+        yled = #{yled},jzrq = #{jzrq},kyye = #{kyye},qsje = #{qsje}
+        where FUNDID = #{fundId}
+            and CUSTID = #{custId}
+            and DATE = #{date}
+    </update>
+
+</mapper>

@@ -1,0 +1,39 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskIndicatorOverview">
+    <resultMap id="RiskIndicatorOverviewMap" type="com.szkingdom.data.DataRiskIndicatorOverview">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_NAME"  property="indicatorName"  />
+        <result column="BIZ_ATTR"  property="bizAttr"  />
+        <result column="INDICATOR_CLS"  property="indicatorCls"  />
+        <result column="INDICATOR_CLS_NAME"  property="indicatorClsName"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+        <result column="RISK_TRIGGER_QTY"  property="riskTriggerQty"  />
+        <result column="TO_BE_NOTICED_QTY"  property="toBeNoticedQty"  />
+        <result column="RISK_TRIGGER_FLAG"  property="riskTriggerFlag"  />
+        <result column="TO_BE_NOTICED_FLAG"  property="toBeNoticedFlag"  />
+    </resultMap>
+
+
+    <select id="RISK_INDICATOR_OVERVIEW_SELECT" resultMap="RiskIndicatorOverviewMap" parameterType="com.szkingdom.data.DataRiskIndicatorOverview">
+        select
+        INDICATOR_ID,INDICATOR_NAME,BIZ_ATTR,INDICATOR_CLS,INDICATOR_CLS_NAME,OCC_DATE,OCC_TIME,RISK_TRIGGER_QTY,
+        TO_BE_NOTICED_QTY,RISK_TRIGGER_FLAG,TO_BE_NOTICED_FLAG
+        from RISK_INDICATOR_OVERVIEW
+    </select>
+
+
+    <insert id="RISK_INDICATOR_OVERVIEW_INSERT" parameterType="com.szkingdom.data.DataRiskIndicatorOverview">
+        insert into RISK_INDICATOR_OVERVIEW(
+        INDICATOR_ID,INDICATOR_NAME,BIZ_ATTR,INDICATOR_CLS,INDICATOR_CLS_NAME,OCC_DATE,OCC_TIME,RISK_TRIGGER_QTY,
+        TO_BE_NOTICED_QTY,RISK_TRIGGER_FLAG,TO_BE_NOTICED_FLAG)
+        values ( 
+        #{indicatorId},#{indicatorName},#{bizAttr},#{indicatorCls},#{indicatorClsName},#{occDate},#{occTime},#{riskTriggerQty},
+        #{toBeNoticedQty},#{riskTriggerFlag},#{toBeNoticedFlag})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,77 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptMatching">
+    <resultMap id="OptMatchingMap" type="com.szkingdom.data.DataOptMatching">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="MATCHED_TIME"  property="matchedTime"  />
+        <result column="ORDER_DATE"  property="orderDate"  />
+        <result column="ORDER_ID"  property="orderId"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="SUBACCT_CODE"  property="subacctCode"  />
+        <result column="STK_BIZ"  property="stkBiz"  />
+        <result column="STK_BIZ_ACTION"  property="stkBizAction"  />
+        <result column="OPT_NUM"  property="optNum"  />
+        <result column="OPT_NAME"  property="optName"  />
+        <result column="OPT_TYPE"  property="optType"  />
+        <result column="COMB_NUM"  property="combNum"  />
+        <result column="COMB_STRA_CODE"  property="combStraCode"  />
+        <result column="LEG1_NUM"  property="leg1Num"  />
+        <result column="LEG2_NUM"  property="leg2Num"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_UNDL_NAME"  property="optUndlName"  />
+        <result column="IS_WITHDRAW"  property="isWithdraw"  />
+        <result column="MATCHED_TYPE"  property="matchedType"  />
+        <result column="MATCHED_SN"  property="matchedSn"  />
+        <result column="MATCHED_PRICE"  property="matchedPrice"  />
+        <result column="MATCHED_QTY"  property="matchedQty"  />
+    </resultMap>
+
+    <select id="OPT_MATCHING_SELECT" resultMap="OptMatchingMap" parameterType="com.szkingdom.data.DataOptMatching">
+        select
+        TRD_DATE,MATCHED_TIME,ORDER_DATE,ORDER_ID,INT_ORG,CUST_CODE,CUST_NAME,CUACCT_CODE,
+        CURRENCY,STKBD,STKPBU,TRDACCT,SUBACCT_CODE,STK_BIZ,STK_BIZ_ACTION,OPT_NUM,
+        OPT_NAME,OPT_TYPE,COMB_NUM,COMB_STRA_CODE,LEG1_NUM,LEG2_NUM,OPT_UNDL_CLS,OPT_UNDL_CODE,
+        OPT_UNDL_NAME,IS_WITHDRAW,MATCHED_TYPE,MATCHED_SN,MATCHED_PRICE,MATCHED_QTY
+        from OPT_MATCHING
+        where 1=1
+        <if test="orderId != null and orderId !=''">
+            and ORDER_ID = #{orderId}
+        </if>
+        <if test="matchedSn != null and matchedSn !=''">
+            and MATCHED_SN = #{matchedSn}
+        </if>
+        <if test="stkpbu != null and stkpbu !=''">
+            and STKPBU = #{stkpbu}
+        </if>
+        <if test="stkbd != null and stkbd !=''">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="trdDate > 0">
+            and TRD_DATE = #{trdDate}
+        </if>
+    </select>
+
+    <insert id="OPT_MATCHING_INSERT" parameterType="com.szkingdom.data.DataOptMatching">
+        insert into OPT_MATCHING(
+        TRD_DATE,MATCHED_TIME,ORDER_DATE,ORDER_ID,INT_ORG,CUST_CODE,CUST_NAME,CUACCT_CODE,
+        CURRENCY,STKBD,STKPBU,TRDACCT,SUBACCT_CODE,STK_BIZ,STK_BIZ_ACTION,OPT_NUM,
+        OPT_NAME,OPT_TYPE,COMB_NUM,COMB_STRA_CODE,LEG1_NUM,LEG2_NUM,OPT_UNDL_CLS,OPT_UNDL_CODE,
+        OPT_UNDL_NAME,IS_WITHDRAW,MATCHED_TYPE,MATCHED_SN,MATCHED_PRICE,MATCHED_QTY)
+        values ( 
+        #{trdDate},#{matchedTime},#{orderDate},#{orderId},#{intOrg},#{custCode},#{custName},#{cuacctCode},
+        #{currency},#{stkbd},#{stkpbu},#{trdacct},#{subacctCode},#{stkBiz},#{stkBizAction},#{optNum},
+        #{optName},#{optType},#{combNum},#{combStraCode},#{leg1Num},#{leg2Num},#{optUndlCls},#{optUndlCode},
+        #{optUndlName},#{isWithdraw},#{matchedType},#{matchedSn},#{matchedPrice},#{matchedQty})
+    </insert>
+
+</mapper>

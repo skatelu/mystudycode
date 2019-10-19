@@ -1,0 +1,212 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptAsset">
+    <resultMap id="OptAssetMap" type="com.szkingdom.data.DataOptAsset">
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="SUBACCT_CODE"  property="subacctCode"  />
+        <result column="TRDACCT_EXCLS"  property="trdacctExcls"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="OPT_NUM"  property="optNum"  />
+        <result column="OPT_CODE"  property="optCode"  />
+        <result column="OPT_NAME"  property="optName"  />
+        <result column="OPT_TYPE"  property="optType"  />
+        <result column="OPT_SIDE"  property="optSide"  />
+        <result column="OPT_CVD_FLAG"  property="optCvdFlag"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_PREBLN"  property="optPrebln"  />
+        <result column="OPT_BLN"  property="optBln"  />
+        <result column="OPT_AVL"  property="optAvl"  />
+        <result column="OPT_FRZ"  property="optFrz"  />
+        <result column="OPT_UFZ"  property="optUfz"  />
+        <result column="OPT_TRD_FRZ"  property="optTrdFrz"  />
+        <result column="OPT_TRD_UFZ"  property="optTrdUfz"  />
+        <result column="OPT_TRD_OTD"  property="optTrdOtd"  />
+        <result column="OPT_TRD_BLN"  property="optTrdBln"  />
+        <result column="OPT_CVD_ASSET"  property="optCvdAsset"  />
+        <result column="OPT_POSI_RLT"  property="optPosiRlt"  />
+        <result column="OPT_AUTO_EXE_QTY"  property="optAutoExeQty"  />
+        <result column="OPT_CLS_UNMATCHED"  property="optClsUnmatched"  />
+        <result column="OPT_DAILY_OPEN_RLT"  property="optDailyOpenRlt"  />
+        <result column="COMBED_QTY"  property="combedQty"  />
+        <result column="UPD_TIME"  property="updTime"  />
+        <result column="MAC"  property="mac"  />
+    </resultMap>
+
+    <select id="OPT_ASSET_SELECT" resultMap="OptAssetMap" parameterType="com.szkingdom.data.DataOptAsset">
+        select
+        CUST_CODE,CUST_TYPE,CUACCT_CODE,INT_ORG,STKEX,STKBD,STKPBU,TRDACCT,
+        SUBACCT_CODE,TRDACCT_EXCLS,CURRENCY,OPT_NUM,OPT_CODE,OPT_NAME,OPT_TYPE,OPT_SIDE,
+        OPT_CVD_FLAG,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_PREBLN,OPT_BLN,OPT_AVL,OPT_FRZ,OPT_UFZ,
+        OPT_TRD_FRZ,OPT_TRD_UFZ,OPT_TRD_OTD,OPT_TRD_BLN,OPT_CVD_ASSET,OPT_POSI_RLT,OPT_AUTO_EXE_QTY,OPT_CLS_UNMATCHED,
+        OPT_DAILY_OPEN_RLT,COMBED_QTY,UPD_TIME,MAC
+        from OPT_ASSET
+        where 1=1
+        <if test="cuacctCode > 0 ">
+            and CUACCT_CODE = #{cuacctCode}
+        </if>
+        <if test="optNum != null and optNum != '' ">
+            and OPT_NUM = #{optNum}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="stkpbu != null and stkpbu != '' ">
+            and STKPBU = #{stkpbu}
+        </if>
+        <if test="trdacct != null and trdacct != '' ">
+            and  TRDACCT = #{trdacct}
+        </if>
+        <if test="optSide != null and optSide != ' ' and optSide != ''">
+            and  OPT_SIDE = #{optSide}
+        </if>
+
+        <if test="optUndlCode != null and optUndlCode != ''">
+            and OPT_UNDL_CODE = #{optUndlCode}
+        </if>
+    </select>
+
+    <select id="OPT_ASSET_SELECT_LOCK" resultMap="OptAssetMap" parameterType="com.szkingdom.data.DataOptAsset">
+        select
+        CUST_CODE,CUST_TYPE,CUACCT_CODE,INT_ORG,STKEX,STKBD,STKPBU,TRDACCT,
+        SUBACCT_CODE,TRDACCT_EXCLS,CURRENCY,OPT_NUM,OPT_CODE,OPT_NAME,OPT_TYPE,OPT_SIDE,
+        OPT_CVD_FLAG,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_PREBLN,OPT_BLN,OPT_AVL,OPT_FRZ,OPT_UFZ,
+        OPT_TRD_FRZ,OPT_TRD_UFZ,OPT_TRD_OTD,OPT_TRD_BLN,OPT_CVD_ASSET,OPT_POSI_RLT,OPT_AUTO_EXE_QTY,OPT_CLS_UNMATCHED,
+        OPT_DAILY_OPEN_RLT,COMBED_QTY,UPD_TIME,MAC
+        from OPT_ASSET
+        where CUACCT_CODE = #{cuacctCode}
+        and OPT_NUM = #{optNum}
+        and STKBD = #{stkbd}
+        and STKPBU = #{stkpbu}
+        and TRDACCT = #{trdacct}
+        and OPT_SIDE = #{optSide}
+        for update
+    </select>
+
+    <select id="OPT_ASSET_SELECT_HEDGED_FOR_MAGIN_RISK" resultMap="OptAssetMap" parameterType="com.szkingdom.data.DataOptAsset">
+        select
+        CUST_CODE, CUACCT_CODE, CURRENCY, INT_ORG, STKBD, TRDACCT, OPT_NUM, OPT_SIDE,
+        OPT_POSI_RLT, COMBED_QTY, OPT_BLN, OPT_TRD_BLN, CUST_TYPE
+        from OPT_ASSET
+        where CUACCT_CODE = #{cuacctCode}
+        and CURRENCY = #{currency}
+        and OPT_SIDE != 'C'
+    	and EXISTS (
+    	  select 1
+    	    from OPT_ASSET
+          where CUACCT_CODE = #{cuacctCode}
+          and CURRENCY = #{currency}
+          and OPT_SIDE = 'S')
+        order by STKBD, TRDACCT, OPT_NUM
+    </select>
+
+    <select id="OPT_ASSET_SELECT_NOT_HEDGED_FOR_MAGIN_RISK" resultMap="OptAssetMap" parameterType="com.szkingdom.data.DataOptAsset">
+        select
+        CUST_CODE, CUACCT_CODE, CURRENCY, INT_ORG, STKBD, TRDACCT, OPT_NUM, OPT_SIDE,
+        OPT_POSI_RLT, COMBED_QTY, OPT_BLN, OPT_TRD_BLN, CUST_TYPE
+        from OPT_ASSET
+        where CUACCT_CODE = #{cuacctCode}
+        and CURRENCY = #{currency}
+        and OPT_SIDE = 'S'
+        order by STKBD, TRDACCT, OPT_NUM
+    </select>
+
+    <select id="OPT_ASSET_SELECT_FOR_CVD" resultType="Long" parameterType="com.szkingdom.data.DataOptAsset">
+        select
+        sum((A.OPT_BLN+A.OPT_TRD_BLN)*B.OPT_UNIT) CVT_QTY_NEED
+        from OPT_ASSET A ,
+        OPT_INFO B
+        where A.OPT_SIDE = 'C'
+        and A.STKBD = B.STKBD
+        and A.OPT_NUM = B.OPT_NUM
+        and A.STKBD = #{stkbd}
+        and A.TRDACCT = #{trdacct}
+        and A.OPT_UNDL_CODE = #{optUndlCode}
+        group by A.STKBD,TRDACCT,A.OPT_UNDL_CODE
+    </select>
+
+    <select id="OPT_ASSET_SELECT_FOR_CUST_POSI_MKT_VAL" resultType="java.lang.Long" parameterType="com.szkingdom.data.DataOptAsset">
+        select SUM((case
+             when A.OPT_SIDE = 'S' or A.OPT_SIDE = 'C' then
+              (A.OPT_BLN + A.OPT_TRD_BLN) * -1
+             else
+              (A.OPT_BLN + A.OPT_TRD_BLN)
+           end) * B.OPT_UNIT * (case
+             when C.OPT_CURR_PRICE > 0 then
+              (C.OPT_CURR_PRICE / 10000) + (C.OPT_CURR_PRICE % 10000) * 0.0001
+             else
+             (C.PRE_CLOSE_PX / 10000) + (C.PRE_CLOSE_PX % 10000) * 0.0001
+           end)) as MKT_VAL
+        from OPT_ASSET A, OPT_INFO B, OPT_MKTINFO C
+        where A.OPT_UNDL_CODE = B.OPT_UNDL_CODE
+        and A.OPT_NUM = B.OPT_NUM
+        and A.OPT_NUM = C.OPT_NUM
+        and A.OPT_CODE = C.OPT_CODE
+        and A.CUST_CODE = #{custCode}
+        <if test="currency != null and currency !=' ' and currency !=''">
+            and A.CURRENCY = #{currency}
+        </if>
+        <if test="optSide != null and optSide != ' ' and optSide != ''">
+            and A.OPT_SIDE = #{optSide}
+        </if>
+    </select>
+
+    <select id="OPT_ASSET_SELECT_FOR_CUST_OPT_SHORT_AND_COVERED_MKT_VAL" resultType="java.lang.Long" parameterType="com.szkingdom.data.DataOptAsset">
+        select SUM((A.OPT_BLN + A.OPT_TRD_BLN) * -1 * B.OPT_UNIT * (case
+             when C.OPT_CURR_PRICE > 0 then
+              (C.OPT_CURR_PRICE / 10000) + (C.OPT_CURR_PRICE % 10000) * 0.0001
+             else
+              (C.PRE_CLOSE_PX / 10000) + (C.PRE_CLOSE_PX % 10000) * 0.0001
+           end)) as MKT_VAL
+         from OPT_ASSET A, OPT_INFO B, OPT_MKTINFO C
+        where A.OPT_UNDL_CODE = B.OPT_UNDL_CODE
+        and A.OPT_NUM = B.OPT_NUM
+        and A.OPT_NUM = C.OPT_NUM
+        and A.OPT_CODE = C.OPT_CODE
+        and A.CUST_CODE = #{custCode}
+        and A.OPT_SIDE = 'S'
+        and A.OPT_SIDE = 'C'
+    </select>
+
+    <update id="OPT_ASSET_UPDATE" parameterType="com.szkingdom.data.DataOptAsset">
+        update OPT_ASSET
+        set CUST_CODE=#{custCode}, CUST_TYPE=#{custType}, CUACCT_CODE=#{cuacctCode},
+        INT_ORG=#{intOrg}, STKEX=#{stkex}, STKBD=#{stkbd}, STKPBU=#{stkpbu}, TRDACCT=#{trdacct},
+        SUBACCT_CODE=#{subacctCode}, TRDACCT_EXCLS=#{trdacctExcls}, CURRENCY=#{currency}, OPT_NUM=#{optNum}, OPT_CODE=#{optCode}, OPT_NAME=#{optName},
+        OPT_TYPE=#{optType}, OPT_SIDE=#{optSide}, OPT_CVD_FLAG=#{optCvdFlag}, OPT_UNDL_CLS=#{optUndlCls}, OPT_UNDL_CODE=#{optUndlCode}, OPT_PREBLN=#{optPrebln},
+        OPT_BLN=#{optBln}, OPT_AVL=#{optAvl}, OPT_FRZ=#{optFrz}, OPT_UFZ=#{optUfz}, OPT_TRD_FRZ=#{optTrdFrz}, OPT_TRD_UFZ=#{optTrdUfz}, OPT_TRD_OTD=#{optTrdOtd},
+        OPT_TRD_BLN=#{optTrdBln},OPT_CVD_ASSET=#{optCvdAsset}, OPT_POSI_RLT=#{optPosiRlt}, OPT_AUTO_EXE_QTY=#{optAutoExeQty},
+        OPT_CLS_UNMATCHED=#{optClsUnmatched}, OPT_DAILY_OPEN_RLT=#{optDailyOpenRlt}, COMBED_QTY=#{combedQty}, UPD_TIME=current_date, MAC=#{mac}
+        where CUACCT_CODE = #{cuacctCode}
+        and OPT_NUM = #{optNum}
+        and STKBD = #{stkbd}
+        and STKPBU = #{stkpbu}
+        and  TRDACCT = #{trdacct}
+        and  OPT_SIDE = #{optSide}
+    </update>
+
+    <insert id="OPT_ASSET_INSERT" parameterType="com.szkingdom.data.DataOptAsset">
+        insert into OPT_ASSET(
+        CUST_CODE,CUST_TYPE,CUACCT_CODE,INT_ORG,STKEX,STKBD,STKPBU,TRDACCT,
+        SUBACCT_CODE,TRDACCT_EXCLS,CURRENCY,OPT_NUM,OPT_CODE,OPT_NAME,OPT_TYPE,OPT_SIDE,
+        OPT_CVD_FLAG,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_PREBLN,OPT_BLN,OPT_AVL,OPT_FRZ,OPT_UFZ,
+        OPT_TRD_FRZ,OPT_TRD_UFZ,OPT_TRD_OTD,OPT_TRD_BLN,OPT_CVD_ASSET,OPT_POSI_RLT,OPT_AUTO_EXE_QTY,OPT_CLS_UNMATCHED,
+        OPT_DAILY_OPEN_RLT,COMBED_QTY,UPD_TIME,MAC)
+        values ( 
+        #{custCode},#{custType},#{cuacctCode},#{intOrg},#{stkex},#{stkbd},#{stkpbu},#{trdacct},
+        #{subacctCode},#{trdacctExcls},#{currency},#{optNum},#{optCode},#{optName},#{optType},#{optSide},
+        #{optCvdFlag},#{optUndlCls},#{optUndlCode},#{optPrebln},#{optBln},#{optAvl},#{optFrz},#{optUfz},
+        #{optTrdFrz},#{optTrdUfz},#{optTrdOtd},#{optTrdBln},#{optCvdAsset},#{optPosiRlt},#{optAutoExeQty},#{optClsUnmatched},
+        #{optDailyOpenRlt},#{combedQty},current_date,#{mac})
+    </insert>
+
+</mapper>

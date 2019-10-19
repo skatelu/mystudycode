@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/esper/esper.iml" filepath="$PROJECT_DIR$/esper/esper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esper-avro/esper-avro.iml" filepath="$PROJECT_DIR$/esper-avro/esper-avro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/autoid/esper-example-autoid.iml" filepath="$PROJECT_DIR$/examples/autoid/esper-example-autoid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/cycledetect/esper-example-cycledetect.iml" filepath="$PROJECT_DIR$/examples/cycledetect/esper-example-cycledetect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/marketdatafeed/esper-example-marketdatafeed.iml" filepath="$PROJECT_DIR$/examples/marketdatafeed/esper-example-marketdatafeed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/matchmaker/esper-example-matchmaker.iml" filepath="$PROJECT_DIR$/examples/matchmaker/esper-example-matchmaker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/namedwinquery/esper-example-namedwinquery.iml" filepath="$PROJECT_DIR$/examples/namedwinquery/esper-example-namedwinquery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/ohlcpluginview/esper-example-ohlcpluginview.iml" filepath="$PROJECT_DIR$/examples/ohlcpluginview/esper-example-ohlcpluginview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/qos_sla/esper-example-qossla.iml" filepath="$PROJECT_DIR$/examples/qos_sla/esper-example-qossla.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/rfidassetzone/esper-example-rfidassetzone.iml" filepath="$PROJECT_DIR$/examples/rfidassetzone/esper-example-rfidassetzone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/runtimeconfig/esper-example-runtimeconfig.iml" filepath="$PROJECT_DIR$/examples/runtimeconfig/esper-example-runtimeconfig.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/servershell/esper-example-servershell.iml" filepath="$PROJECT_DIR$/examples/servershell/esper-example-servershell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/stockticker/esper-example-stockticker.iml" filepath="$PROJECT_DIR$/examples/stockticker/esper-example-stockticker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/transaction/esper-example-transaction.iml" filepath="$PROJECT_DIR$/examples/transaction/esper-example-transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/trivia/esper-example-trivia.iml" filepath="$PROJECT_DIR$/examples/trivia/esper-example-trivia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/virtualdw/esper-example-virtualdw.iml" filepath="$PROJECT_DIR$/examples/virtualdw/esper-example-virtualdw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/esper-examples-parent.iml" filepath="$PROJECT_DIR$/examples/esper-examples-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/terminalsvc/esper-examples-terminalsvc-parent.iml" filepath="$PROJECT_DIR$/examples/terminalsvc/esper-examples-terminalsvc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esper-parent.iml" filepath="$PROJECT_DIR$/esper-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esper-regression/esper-regression.iml" filepath="$PROJECT_DIR$/esper-regression/esper-regression.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/benchmark/esper_examples_benchmark.iml" filepath="$PROJECT_DIR$/examples/benchmark/esper_examples_benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/terminalsvc-jse/esper_examples_terminalservicejse.iml" filepath="$PROJECT_DIR$/examples/terminalsvc-jse/esper_examples_terminalservicejse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esperio-amqp/esperio-amqp.iml" filepath="$PROJECT_DIR$/esperio-amqp/esperio-amqp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esperio-csv/esperio-csv.iml" filepath="$PROJECT_DIR$/esperio-csv/esperio-csv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esperio-db/esperio-db.iml" filepath="$PROJECT_DIR$/esperio-db/esperio-db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esperio-http/esperio-http.iml" filepath="$PROJECT_DIR$/esperio-http/esperio-http.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esperio-kafka/esperio-kafka.iml" filepath="$PROJECT_DIR$/esperio-kafka/esperio-kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esperio-socket/esperio-socket.iml" filepath="$PROJECT_DIR$/esperio-socket/esperio-socket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esperio-springjms/esperio-springjms.iml" filepath="$PROJECT_DIR$/esperio-springjms/esperio-springjms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esperio-stax/esperio-stax.iml" filepath="$PROJECT_DIR$/esperio-stax/esperio-stax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/terminalsvc/terminalsvc-common/example-terminalsvc-common.iml" filepath="$PROJECT_DIR$/examples/terminalsvc/terminalsvc-common/example-terminalsvc-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/terminalsvc/terminalsvc-ear/example-terminalsvc-ear.iml" filepath="$PROJECT_DIR$/examples/terminalsvc/terminalsvc-ear/example-terminalsvc-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/terminalsvc/terminalsvc-mdb/example-terminalsvc-mdb.iml" filepath="$PROJECT_DIR$/examples/terminalsvc/terminalsvc-mdb/example-terminalsvc-mdb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/terminalsvc/terminalsvc-receiver/example-terminalsvc-receiver.iml" filepath="$PROJECT_DIR$/examples/terminalsvc/terminalsvc-receiver/example-terminalsvc-receiver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/examples/terminalsvc/terminalsvc-sender/example-terminalsvc-sender.iml" filepath="$PROJECT_DIR$/examples/terminalsvc/terminalsvc-sender/example-terminalsvc-sender.iml" />
+    </modules>
+  </component>
+</project>

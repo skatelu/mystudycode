@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+
+    <select id="QueryKettleAtrrMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+	      par_jobid AS MENU_ID,
+	      par_jobname  AS MENU_NAME,
+          '-1' AS PAR_MENU,
+          '' AS PAR_NAME
+        from kettle_job_trans where par_jobid is not null group by par_jobid,par_jobname
+    </select>
+
+    <select id="QueryKettleClsMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+            par_jobid  as par_menu,
+            jobid  as menu_id,
+            jobname  as MENU_NAME
+        from kettle_job_trans c where par_jobid is not null group by par_jobid,jobid,jobname
+    </select>
+
+    <select id="QueryKettleOverviewMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+            jobid as par_menu,
+            jobname as par_name,
+            jobentry as menu_id,
+            trans_name as MENU_NAME
+        from kettle_job_trans order by par_menu;
+    </select>
+
+    <select id="QueryKettleETFLog" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+        ID_JOB,
+        JOBNAME,
+        STATUS,
+        LINES_READ,
+        LINES_WRITTEN,
+        LINES_UPDATED,
+        LINES_INPUT,
+        LINES_OUTPUT,
+        ERRORS,
+        ENDDATE,
+        LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME,
+        LOG_FIELD
+        from kettle_job_log
+        <where>
+            <if test='JOBNAME != null and JOBNAME != ""'>JOBNAME = #{JOBNAME}</if>
+            <if test='STATUS != null and STATUS != ""'> AND STATUS = #{STATUS}</if>
+            <if test='ENDDATE != null and ENDDATE != ""'> AND to_char(ENDDATE,'yyyymmdd') = #{ENDDATE}</if>
+        </where>
+        order by ENDDATE desc
+    </select>
+
+    <select id="QueryKettleJobLog" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+            ID_JOB,
+            JOBNAME,
+            STATUS,
+            LINES_READ,
+            LINES_WRITTEN,
+            LINES_UPDATED,
+            LINES_INPUT,
+            LINES_OUTPUT,
+            ERRORS,
+            ENDDATE,
+            LOGDATE,
+            TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME,
+            LOG_FIELD
+        from kettle_job_log
+        <where>
+            JOBNAME = 'ETF差额扣款总计'
+        </where>
+            order by ENDDATE desc
+    </select>
+
+    <select id="QueryKettleEtfCashCommonent" parameterType="jdbcMap" resultType="jdbcMap">
+    select
+    ID_JOB,
+    JOBNAME,
+    STATUS,
+    LINES_READ,
+    LINES_WRITTEN,
+    LINES_UPDATED,
+    LINES_INPUT,
+    LINES_OUTPUT,
+    ERRORS,
+    ENDDATE,
+    LOGDATE,
+    TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME,
+    LOG_FIELD
+    from kettle_job_log
+    <where>
+        JOBNAME = '汇总更新etf_cashcomponent表'
+    </where>
+  </select>
+
+    <select id="QueryKettleEtfCashCommonentYdzjqk" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+        ID_JOB,
+        JOBNAME,
+        STATUS,
+        LINES_READ,
+        LINES_WRITTEN,
+        LINES_UPDATED,
+        LINES_INPUT,
+        LINES_OUTPUT,
+        ERRORS,
+        ENDDATE,
+        LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME,
+        LOG_FIELD
+        from kettle_job_log
+        <where>
+            JOBNAME = 'ETF数据准备阶段（生成etf_cashcomponent_ydzjqk)'
+        </where>
+    </select>
+
+    <!--trans日志查询sql文件-->
+    <select id="QueryKettleTransLog" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+        ID_BATCH,
+        TRANSNAME,
+        STATUS,
+        LINES_READ,
+        LINES_WRITTEN,
+        LINES_UPDATED,
+        LINES_INPUT,
+        LINES_OUTPUT,
+        ERRORS,
+        ENDDATE,
+        LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME,
+        LOG_FIELD
+        from KETTLE_TRANS_LOG
+        <where>
+            <if test='TRANSNAME != null and TRANSNAME != ""'>TRANSNAME = #{TRANSNAME}</if>
+            <if test='STATUS != null and STATUS != ""'> AND STATUS = #{STATUS}</if>
+            <if test='ENDDATE != null and ENDDATE != ""'> AND to_char(ENDDATE,'yyyymmdd') = #{ENDDATE}</if>
+        </where>
+        order by ENDDATE desc
+    </select>
+    <select id="QueryKettleSGWYDZJ" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+          TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME,
+          LOG_FIELD
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = #{TRANSNAME}
+        </where>
+        order by ENDDATE desc
+    </select>
+    <select id="QueryKettleSHWYDZJ" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+          TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+          /*LOG_FIELD*/
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = '赎回T-1日无预冻资金'
+        </where>
+    </select>
+    <select id="QueryKettleEtfCashCommonentHIS" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+          TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = '将etf_cashcomponent昨天数据导入历史表'
+        </where>
+    </select>
+    <select id="QueryKettleETFbaseinfo" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+          TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = 'in-etfbaseinfo'
+        </where>
+    </select>
+    <select id="QueryKettleUncommitclear" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+          TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = 'in-uncommitclear'
+        </where>
+    </select>
+    <select id="QueryKettleHorderrec" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+          TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = 'in-h_orderrec1'
+        </where>
+    </select>
+    <select id="QueryKettleSumUncommitclearSG" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = 'sum-uncommitclear_sg'
+        </where>
+    </select>
+    <select id="QueryKettleSumHorderrecSG" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = 'sum-h_orderrec_sg'
+        </where>
+    </select>
+    <select id="QueryKettleSumUncommitclearSH" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = '赎回-汇总uncommitclear'
+        </where>
+    </select>
+    <select id="QueryKettleSumHorderrecSH" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = '赎回-汇总h_orderrec'
+        </where>
+    </select>
+    <select id="QueryKettleSGYDZJBZ" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = '申购T-1日日预冻资金不足'
+        </where>
+    </select>
+    <select id="QueryKettleSHYDZJBZ" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = '赎回T-1日预冻资金不足'
+        </where>
+    </select>
+    <select id="QueryKettleSumEtfCashCommonent" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = '汇总到etf_cashcomponent表中'
+        </where>
+    </select>
+    <select id="QueryKettlePreetfbaseinfo" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+          ID_BATCH,
+          TRANSNAME,
+          STATUS,
+          LINES_READ,
+          LINES_WRITTEN,
+          LINES_UPDATED,
+          LINES_INPUT,
+          LINES_OUTPUT,
+          ERRORS,
+          ENDDATE,
+          LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = '将当天数据备份到preetfbaseinfo表中'
+        </where>
+    </select>
+    <select id="QueryKettleFundasset" parameterType="jdbcMap" resultType="jdbcMap">
+        select
+        ID_BATCH,
+        TRANSNAME,
+        STATUS,
+        LINES_READ,
+        LINES_WRITTEN,
+        LINES_UPDATED,
+        LINES_INPUT,
+        LINES_OUTPUT,
+        ERRORS,
+        ENDDATE,
+        LOGDATE,
+        TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+        from KETTLE_TRANS_LOG
+        <where>
+            TRANSNAME = 'trans-FUNDASSET'
+        </where>
+    </select>
+    <select id="QueryKettleECCODESIGN" parameterType="jdbcMap" resultType="jdbcMap">
+    select
+    ID_BATCH,
+    TRANSNAME,
+    STATUS,
+    LINES_READ,
+    LINES_WRITTEN,
+    LINES_UPDATED,
+    LINES_INPUT,
+    LINES_OUTPUT,
+    ERRORS,
+    ENDDATE,
+    LOGDATE,
+    TO_CHAR(LOGDATE-ENDDATE,'HH24:MI:SS.MS') RUNTIME
+    from KETTLE_TRANS_LOG
+    <where>
+        TRANSNAME = 'trans-ECCODESIGN'
+    </where>
+</select>
+</mapper>
+

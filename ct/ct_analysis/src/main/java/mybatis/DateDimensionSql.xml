@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--返回时间表的查询和插入语句-->
+<mapper namespace="mybatis.DateDimensionSql">
+    <select id="selectID" resultType="String" >
+      select id from tb_dimension_date
+      where year=#{year}
+      AND month=#{month}
+      AND day=#{day}
+      ORDER BY id
+    </select>
+
+    <insert id="insertDateDimension" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_dimension_date (year,month,day) VALUES (#{year},#{month},#{day})
+    </insert>
+</mapper>

@@ -1,0 +1,7 @@
+<database-reference name="mydb2">
+    <drivermanager-connection class-name="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/test" user="root" password="123456">
+        <connection-arg name="user" value ="root"/>
+        <connection-arg name="password" value ="123456"/>
+        <!--<connection-arg name="somearg" value ="someargvalue"/>-->
+    </drivermanager-connection>
+</database-reference>

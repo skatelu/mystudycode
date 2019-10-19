@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>员工资料变更</title>
+    <link rel="stylesheet" href="./css/uem-emp.css"/>
+    <script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/emp-info-change"></script>
+</head>
+<body>
+<div id="empOpenYzs">
+    <div id="empChange">
+        <div class="clearfix">
+            <div class="dl">
+                <span class="dl-label">员工代码：</span>
+                <input id="OP_CODE" name="OP_CODE" class="kui-textinput" kui-options="required:true,width:'120',validType:'num[4,9]',maxLength:9,onBlur:'loadDataByUserCode'"/>
+            </div>
+            <div class="dl">
+                <a id="searchEmpInfo" class="kui-linkbutton" kui-options="iconCls:'icon-search',onClick:'loadDataByUserCode'">查询</a>
+            </div>
+        </div>
+    </div>
+    <fieldset class="kui-fieldset">
+        <legend>员工资料修改</legend>
+        <div><form id="KJDP_OPERATOR_BASE" class="kui-form"></form></div>
+    </fieldset>
+
+</div>
+
+</body>
+</html>

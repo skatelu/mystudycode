@@ -1,0 +1,43 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.common.OptClsPosiLmt">
+
+    <resultMap id="dataOptClsPosiLmtMap" type="com.szkingdom.data.DataOptClsPosiLmt">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD" property="stkbd" />
+        <result column="OPT_UNDL_CLS" property="optUndlCls" />
+        <result column="LS_FLAG" property="lsFlag" />
+        <result column="POSI_LMT_ATTR" property="posiLmtAttr" />
+        <result column="OPT_POSI_LQTY" property="optPosiLqty" />
+    </resultMap>
+    
+    <select id="COMMON_OPT_CLS_POSI_LMT_SELECT" resultMap="dataOptClsPosiLmtMap" parameterType="com.szkingdom.data.DataOptClsPosiLmt">
+        select STKEX,STKBD,OPT_UNDL_CLS,LS_FLAG,POSI_LMT_ATTR,OPT_POSI_LQTY  from OPT_CLS_POSI_LMT where 1=1
+
+        <if test="stkex != null and stkex !=''">
+            and STKEX = #{stkex}
+        </if>
+        <if test="stkbd != null and stkbd !='' ">
+            and STKBD = #{stkbd}
+        </if>
+        <if test="optUndlCls != null and optUndlCls !=''">
+            and OPT_UNDL_CLS = #{optUndlCls}
+        </if>
+        <if test="lsFlag != null and lsFlag !=''">
+            and LS_FLAG = #{lsFlag}
+        </if>
+        <if test="posiLmtAttr != null and posiLmtAttr !=''">
+            and POSI_LMT_ATTR = #{posiLmtAttr}
+        </if>
+        <if test="optPosiLqty > 0">
+            and OPT_POSI_LQTY = #{optPosiLqty}
+        </if>
+
+    </select>
+
+    <!--<insert id="common_optClsPosiLmt_insert" parameterType="com.szkingdom.data.DataOptClsPosiLmt">-->
+         <!--INSERT INTO  OPT_CLS_POSI_LMT(STKEX,STKBD,OPT_UNDL_CLS,LS_FLAG,POSI_LMT_ATTR,OPT_POSI_LQTY) VALUES -->
+    <!--</insert>-->
+</mapper>

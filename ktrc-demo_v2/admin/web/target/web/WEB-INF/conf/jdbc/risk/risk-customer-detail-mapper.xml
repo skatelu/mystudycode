@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+	<select id="QueryBizAtrrMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        SELECT
+  			concat('6',A.biz_attr) AS MENU_ID, B.dict_item_name AS MENU_NAME, '-1' AS PAR_MENU, '' AS PAR_NAME
+		FROM
+  			(SELECT biz_attr FROM risk_indicator_overview GROUP BY biz_attr) A
+    	LEFT JOIN (SELECT * FROM UPM_DICT_ITEMS WHERE dict_code = 'BIZ_ATTR') B ON A.biz_attr = B.dict_item
+    </select>
+    <select id="QueryIndicatorClsMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        select 
+        	concat('6',biz_attr) as par_menu,concat('6',biz_attr,indicator_cls) as menu_id,indicator_cls_name as MENU_NAME 
+        from risk_indicator_overview 
+        group by biz_attr,indicator_cls,indicator_cls_name
+    </select>
+
+    <select id="QueryIndicatorOverviewMenu" parameterType="jdbcMap" resultType="jdbcMap">
+        select trim(indicator_id) as menu_id, indicator_name as MENU_NAME,concat('6',biz_attr,indicator_cls) as par_menu,indicator_cls_name as par_name from risk_indicator_overview order by indicator_id;
+    </select>
+
+
+    <select id="QueryIndicatorOverview" parameterType="jdbcMap" resultType="jdbcMap">
+        select * from risk_indicator_overview
+        where 1=1
+        <if test="RISK_TRIGGER_QTY!='' and RISK_TRIGGER_QTY!=null">
+            AND RISK_TRIGGER_QTY !=  CAST(#{RISK_TRIGGER_QTY} AS bigint)
+        </if>
+        <if test="INDICATOR_ID!='' and INDICATOR_ID!=null">
+            AND INDICATOR_ID  like '${INDICATOR_ID}%'
+        </if>
+
+    </select>
+
+    <select id="QueryRiskInfoAsset" parameterType="jdbcMap" resultType="jdbcMap">
+        select * from RISK_INFO_ASSET
+        where 1=1 
+        <if test="INDICATOR_ID!='' and INDICATOR_ID!=null">
+            AND INDICATOR_ID = #{INDICATOR_ID}
+        </if>
+        <if test="RISK_VALID_FLAG!='' and RISK_VALID_FLAG!=null">
+            AND RISK_VALID_FLAG = #{RISK_VALID_FLAG}
+        </if>
+    </select>
+
+</mapper>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskIndicators">
+    <resultMap id="RiskIndicatorsMap" type="com.szkingdom.data.DataRiskIndicators">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_NAME"  property="indicatorName"  />
+        <result column="BIZ_ATTR"  property="bizAttr"  />
+        <result column="INDICATOR_CLS"  property="indicatorCls"  />
+        <result column="INDICATOR_RESULT_TYPE"  property="indicatorResultType"  />
+        <result column="INDICATOR_FORMULA"  property="indicatorFormula"  />
+        <result column="INDICATOR_RUN_FLAG"  property="indicatorRunFlag"  />
+        <result column="IS_REALTIME"  property="isRealtime"  />
+        <result column="INDICATOR_REMARK"  property="indicatorRemark"  />
+        <result column="INDICATOR_FACTORS"  property="indicatorFactors"  />
+    </resultMap>
+
+
+    <select id="RISK_INDICATORS_SELECT" resultMap="RiskIndicatorsMap" parameterType="com.szkingdom.data.DataRiskIndicators">
+        select
+        INDICATOR_ID,INDICATOR_NAME,BIZ_ATTR,INDICATOR_CLS,INDICATOR_RESULT_TYPE,INDICATOR_FORMULA,INDICATOR_RUN_FLAG,IS_REALTIME,
+        INDICATOR_REMARK,INDICATOR_FACTORS
+        from RISK_INDICATORS
+	    where 1=1
+            <if test="bizAttr != null and bizAttr != ''">
+                and BIZ_ATTR = #{bizAttr}
+            </if>
+            <if test="indicatorCls != null and indicatorCls != ''">
+                and INDICATOR_CLS = #{indicatorCls}
+            </if>
+            <if test="indicatorId != null and indicatorId != ''">
+                and INDICATOR_ID = #{indicatorId}
+            </if>
+    </select>
+
+    <select id="RISK_INDICATORS_SELECT_LIST" resultMap="RiskIndicatorsMap" parameterType="java.lang.String">
+        select
+        INDICATOR_ID, INDICATOR_NAME, BIZ_ATTR, INDICATOR_CLS, INDICATOR_FORMULA, INDICATOR_FACTORS, INDICATOR_RESULT_TYPE,
+        INDICATOR_RUN_FLAG, IS_REALTIME, INDICATOR_REMARK
+        from RISK_INDICATORS A
+        where A.INDICATOR_RUN_FLAG = '1'
+        and exists ( select 1
+                     from RISK_FACTOR_SOURCES B
+                     where position (#{_parameter} in B.DATA_ID||B.STK_BIZ||B.STK_BIZ_ACTION) > 0
+                     and position (B.FACTOR_ID in A.INDICATOR_FACTORS) > 0
+                   )
+    </select>
+
+    <insert id="RISK_INDICATORS_INSERT" parameterType="com.szkingdom.data.DataRiskIndicators">
+        insert into RISK_INDICATORS(
+        INDICATOR_ID,INDICATOR_NAME,BIZ_ATTR,INDICATOR_CLS,INDICATOR_RESULT_TYPE,INDICATOR_FORMULA,INDICATOR_RUN_FLAG,IS_REALTIME,
+        INDICATOR_REMARK,INDICATOR_FACTORS)
+        values ( 
+        #{indicatorId},#{indicatorName},#{bizAttr},#{indicatorCls},#{indicatorResultType},#{indicatorFormula},#{indicatorRunFlag},#{isRealtime},
+        #{indicatorRemark},#{indicatorFactors})
+    </insert>
+
+
+</mapper>

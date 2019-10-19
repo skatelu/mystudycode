@@ -1,0 +1,96 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskInfoBondPledge">
+    <resultMap id="RiskInfoBondPledgeMap" type="com.szkingdom.data.DataRiskInfoBondPledge">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_NAME"  property="indicatorName"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+        <result column="PRE_THRESHOLD"  property="preThreshold"  />
+        <result column="PRE_THRES_NO"  property="preThresNo"  />
+        <result column="PRE_THRES_NAME"  property="preThresName"  />
+        <result column="PRE_THRES_COLOR"  property="preThresColor"  />
+        <result column="PRE_RISK_VALUE"  property="preRiskValue"  />
+        <result column="THRESHOLD"  property="threshold"  />
+        <result column="THRES_NO"  property="thresNo"  />
+        <result column="THRES_NAME"  property="thresName"  />
+        <result column="THRES_COLOR"  property="thresColor"  />
+        <result column="RISK_VALUE"  property="riskValue"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_NAME"  property="stkName"  />
+        <result column="FI_UNDUE_AMT1"  property="fiUndueAmt1"  />
+        <result column="TOTAL_BOND_STD"  property="totalBondStd"  />
+        <result column="FI_UNDUE_AMT2"  property="fiUndueAmt2"  />
+        <result column="TRUST_BOND_AMT"  property="trustBondAmt"  />
+        <result column="ENTRY_BOND_QTY"  property="entryBondQty"  />
+        <result column="STKEX_TRUST_BOND_QTY"  property="stkexTrustBondQty"  />
+        <result column="DUE_BUYBK_AMT"  property="dueBuybkAmt"  />
+        <result column="FUND_AVL"  property="fundAvl"  />
+        <result column="RISK_VALID_FLAG"  property="riskValidFlag"  />
+        <result column="NOTICE_SENT_LEVEL"  property="noticeSentLevel"  />
+        <result column="NOTICE_SENT_LEVEL_NAME"  property="noticeSentLevelName"  />
+    </resultMap>
+
+    <select id="RISK_INFO_BOND_PLEDGE_SELECT" resultMap="RiskInfoBondPledgeMap" parameterType="com.szkingdom.data.DataRiskInfoBondPledge">
+        select
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,PRE_THRESHOLD,PRE_THRES_NO,PRE_THRES_NAME,PRE_THRES_COLOR,
+        PRE_RISK_VALUE,THRESHOLD,THRES_NO,THRES_NAME,THRES_COLOR,RISK_VALUE,STKEX,STKBD,
+        CUST_CODE,CUST_NAME,CUACCT_CODE,CURRENCY,TRDACCT,INT_ORG,STK_CODE,STK_NAME,
+        FI_UNDUE_AMT1,TOTAL_BOND_STD,FI_UNDUE_AMT2,TRUST_BOND_AMT,ENTRY_BOND_QTY,STKEX_TRUST_BOND_QTY,DUE_BUYBK_AMT,FUND_AVL,
+        RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME
+        from RISK_INFO_BOND_PLEDGE
+        where 1=1
+        <if test="custCode > 0">and CUST_CODE = #{custCode}</if>
+        <if test="trdacct != null and trdacct != ''">and TRDACCT = #{trdacct}</if>
+        <if test="stkCode != null and stkCode != ''">and STK_CODE = #{stkCode}</if>
+        <if test="indicatorId != null and indicatorId != ''">and INDICATOR_ID = #{indicatorId}</if>
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+    </select>
+
+    <insert id="RISK_INFO_BOND_PLEDGE_INSERT" parameterType="com.szkingdom.data.DataRiskInfoBondPledge">
+        insert into RISK_INFO_BOND_PLEDGE(
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,PRE_THRESHOLD,PRE_THRES_NO,PRE_THRES_NAME,PRE_THRES_COLOR,
+        PRE_RISK_VALUE,THRESHOLD,THRES_NO,THRES_NAME,THRES_COLOR,RISK_VALUE,STKEX,STKBD,
+        CUST_CODE,CUST_NAME,CUACCT_CODE,CURRENCY,TRDACCT,INT_ORG,STK_CODE,STK_NAME,
+        FI_UNDUE_AMT1,TOTAL_BOND_STD,FI_UNDUE_AMT2,TRUST_BOND_AMT,ENTRY_BOND_QTY,STKEX_TRUST_BOND_QTY,DUE_BUYBK_AMT,FUND_AVL,
+        RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME)
+        values ( 
+        #{indicatorId},#{indicatorName},#{occDate},#{occTime},#{preThreshold},#{preThresNo},#{preThresName},#{preThresColor},
+        #{preRiskValue},#{threshold},#{thresNo},#{thresName},#{thresColor},#{riskValue},#{stkex},#{stkbd},
+        #{custCode},#{custName},#{cuacctCode},#{currency},#{trdacct},#{intOrg},#{stkCode},#{stkName},
+        #{fiUndueAmt1},#{totalBondStd},#{fiUndueAmt2},#{trustBondAmt},#{entryBondQty},#{stkexTrustBondQty},#{dueBuybkAmt},#{fundAvl},
+        #{riskValidFlag},#{noticeSentLevel},#{noticeSentLevelName})
+    </insert>
+
+    <update id="RISK_INFO_BOND_PLEDGE_UPDATE" parameterType="com.szkingdom.data.DataRiskInfoBondPledge">
+        update RISK_INFO_BOND_PLEDGE set
+        INDICATOR_ID = #{indicatorId},INDICATOR_NAME = #{indicatorName},OCC_DATE = #{occDate},
+        OCC_TIME = #{occTime},PRE_THRESHOLD = #{preThreshold},PRE_THRES_NO = #{preThresNo},
+        PRE_THRES_NAME = #{preThresName},PRE_THRES_COLOR = #{preThresColor},PRE_RISK_VALUE = #{preRiskValue},
+        THRESHOLD = #{threshold},THRES_NO = #{thresNo},THRES_NAME = #{thresName},
+        THRES_COLOR = #{thresColor},RISK_VALUE = #{riskValue},STKEX = #{stkex},
+        STKBD = #{stkbd},CUST_CODE = #{custCode},CUST_NAME = #{custName},
+        CUACCT_CODE = #{cuacctCode},CURRENCY = #{currency},TRDACCT = #{trdacct},
+        INT_ORG = #{intOrg},STK_CODE = #{stkCode},STK_NAME = #{stkName},
+        FI_UNDUE_AMT1 = #{fiUndueAmt1},TOTAL_BOND_STD = #{totalBondStd},FI_UNDUE_AMT2 = #{fiUndueAmt2},
+        TRUST_BOND_AMT = #{trustBondAmt},ENTRY_BOND_QTY = #{entryBondQty},STKEX_TRUST_BOND_QTY = #{stkexTrustBondQty},
+        DUE_BUYBK_AMT = #{dueBuybkAmt},FUND_AVL = #{fundAvl},RISK_VALID_FLAG = #{riskValidFlag},
+        NOTICE_SENT_LEVEL = #{noticeSentLevel},NOTICE_SENT_LEVEL_NAME = #{noticeSentLevelName}
+        where  CUST_CODE = #{custCode}
+        and TRDACCT = #{trdacct}
+        and STK_CODE = #{stkCode}
+        and INDICATOR_ID = #{indicatorId}
+        and STKBD = #{stkbd}
+    </update>
+
+</mapper>

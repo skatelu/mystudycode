@@ -1,0 +1,39 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptCustMarginCfg">
+    <resultMap id="OptCustMarginCfgMap" type="com.szkingdom.data.DataOptCustMarginCfg">
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="MARGIN_CFG_TYPE"  property="marginCfgType"  />
+        <result column="MARGIN_CFG_VALUE"  property="marginCfgValue"  />
+        <result column="STRATEGY_TEMPLATE"  property="strategyTemplate"  />
+    </resultMap>
+
+
+    <select id="OPT_CUST_MARGIN_CFG_SELECT" resultMap="OptCustMarginCfgMap" parameterType="com.szkingdom.data.DataOptCustMarginCfg">
+        select
+        INT_ORG,MARGIN_CFG_TYPE,MARGIN_CFG_VALUE,STRATEGY_TEMPLATE
+        from OPT_CUST_MARGIN_CFG
+        where 1=1
+        <if test="intOrg >= 0 ">
+            and INT_ORG = #{intOrg}
+        </if>
+        <if test="marginCfgType != null and marginCfgType != '' and marginCfgType != ' ' ">
+            and MARGIN_CFG_TYPE = #{marginCfgType}
+        </if>
+        <if test="marginCfgValue != null and marginCfgValue != '' ">
+            and MARGIN_CFG_VALUE = #{marginCfgValue}
+        </if>
+    </select>
+
+
+    <insert id="OPT_CUST_MARGIN_CFG_INSERT" parameterType="com.szkingdom.data.DataOptCustMarginCfg">
+        insert into OPT_CUST_MARGIN_CFG(
+        INT_ORG,MARGIN_CFG_TYPE,MARGIN_CFG_VALUE,STRATEGY_TEMPLATE)
+        values ( 
+        #{intOrg},#{marginCfgType},#{marginCfgValue},#{strategyTemplate})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    
+    <view id="allbrowerscreen_margin" title="基本信息" render="sform">
+        <conf colNumbers="6"/>
+        <col_item field="BUSINESS_RATE" title="经纪业务单标的总持仓比例" />
+        <col_item field="ETF50_STANDBY_POSI" title="累计50ETF备兑备用不足数量" />
+        <col_item field="CUST_WITHDRAW_AMT" title="客户出金总额" />
+        <col_item field="ETF50_LONG_POSI" title="今日累计50ETF权利仓持仓数量" />
+        <col_item field="EXERCISE_SECURITY_RISK_RATE" title="行权交收应收券方违约风险1" />
+        <col_item field="EXCEPTION_ACC_POSI" title="异常交易账户数" />
+        <col_item field="ETF50_SELL_POSI" title="今日累计50ETF总持仓数量" />
+        <col_item field="RECH_WITH_GAP_POSI" title="出入金轧差金额" />
+        <col_item field="CUST_RECHARGE_AMT" title="客户入金总额" />
+        <col_item field="ETF50_BUG_POSI" title="今日累计50ETF买入开仓数量" />
+        <col_item field="EXERCISE_PAYER_RISK_RATE" title="行权交收应收应付方违约风险" />
+        <col_item field="FORCE_OPEN_ACC_POSI" title="强平未平账户数" />
+    </view>
+    
+    <view id="allbrowerscreen_chart3" title="基本信息" render="sform">
+        <conf colNumbers="6"/>
+        <col_item field="MARGIN_TOTAL_AMT" title="保证金账户总额" />
+        <col_item field="MARGIN_USED" title="已占用保证金" />
+        <col_item field="MARGIN_AVL" title="可用保证金" />
+        <col_item field="MARGIN_AVL_MIN" title="当日可用最低额" />
+    </view>
+    
+    <view id="allbrowerscreen_chart5" title="基本信息" render="sform">
+        <conf colNumbers="6"/>
+        <col_item field="RISK_HIGHT_COUNT" title="强平客户数" />
+        <col_item field="RISK_LOW_COUNT" title="正常客户数" />
+        <col_item field="RISK_WARN_COUNT" title="警戒客户数" />
+    </view>
+    
+    <view id="allbrowerscreen_chart7" title="基本信息" render="sform">
+        <conf colNumbers="6"/>
+        <col_item field="BUSINESS_RATE" title="当前增速水平" />
+        <col_item field="ETF50_STANDBY_POSI" title="昨日增速水平" />
+        <col_item field="CUST_WITHDRAW_AMT" title="客户出金总额" />
+        <col_item field="ETF50_LONG_POSI" title="最高增速水平" />
+        <col_item field="EXERCISE_SECURITY_RISK_RATE" title="最低增速水平" />
+        <col_item field="EXCEPTION_ACC_POSI" title="过去一个月水平" />
+        <col_item field="ETF50_SELL_POSI" title="过去一季水平" />
+    </view>
+    
+   
+    
+</views>

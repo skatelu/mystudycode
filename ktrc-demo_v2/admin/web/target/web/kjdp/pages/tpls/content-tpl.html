@@ -1,0 +1,27 @@
+<div class="container-wrap clearfix">
+    <div class='container content'>
+        <div class="kui-layout clearfix" kui-options="fit:true,split:true" style="height:{{height}}px;" data-default-height="{{height}}">
+            {{if showWest}}
+            <div class="west-panel" kui-options="region:'west',split:{{split}},collapsable:{{collapsable}},border:{{border}}" title="{{westTitle}}" style="width:{{westWidth}}px;">
+            </div>
+            {{/if}}
+            <div class="center-panel" kui-options="region:'center'">
+            </div>
+
+        </div>
+
+        <div class="tabs-menu hide">
+            <div id="refresh" kui-options="iconCls:'icon-reload'">刷新</div>
+            <div class="menu-sep"></div>
+            <div id="close">关闭</div>
+            <div id="closeAll">全部关闭</div>
+            <div id="closeOther">关闭其他</div>
+            <div class="menu-sep"></div>
+            <div id="closeRight">关闭右侧</div>
+            <div id="closeLeft">关闭左侧</div>
+        </div>
+    </div>
+    <div class="container-lock hide">
+        <div class="lock-img"></div>
+    </div>
+</div>

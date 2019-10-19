@@ -1,0 +1,106 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskInfoFund">
+    <resultMap id="RiskInfoFundMap" type="com.szkingdom.data.DataRiskInfoFund">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_NAME"  property="indicatorName"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+        <result column="PRE_THRESHOLD"  property="preThreshold"  />
+        <result column="PRE_THRES_NO"  property="preThresNo"  />
+        <result column="PRE_THRES_NAME"  property="preThresName"  />
+        <result column="PRE_THRES_COLOR"  property="preThresColor"  />
+        <result column="PRE_RISK_VALUE"  property="preRiskValue"  />
+        <result column="THRESHOLD"  property="threshold"  />
+        <result column="THRES_NO"  property="thresNo"  />
+        <result column="THRES_NAME"  property="thresName"  />
+        <result column="THRES_COLOR"  property="thresColor"  />
+        <result column="RISK_VALUE"  property="riskValue"  />
+        <result column="RISK_VALUE_RLT"  property="riskValueRlt"  />
+        <result column="STKEX_RISK_VALUE"  property="stkexRiskValue"  />
+        <result column="STKEX_RISK_VALUE_RLT"  property="stkexRiskValueRlt"  />
+        <result column="CLOSE_FUND_RISK_VALUE"  property="closeFundRiskValue"  />
+        <result column="EQUITY"  property="equity"  />
+        <result column="FUND_BLN"  property="fundBln"  />
+        <result column="FUND_AVL"  property="fundAvl"  />
+        <result column="FUND_RET"  property="fundRet"  />
+        <result column="MARGIN_USED"  property="marginUsed"  />
+        <result column="MARGIN_USED_RLT"  property="marginUsedRlt"  />
+        <result column="STKEX_MAG_USED"  property="stkexMagUsed"  />
+        <result column="STKEX_MAG_USED_RLT"  property="stkexMagUsedRlt"  />
+        <result column="DUE_ADD_AMT"  property="dueAddAmt"  />
+        <result column="DAILY_IN_AMT"  property="dailyInAmt"  />
+        <result column="DAILY_OUT_AMT"  property="dailyOutAmt"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="RISK_VALID_FLAG"  property="riskValidFlag"  />
+        <result column="NOTICE_SENT_LEVEL"  property="noticeSentLevel"  />
+        <result column="NOTICE_SENT_LEVEL_NAME"  property="noticeSentLevelName"  />
+        <result column="MARGIN_CLS"  property="marginCls"  />
+    </resultMap>
+
+
+    <select id="RISK_INFO_FUND_SELECT" resultMap="RiskInfoFundMap" parameterType="com.szkingdom.data.DataRiskInfoFund">
+        select
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,PRE_THRESHOLD,PRE_THRES_NO,PRE_THRES_NAME,PRE_THRES_COLOR,
+        PRE_RISK_VALUE,THRESHOLD,THRES_NO,THRES_NAME,THRES_COLOR,RISK_VALUE,RISK_VALUE_RLT,STKEX_RISK_VALUE,
+        STKEX_RISK_VALUE_RLT,CLOSE_FUND_RISK_VALUE,EQUITY,FUND_BLN,FUND_AVL,FUND_RET,MARGIN_USED,MARGIN_USED_RLT,
+        STKEX_MAG_USED,STKEX_MAG_USED_RLT,DUE_ADD_AMT,DAILY_IN_AMT,DAILY_OUT_AMT,INT_ORG,CUST_CODE,CUST_NAME,
+        CUST_TYPE,CUACCT_CODE,CURRENCY,RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME,MARGIN_CLS
+        from RISK_INFO_FUND
+        where 1=1
+        <if test="cuacctCode > 0">and CUACCT_CODE = #{cuacctCode}</if>
+        <if test="currency != null">and CURRENCY = #{currency}</if>
+        <if test="indicatorId != null and indicatorId != ''">and INDICATOR_ID = #{indicatorId}</if>
+
+    </select>
+
+    <update id="RISK_INFO_FUND_UPDATE" parameterType="com.szkingdom.data.DataRiskInfoFund">
+        update RISK_INFO_FUND set
+        INDICATOR_ID = #{indicatorId},INDICATOR_NAME=#{indicatorName},
+        OCC_DATE=#{occDate},OCC_TIME=#{occTime},PRE_THRESHOLD=#{preThreshold},
+        PRE_THRES_NO=#{preThresNo},PRE_THRES_NAME=#{preThresName},
+        PRE_THRES_COLOR=#{preThresColor},PRE_RISK_VALUE=#{preRiskValue},
+        THRESHOLD=#{threshold},THRES_NO=#{thresNo},THRES_NAME=#{thresName},
+        THRES_COLOR=#{thresColor},RISK_VALUE=#{riskValue},
+        RISK_VALUE_RLT =#{riskValueRlt},STKEX_RISK_VALUE =#{stkexRiskValue},
+        STKEX_RISK_VALUE_RLT =#{stkexRiskValueRlt},
+        CLOSE_FUND_RISK_VALUE =#{closeFundRiskValue},
+        EQUITY =#{equity}, FUND_BLN=#{fundBln},FUND_AVL=#{fundAvl},
+        FUND_RET=#{fundRet},MARGIN_USED =#{marginUsed},
+        MARGIN_USED_RLT =#{marginUsedRlt},STKEX_MAG_USED =#{stkexMagUsed},
+        STKEX_MAG_USED_RLT =#{stkexMagUsedRlt},DUE_ADD_AMT =#{dueAddAmt},
+        DAILY_IN_AMT =#{dailyInAmt},DAILY_OUT_AMT =#{dailyOutAmt},
+        INT_ORG=#{intOrg},CUST_CODE=#{custCode},CUST_NAME=#{custName},
+        CUST_TYPE=#{custType},CUACCT_CODE=#{cuacctCode},
+        CURRENCY=#{currency},RISK_VALID_FLAG=#{riskValidFlag},
+        NOTICE_SENT_LEVEL=#{noticeSentLevel},
+        NOTICE_SENT_LEVEL_NAME=#{noticeSentLevelName},MARGIN_CLS=#{marginCls}
+        where CUACCT_CODE = #{cuacctCode}
+        and CURRENCY = #{currency}
+        and INDICATOR_ID = #{indicatorId}
+    </update>
+
+    <insert id="RISK_INFO_FUND_INSERT" parameterType="com.szkingdom.data.DataRiskInfoFund">
+        insert into RISK_INFO_FUND(
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,PRE_THRESHOLD,PRE_THRES_NO,PRE_THRES_NAME,PRE_THRES_COLOR,
+        PRE_RISK_VALUE,THRESHOLD,THRES_NO,THRES_NAME,THRES_COLOR,RISK_VALUE,RISK_VALUE_RLT,STKEX_RISK_VALUE,
+        STKEX_RISK_VALUE_RLT,CLOSE_FUND_RISK_VALUE,EQUITY,FUND_BLN,FUND_AVL,FUND_RET,MARGIN_USED,MARGIN_USED_RLT,
+        STKEX_MAG_USED,STKEX_MAG_USED_RLT,DUE_ADD_AMT,DAILY_IN_AMT,DAILY_OUT_AMT,INT_ORG,CUST_CODE,CUST_NAME,
+        CUST_TYPE,CUACCT_CODE,CURRENCY,RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME,MARGIN_CLS)
+        values ( 
+        #{indicatorId},#{indicatorName},#{occDate},#{occTime},#{preThreshold},#{preThresNo},#{preThresName},#{preThresColor},
+        #{preRiskValue},#{threshold},#{thresNo},#{thresName},#{thresColor},#{riskValue},#{riskValueRlt},#{stkexRiskValue},
+        #{stkexRiskValueRlt},#{closeFundRiskValue},#{equity},#{fundBln},#{fundAvl},#{fundRet},#{marginUsed},#{marginUsedRlt},
+        #{stkexMagUsed},#{stkexMagUsedRlt},#{dueAddAmt},#{dailyInAmt},#{dailyOutAmt},#{intOrg},#{custCode},#{custName},
+        #{custType},#{cuacctCode},#{currency},#{riskValidFlag},#{noticeSentLevel},#{noticeSentLevelName},#{marginCls})
+    </insert>
+
+
+</mapper>

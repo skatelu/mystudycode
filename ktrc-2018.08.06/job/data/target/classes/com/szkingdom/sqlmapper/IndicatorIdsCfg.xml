@@ -1,0 +1,41 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.IndicatorIdsCfg">
+    <resultMap id="IndicatorIdsCfgMap" type="com.szkingdom.data.DataIndicatorIdsCfg">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_ID_TYPE"  property="indicatorIdType"  />
+        <result column="THRES_DIRECT"  property="thresDirect"  />
+        <result column="RISK_TREND"  property="riskTrend"  />
+        <result column="RISK_INTERVAL"  property="riskInterval"  />
+        <result column="RISK_CHECKTIME"  property="riskChecktime"  />
+    </resultMap>
+
+    <select id="INDICATOR_IDS_CFG_SELECT" resultMap="IndicatorIdsCfgMap" parameterType="com.szkingdom.data.DataIndicatorIdsCfg">
+        select
+        INDICATOR_ID, INDICATOR_ID_TYPE, THRES_DIRECT, RISK_TREND, RISK_INTERVAL, RISK_CHECKTIME
+        from INDICATOR_IDS_CFG
+        where 1=1
+        <if test="indicatorId != null and indicatorId != '' ">
+            and INDICATOR_ID = #{indicatorId}
+        </if>
+        <if test="indicatorIdType != null and indicatorIdType != ' ' and indicatorIdType != ''">
+            and  INDICATOR_ID_TYPE = #{indicatorIdType}
+        </if>
+    </select>
+
+    <insert id="INDICATOR_IDS_CFG_INSERT" parameterType="com.szkingdom.data.DataIndicatorIdsCfg">
+        insert into INDICATOR_IDS_CFG(
+        INDICATOR_ID,INDICATOR_ID_TYPE,THRES_DIRECT,RISK_TREND,RISK_INTERVAL,RISK_CHECKTIME)
+        values ( 
+        #{indicatorId},#{indicatorIdType},#{thresDirect},#{riskTrend},#{riskInterval},#{riskChecktime})
+    </insert>
+
+    <update id="INDICATOR_IDS_CFG_UPDATE" parameterType="com.szkingdom.data.DataIndicatorIdsCfg">
+        update INDICATOR_IDS_CFG set
+        INDICATOR_ID = #{indicatorId},INDICATOR_ID_TYPE = #{indicatorIdType},THRES_DIRECT = #{thresDirect},
+        RISK_TREND = #{riskTrend},RISK_INTERVAL = #{riskInterval},RISK_CHECKTIME = #{riskChecktime}
+    </update>
+
+</mapper>

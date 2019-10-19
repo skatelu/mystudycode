@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.szkingdom.kcxp:kcxp-client:1.3.3-R">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/szkingdom/kcxp/kcxp-client/1.3.3-R/kcxp-client-1.3.3-R.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/szkingdom/kcxp/kcxp-client/1.3.3-R/kcxp-client-1.3.3-R-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/szkingdom/kcxp/kcxp-client/1.3.3-R/kcxp-client-1.3.3-R-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

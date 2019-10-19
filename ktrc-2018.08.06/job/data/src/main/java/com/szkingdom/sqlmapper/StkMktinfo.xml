@@ -1,0 +1,50 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkMktinfo">
+    <resultMap id="StkMktinfoMap" type="com.szkingdom.data.DataStkMktinfo">
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="CLOSING_PRICE"  property="closingPrice"  />
+        <result column="OPENING_PRICE"  property="openingPrice"  />
+        <result column="CURRENT_PRICE"  property="currentPrice"  />
+        <result column="BOND_INT"  property="bondInt"  />
+        <result column="BOND_INT_DATE"  property="bondIntDate"  />
+        <result column="ETF_IOPV"  property="etfIopv"  />
+    </resultMap>
+
+    <select id="STK_MKTINFO_SELECT" resultMap="StkMktinfoMap" parameterType="com.szkingdom.data.DataStkMktinfo">
+        select
+        STKEX,STKBD,STK_CODE,TRD_DATE,CLOSING_PRICE,OPENING_PRICE,CURRENT_PRICE,BOND_INT,
+        BOND_INT_DATE,ETF_IOPV
+        from STK_MKTINFO
+        where 1=1
+        <if test="stkCode != null and stkCode != '' ">
+            and STK_CODE = #{stkCode}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+    </select>
+
+    <update id="STK_MKTINFO_UPDATE" parameterType="com.szkingdom.data.DataStkMktinfo">
+        update STK_MKTINFO
+        set STKEX=#{stkex}, STKBD=#{stkbd}, STK_CODE=#{stkCode}, TRD_DATE=#{trdDate}, CLOSING_PRICE=#{closingPrice}, OPENING_PRICE=#{openingPrice},
+        CURRENT_PRICE=#{currentPrice}, BOND_INT=#{bondInt}, BOND_INT_DATE=#{bondIntDate}, ETF_IOPV=#{etfIopv})
+        where STK_CODE = #{stkCode}
+        and STKBD = #{stkbd}
+    </update>
+
+    <insert id="STK_MKTINFO_INSERT" parameterType="com.szkingdom.data.DataStkMktinfo">
+        insert into STK_MKTINFO(
+        STKEX,STKBD,STK_CODE,TRD_DATE,CLOSING_PRICE,OPENING_PRICE,CURRENT_PRICE,BOND_INT,
+        BOND_INT_DATE,ETF_IOPV)
+        values ( 
+        #{stkex},#{stkbd},#{stkCode},#{trdDate},#{closingPrice},#{openingPrice},#{currentPrice},#{bondInt},
+        #{bondIntDate},#{etfIopv})
+    </insert>
+
+</mapper>

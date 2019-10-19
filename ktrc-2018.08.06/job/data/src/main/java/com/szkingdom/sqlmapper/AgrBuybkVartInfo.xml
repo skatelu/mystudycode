@@ -1,0 +1,40 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.AgrBuybkVartInfo">
+    <resultMap id="AgrBuybkVartInfoMap" type="com.szkingdom.data.DataAgrBuybkVartInfo">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="AGR_BUYBK_VAST_CODE"  property="agrBuybkVastCode"  />
+        <result column="AGR_BUYBK_VAST_NAME"  property="agrBuybkVastName"  />
+        <result column="AGR_BUYBK_VAST_DAYS"  property="agrBuybkVastDays"  />
+        <result column="TOTAL_QUOTA"  property="totalQuota"  />
+        <result column="QUOTA_USED"  property="quotaUsed"  />
+        <result column="BUYBK_RATE"  property="buybkRate"  />
+        <result column="DELAY_FLAG"  property="delayFlag"  />
+        <result column="TRD_FLAG"  property="trdFlag"  />
+        <result column="AHEAD_DELAY_DAYS"  property="aheadDelayDays"  />
+        <result column="RECONVERT_RATE"  property="reconvertRate"  />
+    </resultMap>
+
+
+    <select id="AGR_BUYBK_VART_INFO_SELECT" resultMap="AgrBuybkVartInfoMap" parameterType="com.szkingdom.data.DataAgrBuybkVartInfo">
+        select
+        TRD_DATE,STKBD,AGR_BUYBK_VAST_CODE,AGR_BUYBK_VAST_NAME,AGR_BUYBK_VAST_DAYS,TOTAL_QUOTA,QUOTA_USED,BUYBK_RATE,
+        DELAY_FLAG,TRD_FLAG,AHEAD_DELAY_DAYS,RECONVERT_RATE
+        from AGR_BUYBK_VART_INFO
+    </select>
+
+
+    <insert id="AGR_BUYBK_VART_INFO_INSERT" parameterType="com.szkingdom.data.DataAgrBuybkVartInfo">
+        insert into AGR_BUYBK_VART_INFO(
+        TRD_DATE,STKBD,AGR_BUYBK_VAST_CODE,AGR_BUYBK_VAST_NAME,AGR_BUYBK_VAST_DAYS,TOTAL_QUOTA,QUOTA_USED,BUYBK_RATE,
+        DELAY_FLAG,TRD_FLAG,AHEAD_DELAY_DAYS,RECONVERT_RATE)
+        values ( 
+        #{trdDate},#{stkbd},#{agrBuybkVastCode},#{agrBuybkVastName},#{agrBuybkVastDays},#{totalQuota},#{quotaUsed},#{buybkRate},
+        #{delayFlag},#{trdFlag},#{aheadDelayDays},#{reconvertRate})
+    </insert>
+
+
+</mapper>

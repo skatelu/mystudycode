@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+	<view id="RISK_INDICATORS_MANAGE_INFO" render="datagrid" title="指标管理"
+		data-main="./src/indicators-manage.js">
+		<conf service="INDI00001" pageSize="50" pageList="[50,100]"
+			fit="true" onInitSuccess="onInitSuccess" />
+		<qry_item field="BIZ_ATTR" edt_width="130" title="业务属性"
+			edt_onSelect="loadIndicatorTypes" type="combobox" edt_dict="BIZ_ATTR"
+			edt_required="false"  edt_panelWidth="150"
+			edt_validType="val[1,32]" />
+		<!-- <qry_item field="INDICATORS_CLS" edt_width="130" title="指标类别"
+			edt_onSelect="loadIndicatorType" type="combobox" edt_dict="INDICATORS_CLS"
+			edt_required="false" edt_defaultValue="00" edt_panelWidth="150"
+			edt_validType="val[1,32]" /> -->
+		<qry_item field="INDICATOR_CLS" title="指标类别" edt_width="130"  type="combobox" edt_panelWidth="150" edt_validType="val[1,64]" edt_textField='INDICATOR_CLS,INDICATOR_CLS_NAME' edt_valueField='INDICATOR_CLS'/>
+		
+		<qry_item field="INDICATOR_NAME" title="指标名称" edt_width="130"
+			type="input" edt_validType="val[1,64]" />
+		<!-- <btn_item text="新增" service="P0000111" iconCls="icon-add"
+			handler="commonAdd" panelHeight="220" /> -->
+		<!-- <btn_item text="管理" service="INDI00003" iconCls="icon-edit"
+			handler="commonModify" panelHeight="220" /> -->
+		<btn_item text="管理" iconCls="icon-edit" handler="IndicatorModify"/>
+		<!-- <btn_item text="删除" service="P0000012" iconCls="icon-remove"
+			handler="commonDelete" /> -->
+		<col_item field="BIZ_ATTR" title="业务属性编码" width="100" hidden="true"
+			type="input" />
+		<col_item field="INDICATOR_CLS" title="指标类别编码" width="100" hidden="true"
+			type="input" />
+		<col_item field="INDICATOR_CLS_NAME" title="指标类别" width="100"
+			type="input" />
+		<col_item field="INDICATOR_ID" title="指标编号" width="100" edt_disabled="true"
+			type="input" />
+		<col_item field="INDICATOR_NAME" title="指标名称" width="200"
+			type="input" />
+		<col_item field="INDICATOR_FORMULA" title="指标公式" width="300" edt_disabled="true"
+			type="input" />
+		<col_item field="INDICATOR_REMARK" title="指标说明" width="100"
+			type="input" />
+	</view>
+
+
+
+</views>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="custdetialscreen_asset_info" title="资产信息" render="sform">
+        <conf colNumbers="6"/>
+        <col_item field="BUSINESS_RATE" title="资产总额" />
+        <col_item field="ETF50_STANDBY_POSI" title="保证金总额" />
+        <col_item field="CUST_WITHDRAW_AMT" title="可用资金" />
+        <col_item field="ETF50_LONG_POSI" title="可用保证金" />
+        <col_item field="EXERCISE_SECURITY_RISK_RATE" title="持仓市值" />
+        <col_item field="EXCEPTION_ACC_POSI" title="已占用保证金" />
+        <col_item field="ETF50_SELL_POSI" title="持仓成本" />
+        <col_item field="RECH_WITH_GAP_POSI" title="今日出入金轧差" />
+        <col_item field="CUST_RECHARGE_AMT" title="今日出金" />
+        <col_item field="ETF50_BUG_POSI" title="已占用备兑券" />
+        <col_item field="EXERCISE_PAYER_RISK_RATE" title="今日入金" />
+        <col_item field="FORCE_OPEN_ACC_POSI" title="可用备兑券" />
+    </view>
+    
+    <view id="custdetialscreen_base_info" title="基本信息" render="sform">
+        <conf colNumbers="6"/>
+        <col_item field="USER_FNAME" title="客户姓名" />
+        <col_item field="USER_CODE" title="客户代码" />
+        <col_item field="MOBILE_TEL" title="移动电话" />
+        <col_item field="OFFICE_TEL" title="固定电话" />
+        <col_item field="EMAI" title="E-MAIL" />
+        <col_item field="ADDRESS" title="联系地址" />
+    </view>
+    
+    <view id="custdetialscreen_risk_indicator_detail" render="datagrid" remotePagination = "true" title="风险监控指标详情">
+        <conf fit="true" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[50,100,200,500]"/>
+        <col_item field="OCC_TIME" title="监控ID" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="风险指标名称" width="150" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="目前值" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="比价方向" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="一级阈值" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="二级阈值" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="三级阈值" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="四级阈值" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="触发一级次数" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="触发二级次数" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="触发三级次数" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="触发四级次数" width="100" type="input" sortable="false"/>
+    </view>
+    
+    <view id="custdetialscreen_history_risk_trigger" render="datagrid" remotePagination = "true">
+        <conf fit="true" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[50,100,200,500]"/>
+        <col_item field="OCC_TIME" title="触发日期" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="触发风险" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="客户账号" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="客户名称" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="触发等级" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="触发次数" width="100" type="input" sortable="false"/>
+        <col_item field="OCC_TIME" title="已处置次数" width="100" type="input" sortable="false"/>
+    </view>
+</views>

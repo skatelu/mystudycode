@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+<!--指标列表查询 -->
+	<service service_code="INDI00001" service_name="指标列表查询"
+		ticket_check="0">
+		<businesses>
+			<service_business
+				business_code="QueryRiskIndicatorsManage" business_type="1" />
+		</businesses>
+	</service>
+<!--通过业务属性查询指标 -->	
+	<service service_code="INDI00002" service_name="通过业务属性查询指标"
+		ticket_check="0">
+		<businesses>
+			<service_business
+				business_code="QueryRiskIndicatorClsNameByBizAttr" business_type="1" />
+		</businesses>
+	</service>
+<!--通过指标ID修改指标 -->	
+	<service service_code="INDI00003" service_name="指标管理修改"
+		ticket_check="0">
+		<businesses>
+			<service_business
+				business_code="UpdateRiskIndicator" business_type="1" />
+		</businesses>
+	</service>
+</services>

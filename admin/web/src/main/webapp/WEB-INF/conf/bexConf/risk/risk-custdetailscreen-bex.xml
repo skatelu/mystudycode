@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+    <bex bex_code="risk-custdetailscreen-custInfo" bex_name="客户详细屏资产信息" bex_type="4" page_mode="0" attr1="risk-custdetailscreen-custInfo" />
+	
+	<bex bex_code="risk-custdetailscreen-baseInfo" bex_name="客户详细屏基本信息" bex_type="4" page_mode="0" attr1="risk-custdetailscreen-baseInfo" />
+	
+	<bex bex_code="risk-custdetailscreen-riskIndicatorDetail" bex_name="客户详细屏风险触发指标详情" bex_type="4" page_mode="2" attr1="risk-custdetailscreen-riskIndicatorDetail" />
+	
+	<bex bex_code="risk-custdetailscreen-historyRiskPic" bex_name="历史风险触发列表柱状图" bex_type="4" page_mode="0" attr1="risk-custdetailscreen-historyRiskPic" />
+	
+	<bex bex_code="risk-custdetailscreen-historySiskTrigger" bex_name="历史风险触发列表表格" bex_type="4" page_mode="2" attr1="risk-custdetailscreen-historySiskTrigger" />
+	
+</bexs>

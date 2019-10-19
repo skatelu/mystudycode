@@ -1,0 +1,24 @@
+/**
+ * ${SERVICE_CODE}-${SERVICE_NAME}
+ */
+render({
+    SERVICE_CODE: "${SERVICE_CODE}",
+    SERVICE_NAME: "${SERVICE_NAME}",
+    SERVICE_PARAM: [
+        <%for(PARAM in SERVICE_PARAM){%>
+            {
+                PARAM_CODE: "${PARAM.PARAM_CODE}",
+                PARAM_TYPE: "${PARAM.PARAM_TYPE}",
+                DATA_TYPE: "${PARAM.DATA_TYPE}",
+                PARAM_NAME: "${PARAM.PARAM_NAME}",
+                NULLABLE: "${PARAM.NULLABLE}",
+                PARAM_LENGTH: "${PARAM.PARAM_LENGTH}",
+                DEF_VAL: "${PARAM.DEF_VAL}",
+                DESCRIPTION: "${PARAM.DESCRIPTION}"
+            }
+            <% if (!PARAMLP.last) {%>
+                ,
+            <%}%>
+        <%};%>
+    ]
+});

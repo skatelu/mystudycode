@@ -1,0 +1,55 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkRightPlan">
+    <resultMap id="StkRightPlanMap" type="com.szkingdom.data.DataStkRightPlan">
+        <result column="RECV_DATE"  property="recvDate"  />
+        <result column="STKEX"  property="stkex"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="REG_DATE"  property="regDate"  />
+        <result column="DIVIDEND_DATE"  property="dividendDate"  />
+        <result column="END_DATE"  property="endDate"  />
+        <result column="BONUS_AMT"  property="bonusAmt"  />
+        <result column="STK_QTY"  property="stkQty"  />
+        <result column="RIGHT_PRICE"  property="rightPrice"  />
+        <result column="RIGHT_QTY"  property="rightQty"  />
+        <result column="FLOAT_CHG_RATE"  property="floatChgRate"  />
+        <result column="AHEAD_NOTIFY_DAYS"  property="aheadNotifyDays"  />
+        <result column="BONUS_RATE"  property="bonusRate"  />
+        <result column="ALLOTMENT_RATE"  property="allotmentRate"  />
+        <result column="CONVERSION_RATE"  property="conversionRate"  />
+        <result column="SHARE_CONVER_RATE"  property="shareConverRate"  />
+    </resultMap>
+
+
+    <select id="STK_RIGHT_PLAN_SELECT" resultMap="StkRightPlanMap" parameterType="com.szkingdom.data.DataStkRightPlan">
+        select
+        RECV_DATE,STKEX,STKBD,STK_CODE,REG_DATE,DIVIDEND_DATE,END_DATE,BONUS_AMT,
+        STK_QTY,RIGHT_PRICE,RIGHT_QTY,FLOAT_CHG_RATE,AHEAD_NOTIFY_DAYS,BONUS_RATE,ALLOTMENT_RATE,CONVERSION_RATE,
+        SHARE_CONVER_RATE
+        from STK_RIGHT_PLAN
+        where 1=1
+        <if test="stkCode != null and stkCode != '' ">
+            and STK_CODE = #{stkCode}
+        </if>
+        <if test="stkbd != null and stkbd != '' ">
+            and STKBD = #{stkbd}
+        </if>
+    </select>
+
+
+    <insert id="STK_RIGHT_PLAN_INSERT" parameterType="com.szkingdom.data.DataStkRightPlan">
+        insert into STK_RIGHT_PLAN(
+        RECV_DATE,STKEX,STKBD,STK_CODE,REG_DATE,DIVIDEND_DATE,END_DATE,BONUS_AMT,
+        STK_QTY,RIGHT_PRICE,RIGHT_QTY,FLOAT_CHG_RATE,AHEAD_NOTIFY_DAYS,BONUS_RATE,ALLOTMENT_RATE,CONVERSION_RATE,
+        SHARE_CONVER_RATE)
+        values ( 
+        #{recvDate},#{stkex},#{stkbd},#{stkCode},#{regDate},#{dividendDate},#{endDate},#{bonusAmt},
+        #{stkQty},#{rightPrice},#{rightQty},#{floatChgRate},#{aheadNotifyDays},#{bonusRate},#{allotmentRate},#{conversionRate},
+        #{shareConverRate})
+    </insert>
+
+
+</mapper>

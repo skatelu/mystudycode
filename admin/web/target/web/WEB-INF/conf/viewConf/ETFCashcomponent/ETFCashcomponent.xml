@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+    <view id="P6000700_VIEW" render="datagrid" title="ETF差额扣款">
+        <conf req="[{'service':'P6000700'}]"  border="false" fit="true" showTime="false"/>
+        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" />
+        <qry_item field="CUSTID" title="客户代码" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="CUSTNAME" title="客户名称" type="input" edt_validType="length[1,64]"/>
+        <qry_item field="FUNDID" title="资金账号" type="input" edt_validType="length[1,64]"/>
+        <col_item field="DATE" title="当前日期" width="200" type="input" sortable="false"/>
+        <col_item field="CUSTID" title="客户代码" width="200" type="input" sortable="false"/>
+        <col_item field="CUSTNAME" title="客户名称" width="200" type="input" sortable="false"/>
+        <col_item field="FUNDID" title="资金账号" width="200" type="input" sortable="false"/>
+        <col_item field="ORGNAME" title="机构名称" width="200" type="input" sortable="false"/>
+        <col_item field="YKKJE" title="现金差额应扣款金额" width="300" type="input" sortable="false"/>
+        <col_item field="DJJE" title="冻结金额" width="300" type="input" sortable="false"/>
+        <col_item field="YDBZJE" title="预冻不足金额" width="200" type="input" ortable="false"/>
+        <col_item field="KYYE" title="可用余额" width="200" type="input" ortable="false"/>
+        <col_item field="QSJE" title="缺少金额" width="200" type="input" ortable="false"/>
+        <col_item field="YLED" title="预留额度" width="200" type="input" ortable="false"/>
+        <col_item field="JZRQ" title="截止日期" width="200" type="input" ortable="false"/>
+    </view>
+</views>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>通知模板设置</title>
+<link rel="stylesheet" href="./css/notice_schema.css" />
+<script id="seajsnode" type="text/javascript" src="../../loader.js"
+	data-main="./src/notice_schema"></script>
+</head>
+<script id="genericTemplate" type="text/html">
+    {{if viewConfArr.length === 1}}
+    {{if viewConfArr[0].isForm}}
+    <form id="{{viewConfArr[0].viewId}}" class="kui-{{viewConfArr[0].render}}" style="width:{{winWidth}}px;height:{{winHeight}}px"></form>
+    {{else}}
+    <table id="{{viewConfArr[0].viewId}}" class="kui-{{viewConfArr[0].render}}" style="width:{{winWidth}}px;height:{{winHeight}}px" kui-options="fit:true"></table>
+    {{/if}}
+    {{else if viewConfArr.length === 2}}
+    <div class="kui-layout" kui-options="fit:true,onBeforeResize:'onBeforeResize'">
+        {{if isVertical && "false" !== isVertical}}
+        <div kui-options="region:'north'" style="height:{{winHeight / 2}}px;">
+        {{else}}
+        <div kui-options="region:'west'" style="width:{{winWidth / 2}}px;">
+        {{/if}}
+            <table id="{{viewConfArr[0].viewId}}" class='kui-datagrid' data-sub-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+        <div kui-options="region:'center',split:true,iconCls:'icon-ok'">
+            <table id="{{viewConfArr[1].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[0].viewId}}"></table>
+        </div>
+    </div>
+    {{else if viewConfArr.length === 3}}
+    <div class="kui-layout" kui-options="fit:true">
+        <div kui-options="region:'north'" style="height:{{winHeight*4 / 10}}px;">
+            <table id="{{viewConfArr[0].viewId}}" class='kui-datagrid' data-sub-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+        <div kui-options="region:'center'" style="height:{{winHeight*3 / 10}}px;">
+            <table id="{{viewConfArr[1].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[0].viewId}}" data-sub-datagrid="{{viewConfArr[2].viewId}}"></table>
+        </div>
+        <div kui-options="region:'south'" style="height:{{winHeight*3 / 10}}px;">
+            <table id="{{viewConfArr[2].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+    </div>
+    {{/if}}
+<div class="kui-dialog" id="addDialog"
+	style="width: 750px; height: 350px"
+	kui-options="title:'新增通知模板',buttons:'#add',modal:true,closed:true">
+	<form id="RISK_NOTICE_SCHEMA_INFO_AFORM">
+		<table style="width: 100%; padding: 5px">
+			<tr style="height: 30px">
+				<td width="90px" align="right">所属业务</td>
+				<td width="140px" align="left"><input id="ABIZ_ATTR"
+					name="BIZ_ATTR" class="kui-combobox"
+					kui-options="dict:'BIZ_ATTR',required:true,width:'120',onSelect:'loadDataByBizAttrA',panelWidth:150" /></td>
+				<td width="100px" align="right">风险指标</td width="140px" align="left">
+				<td><input id="AINDICATOR_ID" name="INDICATOR_ID"
+					class="kui-combobox"
+					kui-options="required:true,width:'120',textField:'INDICATOR_ID,INDICATOR_NAME',valueField:'INDICATOR_ID',panelWidth:180,
+					onSelect:'QueryRiskThreshold'" /></td>
+				<td width="100px" align="right">风险指标阈值</td>
+				<td width="140px" align="left"><input id="ATHRES_NO"
+					name="THRES_NO" class="kui-combobox"
+					kui-options="textField:'THRES_NO,THRES_NAME',valueField:'THRES_NO',required:true,width:'120',panelWidth:180" /></td>
+			</tr>
+			<tr style="height: 30px">
+				<td width="90px" align="right">通知范围</td>
+				<td><input id="ANOTICE_USER_ROLE" name="NOTICE_USER_ROLE"
+					class="kui-combobox"
+					kui-options="dict:'USER_ROLE',required:true,width:'120'" /></td>
+				<td width="100px" align="right">通知主题</td>
+				<td><input id="ASCHEMA_NAME" name="SCHEMA_NAME"
+					class="kui-textinput" kui-options="required:true,width:'120'" /></td>
+				<td width="100px" align="right">通知渠道</td>
+				<td><input id="ANOTICE_CHNL" name="NOTICE_CHNL"
+					class="kui-combobox"
+					kui-options="dict:'NOTICE_CHNL',required:true,width:'120',multiple:true" /></td>
+			</tr>
+			<tr style="height: 30px">
+				<td width="90px" align="right">通知类型</td>
+				<td><input id="ANOTICE_CLS" name="NOTICE_CLS"
+					class="kui-combobox"
+					kui-options="dict:'NOTICE_CLS',required:true,width:'120'" /></td>
+				<td width="100px" align="right">反馈标志</td>
+				<td><input id="ASCHEMA_BACK" name="SCHEMA_BACK"
+					class="kui-combobox"
+					kui-options="dict:'SCHEMA_BACK',required:true,width:'120'" /></td>
+				<td width="100px" align="right">启用状态</td>
+				<td><input id="ASCHEMA_VALIDE" name="SCHEMA_VALIDE"
+					class="kui-combobox"
+					kui-options="dict:'SCHEMA_VALIDE',required:true,width:'120'" /></td>
+			</tr>
+			<tr style="height: 30px">
+				<td align="right">通知内容</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td align="right">相关变量参考</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<textarea style="width: 350px; height: 120px;border-color:red" id='ASCHEMA_CONT'></textarea>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select multiple="multiple"
+					style="width: 200px; height: 130px; top: -5px;" id="AnoticeMark">
+				</select>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div id="add" style="padding-bottom:30px;">
+	<a href="#" class="kui-linkbutton" kui-options="onClick:'doASave'">保存</a>
+	<a href="#" class="kui-linkbutton" kui-options="onClick:'doAClose'">关闭</a>
+</div>
+
+<div class="kui-dialog" id="updateDialog"
+	style="width: 750px; height: 350px"
+	kui-options="title:'修改通知模板',buttons:'#update',modal:true,closed:true">
+	<form id="RISK_NOTICE_SCHEMA_INFO_BFORM" class="kui-form">
+		<table style="width: 100%; padding: 5px">
+			<tr style="height: 30px">
+				<td width="90px" align="right">所属业务</td>
+				<td width="140px" align="left"><input id="UBIZ_ATTR"
+					name="BIZ_ATTR" class="kui-combobox"
+					kui-options="dict:'BIZ_ATTR',required:true,width:'120',onSelect:'loadDataByBizAttrU',panelWidth:150,disabled:true" /></td>
+				<td width="100px" align="right">风险指标</td>
+				<td width="140px" align="left"><input id="UINDICATOR_NAME" name="INDICATOR_NAME"
+					class="kui-textinput" kui-options="disabled:true" /> <input
+					id="UINDICATOR_ID" name="INDICATOR_ID" class="kui-textinput"
+					kui-options="disabled:true,hidden:true" /></td>
+				<td width="100px" align="right">风险指标阈值</td>
+				<td width="140px" align="left"><input id="UTHRES_NAME"
+					name="THRES_NAME" class="kui-textinput"
+					kui-options="disabled:true" /> <input id="UTHRES_NO"
+					name="THRES_NO" class="kui-textinput"
+					kui-options="disabled:true,hidden:true" /></td>
+			</tr>
+			<tr style="height: 30px">
+				<td width="90px" align="right">通知范围</td>
+				<td><input id="UNOTICE_USER_ROLE" name="NOTICE_USER_ROLE"
+					class="kui-combobox"
+					kui-options="dict:'NOTICE_USER_ROLE',required:true,width:'120',disabled:true" /></td>
+				<td width="100px" align="right">通知主题</td>
+				<td width="140px" align="left"><input id="USCHEMA_NAME" name="SCHEMA_NAME"
+					class="kui-textinput" kui-options="required:true,width:'140'" /></td>
+				<td width="100px" align="right">通知渠道</td>
+				<td><input id="UNOTICE_CHNL" name="NOTICE_CHNL"
+					class="kui-combobox"
+					kui-options="dict:'NOTICE_CHNL',required:true,width:'120',multiple:true" /></td>
+			</tr>
+			<tr style="height: 30px">
+				<td width="90px" align="right">通知类型</td>
+				<td><input id="UNOTICE_CLS" name="NOTICE_CLS"
+					class="kui-combobox"
+					kui-options="dict:'NOTICE_CLS',required:true,width:'120'" /></td>
+				<td width="100px" align="right">反馈标志</td>
+				<td><input id="USCHEMA_BACK" name="SCHEMA_BACK"
+					class="kui-combobox"
+					kui-options="dict:'SCHEMA_BACK',required:true,width:'120'" /></td>
+				<td width="100px" align="right">启用状态</td>
+				<td><input id="USCHEMA_VALIDE" name="SCHEMA_VALIDE"
+					class="kui-combobox"
+					kui-options="dict:'SCHEMA_VALIDE',required:true,width:'120'" /></td>
+			</tr>
+			<tr style="height: 30px">
+				<td align="right">通知内容</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td align="right">相关变量参考</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<textarea style="width: 350px; height: 120px;border-color:red" id='USCHEMA_CONT'></textarea>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <select multiple="multiple"
+					style="width: 200px; height: 130px; top: -5px;" id="UnoticeMark">
+				</select>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div id="update" style="padding-bottom: 30px;">
+	<a href="#" class="kui-linkbutton" kui-options="onClick:'doUSave'">保存</a>
+	<a href="#" class="kui-linkbutton" kui-options="onClick:'doUClose'">关闭</a>
+</div>
+</script>
+<body>
+
+</body>
+</html>

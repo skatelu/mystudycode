@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+
+	<!--risk_indicator_overview风险指标监控总览-->
+    <service service_code="N0000001" service_name="通知模板设置查询" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryRiskNoticeSchema" business_type="1"/>
+        </businesses>
+    </service>
+    
+    <service service_code="N0000002" service_name="通知模板新增" ticket_check="0">
+        <businesses>
+            <service_business business_code="AddRiskNoticeSchema" business_type="1"/>
+        </businesses>
+    </service>
+    
+    <service service_code="N0000003" service_name="修改模板新增" ticket_check="0">
+        <businesses>
+            <service_business business_code="UpdateRiskNoticeSchema" business_type="1"/>
+        </businesses>
+    </service>
+    
+    <service service_code="N0000004" service_name="指标类别查询" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryRiskIndicatorCls" business_type="1"/>
+        </businesses>
+    </service>
+    
+    <service service_code="N0000005" service_name="查询一条通知模板的详细信息" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryRiskNoticeSchemaDetail" business_type="1"/>
+        </businesses>
+    </service>
+    
+     <service service_code="N0000006" service_name="通过业务类型查询指标" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryRiskIndicator" business_type="1"/>
+        </businesses>
+    </service>
+    
+     <service service_code="N0000007" service_name="通过指标查询当前指标的阈值" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryRiskThreshold" business_type="1"/>
+        </businesses>
+    </service>
+    
+     <service service_code="N0000008" service_name="相关变量参考" ticket_check="0">
+        <businesses>
+            <service_business business_code="QueryRiskNoticeMark" business_type="1"/>
+        </businesses>
+    </service>
+
+</services>

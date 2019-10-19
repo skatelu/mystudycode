@@ -1,0 +1,35 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskFactorsCls">
+    <resultMap id="RiskFactorsClsMap" type="com.szkingdom.data.DataRiskFactorsCls">
+        <result column="BIZ_ATTR"  property="bizAttr"  />
+        <result column="FACTORS_CLS"  property="factorsCls"  />
+        <result column="FACTORS_CLS_NAME"  property="factorsClsName"  />
+    </resultMap>
+
+
+    <select id="RISK_FACTORS_CLS_SELECT" resultMap="RiskFactorsClsMap" parameterType="com.szkingdom.data.DataRiskFactorsCls">
+        select
+        BIZ_ATTR,FACTORS_CLS,FACTORS_CLS_NAME
+        from RISK_FACTORS_CLS
+    </select>
+
+
+    <insert id="RISK_FACTORS_CLS_INSERT" parameterType="com.szkingdom.data.DataRiskFactorsCls">
+        insert into RISK_FACTORS_CLS(
+        BIZ_ATTR,FACTORS_CLS,FACTORS_CLS_NAME)
+        values ( 
+        #{bizAttr},#{factorsCls},#{factorsClsName})
+    </insert>
+
+
+
+    <update id="RISK_FACTORS_CLS_UPDATE" parameterType="com.szkingdom.data.DataRiskFactorsCls">
+        update RISK_FACTORS_CLS set
+        BIZ_ATTR = #{bizAttr},FACTORS_CLS = #{factorsCls},FACTORS_CLS_NAME = #{factorsClsName}
+    </update>
+
+
+</mapper>

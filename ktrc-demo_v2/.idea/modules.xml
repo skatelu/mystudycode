@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin/admin.iml" filepath="$PROJECT_DIR$/admin/admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin/base/base.iml" filepath="$PROJECT_DIR$/admin/base/base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/job/common/common.iml" filepath="$PROJECT_DIR$/job/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connect/connect.iml" filepath="$PROJECT_DIR$/connect/connect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/job/dao/dao.iml" filepath="$PROJECT_DIR$/job/dao/dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/job/data/data.iml" filepath="$PROJECT_DIR$/job/data/data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/job/job.iml" filepath="$PROJECT_DIR$/job/job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connect/kafkaFileConnect/kafkaFileConnect.iml" filepath="$PROJECT_DIR$/connect/kafkaFileConnect/kafkaFileConnect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ktrc.iml" filepath="$PROJECT_DIR$/ktrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/job/monitor/monitor.iml" filepath="$PROJECT_DIR$/job/monitor/monitor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/job/stresstest/stresstest.iml" filepath="$PROJECT_DIR$/job/stresstest/stresstest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin/web/web.iml" filepath="$PROJECT_DIR$/admin/web/web.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,98 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskInfoExeStk">
+    <resultMap id="RiskInfoExeStkMap" type="com.szkingdom.data.DataRiskInfoExeStk">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_NAME"  property="indicatorName"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+        <result column="RISK_VALUE"  property="riskValue"  />
+        <result column="DEFAULT_RISK_VALUE1"  property="defaultRiskValue1"  />
+        <result column="DEFAULT_RISK_VALUE2"  property="defaultRiskValue2"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_UNDL_NAME"  property="optUndlName"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="STK_QTY_ACT"  property="stkQtyAct"  />
+        <result column="STK_NET_DLVY_QTY"  property="stkNetDlvyQty"  />
+        <result column="STK_QTY_FAR"  property="stkQtyFar"  />
+        <result column="CASH_SETT_AMT"  property="cashSettAmt"  />
+        <result column="STK_QTY_EXELACK1"  property="stkQtyExelack1"  />
+        <result column="STK_QTY_EXELACK2"  property="stkQtyExelack2"  />
+        <result column="DLVY_DATE"  property="dlvyDate"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUST_CLS"  property="custCls"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="SUBACCT_CODE"  property="subacctCode"  />
+        <result column="TRDACCT_EXCLS"  property="trdacctExcls"  />
+        <result column="RISK_VALID_FLAG"  property="riskValidFlag"  />
+        <result column="NOTICE_SENT_LEVEL"  property="noticeSentLevel"  />
+        <result column="NOTICE_SENT_LEVEL_NAME"  property="noticeSentLevelName"  />
+    </resultMap>
+
+
+    <select id="RISK_INFO_EXE_STK_SELECT" resultMap="RiskInfoExeStkMap" parameterType="com.szkingdom.data.DataRiskInfoExeStk">
+        select
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,RISK_VALUE,DEFAULT_RISK_VALUE1,DEFAULT_RISK_VALUE2,OPT_UNDL_CODE,
+        OPT_UNDL_NAME,OPT_UNDL_CLS,STK_QTY_ACT,STK_NET_DLVY_QTY,STK_QTY_FAR,CASH_SETT_AMT,STK_QTY_EXELACK1,STK_QTY_EXELACK2,
+        DLVY_DATE,INT_ORG,CUST_CODE,CUST_NAME,CUST_TYPE,CUST_CLS,CUACCT_CODE,CURRENCY,
+        STKBD,TRDACCT,SUBACCT_CODE,TRDACCT_EXCLS,RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME
+        from RISK_INFO_EXE_STK
+        where 1=1
+        <if test="custCode > 0">and CUST_CODE = #{custCode} </if>
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+        <if test="trdacct != null and trdacct != ''">and TRDACCT = #{trdacct}</if>
+        <if test="subacctCode != null and subacctCode != ''">and SUBACCT_CODE = #{subacctCode}</if>
+        <if test="optUndlCode != null and optUndlCode != ''">and OPT_UNDL_CODE = #{optUndlCode}</if>
+        <if test="indicatorId != null and indicatorId != ''">and INDICATOR_ID = #{indicatorId}</if>
+
+    </select>
+
+    <update id="RISK_INFO_EXE_STK_UPDATE" parameterType="com.szkingdom.data.DataRiskInfoExeStk">
+        update RISK_INFO_EXE_STK set
+        INDICATOR_ID=#{indicatorId},INDICATOR_NAME=#{indicatorName},
+        OCC_DATE=#{occDate},OCC_TIME=#{occTime},RISK_VALUE=#{riskValue},
+        DEFAULT_RISK_VALUE1=#{defaultRiskValue1},DEFAULT_RISK_VALUE2=#{defaultRiskValue2},
+        OPT_UNDL_CODE =#{optUndlCode}, OPT_UNDL_NAME =#{optUndlName},
+        OPT_UNDL_CLS =#{optUndlCls},STK_QTY_ACT =#{stkQtyAct},
+        STK_NET_DLVY_QTY =#{stkNetDlvyQty},STK_QTY_FAR =#{stkQtyFar},
+        CASH_SETT_AMT =#{cashSettAmt},STK_QTY_EXELACK1 =#{stkQtyExelack1},
+        STK_QTY_EXELACK2 =#{stkQtyExelack2},DLVY_DATE =#{dlvyDate},
+        INT_ORG=#{intOrg},CUST_CODE=#{custCode},CUST_NAME=#{custName},
+        CUST_TYPE=#{custType},CUST_CLS=#{custCls},CUACCT_CODE=#{cuacctCode},
+        CURRENCY=#{currency},STKBD=#{stkbd},TRDACCT=#{trdacct},
+        SUBACCT_CODE=#{subacctCode},TRDACCT_EXCLS=#{trdacctExcls},
+        RISK_VALID_FLAG=#{riskValidFlag},NOTICE_SENT_LEVEL=#{noticeSentLevel},
+        NOTICE_SENT_LEVEL_NAME=#{noticeSentLevelName}
+        where CUST_CODE = #{custCode}
+        and STKBD = #{stkbd}
+        and TRDACCT = #{trdacct}
+        and SUBACCT_CODE = #{subacctCode}
+        and OPT_UNDL_CODE = #{optUndlCode}
+        and INDICATOR_ID = #{indicatorId}
+
+    </update>
+
+
+    <insert id="RISK_INFO_EXE_STK_INSERT" parameterType="com.szkingdom.data.DataRiskInfoExeStk">
+        insert into RISK_INFO_EXE_STK(
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,RISK_VALUE,DEFAULT_RISK_VALUE1,DEFAULT_RISK_VALUE2,OPT_UNDL_CODE,
+        OPT_UNDL_NAME,OPT_UNDL_CLS,STK_QTY_ACT,STK_NET_DLVY_QTY,STK_QTY_FAR,CASH_SETT_AMT,STK_QTY_EXELACK1,STK_QTY_EXELACK2,
+        DLVY_DATE,INT_ORG,CUST_CODE,CUST_NAME,CUST_TYPE,CUST_CLS,CUACCT_CODE,CURRENCY,
+        STKBD,TRDACCT,SUBACCT_CODE,TRDACCT_EXCLS,RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME)
+        values ( 
+        #{indicatorId},#{indicatorName},#{occDate},#{occTime},#{riskValue},#{defaultRiskValue1},#{defaultRiskValue2},#{optUndlCode},
+        #{optUndlName},#{optUndlCls},#{stkQtyAct},#{stkNetDlvyQty},#{stkQtyFar},#{cashSettAmt},#{stkQtyExelack1},#{stkQtyExelack2},
+        #{dlvyDate},#{intOrg},#{custCode},#{custName},#{custType},#{custCls},#{cuacctCode},#{currency},
+        #{stkbd},#{trdacct},#{subacctCode},#{trdacctExcls},#{riskValidFlag},#{noticeSentLevel},#{noticeSentLevelName})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,33 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.MarginRateParam">
+    <resultMap id="MarginRateParamMap" type="com.szkingdom.data.DataMarginRateParam">
+        <result column="PARAM_NO"  property="paramNo"  />
+        <result column="PARAM_NAME"  property="paramName"  />
+        <result column="MARGIN_MODE"  property="marginMode"  />
+        <result column="FLOAT_RATE"  property="floatRate"  />
+        <result column="MARGIN_RATIO1"  property="marginRatio1"  />
+        <result column="MARGIN_RATIO2"  property="marginRatio2"  />
+        <result column="EXTRA_MARGIN"  property="extraMargin"  />
+    </resultMap>
+
+    <select id="MARGIN_RATE_PARAM_SELECT" resultMap="MarginRateParamMap" parameterType="com.szkingdom.data.DataMarginRateParam">
+        select
+        PARAM_NO,PARAM_NAME,MARGIN_MODE,FLOAT_RATE,MARGIN_RATIO1,MARGIN_RATIO2,EXTRA_MARGIN
+        from MARGIN_RATE_PARAM
+        where 1=1
+        <if test="paramNo >= 0 ">
+            and PARAM_NO = #{paramNo}
+        </if>
+    </select>
+
+    <insert id="MARGIN_RATE_PARAM_INSERT" parameterType="com.szkingdom.data.DataMarginRateParam">
+        insert into MARGIN_RATE_PARAM(
+        PARAM_NO,PARAM_NAME,MARGIN_MODE,FLOAT_RATE,MARGIN_RATIO1,MARGIN_RATIO2,EXTRA_MARGIN)
+        values ( 
+        #{paramNo},#{paramName},#{marginMode},#{floatRate},#{marginRatio1},#{marginRatio2},#{extraMargin})
+    </insert>
+
+</mapper>

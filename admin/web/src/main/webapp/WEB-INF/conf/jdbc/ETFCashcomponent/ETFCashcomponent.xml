@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+		<select id="QueryETFCashcomponent" parameterType="jdbcMap" resultType="jdbcMap">
+			(SELECT A
+			.DATE AS DATE,
+			A.fundid AS FUNDID,
+			A.custid AS CUSTID,
+			A.custname AS CUSTNAME,
+			A.orgname AS ORGNAME,
+			A.ykkje AS YKKJE,
+			A.djje AS DJJE,
+			A.ydbzje AS YDBZJE,
+			A.kyye AS KTTE,
+			A.qsje AS QSJE,
+			A.yled AS YLED,
+			A.jzrq AS JZRQ 
+			FROM
+				etf_cashcomponent A 
+			<where>
+				( jzrq IS NOT NULL ) 
+				AND yled IS NOT NULL 
+				AND ( ydbzje > kyye OR ydbzje > yled )
+				<if test='CUSTNAME != null and CUSTNAME !=""'>AND a.CUSTNAME LIKE '%${CUSTNAME}%'</if>
+                <if test='FUNDID != null and FUNDID !=""'>AND a.FUNDID = CAST(#{FUNDID} as bigint)</if>
+                <if test='CUSTID != null and CUSTID !=""'>AND a.CUSTID = CAST(#{CUSTID} as bigint)</if>
+            </where>) 
+			UNION
+			(
+			SELECT A
+				.DATE AS DATE,
+				A.fundid AS FUNDID,
+				A.custid AS CUSTID,
+				A.custname AS CUSTNAME,
+				A.orgname AS ORGNAME,
+				A.ykkje AS YKKJE,
+				A.djje AS DJJE,
+				A.ydbzje AS YDBZJE,
+				A.kyye AS KTTE,
+				A.qsje AS QSJE,
+				A.yled AS YLED,
+				A.jzrq AS JZRQ 
+			FROM
+				etf_cashcomponent A 
+			<where>
+				jzrq IS NOT NULL 
+				<if test='CUSTNAME != null and CUSTNAME !=""'>AND a.CUSTNAME LIKE '%${CUSTNAME}%'</if>
+                <if test='FUNDID != null and FUNDID !=""'>AND a.FUNDID = CAST(#{FUNDID} as bigint)</if>
+                <if test='CUSTID != null and CUSTID !=""'>AND a.CUSTID = CAST(#{CUSTID} as bigint)</if>
+            </where>) 
+            UNION
+			(SELECT A
+				.DATE AS DATE,
+				A.fundid AS FUNDID,
+				A.custid AS CUSTID,
+				A.custname AS CUSTNAME,
+				A.orgname AS ORGNAME,
+				A.ykkje AS YKKJE,
+				A.djje AS DJJE,
+				A.ydbzje AS YDBZJE,
+				A.kyye AS KTTE,
+				A.qsje AS QSJE,
+				A.yled AS YLED,
+				A.jzrq AS JZRQ 
+			FROM
+				etf_cashcomponent A 
+			<where>
+				yled IS NULL 
+				AND ydbzje > kyye
+				<if test='CUSTNAME != null and CUSTNAME !=""'>AND a.CUSTNAME LIKE '%${CUSTNAME}%'</if>
+	            <if test='FUNDID != null and FUNDID !=""'>AND a.FUNDID = CAST(#{FUNDID} as bigint)</if>
+	            <if test='CUSTID != null and CUSTID !=""'>AND a.CUSTID = CAST(#{CUSTID} as bigint)</if>
+            </where>)
+        </select>
+</mapper>
+

@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.CustMarginCfg">
+    <resultMap id="CustMarginCfgMap" type="com.szkingdom.data.DataCustMarginCfg">
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUACCT_GRP"  property="cuacctGrp"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="STRATEGY_TEMPLATE"  property="strategyTemplate"  />
+    </resultMap>
+
+
+    <select id="CUST_MARGIN_CFG_SELECT" resultMap="CustMarginCfgMap" parameterType="com.szkingdom.data.DataCustMarginCfg">
+        select
+        INT_ORG,CUACCT_GRP,CUACCT_CODE,STRATEGY_TEMPLATE
+        from CUST_MARGIN_CFG
+    </select>
+
+
+    <insert id="CUST_MARGIN_CFG_INSERT" parameterType="com.szkingdom.data.DataCustMarginCfg">
+        insert into CUST_MARGIN_CFG(
+        INT_ORG,CUACCT_GRP,CUACCT_CODE,STRATEGY_TEMPLATE)
+        values ( 
+        #{intOrg},#{cuacctGrp},#{cuacctCode},#{strategyTemplate})
+    </insert>
+
+
+</mapper>

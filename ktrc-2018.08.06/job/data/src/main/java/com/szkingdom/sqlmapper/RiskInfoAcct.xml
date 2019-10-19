@@ -1,0 +1,91 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskInfoAcct">
+    <resultMap id="RiskInfoAcctMap" type="com.szkingdom.data.DataRiskInfoAcct">
+        <result column="INDICATOR_ID"  property="indicatorId"  />
+        <result column="INDICATOR_NAME"  property="indicatorName"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+        <result column="OPEN_COND_FLAG"  property="openCondFlag"  />
+        <result column="OPEN_COND_REASON"  property="openCondReason"  />
+        <result column="RISK_RATING_FLAG"  property="riskRatingFlag"  />
+        <result column="RISK_RATING_REASON"  property="riskRatingReason"  />
+        <result column="TRD_CTRL_FLAG"  property="trdCtrlFlag"  />
+        <result column="TRD_CTRL_REASON"  property="trdCtrlReason"  />
+        <result column="SKIP_LVL_FLAG"  property="skipLvlFlag"  />
+        <result column="SKIP_LVL_REASON"  property="skipLvlReason"  />
+        <result column="FORCE_UCLOSE_FLAG"  property="forceUcloseFlag"  />
+        <result column="FORCE_UCLOSE_REASON"  property="forceUcloseReason"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUST_CLS"  property="custCls"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="SUBACCT_CODE"  property="subacctCode"  />
+        <result column="TRDACCT_EXCLS"  property="trdacctExcls"  />
+        <result column="OPT_TRDACCT_LVL"  property="optTrdacctLvl"  />
+        <result column="RISK_VALID_FLAG"  property="riskValidFlag"  />
+        <result column="NOTICE_SENT_LEVEL"  property="noticeSentLevel"  />
+        <result column="NOTICE_SENT_LEVEL_NAME"  property="noticeSentLevelName"  />
+    </resultMap>
+
+
+    <select id="RISK_INFO_ACCT_SELECT" resultMap="RiskInfoAcctMap" parameterType="com.szkingdom.data.DataRiskInfoAcct">
+        select
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,OPEN_COND_FLAG,OPEN_COND_REASON,RISK_RATING_FLAG,RISK_RATING_REASON,
+        TRD_CTRL_FLAG,TRD_CTRL_REASON,SKIP_LVL_FLAG,SKIP_LVL_REASON,FORCE_UCLOSE_FLAG,FORCE_UCLOSE_REASON,INT_ORG,CUST_CODE,
+        CUST_NAME,CUST_TYPE,CUST_CLS,CUACCT_CODE,CURRENCY,STKBD,TRDACCT,SUBACCT_CODE,
+        TRDACCT_EXCLS,OPT_TRDACCT_LVL,RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME
+        from RISK_INFO_ACCT
+        where 1=1
+        <if test="custCode > 0">and CUST_CODE = #{custCode} </if>
+        <if test="currency != null">and CURRENCY = #{currency}</if>
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+        <if test="trdacct != null and trdacct != ''">and TRDACCT = #{trdacct}</if>
+        <if test="indicatorId != null and indicatorId != ''">and INDICATOR_ID = #{indicatorId}</if>
+
+    </select>
+
+    <update id="RISK_INFO_ACCT_UPDATE" parameterType="com.szkingdom.data.DataRiskInfoAcct">
+        update RISK_INFO_ACCT set
+        INDICATOR_ID=#{indicatorId},INDICATOR_NAME=#{indicatorName},OCC_DATE=#{occDate},
+        OCC_TIME=#{occTime},OPEN_COND_FLAG=#{openCondFlag},OPEN_COND_REASON=#{openCondReason},
+        RISK_RATING_FLAG=#{riskRatingFlag},RISK_RATING_REASON=#{riskRatingReason},
+        TRD_CTRL_FLAG=#{trdCtrlFlag},TRD_CTRL_REASON=#{trdCtrlReason},SKIP_LVL_FLAG=#{skipLvlFlag},
+        SKIP_LVL_REASON=#{skipLvlReason},FORCE_UCLOSE_FLAG=#{forceUcloseFlag},
+        FORCE_UCLOSE_REASON=#{forceUcloseReason},INT_ORG=#{intOrg},CUST_CODE=#{custCode},
+        CUST_NAME=#{custName},CUST_TYPE=#{custType},CUST_CLS=#{custCls},
+        CUACCT_CODE=#{cuacctCode},CURRENCY=#{currency},STKBD=#{stkbd},TRDACCT=#{trdacct},
+        SUBACCT_CODE=#{subacctCode},TRDACCT_EXCLS=#{trdacctExcls},
+        OPT_TRDACCT_LVL=#{optTrdacctLvl},RISK_VALID_FLAG=#{riskValidFlag},
+        NOTICE_SENT_LEVEL=#{noticeSentLevel}, NOTICE_SENT_LEVEL_NAME=#{noticeSentLevelName}
+        where CUST_CODE = #{custCode}
+        and CURRENCY = #{currency}
+        and STKBD = #{stkbd}
+        and TRDACCT = #{trdacct}
+        and INDICATOR_ID = #{indicatorId}
+
+    </update>
+
+
+    <insert id="RISK_INFO_ACCT_INSERT" parameterType="com.szkingdom.data.DataRiskInfoAcct">
+        insert into RISK_INFO_ACCT(
+        INDICATOR_ID,INDICATOR_NAME,OCC_DATE,OCC_TIME,OPEN_COND_FLAG,OPEN_COND_REASON,RISK_RATING_FLAG,RISK_RATING_REASON,
+        TRD_CTRL_FLAG,TRD_CTRL_REASON,SKIP_LVL_FLAG,SKIP_LVL_REASON,FORCE_UCLOSE_FLAG,FORCE_UCLOSE_REASON,INT_ORG,CUST_CODE,
+        CUST_NAME,CUST_TYPE,CUST_CLS,CUACCT_CODE,CURRENCY,STKBD,TRDACCT,SUBACCT_CODE,
+        TRDACCT_EXCLS,OPT_TRDACCT_LVL,RISK_VALID_FLAG,NOTICE_SENT_LEVEL,NOTICE_SENT_LEVEL_NAME)
+        values ( 
+        #{indicatorId},#{indicatorName},#{occDate},#{occTime},#{openCondFlag},#{openCondReason},#{riskRatingFlag},#{riskRatingReason},
+        #{trdCtrlFlag},#{trdCtrlReason},#{skipLvlFlag},#{skipLvlReason},#{forceUcloseFlag},#{forceUcloseReason},#{intOrg},#{custCode},
+        #{custName},#{custType},#{custCls},#{cuacctCode},#{currency},#{stkbd},#{trdacct},#{subacctCode},
+        #{trdacctExcls},#{optTrdacctLvl},#{riskValidFlag},#{noticeSentLevel},#{noticeSentLevelName})
+    </insert>
+
+
+</mapper>

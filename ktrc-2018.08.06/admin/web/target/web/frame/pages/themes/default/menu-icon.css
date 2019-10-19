@@ -1,0 +1,318 @@
+.left-menu-wrap ul.kui-tree>li>div.tree-node>span.frame-icon{
+	background-image: url(images/icon-left-menu-stan.png) !important;
+    background-position: -224px 0;
+	width: 32px !important;
+	height: 32px !important;
+	margin-top: 2px;
+    margin-left: -10px;
+}
+.left-menu-wrap .tree-node .tree-icon{
+    margin-top: 7px;
+	margin-left: 5px;
+}
+.left-menu-wrap ul.kui-tree>li span.icon-empl-set{
+	background-position: 0 0 !important;
+}
+
+/*左侧菜单图标：1-1营业部、机构类*/
+.left-menu-wrap ul.kui-tree>li span.icon-yyb-param{
+	background-position: 0 0 !important;
+}
+
+/*左侧菜单图标：1-2员工、权限、用户资料*/
+.left-menu-wrap ul.kui-tree>li span.icon-perm-set{
+	background-position: -32px 0 !important;
+}
+
+/*左侧菜单图标：1-3资金、资产类*/
+.left-menu-wrap ul.kui-tree>li span.icon-money-set{
+	background-position: -64px 0 !important;
+}
+
+/*左侧菜单图标：1-4流程、分支类*/
+.left-menu-wrap ul.kui-tree>li span.icon-yztflow-set{
+	background-position: -96px 0 !important;
+}
+
+/*左侧菜单图标：1-5机构管理*/
+.left-menu-wrap ul.kui-tree>li span.icon-org-set{
+	background-position: -128px 0 !important;
+}
+
+/*左侧菜单图标：1-6业务管理*/
+.left-menu-wrap ul.kui-tree>li span.icon-biz-set{
+	background-position: -160px 0 !important;
+}
+
+/*左侧菜单图标：1-7影像类*/
+.left-menu-wrap ul.kui-tree>li span.icon-image-set{
+	background-position: -192px 0 !important;
+}
+
+/*左侧菜单图标：1-8参数管理*/
+.left-menu-wrap ul.kui-tree>li span.icon-param-set{
+	background-position: -224px 0 !important;
+}
+
+/*左侧菜单图标：2-1统一参数*/
+.left-menu-wrap ul.kui-tree>li span.icon-gen-param{
+	background-position: 0px -32px !important;
+}
+
+/*左侧菜单图标：2-2页面、测试等*/
+.left-menu-wrap ul.kui-tree>li span.icon-page-test{
+	background-position: -32px -32px !important;
+}
+
+/*左侧菜单图标：2-3股东管理*/
+.left-menu-wrap ul.kui-tree>li span.icon-partner-set{
+	background-position: -64px -32px !important;
+}
+
+/*左侧菜单图标：2-4打印报表*/
+.left-menu-wrap ul.kui-tree>li span.icon-form-print{
+	background-position: -96px -32px !important;
+}
+
+/*左侧菜单图标：2-5股份管理*/
+.left-menu-wrap ul.kui-tree>li span.icon-stock-set{
+	background-position: -128px -32px !important;
+}
+
+/*左侧菜单图标：2-6综合查询*/
+.left-menu-wrap ul.kui-tree>li span.icon-gen-search{
+	background-position: -160px -32px !important;
+}
+
+/*左侧菜单图标：2-7融资融券*/
+.left-menu-wrap ul.kui-tree>li span.icon-stock-money{
+	background-position: -192px -32px !important;
+}
+
+/*左侧菜单图标：2-8股票类*/
+.left-menu-wrap ul.kui-tree>li span.icon-stock-factoring{
+	background-position: -224px -32px !important;
+}
+
+/*左侧菜单图标：3-1资金*/
+.left-menu-wrap ul.kui-tree>li span.icon-money-param{
+	background-position: 0px -64px !important;
+}
+
+/*左侧菜单图标：3-2页面报表*/
+.left-menu-wrap ul.kui-tree>li span.icon-table-param{
+	background-position: -32px -64px !important;
+}
+
+/*左侧菜单图标：3-3业务管理*/
+.left-menu-wrap ul.kui-tree>li span.icon-business-set{
+	background-position: -64px -64px !important;
+}
+
+/*左侧菜单图标：3-4报表设置*/
+.left-menu-wrap ul.kui-tree>li span.icon-form-set{
+	background-position: -96px -64px !important;
+}
+
+/*左侧菜单图标：3-5员工设置*/
+.left-menu-wrap ul.kui-tree>li span.icon-member-set{
+	background-position: -128px -64px !important;
+}
+
+/*左侧菜单图标：3-6报表设置*/
+.left-menu-wrap ul.kui-tree>li span.icon-matket-set{
+	background-position: -160px -64px !important;
+}
+
+/*左侧菜单图标：3-7报表设置*/
+.left-menu-wrap ul.kui-tree>li span.icon-stock-biz{
+	background-position: -192px -64px !important;
+}
+
+/*左侧菜单图标：3-8报表设置*/
+.left-menu-wrap ul.kui-tree>li span.icon-man-set{
+	background-position: -224px -64px !important;
+}
+
+/*左侧菜单图标：4-1*/
+.left-menu-wrap ul.kui-tree>li span.icon-4-1{
+	background-position: 0px -96px !important;
+}
+
+/*左侧菜单图标：4-2*/
+.left-menu-wrap ul.kui-tree>li span.icon-4-2{
+	background-position: -32px -96px !important;
+}
+
+/*左侧菜单图标：4-3*/
+.left-menu-wrap ul.kui-tree>li span.icon-4-3{
+	background-position: -64px -96px !important;
+}
+
+/*左侧菜单图标：4-4*/
+.left-menu-wrap ul.kui-tree>li span.icon-4-4{
+	background-position: -96px -96px !important;
+}
+
+/*左侧菜单图标：4-5*/
+.left-menu-wrap ul.kui-tree>li span.icon-4-5{
+	background-position: -128px -96px !important;
+}
+
+/*左侧菜单图标：4-6*/
+.left-menu-wrap ul.kui-tree>li span.icon-4-6{
+	background-position: -160px -96px !important;
+}
+
+/*左侧菜单图标：4-7*/
+.left-menu-wrap ul.kui-tree>li span.icon-4-7{
+	background-position: -192px -96px !important;
+}
+
+/*左侧菜单图标：4-8*/
+.left-menu-wrap ul.kui-tree>li span.icon-4-8{
+	background-position: -224px -96px !important;
+}
+
+
+
+.left-menu-wrap ul.kui-tree>li span.icon-yq-param{
+	background-position: -32px 0 !important;
+}
+/*左侧菜单图标：证券参数*/
+.left-menu-wrap ul.kui-tree>li span.icon-stock-param{
+	background-position: -128px 0px !important;
+}
+
+.left-menu-wrap div.tree-node{
+	height: 36px !important; 
+	line-height: 36px !important;
+}
+
+/*顶级菜单图标*/
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon {
+    background-image: url("images/icon-top-menu.png");
+    background-position: 0 -2px;
+    background-repeat: no-repeat;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-0 {
+    background-position: 0 -2px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-1 {
+    background-position: -29px -2px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-2 {
+    background-position: -58px -2px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-3 {
+    background-position: -84px -2px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-4 {
+    background-position: -112px -2px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-5 {
+    background-position: -139px -3px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-6 {
+    background-position: -169px -2px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-7 {
+    background-position: -198px -2px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-8 {
+    background-position: 2px -31px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-9 {
+    background-position: -29px -30px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-10 {
+    background-position: -58px -30px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-11 {
+    background-position: -87px -30px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-12 {
+    background-position: -112px -30px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-13 {
+    background-position: -140px -30px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-14 {
+    background-position: -170px -30px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-15 {
+    background-position: -196px -30px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-16 {
+    background-position: 0px -58px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-17 {
+    background-position: -29px -58px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-18 {
+    background-position: -56px -58px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-19 {
+    background-position: -82px -58px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-20 {
+    background-position: -110px -58px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-21 {
+    background-position: -136px -58px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-22 {
+    background-position: -167px -58px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-23 {
+    background-position: -194px -58px;
+}
+
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-24 {
+    background-position: 0px -86px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-25 {
+    background-position: -29px -86px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-26 {
+    background-position: -56px -86px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-27 {
+    background-position: -84px -86px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-28 {
+    background-position: -113px -87px;
+}
+
+.nav-tabs-wrap .nav-tabs .tabs-header .tabs li span.tabs-icon-29 {
+    background-position: -139px -87px;
+}

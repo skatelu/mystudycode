@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+        <select id="QueryNonHKCommissionCustomerNow" parameterType="jdbcMap" resultType="jdbcMap">
+            select * from (SELECT DISTINCT
+            a.custid AS CUSTID,
+            a.fundid AS FUNDID,
+            c.fullname AS FULLNAME,
+            a.orgid AS ORGID,
+            b.orgname AS ORGNAME,
+            CASE a.market
+            WHEN '5' THEN
+            '沪港通'
+            WHEN 'S' THEN
+            '深港通'
+            END AS MARKET,
+            CASE a.moneytype
+            WHEN '0' THEN
+            '港币'
+            WHEN '1' THEN
+            '人民币'
+            END AS MONEYTYPE
+            FROM
+            specialcommission a,
+            org b,
+            custbaseinfo c
+            <where>
+                a.ORGID = b.ORGID
+                AND a.SERVERID = b.SERVERID
+                AND a.SERVERID = c.SERVERID
+                AND a.CUSTID = c.CUSTID
+                AND a.MARKET IN ('5', 'S')
+                AND a.SERVERID != 0
+                AND a.MONEYTYPE ='1'
+                <if test='FULLNAME != null and FULLNAME !=""'>AND c.FULLNAME LIKE '%${FULLNAME}%'</if>
+                <if test='FUNDID != null and FUNDID !=""'>AND a.FUNDID = CAST(#{FUNDID} as bigint)</if>
+                <if test='MARKET != null and MARKET !=""'>AND a.MARKET LIKE '%${MARKET}%'</if>
+            </where>) d limit 30 offset 0
+        </select>
+		<select id="QueryunRegistedCustomer" parameterType="jdbcMap" resultType="jdbcMap">
+				SELECT * from (select * from(
+					SELECT distinct a.custid AS CUSTID,
+					a.custname AS CUSTNAME,
+					a.fundid AS FUNDID,
+					trim(a.orgid) AS ORGID,
+					b.orgname AS ORGNAME,
+					a.secuid AS SECUID,
+					'需要开通港股权限' AS REMARK,
+					a.market
+				FROM
+					prezqzhf a LEFT JOIN org b 
+					on trim(a.orgid) = trim(b.orgid)
+				) t
+				<where>
+					t.market IN ( '5', 'S' )
+          			and t.orgname != ''
+					AND t.SECUID NOT IN (
+					SELECT
+						secuid 
+					FROM
+						secuid 
+					WHERE
+					market IN ( '5', 'S' ))
+					and t.CUSTID between 10 and 1000000000
+					<if test='CUSTNAME != null and CUSTNAME !=""'>AND t.CUSTNAME LIKE '%${CUSTNAME}%'</if>
+					<if test='FUNDID != null and FUNDID !=""'>AND t.FUNDID = CAST(#{FUNDID} as bigint)</if>
+					<if test='CUSTID != null and CUSTID !=""'>AND t.CUSTID = CAST(#{CUSTID} as bigint)</if>
+				</where>)d limit 39 offset 0
+        </select>
+		<select id="QueryFundInfoSF" parameterType="jdbcMap" resultType="jdbcMap">
+	        select * from (select
+	        distinct FUNDID,
+	        CUSTID,
+	        CUSTNAME,
+	        ORGNAME,
+	        UPDDATE,
+	        SUMPAIDAMT,
+	        SUMDEBTAMT,
+			case when UNPAYAMT = 0 then '已支付' else '未支付' end as UNPAYAMT
+	        from
+		      (select
+		        A.FUNDID,
+		        A.CUSTID,
+		        B.FUNDNAME as CUSTNAME,
+		        C.ORGNAME,
+		        A.UPDDATE,
+		        A.SUMPAIDAMT,
+		        A.SUMDEBTAMT,
+		        A.UNPAYAMT
+		      from
+		      (select FUNDID,CUSTID,ORGID,UPDDATE,SUMPAIDAMT,SUMDEBTAMT,UNPAYAMT from FUNDDEBTS
+			  )  A,
+		      FUNDINFO B ,
+		      ORG C
+		      where
+		      A.FUNDID = B.FUNDID
+		      and A.ORGID=C.ORGID
+		      ) D
+	    <where>
+            <if test="FUNDID!='' and FUNDID!=null">
+                AND FUNDID = CAST(#{FUNDID} AS bigint)
+            </if>
+            <if test="CUSTID!='' and CUSTID!=null">
+                AND CUSTID = CAST(#{CUSTID} AS bigint)
+            </if>
+            <if test="CUSTNAME!='' and CUSTNAME!=null">
+                AND CUSTNAME like '${CUSTNAME}%'
+            </if>
+        </where>
+			limit 34 offset 0
+			)d order by UPDDATE desc
+	</select>
+</mapper>
+

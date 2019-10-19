@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+    <service service_code="P0000002" service_name="获取会话信息" ticket_check="0">
+        <businesses>
+            <service_business business_code="kjdp_getSessionInfoAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000004" service_name="获取view配置">
+        <businesses>
+            <service_business business_code="kjdp_getViewConfigAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000005" service_name="获取缓存数据" ticket_check="0">
+        <businesses>
+            <service_business business_code="kjdp_getCacheAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000006" service_name="获取登陆验证码校验标志" ticket_check="0">
+        <businesses>
+            <service_business business_code="kjdp_checkLoginValValidatorAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000008" service_name="菜单查询">
+        <businesses>
+            <service_business business_code="kjdp_menuSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000009" service_name="系统查询">
+        <businesses>
+            <service_business business_code="kjdp_systemSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000010" service_name="系统新增">
+        <businesses>
+            <service_business business_code="kjdp_systemInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000011" service_name="系统更新">
+        <businesses>
+            <service_business business_code="kjdp_systemUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000012" service_name="系统删除">
+        <businesses>
+            <service_business business_code="kjdp_systemDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000013" service_name="刷新缓存数据" soap_enable="1">
+        <businesses>
+            <service_business business_code="kjdp_refreshCacheAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000014" service_name="数据字典插入">
+        <businesses>
+            <service_business business_code="kjdp_dictionaryInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000015" service_name="数据字典更新">
+        <businesses>
+            <service_business business_code="kjdp_dictionaryUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000016" service_name="数据字典删除">
+        <businesses>
+            <service_business business_code="kjdp_dictionaryDeleteBex" business_type="1"/>
+            <service_business business_code="kjdp_dictItemsDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000017" service_name="数据字典项查询">
+        <businesses>
+            <service_business business_code="kjdp_dictItemSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000018" service_name="数据字典项插入">
+        <businesses>
+            <service_business business_code="kjdp_dictItemInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000019" service_name="数据字典项更新">
+        <businesses>
+            <service_business business_code="kjdp_dictItemUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000020" service_name="数据字典项删除">
+        <businesses>
+            <service_business business_code="kjdp_dictItemDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000021" service_name="系统参数查询">
+        <businesses>
+            <service_business business_code="kjdp_sysParamSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000022" service_name="系统参数新增">
+        <businesses>
+            <service_business business_code="kjdp_sysParamInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000023" service_name="系统参数更新">
+        <businesses>
+            <service_business business_code="kjdp_sysParamUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000024" service_name="系统参数删除">
+        <businesses>
+            <service_business business_code="kjdp_sysParamDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000025" service_name="数据字典查询">
+        <businesses>
+            <service_business business_code="kjdp_dictionarySelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000026" service_name="服务信息查询">
+        <businesses>
+            <service_business business_code="kjdp_serviceSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000027" service_name="服务信息新增">
+        <businesses>
+            <service_business business_code="kjdp_serviceInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000028" service_name="服务信息更新">
+        <businesses>
+            <service_business business_code="kjdp_serviceUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000029" service_name="菜单新增">
+        <businesses>
+            <service_business business_code="kjdp_createMenuLvlAtom" business_type="3"/>
+            <service_business business_code="kjdp_menuInsertBex" business_type="1" ignore_params="MENU_LVL"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000030" service_name="菜单更新">
+        <businesses>
+            <service_business business_code="kjdp_menuUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000031" service_name="菜单删除">
+        <businesses>
+            <service_business business_code="kjdp_menuDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000032" service_name="菜单移动">
+        <businesses>
+            <service_business business_code="kjdp_menuMoveAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000037" service_name="机构查询">
+        <businesses>
+            <service_business business_code="kjdp_orgSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000038" service_name="机构新增">
+        <businesses>
+            <service_business business_code="kjdp_orgInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000039" service_name="机构更新">
+        <businesses>
+            <service_business business_code="kjdp_orgUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000040" service_name="机构注销">
+        <businesses>
+            <service_business business_code="kjdp_orgDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000047" service_name="服务日志查询">
+        <businesses>
+            <service_business business_code="kjdp_serviceLogSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+    
+    <service service_code="P0000048" service_name="网页日志查询">
+        <businesses>
+            <service_business business_code="kjdp_clientLogSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000049" service_name="网页日志新增" ticket_check="0">
+        <businesses>
+            <service_business business_code="kjdp_clientLogInsertAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000052" service_name="资源权限查询">
+        <businesses>
+            <service_business business_code="kjdp_resPermSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000053" service_name="资源权限新增">
+        <businesses>
+            <service_business business_code="kjdp_resPermInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000054" service_name="资源权限删除">
+        <businesses>
+            <service_business business_code="kjdp_resPermDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000058" service_name="菜单服务查询">
+        <businesses>
+            <service_business business_code="kjdp_menuServiceSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000059" service_name="菜单服务新增">
+        <businesses>
+            <service_business business_code="kjdp_menuServiceInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000060" service_name="菜单服务删除">
+        <businesses>
+            <service_business business_code="kjdp_menuServiceDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+    
+    <service service_code="P0000061" service_name="刷新集群缓存">
+        <businesses>
+            <service_business business_code="kjdp_refreshClustersCacheAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000062" service_name="节点信息查询">
+        <businesses>
+            <service_business business_code="kjdp_systemNodeSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000063" service_name="节点新增">
+        <businesses>
+            <service_business business_code="kjdp_systemNodeInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000064" service_name="节点更新">
+        <businesses>
+            <service_business business_code="kjdp_systemNodeUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000065" service_name="节点删除">
+        <businesses>
+            <service_business business_code="kjdp_systemNodeDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000070" service_name="OEM信息查询">
+        <businesses>
+            <service_business business_code="kjdp_OEMSelectBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000071" service_name="OEM信息新增">
+        <businesses>
+            <service_business business_code="kjdp_OEMInsertBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000072" service_name="OEM信息更新">
+        <businesses>
+            <service_business business_code="kjdp_OEMUpdateBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000073" service_name="OEM信息删除">
+        <businesses>
+            <service_business business_code="kjdp_OEMDeleteBex" business_type="1"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000074" service_name="获取注册服务信息">
+        <businesses>
+            <service_business business_code="kjdp_getRegistServicesAtom" business_type="3"/>
+        </businesses>
+    </service>
+
+    <service service_code="P0000088" service_name="注册服务删除">
+        <businesses>
+            <service_business business_code="kjdp_unregisterServiceAtom" business_type="3"/>
+        </businesses>
+    </service>
+</services>

@@ -1,0 +1,56 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.AgrBuybkCorpQuota">
+    <resultMap id="AgrBuybkCorpQuotaMap" type="com.szkingdom.data.DataAgrBuybkCorpQuota">
+        <result column="STKBD"  property="stkbd"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="EXT_CLS"  property="extCls"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="MAX_BOND_AMT"  property="maxBondAmt"  />
+        <result column="LAST_CONT_AMT"  property="lastContAmt"  />
+        <result column="LAST_BUY_AMT"  property="lastBuyAmt"  />
+        <result column="DAY_BUY_AMT"  property="dayBuyAmt"  />
+        <result column="DAY_BUYBK_AMT"  property="dayBuybkAmt"  />
+        <result column="NET_CPTL"  property="netCptl"  />
+    </resultMap>
+
+
+    <select id="AGR_BUYBK_CORP_QUOTA_SELECT" resultMap="AgrBuybkCorpQuotaMap" parameterType="com.szkingdom.data.DataAgrBuybkCorpQuota">
+        select
+        sum(MAX_BOND_AMT) as MAX_BOND_AMT,
+        sum(LAST_CONT_AMT) as LAST_CONT_AMT,
+        sum(LAST_BUY_AMT) as LAST_BUY_AMT,
+        sum(DAY_BUY_AMT) as DAY_BUY_AMT,
+        sum(DAY_BUYBK_AMT) as DAY_BUYBK_AMT,
+        sum(NET_CPTL) as NET_CPTL
+        from AGR_BUYBK_CORP_QUOTA
+        where  1 = 1
+        <if test="extCls != null and extCls != ''">
+            and EXT_CLS=#{extCls} 
+        </if>
+        <if test="trdacct != null and trdacct != ''">
+             and TRDACCT=#{trdacct} 
+        </if>
+        <if test="stkpbu != null and stkpbu != ''">
+             and STKPBU=#{stkpbu} 
+        </if>
+        <if test="intOrg >0 ">
+             and INT_ORG=#{intOrg} 
+        </if>
+    </select>
+
+
+    <insert id="AGR_BUYBK_CORP_QUOTA_INSERT" parameterType="com.szkingdom.data.DataAgrBuybkCorpQuota">
+        insert into AGR_BUYBK_CORP_QUOTA(
+        STKBD,TRDACCT,EXT_CLS,STKPBU,INT_ORG,MAX_BOND_AMT,LAST_CONT_AMT,LAST_BUY_AMT,
+        DAY_BUY_AMT,DAY_BUYBK_AMT,NET_CPTL)
+        values ( 
+        #{stkbd},#{trdacct},#{extCls},#{stkpbu},#{intOrg},#{maxBondAmt},#{lastContAmt},#{lastBuyAmt},
+        #{dayBuyAmt},#{dayBuybkAmt},#{netCptl})
+    </insert>
+
+
+</mapper>

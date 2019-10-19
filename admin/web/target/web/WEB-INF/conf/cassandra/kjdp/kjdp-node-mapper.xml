@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+    <select id="kjdp_microServiceSelect" parameterType="map" resultType="map">
+        SELECT SERVICE_CODE, SERVICE_NAME, DESCRIPTION FROM UPM_NODE_SERVICE
+        <where>
+            <if test='SERVICE_CODE != null and SERVICE_CODE != ""'>SERVICE_CODE = #{SERVICE_CODE}</if>
+        </where>
+    </select>
+
+    <insert id="kjdp_microServiceInsert" parameterType="map">
+        INSERT INTO UPM_NODE_SERVICE(SERVICE_CODE, SERVICE_NAME, DESCRIPTION)
+        VALUES(
+        #{SERVICE_CODE},
+        #{SERVICE_NAME},
+        #{DESCRIPTION}
+        )
+    </insert>
+
+    <update id="kjdp_microServiceUpdate" parameterType="map">
+        UPDATE UPM_NODE_SERVICE
+        <set>
+            <if test='SERVICE_NAME != null and SERVICE_NAME != ""'>SERVICE_NAME = #{SERVICE_NAME},</if>
+            <if test='DESCRIPTION != null'>DESCRIPTION = #{DESCRIPTION},</if>
+        </set>
+        <where>
+            SERVICE_CODE = #{SERVICE_CODE}
+        </where>
+    </update>
+
+    <delete id="kjdp_microServiceDelete" parameterType="map">
+        DELETE FROM UPM_NODE_SERVICE
+        WHERE SERVICE_CODE = #{SERVICE_CODE}
+    </delete>
+</mapper>

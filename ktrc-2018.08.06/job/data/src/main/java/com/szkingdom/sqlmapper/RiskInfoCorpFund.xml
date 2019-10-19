@@ -1,0 +1,60 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.RiskInfoCorpFund">
+    <resultMap id="RiskInfoCorpFundMap" type="com.szkingdom.data.DataRiskInfoCorpFund">
+        <result column="STKBD"  property="stkbd"  />
+        <result column="MARGIN_CORP_ACCT"  property="marginCorpAcct"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="ACCT_TYPE"  property="acctType"  />
+        <result column="MARGIN_USED"  property="marginUsed"  />
+        <result column="MARGIN_AVL"  property="marginAvl"  />
+        <result column="MARGIN_TOTAL_AMT"  property="marginTotalAmt"  />
+        <result column="OPEN_AMT_USEED_RATE"  property="openAmtUseedRate"  />
+        <result column="OCC_DATE"  property="occDate"  />
+        <result column="OCC_TIME"  property="occTime"  />
+    </resultMap>
+
+
+    <select id="RISK_INFO_CORP_FUND_SELECT" resultMap="RiskInfoCorpFundMap" parameterType="com.szkingdom.data.DataRiskInfoCorpFund">
+        select
+        STKBD,MARGIN_CORP_ACCT,CURRENCY,ACCT_TYPE,MARGIN_USED,MARGIN_AVL,MARGIN_TOTAL_AMT,OPEN_AMT_USEED_RATE,
+        OCC_DATE,OCC_TIME
+        from RISK_INFO_CORP_FUND
+        where 1=1
+        <if test="marginCorpAcct != null and marginCorpAcct != ''">and MARGIN_CORP_ACCT = #{marginCorpAcct}</if>
+        <if test="currency != null and currency != ''">and CURRENCY = #{currency}</if>
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+    </select>
+
+
+    <insert id="RISK_INFO_CORP_FUND_INSERT" parameterType="com.szkingdom.data.DataRiskInfoCorpFund">
+        insert into RISK_INFO_CORP_FUND(
+        STKBD,MARGIN_CORP_ACCT,CURRENCY,ACCT_TYPE,MARGIN_USED,MARGIN_AVL,MARGIN_TOTAL_AMT,OPEN_AMT_USEED_RATE,
+        OCC_DATE,OCC_TIME)
+        values ( 
+        #{stkbd},#{marginCorpAcct},#{currency},#{acctType},#{marginUsed},#{marginAvl},#{marginTotalAmt},#{openAmtUseedRate},
+        #{occDate},#{occTime})
+    </insert>
+
+
+
+    <update id="RISK_INFO_CORP_FUND_UPDATE" parameterType="com.szkingdom.data.DataRiskInfoCorpFund">
+        update RISK_INFO_CORP_FUND
+        <set>
+            <if test="marginUsed >= 0">MARGIN_USED=#{marginUsed},</if>
+            <if test="marginAvl >= 0">MARGIN_AVL=#{marginAvl},</if>
+            <if test="marginTotalAmt >= 0">MARGIN_TOTAL_AMT=#{marginTotalAmt},</if>
+            <if test="openAmtUseedRate >= 0">OPEN_AMT_USEED_RATE=#{openAmtUseedRate},</if>
+            <if test="occDate >= 0">OCC_DATE=#{occDate},</if>
+            <if test="occTime >= 0">OCC_TIME=#{occTime}</if>
+        </set>
+        where 1=1
+        <if test="marginCorpAcct != null and marginCorpAcct != ''">and MARGIN_CORP_ACCT = #{marginCorpAcct}</if>
+        <if test="currency != null and currency != ''">and CURRENCY = #{currency}</if>
+        <if test="stkbd != null and stkbd != ''">and STKBD = #{stkbd}</if>
+    </update>
+
+
+</mapper>

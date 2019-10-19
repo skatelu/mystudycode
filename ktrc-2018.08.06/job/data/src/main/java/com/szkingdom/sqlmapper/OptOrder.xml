@@ -1,0 +1,80 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.OptOrder">
+    <resultMap id="OptOrderMap" type="com.szkingdom.data.DataOptOrder">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="ORDER_DATE"  property="orderDate"  />
+        <result column="ORDER_TIME"  property="orderTime"  />
+        <result column="ORDER_ID"  property="orderId"  />
+        <result column="ORDER_STATUS"  property="orderStatus"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUST_NAME"  property="custName"  />
+        <result column="CUST_TYPE"  property="custType"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="SUBACCT_CODE"  property="subacctCode"  />
+        <result column="OPT_TRDACCT_LVL"  property="optTrdacctLvl"  />
+        <result column="STK_BIZ"  property="stkBiz"  />
+        <result column="STK_BIZ_ACTION"  property="stkBizAction"  />
+        <result column="OPT_NUM"  property="optNum"  />
+        <result column="OPT_NAME"  property="optName"  />
+        <result column="OPT_TYPE"  property="optType"  />
+        <result column="COMB_NUM"  property="combNum"  />
+        <result column="COMB_STRA_CODE"  property="combStraCode"  />
+        <result column="LEG1_NUM"  property="leg1Num"  />
+        <result column="LEG2_NUM"  property="leg2Num"  />
+        <result column="ORDER_PRICE"  property="orderPrice"  />
+        <result column="ORDER_QTY"  property="orderQty"  />
+        <result column="ORDER_FRZ_AMT"  property="orderFrzAmt"  />
+        <result column="IS_WITHDRAW"  property="isWithdraw"  />
+        <result column="OPT_UNDL_CLS"  property="optUndlCls"  />
+        <result column="OPT_UNDL_CODE"  property="optUndlCode"  />
+        <result column="OPT_UNDL_NAME"  property="optUndlName"  />
+        <result column="RAW_ORDER_ID"  property="rawOrderId"  />
+    </resultMap>
+
+    <select id="OPT_ORDER_SELECT" resultMap="OptOrderMap" parameterType="com.szkingdom.data.DataOptOrder">
+        select
+        TRD_DATE,ORDER_DATE,ORDER_TIME,ORDER_ID,ORDER_STATUS,INT_ORG,CUST_CODE,CUST_NAME,
+        CUST_TYPE,CUACCT_CODE,CURRENCY,STKBD,STKPBU,TRDACCT,SUBACCT_CODE,OPT_TRDACCT_LVL,
+        STK_BIZ,STK_BIZ_ACTION,OPT_NUM,OPT_NAME,OPT_TYPE,COMB_NUM,COMB_STRA_CODE,LEG1_NUM,
+        LEG2_NUM,ORDER_PRICE,ORDER_QTY,ORDER_FRZ_AMT,IS_WITHDRAW,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_UNDL_NAME,
+        RAW_ORDER_ID
+        from OPT_ORDER
+        where 1=1
+        <if test="orderId != null and orderId !='' ">
+            and ORDER_ID = #{orderId}
+        </if>
+        <if test="stkpbu != null and stkpbu !='' ">
+            and STKPBU = #{stkpbu}
+        </if>
+        <if test="trdDate > 0">
+            and TRD_DATE = #{trdDate}
+        </if>
+        <if test="isWithdraw != null and isWithdraw != ' ' ">
+            and IS_WITHDRAW = #{isWithdraw}
+        </if>
+    </select>
+
+    <insert id="OPT_ORDER_INSERT" parameterType="com.szkingdom.data.DataOptOrder">
+        insert into OPT_ORDER(
+        TRD_DATE,ORDER_DATE,ORDER_TIME,ORDER_ID,ORDER_STATUS,INT_ORG,CUST_CODE,CUST_NAME,
+        CUST_TYPE,CUACCT_CODE,CURRENCY,STKBD,STKPBU,TRDACCT,SUBACCT_CODE,OPT_TRDACCT_LVL,
+        STK_BIZ,STK_BIZ_ACTION,OPT_NUM,OPT_NAME,OPT_TYPE,COMB_NUM,COMB_STRA_CODE,LEG1_NUM,
+        LEG2_NUM,ORDER_PRICE,ORDER_QTY,ORDER_FRZ_AMT,IS_WITHDRAW,OPT_UNDL_CLS,OPT_UNDL_CODE,OPT_UNDL_NAME,
+        RAW_ORDER_ID)
+        values ( 
+        #{trdDate},#{orderDate},#{orderTime},#{orderId},#{orderStatus},#{intOrg},#{custCode},#{custName},
+        #{custType},#{cuacctCode},#{currency},#{stkbd},#{stkpbu},#{trdacct},#{subacctCode},#{optTrdacctLvl},
+        #{stkBiz},#{stkBizAction},#{optNum},#{optName},#{optType},#{combNum},#{combStraCode},#{leg1Num},
+        #{leg2Num},#{orderPrice},#{orderQty},#{orderFrzAmt},#{isWithdraw},#{optUndlCls},#{optUndlCode},#{optUndlName},
+        #{rawOrderId})
+    </insert>
+
+</mapper>

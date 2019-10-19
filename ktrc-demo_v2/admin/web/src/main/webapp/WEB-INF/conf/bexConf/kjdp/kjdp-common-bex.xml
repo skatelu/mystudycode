@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bexs>
+
+    <bex bex_code="kjdp_seqValSelectBex" bex_name="序列值生成" bex_type="4" page_mode="0" attr1="kjdp_seqValSelect">
+        <param para_code="SEQ_NAME" para_name="序列名" para_type="0" nullable="false"/>
+    </bex>
+
+    <bex bex_code="kjdp_createLvlSelectBex" bex_name="通用级别生成" bex_type="4" page_mode="0" attr1="kjdp_createLvlSelect">
+        <param para_code="TABLE_NAME" para_name="表名" para_type="0" nullable="false"/>
+        <param para_code="ID_FIELD_NAME" para_name="标识字段名" para_type="0" nullable="false"/>
+        <param para_code="PAR_FIELD_NAME" para_name="父节点字段名" para_type="0" nullable="false"/>
+        <param para_code="LVL_FIELD_NAME" para_name="级别字段名" para_type="0" nullable="false"/>
+        <param para_code="PAR_VAL" para_name="父节点标识值" para_type="0" nullable="false"/>
+    </bex>
+
+</bexs>

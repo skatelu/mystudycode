@@ -1,0 +1,86 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.Eccodesign">
+    <resultMap id="StkEccodesignMap" type="com.szkingdom.data.DataEccodesign">
+        <result column="serverid"  property="serverId"  />
+        <result column="custid"  property="custId"  />
+        <result column="fundid"  property="fundId"  />
+        <result column="fundcode"  property="fundCode"  />
+        <result column="taacc"  property="taacc"  />
+        <result column="transacc"  property="transacc"  />
+        <result column="ectype"  property="ectype"  />
+        <result column="sno"  property="sno"  />
+        <result column="dbtid"  property="dbtId"  />
+        <result column="fullname"  property="fullName"  />
+        <result column="acctype"  property="accType"  />
+        <result column="idtype"  property="idType"  />
+        <result column="idno"  property="idNo"  />
+        <result column="orderdate"  property="orderDate"  />
+        <result column="opertime"  property="operTime"  />
+        <result column="operway"  property="operWay"  />
+        <result column="netaddr"  property="netAddr"  />
+        <result column="operorg"  property="operOrg"  />
+        <result column="remark"  property="remark"  />
+        <result column="ecsno"  property="ecSno"  />
+        <result column="operid"  property="operId"  />
+        <result column="orgid"  property="orgId"  />
+        <result column="dealflag"  property="dealFlag"  />
+        <result column="status"  property="status"  />
+        <result column="reorderdate"  property="reorderDate"  />
+        <result column="reopertime"  property="reoperTime"  />
+        <result column="expand1"  property="expand1"  />
+        <result column="expand2"  property="expand2"  />
+        <result column="expand3"  property="expand3"  />
+        <result column="expand4"  property="expand4"  />
+        <result column="riskmatch"  property="riskMatch"  />
+        <result column="risklevel"  property="riskLevel"  />
+        <result column="telno"  property="telNo"  />
+        <result column="mobil"  property="mobil"  />
+        <result column="email"  property="email"  />
+        <result column="postid"  property="postId"  />
+        <result column="addr"  property="addr"  />
+        <result column="notassignflag"  property="notAssignFlag"  />
+        <result column="redeemcontract"  property="redeemContract"  />
+        <result column="reservfund"  property="reservFund"  />
+        <result column="dyreservfund"  property="dyreservFund"  />
+        <result column="resfundexpdate"  property="resfundExpdate"  />
+        <result column="multisettstatus"  property="multisettStatus"  />
+        <result column="multisettexp"  property="multisettExp"  />
+        <result column="multisettupdate"  property="multisettUpdate"  />
+        <result column="lastconvertvol"  property="lastConvertvol"  />
+        <result column="lastdivate"  property="lastDivate"  />
+        <result column="isnewsign"  property="isNewsign"  />
+        <result column="beforconvertvol"  property="beforConvertvol"  />
+        <result column="updatedate"  property="updateDate"  />
+        <result column="specialctrl"  property="specialCtrl"  />
+        <result column="prereservfund"  property="prereservFund"  />
+        <result column="prereservfunddate"  property="prereservFundDate"  />
+    </resultMap>
+
+
+    <select id="ETF_ECCODESIGN_SELECT" resultMap="StkEccodesignMap" parameterType="com.szkingdom.data.DataEccodesign">
+        select
+        SERVERID,CUSTID,FUNDID,fundcode,TAACC,TRANSACC,ECTYPE,SNO,DBTID,FULLNAME,ACCTYPE,IDTYPE,IDNO,ORDERDATE,OPERTIME,OPERWAY,
+        NETADDR,OPERORG,REMARK,ECSNO,OPERID,ORGID,DEALFLAG,STATUS,REORDERDATE,REOPERTIME,EXPAND1,EXPAND2,EXPAND3,EXPAND4,RISKMATCH,
+        RISKLEVEL,TELNO,MOBIL,EMAIL,POSTID,ADDR,NOTASSIGNFLAG,REDEEMCONTRACT,RESERVFUND,DYRESERVFUND,RESFUNDEXPDATE,MULTISETTSTATUS,
+        MULTISETTEXP,MULTISETTUPDATE,LASTCONVERTVOL,LASTDIVATE,ISNEWSIGN,BEFORCONVERTVOL,UPDATEDATE,SPECIALCTRL,PRERESERVFUND,PRERESERVFUNDDATE
+        from ECCODESIGN
+        where FUNDID = #{fundId}
+            and FUNDCODE = #{fundCode}
+    </select>
+    <update id="ETF_ECCODESIGN_UPDATE" parameterType="com.szkingdom.data.DataEccodesign">
+        update ECCODESIGN set
+        resfundexpdate=#{resfundExpdate},multisettstatus=#{multisettStatus},multisettexp=#{multisettExp},multisettupdate=#{multisettUpdate},
+        lastconvertvol=#{lastConvertvol},updatedate=#{updateDate},specialctrl=#{specialCtrl},reservfund=#{reservFund}
+        where FUNDID = #{fundId}
+            and FUNDCODE = #{fundCode}
+    </update>
+
+
+
+
+
+
+</mapper>

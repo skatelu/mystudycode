@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<views>
+	<view id="SpecialCrowdScreen_Total" render="datagrid" title="客户保证金">
+	        <conf fit="true" onInitSuccess="onInitSuccess" showTime="false"  singleSelect="true" onSelect="showPicture" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[50,100,200,500]"/>
+	
+	       <!--  <qry_item field="ORG_CODE" title="机构代码" type="combotree" edt_width="130" edt_required="true" edt_req="[{'service':'P0000037','ORG_TYPE':'0'}]" edt_editable="true" edt_conf="{treeType: '1',nodeId:'ORG_CODE',nodeName: 'ORG_CODE,ORG_NAME',parNode: 'PAR_ORG'}" edt_panelWidth="330" edt_panelHeight="300"  edt_autoFill="true" edt_defaultValue="0000" edt_treeExpand="true" wrap="true"/>
+	        <qry_item field="REFRESH_TIME" title="更新时间" type="input"  edt_width="130" edt_disabled="true" /> -->
+			<!-- <col_item type="checkbox"/> -->
+			<!-- <qry_item field="CUST_CODE" title="显示类型" type="combobox"  edt_width="130" edt_required="true" edtt_autoFill="true" edt_data="[{'dict_des':'0-全部'},{'dict_des':'1-正常'},{'dict_des':'2-大于已通知最高等级'},{'dict_des':'3-小于已通知最高等级'}]" />
+	        <btn_item text="数据更新"  title="数据更新" handler="refreshData"  iconCls="icon-reload"   panelWidth="600" panelHeight="300"  />
+	        <btn_item text="追保通知"  title="追保通知" handler="afterConfirm"  iconCls="icon-edit"   panelWidth="600" panelHeight="300"  />
+	        <btn_item text="强平通知"  title="强平通知" handler="StrongConfirm"  iconCls="icon-edit"   panelWidth="600" panelHeight="300"  /> -->
+			<col_item title="客户代码" field="CUST_CODE" width="100" type="input" hidden="true" sortable="false"/>
+			<col_item title="联系电话" field="TEL" width="100" type="input" hidden="true" sortable="false"/>
+	        <col_item title="客户名称" field="CUST_NAME" width="100" type="input" hidden="false" sortable="false"/>
+			<col_item title="资金缺口" field="DUE_ADD_AMT" width="100" type="input" sortable="false"/>
+			<col_item title="实时保证金比例" field="MARGIN_USED_RLT" width="100" type="input" sortable="false"/>
+			<col_item title="过去30日强平次数" field="FORCED_LINE" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+			<col_item title="过去30日追保次数" field="FOLLOW_LINE" edt_dict="STKBD" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+			<col_item title="公司盘中追保线" field="COMP_THRES_OPER" width="100" type="input" sortable="false"/>
+			<col_item title="风险状态" field="RISK_VALID_FLAG" width="100" type="input" sortable="false"/>
+<!-- 			<col_item title="通知状态" field="FACTOR_REMARK" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="100" type="input" sortable="false"/>
+ -->		
+			
+	</view>
+	<view id="SpecialCrowdScreen_Detail" render="datagrid" >
+	        <conf fit="true" onInitSuccess="onInitSuccess" showTime="false"  singleSelect="false" queryBtnTxt="数据更新" queryBtnIco="icon-reload" pageList="[50,100,200,500]"/>
+	
+	        <col_item title="日期" field="OCC_DATE" width="25%" type="input" sortable="false"/>
+			<col_item title="风险指标" field="INDICATOR_NAME" width="25%" type="input" sortable="false"/>
+			<col_item title="触发等级" field="THRES_NO" width="25%" type="input" sortable="false"/>
+			<col_item title="触发次数" field="RISK_COUNT" width="25%" type="input" sortable="false"/>
+<!-- 			<col_item title="已处置次数" field="FACTOR_REMARK" edt_dict="CURRENCY" edt_valueField="DICT_ITEM" edt_textField="DICT_ITEM_NAME" width="20%" type="input" sortable="false"/>
+ -->	</view>
+</views>

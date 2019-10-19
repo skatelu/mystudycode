@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+	
+	<select id="risk-custdetailscreen-custInfo" parameterType="jdbcMap" resultType="jdbcMap">
+	   
+	</select>
+	
+	<select id="risk-custdetailscreen-baseInfo" parameterType="jdbcMap" resultType="jdbcMap">
+	   select USER_FNAME,USER_CODE, MOBILE_TEL,OFFICE_TEL,EMAIL,ADDRESS
+	   from USER_BASIC_INFO i where i.USER_CODE =  #{CUST_CODE}
+	</select>
+	
+	<select id="risk-custdetailscreen-historyRiskPic" parameterType="jdbcMap" resultType="jdbcMap">
+	   
+	</select>
+	
+	<select id="risk-custdetailscreen-riskIndicatorDetail" parameterType="jdbcMap" resultType="jdbcMap">
+	   <include refid="kjdp_pagePrefix"/>
+	   <include refid="kjdp_pageSuffix"/>
+	</select>
+	
+	<select id="risk-custdetailscreen-riskIndicatorDetail_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+	   
+	</select>
+	
+	<select id="risk-custdetailscreen-historySiskTrigger" parameterType="jdbcMap" resultType="jdbcMap">
+	   <include refid="kjdp_pagePrefix"/>
+	   <include refid="kjdp_pageSuffix"/>
+	</select>
+	
+	<select id="risk-custdetailscreen-historySiskTrigger_COUNT" parameterType="jdbcMap" resultType="jdbcMap">
+	   
+	</select>
+	
+	
+</mapper>
+

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阈值统一设置</title>
+<script id="seajsnode" type="text/javascript" src="../../loader.js" data-main="./src/threshold_setting"></script>
+<script id="genericTemplate" type="text/html">
+    {{if viewConfArr.length === 1}}
+    {{if viewConfArr[0].isForm}}
+    <form id="{{viewConfArr[0].viewId}}" class="kui-{{viewConfArr[0].render}}" style="width:{{winWidth}}px;height:{{winHeight}}px"></form>
+    {{else}}
+    <table id="{{viewConfArr[0].viewId}}" class="kui-{{viewConfArr[0].render}}" style="width:{{winWidth}}px;height:{{winHeight}}px" kui-options="fit:true"></table>
+    {{/if}}
+    {{else if viewConfArr.length === 2}}
+    <div class="kui-layout" kui-options="fit:true,onBeforeResize:'onBeforeResize'">
+        {{if isVertical && "false" !== isVertical}}
+        <div kui-options="region:'north'" style="height:{{winHeight / 2}}px;">
+        {{else}}
+        <div kui-options="region:'west'" style="width:{{winWidth / 2}}px;">
+        {{/if}}
+            <table id="{{viewConfArr[0].viewId}}" class='kui-datagrid' data-sub-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+        <div kui-options="region:'center',split:true,iconCls:'icon-ok'">
+            <table id="{{viewConfArr[1].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[0].viewId}}"></table>
+        </div>
+    </div>
+    {{else if viewConfArr.length === 3}}
+    <div class="kui-layout" kui-options="fit:true">
+        <div kui-options="region:'north'" style="height:{{winHeight*4 / 10}}px;">
+            <table id="{{viewConfArr[0].viewId}}" class='kui-datagrid' data-sub-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+        <div kui-options="region:'center'" style="height:{{winHeight*3 / 10}}px;">
+            <table id="{{viewConfArr[1].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[0].viewId}}" data-sub-datagrid="{{viewConfArr[2].viewId}}"></table>
+        </div>
+        <div kui-options="region:'south'" style="height:{{winHeight*3 / 10}}px;">
+            <table id="{{viewConfArr[2].viewId}}" class='kui-datagrid' kui-options="required:true,fit:true" data-main-datagrid="{{viewConfArr[1].viewId}}"></table>
+        </div>
+    </div>
+    {{/if}}
+<div class="kui-dialog" id="thresholdDialog"
+	style="width: 700px; height: 400px"
+	kui-options="title:'阈值设置-新增阈值',buttons:'#add',modal:true,closed:true">
+	<table style="width: 100%; padding: 5px">
+			<tr height="30px">
+			<td width = "15%" align="right">业务属性：</td>
+			<td width = "35%"><input id="ABIZ_ATTR_D" class="kui-combobox"
+					kui-options="dict:'BIZ_ATTR',required:true,width:'180',panelWidth:'250',onSelect:'loadDataIndicatorCls'" /></td>
+			<td width = "15%"  align="right">指标类型：</td>			
+			<td width = "35%">
+				<div id = "tr_INDICATOR_CLS_A">
+				<input id="INDICATOR_CLS_A" class="kui-combobox"
+					kui-options="required:true,width:'180',panelWidth:'250',onSelect:'loadDataIndicator',textField:'INDICATOR_CLS,INDICATOR_CLS_NAME',valueField:'INDICATOR_CLS'" />
+				</div>
+				<div id = "tr_INDICATOR_CLS_U">
+				<input id="INDICATOR_CLS_U" class="kui-combobox"
+					kui-options="required:true,width:'180',panelWidth:'250',onSelect:'loadDataIndicator',textField:'INDICATOR_CLS,INDICATOR_CLS_NAME',valueField:'INDICATOR_CLS',disabled:true" />
+				</div>
+			</td>
+			</tr>
+            <tr height="30px" >
+			<td align="right">指标名称：</td>
+			<td>
+				<div id = "tr_INDICATOR_ID_A">
+				<input id="INDICATOR_ID_A" class="kui-combobox"
+					kui-options="required:true,width:'180',panelWidth:'250',onSelect:'loadOneIndicator',textField:'INDICATOR_NAME',valueField:'INDICATOR_ID'"/>
+			
+				</div>
+				<div id = "tr_INDICATOR_ID_U">
+					<input id="INDICATOR_ID_U" 
+					class="kui-textinput" kui-options="required:true,width:'180',disabled:true" />
+				</div>
+			</td>
+			
+			<td align="right">指标单位：</td>
+			<td height="30px">
+				<input id="INDICATOR_RESULT_TYPE_D" class="kui-combobox"
+					kui-options="dict:'INDICATOR_RESULT_TYPE',required:true,width:'180',panelWidth:'250',disabled:true"  /></td>
+			</tr>
+			<tbody id = "tbody_1" style="display:;" mce_style="display:;">
+			<tr height="30px"><td colspan="4"><span style="margin-left:30px">一级阈值</span> <span>注：级别越大，风险级别越高。</span></td></tr>
+			<tr height="30px">
+			<td align="right">阈值名称：</td>
+			<td><input id="THRES1_NAME" name="THRES1_NAME"
+					class="kui-textinput" kui-options="required:true,width:'180'" /></td>
+				<td align="right">设置阈值：</td>
+				<td height="30px">
+				<input id="THRES1_OPER" class="kui-combobox"
+					kui-options="dict:'THRES_OPER',required:true,width:'70',panelWidth:'70'" />
+				<input id="THRESHOLD1" class="kui-textinput form-input" style="width:100px" kui-options="required:true"/>
+				</td>
+			</tr>
+			<tr height="30px">
+			<td align="right">警示颜色：</td>
+			<td><input id="THRES1_COLOR" class="kui-combobox"
+					kui-options="dict:'THRES_COLOR',required:true,width:'180',panelWidth:'250'" /></td>
+			<td align="right">处置流程：</td>
+			<td><input id="THRES1_OP" class="kui-combobox"
+					kui-options="dict:'THRES_COLOR',required:true,width:'180',panelWidth:'250'" /></td>
+		
+			</tr>
+			</tbody>
+			<tbody id = "tbody_2" style="display:none;" mce_style="display:none;">
+			<tr height="30px"><td colspan="4"><span style="margin-left:30px">二级阈值</span> <span>注：级别越大，风险级别越高。</span></td></tr>
+			<tr height="30px">
+			<td align="right">阈值名称：</td>
+			<td><input id="THRES2_NAME" name="THRES2_NAME"
+					class="kui-textinput" kui-options="required:true,width:'180'" /></td>
+				<td align="right">设置阈值：</td>
+				<td height="30px">
+				<input id="THRES2_OPER" class="kui-combobox"
+					kui-options="dict:'THRES_OPER',required:true,width:'70',panelWidth:'70'" />
+				<input id="THRESHOLD2" class="kui-textinput form-input" style="width:100px" kui-options="required:true"/>
+				</td>
+			</tr>
+			<tr height="30px">
+			<td align="right">警示颜色：</td>
+			<td><input id="THRES2_COLOR" class="kui-combobox"
+					kui-options="dict:'THRES_COLOR',required:true,width:'180',panelWidth:'250'" /></td>
+			<td align="right">处置流程：</td>
+			<td><input id="THRES2_OP" class="kui-combobox"
+					kui-options="dict:'THRES_COLOR',required:true,width:'180',panelWidth:'250'" /></td>
+		
+			</tr>
+			</tbody><tbody id = "tbody_3" style="display:none;" mce_style="display:none;">
+			<tr height="30px"><td colspan="4"><span style="margin-left:30px">三级阈值</span> <span>注：级别越大，风险级别越高。</span></td></tr>
+			<tr height="30px">
+			<td align="right">阈值名称：</td>
+			<td><input id="THRES3_NAME" name="THRES3_NAME"
+					class="kui-textinput" kui-options="required:true,width:'180'" /></td>
+				<td align="right">设置阈值：</td>
+				<td height="30px">
+				<input id="THRES3_OPER" class="kui-combobox"
+					kui-options="dict:'THRES_OPER',required:true,width:'70',panelWidth:'70'" />
+				<input id="THRESHOLD3" class="kui-textinput form-input" style="width:100px" kui-options="required:true"/>
+				</td>
+			</tr>
+			<tr height="30px">
+			<td align="right">警示颜色：</td>
+			<td><input id="THRES3_COLOR" class="kui-combobox"
+					kui-options="dict:'THRES_COLOR',required:true,width:'180',panelWidth:'250'" /></td>
+			<td align="right">处置流程：</td>
+			<td><input id="THRES3_OP" class="kui-combobox"
+					kui-options="dict:'THRES_COLOR',required:true,width:'180',panelWidth:'250'" /></td>
+		
+			</tr>
+			</tbody><tbody id = "tbody_4" style="display:none;" mce_style="display:none;">
+			<tr height="30px"><td colspan="4"><span style="margin-left:30px">四级阈值</span> <span>注：级别越大，风险级别越高。</span></td></tr>
+			<tr height="30px">
+			<td align="right">阈值名称：</td>
+			<td><input id="THRES4_NAME" name="THRES1_NAME"
+					class="kui-textinput" kui-options="required:true,width:'180'" /></td>
+				<td align="right">设置阈值：</td>
+				<td height="30px">
+				<input id="THRES4_OPER" class="kui-combobox"
+					kui-options="dict:'THRES_OPER',required:true,width:'70',panelWidth:'70'" />
+				<input id="THRESHOLD4" class="kui-textinput form-input" style="width:100px" kui-options="required:true"/>
+				</td>
+			</tr>
+			<tr height="30px">
+			<td align="right">警示颜色：</td>
+			<td><input id="THRES4_COLOR" class="kui-combobox"
+					kui-options="dict:'THRES_COLOR',required:true,width:'180',panelWidth:'250'" /></td>
+			<td align="right">处置流程：</td>
+			<td><input id="THRES4_OP" class="kui-combobox"
+					kui-options="dict:'THRES_COLOR',required:true,width:'180',panelWidth:'250'" /></td>
+		
+			</tr>
+			</tbody>
+		</table>
+</div>
+<div id="add" style="padding-bottom:30px;">
+	<a href="#" id = "doAAdd" class="kui-linkbutton" kui-options="onClick:'doAAdd'">新增阈值</a>
+	<a href="#" id = "doADel" class="kui-linkbutton" kui-options="onClick:'doADel'">删除阈值</a>
+	<a href="#" class="kui-linkbutton" kui-options="onClick:'doSave'">保存</a>
+	<a href="#" class="kui-linkbutton" kui-options="onClick:'doClose'">关闭</a>
+</div>
+
+</script>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+function select(obj,tt){
+	//alert(obj.value);
+	var temp = obj.value;
+	if(temp != ''){
+		var t = temp.split(',')
+		document.getElementById(tt+"THRES_OPER1").value = t[0];
+		document.getElementById(tt+"THRES_OPER3").value = '，';
+		document.getElementById(tt+"THRES_OPER5").value = t[1];
+	}else{
+		document.getElementById(tt+"THRES_OPER1").value = '';
+		document.getElementById(tt+"THRES_OPER3").value = '';
+		document.getElementById(tt+"THRES_OPER5").value = '';
+	}
+	//document.getElementById("THRES_OPER").value = obj.value;
+}
+</script>
+</html>

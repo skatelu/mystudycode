@@ -1,0 +1,13 @@
+新增的相关表：
+etf_cashcomponent ETF差额扣款信息表（当天数据表）、
+etf_cashcomponent_his ETF差额扣款信息表（历史数据表）、
+etf_cashcomponent_ydzjqk T-1日预冻资金情况表（ETF_T-1日预冻资金信息表即 申购与赎回 T-1预冻资金不足、T-1日无预冻资金的数据整合表）、
+etf_sg_sh_summary ETF申购、赎回 按fundid汇总uncommitclear、h_orderrec表 信息汇总表
+preetfbaseinfo etfbaseinfo的历史数据表
+
+用到的原有的表
+etfbaseinfo
+h_orderrec
+uncommitclear
+fundasset
+eccodesign

@@ -1,0 +1,84 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.szkingdom.sqlmapper.StkMatching">
+    <resultMap id="StkMatchingMap" type="com.szkingdom.data.DataStkMatching">
+        <result column="TRD_DATE"  property="trdDate"  />
+        <result column="MATCHED_TIME"  property="matchedTime"  />
+        <result column="ORDER_DATE"  property="orderDate"  />
+        <result column="ORDER_ID"  property="orderId"  />
+        <result column="ORDER_TYPE"  property="orderType"  />
+        <result column="INT_ORG"  property="intOrg"  />
+        <result column="CUST_CODE"  property="custCode"  />
+        <result column="CUACCT_CODE"  property="cuacctCode"  />
+        <result column="CURRENCY"  property="currency"  />
+        <result column="STKBD"  property="stkbd"  />
+        <result column="STKPBU"  property="stkpbu"  />
+        <result column="FIRMID"  property="firmid"  />
+        <result column="TRDACCT"  property="trdacct"  />
+        <result column="STK_BIZ"  property="stkBiz"  />
+        <result column="STK_BIZ_ACTION"  property="stkBizAction"  />
+        <result column="STK_CODE"  property="stkCode"  />
+        <result column="STK_NAME"  property="stkName"  />
+        <result column="STK_CLS"  property="stkCls"  />
+        <result column="IS_WITHDRAW"  property="isWithdraw"  />
+        <result column="MATCHED_TYPE"  property="matchedType"  />
+        <result column="MATCHED_SN"  property="matchedSn"  />
+        <result column="MATCHED_PRICE"  property="matchedPrice"  />
+        <result column="MATCHED_QTY"  property="matchedQty"  />
+    </resultMap>
+
+
+    <select id="STK_MATCHING_SELECT" resultMap="StkMatchingMap" parameterType="com.szkingdom.data.DataStkMatching">
+        select
+        TRD_DATE,MATCHED_TIME,ORDER_DATE,ORDER_ID,ORDER_TYPE,INT_ORG,CUST_CODE,CUACCT_CODE,
+        CURRENCY,STKBD,STKPBU,FIRMID,TRDACCT,STK_BIZ,STK_BIZ_ACTION,STK_CODE,
+        STK_NAME,STK_CLS,IS_WITHDRAW,MATCHED_TYPE,MATCHED_SN,MATCHED_PRICE,MATCHED_QTY
+        from STK_MATCHING
+        where 1=1
+        <if test="orderId != null and orderId !=''">
+            and ORDER_ID = #{orderId}
+        </if>
+        <if test="matchedSn != null and matchedSn !=''">
+            and MATCHED_SN = #{matchedSn}
+        </if>
+        <if test="stkpbu != null and stkpbu !=''">
+            and STKPBU = #{stkpbu}
+        </if>
+        <if test="stkbd != null and stkbd !=''">
+            and STKBD = #{isWithdraw}
+        </if>
+        <if test="trdDate > 0">
+            and TRD_DATE = #{trdDate}
+        </if>
+    </select>
+
+
+    <insert id="STK_MATCHING_INSERT" parameterType="com.szkingdom.data.DataStkMatching">
+        insert into STK_MATCHING(
+        TRD_DATE,MATCHED_TIME,ORDER_DATE,ORDER_ID,ORDER_TYPE,INT_ORG,CUST_CODE,CUACCT_CODE,
+        CURRENCY,STKBD,STKPBU,FIRMID,TRDACCT,STK_BIZ,STK_BIZ_ACTION,STK_CODE,
+        STK_NAME,STK_CLS,IS_WITHDRAW,MATCHED_TYPE,MATCHED_SN,MATCHED_PRICE,MATCHED_QTY)
+        values ( 
+        #{trdDate},#{matchedTime},#{orderDate},#{orderId},#{orderType},#{intOrg},#{custCode},#{cuacctCode},
+        #{currency},#{stkbd},#{stkpbu},#{firmid},#{trdacct},#{stkBiz},#{stkBizAction},#{stkCode},
+        #{stkName},#{stkCls},#{isWithdraw},#{matchedType},#{matchedSn},#{matchedPrice},#{matchedQty})
+    </insert>
+
+
+
+    <update id="STK_MATCHING_UPDATE" parameterType="com.szkingdom.data.DataStkMatching">
+        update STK_MATCHING set
+        TRD_DATE = #{trdDate},MATCHED_TIME = #{matchedTime},ORDER_DATE = #{orderDate},
+        ORDER_ID = #{orderId},ORDER_TYPE = #{orderType},INT_ORG = #{intOrg},
+        CUST_CODE = #{custCode},CUACCT_CODE = #{cuacctCode},CURRENCY = #{currency},
+        STKBD = #{stkbd},STKPBU = #{stkpbu},FIRMID = #{firmid},
+        TRDACCT = #{trdacct},STK_BIZ = #{stkBiz},STK_BIZ_ACTION = #{stkBizAction},
+        STK_CODE = #{stkCode},STK_NAME = #{stkName},STK_CLS = #{stkCls},
+        IS_WITHDRAW = #{isWithdraw},MATCHED_TYPE = #{matchedType},MATCHED_SN = #{matchedSn},
+        MATCHED_PRICE = #{matchedPrice},MATCHED_QTY = #{matchedQty}
+    </update>
+
+
+</mapper>

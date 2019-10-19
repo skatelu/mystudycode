@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szkingdom.kjdp.core.dao.mybatis.IMapper">
+	<select id="QueryRiskFactorsManage" parameterType="jdbcMap"
+		resultType="jdbcMap">
+		SELECT
+		FACTOR_ID,FACTOR_NAME,FACTOR_CLS,FACTOR_REMARK 
+		FROM RISK_FACTORS 
+		WHERE 1=1
+		<if test="BIZ_ATTR != null and BIZ_ATTR != ''">
+			AND BIZ_ATTR = #{BIZ_ATTR}
+		</if>
+		<if test="FACTOR_CLS != null and FACTOR_CLS != ''">
+			AND FACTOR_CLS = #{FACTOR_CLS}
+		</if>
+		<if test="FACTOR_NAME != null and FACTOR_NAME != ''"> 
+			AND (FACTOR_NAME LIKE '%${FACTOR_NAME}%' or FACTOR_ID like'%${FACTOR_NAME}%')
+		</if>
+		ORDER BY FACTOR_ID ASC
+	</select>
+	<update id = "UpdateRiskFactors" parameterType="jdbcMap" >
+	    update RISK_FACTORS set FACTOR_CLS=#{FACTOR_CLS},FACTOR_NAME=#{FACTOR_NAME},FACTOR_REMARK=#{FACTOR_REMARK}
+	    where FACTOR_ID = #{FACTOR_ID}
+	</update>
+	<!-- <select id="RiskFactorsManageLeftTree" parameterType="jdbcMap"
+	    resultType="jdbcMap">
+	    select
+	    concat('6',A.factor_cls) AS MENU_ID, 
+	    A.factor_cls_name AS MENU_NAME,
+	    '-1' AS PAR_MENU, 
+	    '' AS PAR_NAME 
+	    FROM risk_factor_cls A
+	</select> -->
+	<select id="RiskFactorsManageLeftTree1" parameterType="jdbcMap"
+	    resultType="jdbcMap">
+	     SELECT
+	     dict_item as MENU_ID,
+	     dict_item_name as MENU_NAME,
+	     '-1' AS PAR_MENU,
+	     '' AS PAR_NAME 
+	     FROM UPM_DICT_ITEMS 
+	     WHERE dict_code = 'BIZ_ATTR'
+	</select>
+	<select id="RiskFactorsManageLeftTree2" parameterType="jdbcMap"
+	    resultType="jdbcMap">
+	     select
+	     biz_attr as PAR_MENU, 
+	     concat(biz_attr,factor_cls) as MENU_ID,
+	     factor_cls_name as MENU_NAME 
+	     from risk_factor_cls
+	</select>
+	<select id="RiskFactorsManageLeftTree3" parameterType="jdbcMap"
+	    resultType="jdbcMap">
+	     select
+	     trim(factor_id) as menu_id,
+	     factor_name as MENU_NAME, 
+	     concat(biz_attr,factor_cls) as par_menu
+	     from risk_factors
+	</select>
+</mapper>
+
